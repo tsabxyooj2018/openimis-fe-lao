@@ -468,94 +468,6 @@ main .MuiTypography-h4 {
   letter-spacing: -0.01em;
 }
 
-/* --- Language switcher, floated to the top-right ------------------------
-   fe-core exposes no contribution point for the toolbar -- the only keys are
-   *.MainMenu, core.Router, refs, translations, reducers and middlewares -- so
-   the switcher is contributed as a sidebar group and moved here visually.
-
-   Hooked on the AccordionSummary id, which fe-core derives from the group header
-   ("ພາສາ / Language" -> id="ພາສາ / Language-header"). The $= match keys off the
-   ASCII tail, so the selector does not depend on the Lao text.
-
-   An earlier version used :last-of-type. That never matched: the drawer renders a
-   trailing empty <div> after the last accordion, so ":last-of-type" resolves to
-   that div and no accordion ever qualified. The rules silently did nothing.
-
-   z-index sits above the AppBar (1100) and the Drawer (1200). */
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) {
-  position: fixed;
-  top: 11px;
-  right: 4.5rem;
-  z-index: 1400;
-  width: 13.5rem;
-  background: rgba(255, 255, 255, 0.12);
-  border-radius: 6px;
-  overflow: visible;
-}
-
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]):hover {
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiAccordionSummary-root {
-  min-height: 42px;
-  padding: 0 0.5rem 0 0.75rem;
-}
-
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiAccordionSummary-content {
-  margin: 4px 0;
-}
-
-/* the group's own icon is redundant once it sits in the bar */
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiAccordionSummary-content > .MuiIconButton-root {
-  display: none;
-}
-
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiAccordionSummary-content > .MuiTypography-body1 {
-  font-size: 0.85rem;
-  font-weight: 500;
-}
-
-/* Expanded state drops below the bar as a menu rather than pushing the sidebar */
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiCollapse-root {
-  position: absolute;
-  top: calc(100% + 6px);
-  right: 0;
-  width: 15rem;
-  background: #10345a;
-  border-radius: 8px;
-  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
-}
-
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiAccordionDetails-root {
-  padding: 0.35rem 0;
-}
-
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiListItem-button {
-  padding: 8px 14px;
-  border-radius: 0;
-}
-
-/* flags need room; the sidebar's narrow icon slot would crop them */
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiListItemIcon-root {
-  min-width: 34px;
-}
-
-/* On narrow screens the toolbar has no room; return it to the sidebar flow. */
-@media (max-width: 60rem) {
-  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) {
-    position: static;
-    width: auto;
-    background: transparent;
-  }
-  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiCollapse-root {
-    position: static;
-    width: auto;
-    background: transparent;
-    box-shadow: none;
-  }
-}
 
 /* --- Icons for the four groups that ship without one --------------------
    Social Protection, Dashboards, Tasks Management and Legal and Finance render
@@ -567,9 +479,17 @@ main .MuiTypography-h4 {
    <svg>, so the groups that do supply an icon are untouched, and so is the
    expand chevron beside them.
 
-   The ids are derived from the English header text. Translating the menu labels
-   will change them, and these four selectors must be updated at the same time
-   or the icons silently disappear. */
+   Keyed on data-menu-id, not on the accordion id. fe-core builds that id from
+   the group's TRANSLATED heading -- id="Social Protection-header" in English,
+   "Protection sociale-header" in French -- so selectors written against it work
+   in English and silently stop matching in every other language. That is
+   exactly what happened: the icons and the Profile block below vanished as soon
+   as the interface was switched to Lao or French.
+
+   data-menu-id carries the module's own menuId (BenefitPlanMainMenu,
+   ProfileMainMenu, ...), which is a constant in the module source and does not
+   translate. fe-core does not emit it; lao/apply-overrides.js adds it, and
+   fails the build if upstream stops passing menuId. */
 .MuiDrawer-paperAnchorDockedLeft .MuiIconButton-label:empty {
   width: 22px;
   height: 22px;
@@ -580,22 +500,22 @@ main .MuiTypography-h4 {
 }
 
 /* Social Protection — shield */
-.MuiDrawer-paperAnchorDockedLeft [id="Social Protection-header"] .MuiIconButton-label:empty {
+.MuiDrawer-paperAnchorDockedLeft [data-menu-id="BenefitPlanMainMenu"] .MuiIconButton-label:empty {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z'/%3E%3C/svg%3E");
 }
 
 /* Dashboards — panel grid */
-.MuiDrawer-paperAnchorDockedLeft [id="Dashboards-header"] .MuiIconButton-label:empty {
+.MuiDrawer-paperAnchorDockedLeft [data-menu-id="OpenSearchReportsMenu"] .MuiIconButton-label:empty {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z'/%3E%3C/svg%3E");
 }
 
 /* Tasks Management — checked clipboard */
-.MuiDrawer-paperAnchorDockedLeft [id="Tasks Management-header"] .MuiIconButton-label:empty {
+.MuiDrawer-paperAnchorDockedLeft [data-menu-id="TasksMainMenu"] .MuiIconButton-label:empty {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M19 3h-4.18C14.4 1.84 13.3 1 12 1c-1.3 0-2.4.84-2.82 2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-7 0c.55 0 1 .45 1 1s-.45 1-1 1-1-.45-1-1 .45-1 1-1zm-2 15l-4-4 1.41-1.41L10 15.17l6.59-6.59L18 10l-8 8z'/%3E%3C/svg%3E");
 }
 
 /* Legal and Finance — gavel */
-.MuiDrawer-paperAnchorDockedLeft [id="Legal and Finance-header"] .MuiIconButton-label:empty {
+.MuiDrawer-paperAnchorDockedLeft [data-menu-id="LegalAndFinanceMainMenu"] .MuiIconButton-label:empty {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M1 21h12v2H1zM5.245 8.07l2.83-2.827 14.14 14.142-2.828 2.828zM12.317 1l5.657 5.656-2.83 2.83-5.654-5.66zM3.825 9.485l5.657 5.657-2.828 2.828-5.657-5.657z'/%3E%3C/svg%3E");
 }
 
@@ -639,7 +559,7 @@ header .MuiToolbar-root > .MuiIconButton-root[title="Documentation"] {
   display: none;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) {
   position: fixed;
   top: 11px;
   right: 1rem;
@@ -649,17 +569,17 @@ header .MuiToolbar-root > .MuiIconButton-root[title="Documentation"] {
   overflow: visible;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiAccordionSummary-root {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) .MuiAccordionSummary-root {
   min-height: 42px;
   padding: 0 4px 0 0;
   border-radius: 21px;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiAccordionSummary-root:hover {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) .MuiAccordionSummary-root:hover {
   background: rgba(255, 255, 255, 0.12);
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiAccordionSummary-content {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) .MuiAccordionSummary-content {
   margin: 0;
   align-items: center;
 }
@@ -668,7 +588,7 @@ header .MuiToolbar-root > .MuiIconButton-root[title="Documentation"] {
    photograph -- only insurees have images -- so this is a monogram-style avatar
    rather than a picture. */
 .MuiDrawer-paperAnchorDockedLeft
-  .MuiAccordion-root:has(> [id="Profile-header"])
+  .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"])
   .MuiAccordionSummary-content
   > .MuiIconButton-root {
   width: 34px;
@@ -683,19 +603,19 @@ header .MuiToolbar-root > .MuiIconButton-root[title="Documentation"] {
 
 /* The label would make the control too wide for a toolbar; the avatar carries it */
 .MuiDrawer-paperAnchorDockedLeft
-  .MuiAccordion-root:has(> [id="Profile-header"])
+  .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"])
   .MuiAccordionSummary-content
   > .MuiTypography-body1 {
   display: none;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiAccordionSummary-expandIcon {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) .MuiAccordionSummary-expandIcon {
   padding: 4px;
   color: rgba(255, 255, 255, 0.7);
 }
 
 /* Dropdown, matching the language switcher */
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiCollapse-root {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) .MuiCollapse-root {
   position: absolute;
   top: calc(100% + 6px);
   right: 0;
@@ -706,27 +626,27 @@ header .MuiToolbar-root > .MuiIconButton-root[title="Documentation"] {
   overflow: hidden;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiAccordionDetails-root {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) .MuiAccordionDetails-root {
   padding: 0.35rem 0;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiListItem-button {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) .MuiListItem-button {
   padding: 8px 14px;
   border-radius: 0;
 }
 
 @media (max-width: 60rem) {
-  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) {
+  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) {
     position: static;
     width: auto;
   }
   .MuiDrawer-paperAnchorDockedLeft
-    .MuiAccordion-root:has(> [id="Profile-header"])
+    .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"])
     .MuiAccordionSummary-content
     > .MuiTypography-body1 {
     display: block;
   }
-  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiCollapse-root {
+  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) .MuiCollapse-root {
     position: static;
     width: auto;
     background: transparent;

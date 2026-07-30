@@ -32,8 +32,34 @@ if (!fs.existsSync(PKG)) {
   process.exit(1);
 }
 
+/*
+ * Give each sidebar group a stable, language-independent hook.
+ *
+ * fe-core builds the accordion id from the group's *translated* heading:
+ *
+ *   id: "".concat(_this.props.header, "-header")
+ *
+ * so the only handle the DOM offers changes with the language. Styling keyed on
+ * it -- the group icons, and the Profile block pinned to the bottom of the
+ * sidebar -- worked in English and silently stopped matching in French and Lao,
+ * because "Social Protection" became "Protection sociale".
+ *
+ * menuId is already passed to this component by every module that contributes a
+ * menu (BenefitPlanMainMenu, ProfileMainMenu, TasksMainMenu, ...) and is a
+ * constant in the module's source, so it does not translate. Emitting it as a
+ * data attribute gives CSS something that holds in every language.
+ *
+ * A prop that is undefined renders no attribute at all in React, so a module
+ * that passes no menuId is unaffected rather than gaining an empty one.
+ */
+const STABLE_MENU_ID = {
+  find: 'id: "".concat(_this.props.header, "-header")',
+  replace: 'id: "".concat(_this.props.header, "-header"), "data-menu-id": _this.props.menuId',
+};
+
 const totals = {};
 let filesPatched = 0;
+let menuIdPatched = 0;
 
 for (const rel of TARGETS) {
   const file = path.join(PKG, rel);
@@ -60,13 +86,25 @@ for (const rel of TARGETS) {
     replacedHere += hits;
   }
 
+  const already = source.includes(STABLE_MENU_ID.replace);
+  const menuIdHits = already ? 0 : source.split(STABLE_MENU_ID.find).length - 1;
+  if (menuIdHits) source = source.split(STABLE_MENU_ID.find).join(STABLE_MENU_ID.replace);
+  menuIdPatched += menuIdHits || (already ? 1 : 0);
+
   fs.writeFileSync(file, source, "utf-8");
   filesPatched += 1;
-  console.log(`  ${rel}: ${replacedHere} replacements`);
+  console.log(`  ${rel}: ${replacedHere} replacements, data-menu-id ${menuIdHits || (already ? "(already present)" : "NOT FOUND")}`);
 }
 
 if (filesPatched === 0) {
   console.error("no fe-core dist bundle found to patch");
+  process.exit(1);
+}
+
+// Fail loudly rather than ship a sidebar that looks right in English only.
+if (menuIdPatched === 0) {
+  console.error("\ncould not add data-menu-id: fe-core no longer builds the accordion id from");
+  console.error("props.header, so the sidebar styling needs a new hook. See lao/apply-overrides.js.");
   process.exit(1);
 }
 
