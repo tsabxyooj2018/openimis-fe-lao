@@ -67,6 +67,16 @@ jobs:
             type=raw,value=${{ env.RELEASE_TAG }}
             type=sha,format=short
 
+      - name: Free disk space
+        # The build pulls node:20 and nginx, installs ~30 npm modules and runs a
+        # React production build. A GitHub-hosted runner starts with ~14GB free,
+        # which this can exhaust. Removing preinstalled toolchains we do not use
+        # reclaims well over 20GB.
+        run: |
+          sudo rm -rf /usr/share/dotnet /usr/local/lib/android /opt/ghc \
+                      /usr/local/share/boost "$AGENT_TOOLSDIRECTORY" || true
+          df -h / | tail -1
+
       - name: Build and push
         uses: docker/build-push-action@v6
         with:
@@ -75,8 +85,9 @@ jobs:
           push: true
           tags: ${{ steps.meta.outputs.tags }}
           labels: ${{ steps.meta.outputs.labels }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          # No GHA layer cache: exporting a cache this large frequently fails the
+          # step outright, and a cold build is only a few minutes slower.
+          provenance: false
 
       - name: Summary
         run: |
