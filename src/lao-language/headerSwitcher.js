@@ -17,6 +17,8 @@
  * dependencies and cannot break the host app.
  */
 
+import { applyLanguage, LANGUAGE_STORAGE_KEY as STORAGE_KEY } from "./switchLanguage";
+
 const LANGUAGES = [
   {
     code: "lo",
@@ -48,7 +50,6 @@ const LANGUAGES = [
 ];
 
 const ROOT_ID = "lao-language-switcher";
-const STORAGE_KEY = "lao.currentLanguage";
 
 /*
  * The active language. LanguageSwitchPage records it here once the backend has
@@ -152,8 +153,28 @@ function build() {
     });
     row.addEventListener("click", (e) => {
       e.stopPropagation();
-      // The route applies the change and reloads; see LanguageSwitchPage.
-      window.location.assign(`/front/language/${lang.code}`);
+      if (isActive) return close();
+
+      /*
+       * Applied in place, then a single reload.
+       *
+       * This used to navigate to /front/language/<code>, which is a full page
+       * load, and that page then reloaded again -- booting an 8MB SPA twice for
+       * one setting. openIMIS builds its dictionaries at startup, so one reload
+       * is unavoidable; two were not.
+       */
+      const label = row.innerHTML;
+      row.innerHTML = `<span style="opacity:.75">ກຳລັງປ່ຽນ… / switching…</span>`;
+      row.disabled = true;
+
+      applyLanguage(lang.code)
+        .then(() => window.location.reload())
+        .catch((err) => {
+          row.disabled = false;
+          row.innerHTML = label;
+          // eslint-disable-next-line no-alert
+          window.alert(`Could not change language: ${err.message}`);
+        });
     });
     menu.appendChild(row);
   });

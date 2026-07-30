@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Box, CircularProgress, Typography } from "@material-ui/core";
-import { baseApiUrl, apiHeaders } from "@openimis/fe-core";
+import { applyLanguage } from "./switchLanguage";
 
 /*
  * Applies a language change, then returns to the home page.
@@ -38,38 +38,6 @@ import { baseApiUrl, apiHeaders } from "@openimis/fe-core";
  */
 const ALLOWED = ["lo", "en", "fr"];
 
-// The same store openIMIS itself uses. Not exported by fe-core, so read directly.
-const cachedCsrf = () => {
-  try {
-    return window.localStorage.getItem("csrfToken");
-  } catch (e) {
-    return null;
-  }
-};
-
-// Mirrors fe-core: ask the backend for a token and cache it. Needed when the
-// session was established before this page loaded, or storage was cleared.
-async function ensureCsrf() {
-  const cached = cachedCsrf();
-  if (cached) return cached;
-  const res = await fetch(`${baseApiUrl}/graphql`, {
-    method: "POST",
-    headers: apiHeaders(),
-    credentials: "include",
-    body: JSON.stringify({ query: "mutation { getCsrfToken { csrfToken } }" }),
-  });
-  const body = await res.json();
-  const token = body?.data?.getCsrfToken?.csrfToken;
-  if (token) {
-    try {
-      window.localStorage.setItem("csrfToken", token);
-    } catch (e) {
-      /* private mode */
-    }
-  }
-  return token || null;
-}
-
 const LanguageSwitchPage = (props) => {
   const code = props?.match?.params?.code;
   const [error, setError] = useState(null);
@@ -79,39 +47,12 @@ const LanguageSwitchPage = (props) => {
       setError(`Unknown language "${code}"`);
       return;
     }
-    const mutation = `mutation {
-      changeUserLanguage(input: {languageId: "${code}", clientMutationId: "lang-${Date.now()}"}) {
-        clientMutationId
-      }
-    }`;
-
-    ensureCsrf()
-      .then((token) => {
-        if (!token) throw new Error("Could not obtain a CSRF token");
-        return fetch(`${baseApiUrl}/graphql`, {
-          method: "POST",
-          headers: { ...apiHeaders(), "X-CSRFToken": token },
-          credentials: "include",
-          body: JSON.stringify({ query: mutation }),
-        });
+    applyLanguage(code)
+      .then(() => {
+        // Dictionaries are built at startup, so the new language needs a boot.
+        window.location.assign("/front/");
       })
-      .then((r) => r.json())
-      .then((body) => {
-        if (body?.errors?.length) {
-          setError(body.errors[0].message);
-          return;
-        }
-        // Record what the backend accepted, so the toolbar button can show the
-        // real current language after the reload.
-        try {
-          window.localStorage.setItem("lao.currentLanguage", code);
-        } catch (e) {
-          /* private mode - the button just falls back to the default */
-        }
-        // Full reload so every module's dictionary is re-fetched.
-        window.location.assign(process.env.PUBLIC_URL ? `/${process.env.PUBLIC_URL}/` : "/front/");
-      })
-      .catch((e) => setError(String(e)));
+      .catch((e) => setError(e.message));
   }, [code]);
 
   return (
