@@ -475,11 +475,12 @@ main .MuiTypography-h4 {
 }
 
 
-/* --- Icons for the four groups that ship without one --------------------
-   Social Protection, Dashboards, Tasks Management and Legal and Finance render
-   their icon slot as an empty <span class="MuiIconButton-label"></span> --
-   those upstream modules pass no icon to MainMenuContribution. The slot already
-   has a fixed width so labels align; this fills it.
+/* --- Icons for the five groups that ship without one --------------------
+   Social Protection, Dashboards, Tasks Management, Legal and Finance and
+   Grievance render their icon slot as an empty
+   <span class="MuiIconButton-label"></span> -- those upstream modules pass no
+   icon to MainMenuContribution. The slot already has a fixed width so labels
+   align; this fills it.
 
    `:empty` is what makes this safe: it matches only the slots that have no
    <svg>, so the groups that do supply an icon are untouched, and so is the
@@ -523,6 +524,12 @@ main .MuiTypography-h4 {
 /* Legal and Finance — gavel */
 .MuiDrawer-paperAnchorDockedLeft [data-menu-id="LegalAndFinanceMainMenu"] .MuiIconButton-label:empty {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M1 21h12v2H1zM5.245 8.07l2.83-2.827 14.14 14.142-2.828 2.828zM12.317 1l5.657 5.656-2.83 2.83-5.654-5.66zM3.825 9.485l5.657 5.657-2.828 2.828-5.657-5.657z'/%3E%3C/svg%3E");
+}
+
+/* Grievance — speech bubble with a notice mark. Its two entries carry their own
+   icons (ListAlt, AddCircleOutline); only the group heading lacks one. */
+.MuiDrawer-paperAnchorDockedLeft [data-menu-id="GrievanceMainMenu"] .MuiIconButton-label:empty {
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M20 2H4c-1.1 0-1.99.9-1.99 2L2 22l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 12h-2v-2h2v2zm0-4h-2V6h2v4z'/%3E%3C/svg%3E");
 }
 
 /* --- Search box centred in the toolbar -----------------------------------
