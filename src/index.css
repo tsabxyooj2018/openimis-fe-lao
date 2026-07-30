@@ -77,18 +77,11 @@ div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
   margin-left: 0 !important;
 }
 
-/* Vertical centring only when the viewport can afford it, so short screens
-   scroll from the top instead of clipping. */
-@media (min-height: 46rem) {
-  div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
-    padding-top: 0;
-    padding-bottom: 0;
-  }
-  [class*="MuiPaper"]:has(input[type="password"]) {
-    margin-top: 50vh !important;
-    transform: translateY(-50%);
-  }
-}
+/* Deliberately NOT vertically centred. Centring the card -- via flex
+   align-items, or margin-top:50vh with a translate -- clips it whenever it is
+   taller than the viewport, and a transform does not extend the scroll area, so
+   the top becomes unreachable. Top-aligned with generous padding always works.
+   On a tall screen there is simply more ground below the card. */
 
 /* Narrow screens: no room for a side panel. Centre the card and drop the
    watermark, which would sit behind the form and hurt legibility. */
@@ -107,7 +100,6 @@ div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
 [class*="MuiPaper"]:has(input[type="password"]) {
   width: 100%;
   max-width: 24rem;
-  margin: 0 auto;
   padding: 2rem 2rem 1.5rem;
   box-sizing: border-box;
   background: #fff;
