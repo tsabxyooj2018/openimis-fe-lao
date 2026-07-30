@@ -15,13 +15,23 @@ import { baseApiUrl, apiHeaders } from "@openimis/fe-core";
  *   changeUserLanguage(input: ChangeUserLanguageMutationInput!)
  *   ChangeUserLanguageMutationInput.languageId: String!
  *
- * apiHeaders() is used rather than a hand-built header set because it carries
- * the CSRF token; without it the backend rejects the mutation with 'csrftoken'.
+ * CSRF: apiHeaders() returns only Content-Type -- it does NOT carry the token,
+ * despite the name. openIMIS reads it from the csrftoken cookie and attaches it
+ * explicitly (see login() in fe-core actions.js). Without the X-CSRFToken header
+ * the backend raises KeyError 'HTTP_X_CSRFTOKEN', which surfaces as a GraphQL
+ * error rather than a 403, so it looks like an application fault.
  *
  * A full reload follows, not a client-side redirect: dictionaries are loaded
  * once at startup, so the new language only takes effect on a fresh boot.
  */
 const ALLOWED = ["lo", "en", "fr"];
+
+// Django's CSRF cookie. Read here rather than imported: fe-core keeps
+// getCsrfToken() internal and does not export it.
+const csrfToken = () => {
+  const m = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]*)/);
+  return m ? decodeURIComponent(m[1]) : null;
+};
 
 const LanguageSwitchPage = (props) => {
   const code = props?.match?.params?.code;
@@ -38,9 +48,15 @@ const LanguageSwitchPage = (props) => {
       }
     }`;
 
+    const token = csrfToken();
+    if (!token) {
+      setError("Missing CSRF cookie - sign out and back in, then try again.");
+      return;
+    }
+
     fetch(`${baseApiUrl}/graphql`, {
       method: "POST",
-      headers: apiHeaders(),
+      headers: { ...apiHeaders(), "X-CSRFToken": token },
       credentials: "include",
       body: JSON.stringify({ query: mutation }),
     })
