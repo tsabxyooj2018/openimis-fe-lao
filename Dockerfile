@@ -49,6 +49,9 @@ RUN npm install  --include=dev --legacy-peer-deps
 # (it patches node_modules) and before the build. See lao/apply-overrides.js for
 # why this is a patch rather than a language-pack module.
 RUN node ./lao/apply-overrides.js
+# Register the local language-switcher module in the generated src/modules.js.
+# It cannot be listed in openimis.json: load-config resolves those from npm.
+RUN node ./lao/inject-language-module.js
 RUN npm run build
 
 FROM nginx:latest
