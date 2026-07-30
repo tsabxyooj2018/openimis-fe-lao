@@ -48,6 +48,21 @@ const LANGUAGES = [
 ];
 
 const ROOT_ID = "lao-language-switcher";
+const STORAGE_KEY = "lao.currentLanguage";
+
+/*
+ * The active language. LanguageSwitchPage records it here once the backend has
+ * accepted the change, so this reflects what was actually applied rather than
+ * what was clicked. Read from storage rather than the API because this widget
+ * mounts outside the app's redux store and has no access to the user object.
+ */
+const currentCode = () => {
+  try {
+    return window.localStorage.getItem(STORAGE_KEY) || "en";
+  } catch (e) {
+    return "en";
+  }
+};
 
 const el = (tag, styles, html) => {
   const n = document.createElement(tag);
@@ -84,7 +99,8 @@ function build() {
   button.setAttribute("aria-expanded", "false");
   button.title = "ປ່ຽນພາສາ / Change language";
 
-  const current = LANGUAGES[0];
+  const active = LANGUAGES.find((l) => l.code === currentCode()) || LANGUAGES[1];
+  const current = active;
   button.innerHTML =
     `<span style="display:flex;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.2)">${current.flag}</span>` +
     `<span>${current.native}</span>` +
@@ -119,14 +135,21 @@ function build() {
       cursor: "pointer",
     });
     row.type = "button";
+    const isActive = lang.code === active.code;
     row.innerHTML =
       `<span style="display:flex;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.2)">${lang.flag}</span>` +
-      `<span style="display:flex;flex-direction:column;line-height:1.3">` +
+      `<span style="display:flex;flex-direction:column;line-height:1.3;flex:1">` +
       `<span>${lang.native}</span>` +
       `<span style="opacity:.6;font-size:.72rem">${lang.english}</span>` +
-      `</span>`;
+      `</span>` +
+      (isActive
+        ? `<span style="color:#7fd1a6;font-size:1rem;line-height:1">&#10003;</span>`
+        : "");
+    if (isActive) row.style.background = "rgba(255,255,255,.08)";
     row.addEventListener("mouseenter", () => (row.style.background = "rgba(255,255,255,.10)"));
-    row.addEventListener("mouseleave", () => (row.style.background = "transparent"));
+    row.addEventListener("mouseleave", () => {
+      row.style.background = isActive ? "rgba(255,255,255,.08)" : "transparent";
+    });
     row.addEventListener("click", (e) => {
       e.stopPropagation();
       // The route applies the change and reloads; see LanguageSwitchPage.

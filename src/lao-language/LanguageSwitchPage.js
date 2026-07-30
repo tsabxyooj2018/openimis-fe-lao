@@ -50,6 +50,13 @@ const LanguageSwitchPage = (props) => {
           setError(body.errors[0].message);
           return;
         }
+        // Record what the backend accepted, so the toolbar button can show the
+        // real current language after the reload.
+        try {
+          window.localStorage.setItem("lao.currentLanguage", code);
+        } catch (e) {
+          /* private mode - the button just falls back to the default */
+        }
         // Full reload so every module's dictionary is re-fetched.
         window.location.assign(process.env.PUBLIC_URL ? `/${process.env.PUBLIC_URL}/` : "/front/");
       })
