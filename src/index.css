@@ -110,15 +110,16 @@ div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
     0 12px 32px -12px rgba(18, 59, 99, 0.18);
 }
 
-/* Emblem. Larger than a wordmark would need: it is a detailed circular seal
-   with Lao text in the ring, and below about 7rem the lettering turns to mush. */
+/* Emblem. Deliberately large: it is a detailed circular seal with Lao text in
+   the ring and a caduceus at the centre, none of which resolves at wordmark
+   size. It also carries the ministry identity, so it earns the space. */
 [class*="MuiPaper"]:has(input[type="password"]) img {
   display: block;
-  max-height: 5.5rem;
-  max-width: 5.5rem;
+  max-height: 8.5rem;
+  max-width: 8.5rem;
   width: auto;
   height: auto;
-  margin: 0 auto 1rem;
+  margin: 0 auto 1.25rem;
 }
 
 /* AGPL attribution.
@@ -161,13 +162,31 @@ div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
   border-bottom: 1px solid #e4ebf0;
 }
 
-/* Field labels */
+/* Field labels, centred.
+   MUI positions InputLabel absolutely (left: 0, transform-origin: top left), so
+   text-align on its own does nothing: it needs a width to centre within, and the
+   origin moved to top centre so the shrink-on-focus animation scales toward the
+   middle instead of the left edge. */
 [class*="MuiPaper"]:has(input[type="password"]) [class*="MuiFormLabel"],
 [class*="MuiPaper"]:has(input[type="password"]) label {
   font-size: 0.86rem;
   font-weight: 500;
   letter-spacing: 0.01em;
   color: #5b7385;
+}
+
+[class*="MuiPaper"]:has(input[type="password"]) label[class*="MuiInputLabel"] {
+  left: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  transform-origin: top center;
+}
+
+/* Value text centred too, so a centred label does not sit over left-aligned
+   text once it shrinks. */
+[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiInputBase-input"] {
+  text-align: center;
 }
 
 /* Inputs */
