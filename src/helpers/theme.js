@@ -94,15 +94,25 @@ const createAppTheme = (colorOverrides = {}) => {
       iconSize: 24,
     },
     menu: {
-      variant: "AppBar",
+      // Sidebar instead of the horizontal app bar. fe-core evaluates
+      //   theme.menu.variant.toUpperCase() === "APPBAR"
+      // and renders its Sidebar variant for any other value, so this is a
+      // supported switch rather than a hack. Every module contributes the same
+      // menu entries and every feature stays reachable -- they are grouped
+      // vertically instead of wrapping across two rows.
+      //
+      // The horizontal bar could not carry this deployment: nine top-level menus
+      // plus a Lao service name wrapped onto three lines and doubled the header
+      // height.
+      variant: "Drawer",
       drawer: {
-        width: 300,
-        fontSize: 16,
+        width: 288,
+        fontSize: 15,
         fontWeight: 400,
         backgroundColor: primaryColor,
       },
       appBar: {
-        fontSize: 16,
+        fontSize: 15,
       },
     },
     page: {
