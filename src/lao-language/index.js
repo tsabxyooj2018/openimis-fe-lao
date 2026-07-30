@@ -58,8 +58,13 @@ const LaoLanguageModule = (cfg) => ({
    * root translations -- which is why this belongs here rather than in
    * src/translations/ref.json.
    *
-   * Keys absent from lo.json fall back to English, so partial coverage is safe:
-   * the file can grow module by module without anything breaking.
+   * Keys absent from lo.json fall back to English, so partial coverage is safe
+   * and this file can grow module by module. That fallback is NOT something
+   * openIMIS provides -- react-intl renders a missing key as the key itself,
+   * which turned the menu into "mainMenu" and "appBar.enquiry" the first time
+   * Lao was actually applied. It comes from withBaseLanguageFallback in
+   * src/ModulesManager.js; without that, adding a language here is harmful
+   * until it is complete.
    */
   translations: [{ key: "lo", messages: messages_lo }],
   ...cfg,
