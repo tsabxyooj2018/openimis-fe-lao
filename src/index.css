@@ -262,7 +262,7 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) input:foc
    Written against the rendered DOM rather than guessed:
 
      header.MuiAppBar-root > .MuiToolbar-root
-         > div (search)  > button[title="Log out"]  > button[title="Documentation"]
+         > div (search)  > button[data-toolbar-action="logout"]  > button[data-toolbar-action="help"]
      .MuiDrawer-paperAnchorDockedLeft            <- the sidebar
          > button.MuiButton-root                  <- title block
              > .MuiButton-label                   <- text node + div > .MuiTypography-caption (version)
@@ -423,9 +423,15 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) input:foc
 /* --- Logout, pinned to the foot of the sidebar --------------------------
    CSS cannot move it out of the toolbar, so it is positioned over the sidebar's
    reserved bottom strip. Same element, same handler -- only its position and
-   label change. Matched by title and by ordinal so a language change cannot
-   silently retarget the Documentation button beside it. */
-header .MuiToolbar-root > .MuiIconButton-root[title="Log out"] {
+   label change.
+
+   Matched on data-toolbar-action, which lao/apply-overrides.js stamps onto the
+   button. It cannot be matched on anything fe-core renders: the two toolbar
+   buttons carry no id, no name and the same class, and are distinguished only
+   by a `title` holding the TRANSLATED tooltip. Keying on title="Log out" worked
+   in English and stopped matching in Lao, so this rule quietly switched off and
+   logout reappeared in the toolbar. */
+header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="logout"] {
   position: fixed;
   left: 0;
   bottom: 0;
@@ -443,11 +449,11 @@ header .MuiToolbar-root > .MuiIconButton-root[title="Log out"] {
   border-top: 1px solid rgba(255, 255, 255, 0.14);
 }
 
-header .MuiToolbar-root > .MuiIconButton-root[title="Log out"]:hover {
+header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="logout"]:hover {
   background: rgba(0, 0, 0, 0.34);
 }
 
-header .MuiToolbar-root > .MuiIconButton-root[title="Log out"]::after {
+header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="logout"]::after {
   content: "ອອກຈາກລະບົບ / Log out";
   font-size: 0.85rem;
   font-weight: 500;
@@ -550,12 +556,14 @@ header .MuiToolbar-root > div:has(.MuiInputBase-root) {
 
 /* --- Profile moved into the toolbar, replacing Documentation -------------
    Unlike the language group, Profile is a real module contribution
-   (profile.MainMenu) and does render, so it can be repositioned. Keyed on the
-   AccordionSummary id, as with the other groups.
+   (profile.MainMenu) and does render, so it can be repositioned.
 
-   NOTE: the id derives from the English header text. Translating the menu labels
-   changes it and this stops matching -- update together. */
-header .MuiToolbar-root > .MuiIconButton-root[title="Documentation"] {
+   Both halves are keyed on stamped attributes rather than on rendered text --
+   data-toolbar-action for the "?" being hidden, data-menu-id for the Profile
+   group being moved. Keyed on the translated title and heading, as they were,
+   the "?" reappeared and Profile stayed in the sidebar the moment the language
+   changed. See lao/apply-overrides.js. */
+header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="help"] {
   display: none;
 }
 

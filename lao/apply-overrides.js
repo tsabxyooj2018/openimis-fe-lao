@@ -57,9 +57,43 @@ const STABLE_MENU_ID = {
   replace: 'id: "".concat(_this.props.header, "-header"), "data-menu-id": _this.props.menuId',
 };
 
+/*
+ * The same problem in the toolbar.
+ *
+ * fe-core renders the logout and documentation buttons as
+ *
+ *   <Tooltip title={formatMessage("core.tooltip.logout")}><IconButton>...
+ *
+ * and MUI forwards that tooltip down to the DOM `title`. So the only attribute
+ * distinguishing them is the TRANSLATED text: title="Log out" in English,
+ * something else in Lao. The rules that move logout to the foot of the sidebar
+ * and hide the documentation "?" therefore applied in English only -- which is
+ * why both reappeared, in their original places, as soon as the language changed.
+ *
+ * There is no id, no name and no stable class to key on; the two buttons differ
+ * solely by their icon component. So the icon is what identifies them, and the
+ * patch stamps an explicit action attribute for the stylesheet to use.
+ *
+ * Written tolerantly because the two published bundles differ in form:
+ *
+ *   index.es.js  React.createElement(IconButton, {...}, React.createElement(ExitToApp
+ *   index.js     React__default["default"].createElement(core.IconButton, {...}, ...Icons.ExitToApp
+ */
+const TOOLBAR_ACTIONS = [
+  { icon: "ExitToApp", action: "logout" },
+  { icon: "HelpOutline", action: "help" },
+];
+
+const toolbarPattern = (icon) =>
+  new RegExp(
+    `(createElement\\((?:[\\w$."\\[\\]]+\\.)?IconButton,\\s*\\{)([^{}]*)(\\}\\s*,\\s*(?:/\\*#__PURE__\\*/\\s*)?[\\w$."\\[\\]]+\\.createElement\\((?:[\\w$."\\[\\]]+\\.)?${icon}\\b)`,
+    "g",
+  );
+
 const totals = {};
 let filesPatched = 0;
 let menuIdPatched = 0;
+const toolbarHits = {};
 
 for (const rel of TARGETS) {
   const file = path.join(PKG, rel);
@@ -91,13 +125,43 @@ for (const rel of TARGETS) {
   if (menuIdHits) source = source.split(STABLE_MENU_ID.find).join(STABLE_MENU_ID.replace);
   menuIdPatched += menuIdHits || (already ? 1 : 0);
 
+  const actions = [];
+  for (const { icon, action } of TOOLBAR_ACTIONS) {
+    const marker = `"data-toolbar-action": "${action}"`;
+    if (source.includes(marker)) {
+      toolbarHits[action] = (toolbarHits[action] || 0) + 1;
+      actions.push(`${action}(already)`);
+      continue;
+    }
+    let hits = 0;
+    source = source.replace(toolbarPattern(icon), (_m, open, props, tail) => {
+      hits += 1;
+      const sep = props.trim() ? `${props.replace(/,\s*$/, "")},\n    ` : "";
+      return `${open}${sep}${marker}${tail}`;
+    });
+    toolbarHits[action] = (toolbarHits[action] || 0) + hits;
+    actions.push(`${action}=${hits}`);
+  }
+
   fs.writeFileSync(file, source, "utf-8");
   filesPatched += 1;
-  console.log(`  ${rel}: ${replacedHere} replacements, data-menu-id ${menuIdHits || (already ? "(already present)" : "NOT FOUND")}`);
+  console.log(
+    `  ${rel}: ${replacedHere} replacements, ` +
+      `data-menu-id ${menuIdHits || (already ? "(already present)" : "NOT FOUND")}, ` +
+      `toolbar ${actions.join(" ")}`,
+  );
 }
 
 if (filesPatched === 0) {
   console.error("no fe-core dist bundle found to patch");
+  process.exit(1);
+}
+
+const unstamped = TOOLBAR_ACTIONS.filter(({ action }) => !toolbarHits[action]);
+if (unstamped.length) {
+  console.error("\ncould not stamp these toolbar buttons:");
+  unstamped.forEach(({ icon, action }) => console.error(`  ${action} (looked for the ${icon} icon)`));
+  console.error("fe-core has changed how the toolbar is built; src/index.css needs a new hook.");
   process.exit(1);
 }
 
