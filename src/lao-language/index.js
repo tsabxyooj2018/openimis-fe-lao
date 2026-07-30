@@ -3,6 +3,7 @@ import { MainMenuContribution } from "@openimis/fe-core";
 import TranslateIcon from "@material-ui/icons/Translate";
 import { FlagLao, FlagEnglish, FlagFrench } from "./flags";
 import LanguageSwitchPage from "./LanguageSwitchPage";
+import messages_lo from "../../lao/translations/lo.json";
 
 /*
  * Language switcher, contributed as an ordinary openIMIS module.
@@ -44,6 +45,16 @@ const LanguageMainMenu = (props) => (
 const LaoLanguageModule = (cfg) => ({
   "core.Router": [{ path: "language/:code", component: LanguageSwitchPage }],
   "language.MainMenu": [LanguageMainMenu],
+  /*
+   * Lao dictionary. App.js merges as { ...messages, ...moduleContributions },
+   * filtered to the active language, so contributions win over the assembly's
+   * root translations -- which is why this belongs here rather than in
+   * src/translations/ref.json.
+   *
+   * Keys absent from lo.json fall back to English, so partial coverage is safe:
+   * the file can grow module by module without anything breaking.
+   */
+  translations: [{ key: "lo", messages: messages_lo }],
   ...cfg,
 });
 
