@@ -34,6 +34,22 @@ const createAppTheme = (colorOverrides = {}) => {
     lockedBackgroundPattern,
   } = { ...defaultColors, ...colorOverrides };
   return createTheme({
+    // Default props. MUI v4 supports this alongside `overrides`, so app-wide
+    // component defaults need no component changes.
+    props: {
+      MuiButton: { disableElevation: true },
+      MuiTooltip: { arrow: true },
+    },
+    // Pass 1 of the visual refresh: typography, buttons, surfaces, tables.
+    // openIMIS ships Material-UI 4.9 (2019, Material Design 2, now end of life),
+    // which is why the stock UI reads as dated: uppercase buttons, flat grey
+    // elevation, hairline-free tables. These are theme-level only -- no component
+    // is forked, and every screen picks them up.
+    //
+    // Deliberately NOT included yet: switching MuiTextField to the outlined
+    // variant. It changes field height and label position, and openIMIS has very
+    // dense data-entry forms (claims, insuree registration) that need checking
+    // screen by screen before that lands.
     overrides: {
       MuiTableRow: {
         root: {
@@ -41,6 +57,62 @@ const createAppTheme = (colorOverrides = {}) => {
             backgroundColor: selectedTableRowColor,
           },
         },
+      },
+      MuiButton: {
+        root: {
+          // Uppercase is the most dated thing about MD2 buttons, and Lao has no
+          // case, so it only ever distorted the Latin half of a bilingual label.
+          textTransform: "none",
+          borderRadius: 6,
+          fontWeight: 500,
+          letterSpacing: "0.01em",
+          padding: "6px 16px",
+        },
+        contained: {
+          boxShadow: "none",
+          "&:hover": { boxShadow: "0 2px 8px -2px rgba(18, 59, 99, 0.35)" },
+        },
+      },
+      MuiPaper: {
+        rounded: { borderRadius: 8 },
+        // Two-part shadows: a tight contact shadow plus a wide soft one. MD2's
+        // single diffuse shadow is what makes surfaces look like grey slabs.
+        elevation1: {
+          boxShadow: "0 1px 2px rgba(11, 31, 42, 0.06), 0 8px 24px -12px rgba(11, 31, 42, 0.18)",
+        },
+        elevation2: {
+          boxShadow: "0 1px 2px rgba(11, 31, 42, 0.06), 0 10px 28px -14px rgba(11, 31, 42, 0.2)",
+        },
+      },
+      MuiTableCell: {
+        root: {
+          borderBottom: "1px solid #E4EBF0",
+          padding: "10px 12px",
+        },
+        head: {
+          fontWeight: 600,
+          color: primaryColor,
+          letterSpacing: "0.02em",
+          whiteSpace: "nowrap",
+        },
+      },
+      MuiTableHead: {
+        root: { backgroundColor: headerColor },
+      },
+      MuiDialog: {
+        paper: { borderRadius: 10 },
+      },
+      MuiTooltip: {
+        tooltip: {
+          fontSize: "0.78rem",
+          fontWeight: 400,
+          backgroundColor: "#0B1F2A",
+          padding: "6px 10px",
+        },
+        arrow: { color: "#0B1F2A" },
+      },
+      MuiChip: {
+        root: { borderRadius: 6, fontWeight: 500 },
       },
     },
     palette: {
@@ -71,8 +143,11 @@ const createAppTheme = (colorOverrides = {}) => {
         "sans-serif",
       ].join(","),
       fontSize: 14,
-      fontWeightRegular: 300,
-      fontWeightMedium: 400,
+      // Was 300/400. Weight 300 is a display weight: at 14px body size it reads
+      // washed out on light backgrounds, and Lao tone marks in particular get
+      // thin enough to lose definition. 400/500 is the conventional body pairing.
+      fontWeightRegular: 400,
+      fontWeightMedium: 500,
       title: {
         fontSize: 20,
         fontWeight: 300,
