@@ -30,7 +30,6 @@
   "core.ForbiddenPage.title": "ບໍ່ໄດ້ຮັບອະນຸຍາດເຂົ້າເຖິງ",
   "core.ForgotPasswordPage.submitBtn": "ສົ່ງ",
   "core.ForgotPasswordPage.username.label": "ຊື່ຜູ້ໃຊ້",
-
   "core.gql_mutation_create_claim_administrator_perms": "ຫຼັກ | ສ້າງຜູ້ຄຸ້ມຄອງການຮຽກຮ້ອງ",
   "core.gql_mutation_create_enrolment_officers_perms": "ຫຼັກ | ສ້າງເຈົ້າໜ້າທີ່ລົງທະບຽນ",
   "core.gql_mutation_create_roles_perms": "ຫຼັກ | ສ້າງບົດບາດ",
@@ -43,7 +42,6 @@
   "core.gql_mutation_update_enrolment_officers_perms": "ຫຼັກ | ແກ້ໄຂເຈົ້າໜ້າທີ່ລົງທະບຽນ",
   "core.gql_mutation_update_roles_perms": "ຫຼັກ | ແກ້ໄຂບົດບາດ",
   "core.gql_mutation_update_users_perms": "ຫຼັກ | ແກ້ໄຂຜູ້ໃຊ້",
-
   "core.InfoButton.tooltip": "ຂໍ້ມູນເພີ່ມເຕີມ",
   "core.InternalServerErrorPage.title": "ເຊີບເວີເກີດຄວາມຜິດພາດ",
   "core.LanguageQuickPicker.dialog.cancel": "ຍົກເລີກ",
@@ -59,7 +57,6 @@
   "core.pickerNoOptionsLabel": "ບໍ່ມີຕົວເລືອກ",
   "core.RegistersStatusReport.district": "ເມືອງ",
   "core.RegistersStatusReport.region": "ແຂວງ",
-
   "core.roleManagement.createButton.tooltip": "ສ້າງບົດບາດໃໝ່",
   "core.roleManagement.CreateRole.mutationLabel": "ສ້າງບົດບາດ {label}",
   "core.roleManagement.dateValidFrom": "ມີຜົນແຕ່ວັນທີ",
@@ -81,7 +78,6 @@
   "core.roleManagement.updateRole.confirm.message": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການບັນທຶກການປ່ຽນແປງໃນ {label}?",
   "core.roleManagement.updateRole.confirm.title": "ບັນທຶກການປ່ຽນແປງໃນ {label}?",
   "core.roleManagement.UpdateRole.mutationLabel": "ແກ້ໄຂບົດບາດ {label}",
-
   "core.save.buttonText": "ບັນທຶກ",
   "core.SetPasswordPage.confirmPassword.label": "ຢືນຢັນລະຫັດຜ່ານ",
   "core.SetPasswordPage.password.label": "ລະຫັດຜ່ານ",

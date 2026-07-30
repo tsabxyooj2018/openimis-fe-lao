@@ -52,6 +52,10 @@ RUN node ./lao/apply-overrides.js
 # Register the local language-switcher module in the generated src/modules.js.
 # It cannot be listed in openimis.json: load-config resolves those from npm.
 RUN node ./lao/inject-language-module.js
+# Fail rather than ship a stale dictionary: src/lao-language/lo.json is generated
+# from lao/translations/lo.json, and the two drifting apart would silently
+# publish translations nobody sees. Regenerate with lao/translations/build-lo.js.
+RUN node ./lao/translations/build-lo.js --check
 RUN npm run build
 
 FROM nginx:latest
