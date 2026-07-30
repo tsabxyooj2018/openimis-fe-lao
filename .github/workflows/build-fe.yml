@@ -66,6 +66,42 @@ jobs:
           # A PAT sidesteps both.
           password: ${{ secrets.GHCR_TOKEN || secrets.GITHUB_TOKEN }}
 
+      - name: Diagnose GHCR permissions
+        # Prints only which actions GHCR grants, never the token itself.
+        env:
+          GHCR_TOKEN: ${{ secrets.GHCR_TOKEN }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          if [ -n "$GHCR_TOKEN" ]; then
+            echo "credential: GHCR_TOKEN secret (PAT)"
+            PASS="$GHCR_TOKEN"
+          else
+            echo "credential: built-in GITHUB_TOKEN"
+            PASS="$GH_TOKEN"
+          fi
+
+          echo "actor:  ${{ github.actor }}"
+          echo "owner:  ${{ github.repository_owner }}"
+          echo "image:  ${{ env.IMAGE_NAME }}"
+
+          # Ask GHCR for a token scoped to pull AND push, then read back what it
+          # actually granted. If "push" is missing, the credential is the problem;
+          # if push is granted, the package itself is blocking us.
+          T=$(curl -sS -u "${{ github.actor }}:$PASS" \
+              "https://ghcr.io/token?service=ghcr.io&scope=repository:${{ env.IMAGE_NAME }}:pull,push" \
+              | sed -n 's/.*"token":"\([^"]*\)".*/\1/p')
+          if [ -z "$T" ]; then
+            echo "could not obtain a GHCR token at all"; exit 0
+          fi
+          echo -n "granted access: "
+          echo "$T" | cut -d. -f2 | tr '_-' '/+' | base64 -d 2>/dev/null \
+            | sed -n 's/.*"access":\(\[[^]]*\]\).*/\1/p' || echo "(could not decode)"
+
+          echo "--- existing packages named openimis-fe-lao ---"
+          curl -sS -H "Authorization: Bearer $PASS" \
+            "https://api.github.com/user/packages?package_type=container" \
+            | grep -o '"name":"[^"]*"' | head -20 || echo "(listing unavailable with this credential)"
+
       - name: Derive tags
         id: meta
         uses: docker/metadata-action@v5
