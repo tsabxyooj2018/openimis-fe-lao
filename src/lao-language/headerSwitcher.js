@@ -18,36 +18,8 @@
  */
 
 import { applyLanguage, LANGUAGE_STORAGE_KEY as STORAGE_KEY } from "./switchLanguage";
-
-const LANGUAGES = [
-  {
-    code: "lo",
-    native: "ພາສາລາວ",
-    english: "Lao",
-    flag:
-      '<svg width="22" height="15" viewBox="0 0 24 16"><rect width="24" height="16" fill="#ce1126"/>' +
-      '<rect y="4" width="24" height="8" fill="#002868"/><circle cx="12" cy="8" r="3" fill="#fff"/></svg>',
-  },
-  {
-    code: "en",
-    native: "English",
-    english: "English",
-    flag:
-      '<svg width="22" height="15" viewBox="0 0 24 16"><rect width="24" height="16" fill="#012169"/>' +
-      '<path d="M0,0 L24,16 M24,0 L0,16" stroke="#fff" stroke-width="3.2"/>' +
-      '<path d="M0,0 L24,16 M24,0 L0,16" stroke="#c8102e" stroke-width="1.8"/>' +
-      '<path d="M12,0 V16 M0,8 H24" stroke="#fff" stroke-width="5.4"/>' +
-      '<path d="M12,0 V16 M0,8 H24" stroke="#c8102e" stroke-width="3.2"/></svg>',
-  },
-  {
-    code: "fr",
-    native: "Français",
-    english: "French",
-    flag:
-      '<svg width="22" height="15" viewBox="0 0 24 16"><rect width="24" height="16" fill="#fff"/>' +
-      '<rect width="8" height="16" fill="#002395"/><rect x="16" width="8" height="16" fill="#ed2939"/></svg>',
-  },
-];
+import { flagMarkup } from "./flags";
+import LANGUAGES from "./languages.json";
 
 const ROOT_ID = "lao-language-switcher";
 
@@ -101,10 +73,11 @@ function build() {
   button.title = "ປ່ຽນພາສາ / Change language";
 
   const active = LANGUAGES.find((l) => l.code === currentCode()) || LANGUAGES[1];
-  const current = active;
   button.innerHTML =
-    `<span style="display:flex;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.2)">${current.flag}</span>` +
-    `<span>${current.native}</span>` +
+    `<span style="display:flex;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.2)">${flagMarkup(
+      active.code
+    )}</span>` +
+    `<span>${active.native}</span>` +
     `<span style="opacity:.7;font-size:.7rem">&#9662;</span>`;
 
   const menu = el("div", {
@@ -138,7 +111,9 @@ function build() {
     row.type = "button";
     const isActive = lang.code === active.code;
     row.innerHTML =
-      `<span style="display:flex;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.2)">${lang.flag}</span>` +
+      `<span style="display:flex;border-radius:2px;overflow:hidden;box-shadow:0 0 0 1px rgba(0,0,0,.2)">${flagMarkup(
+        lang.code
+      )}</span>` +
       `<span style="display:flex;flex-direction:column;line-height:1.3;flex:1">` +
       `<span>${lang.native}</span>` +
       `<span style="opacity:.6;font-size:.72rem">${lang.english}</span>` +

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Box, CircularProgress, Typography } from "@material-ui/core";
 import { applyLanguage } from "./switchLanguage";
+import LANGUAGES from "./languages.json";
 
 /*
  * Applies a language change, then returns to the home page.
@@ -22,7 +23,8 @@ import { applyLanguage } from "./switchLanguage";
  * A full reload follows, not a client-side redirect: dictionaries are loaded
  * once at startup, so the new language only takes effect on a fresh boot.
  */
-const ALLOWED = ["lo", "en", "fr"];
+// Derived, not restated: a language is switchable exactly when it is offered.
+const ALLOWED = LANGUAGES.map((l) => l.code);
 
 const LanguageSwitchPage = (props) => {
   const code = props?.match?.params?.code;

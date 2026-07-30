@@ -1,7 +1,8 @@
 import React from "react";
 import { MainMenuContribution } from "@openimis/fe-core";
 import TranslateIcon from "@material-ui/icons/Translate";
-import { FlagLao, FlagEnglish, FlagFrench } from "./flags";
+import { Flag } from "./flags";
+import LANGUAGES from "./languages.json";
 import LanguageSwitchPage from "./LanguageSwitchPage";
 import messages_lo from "./lo.json";
 import mountHeaderSwitcher from "./headerSwitcher";
@@ -16,29 +17,23 @@ import mountChangePasswordCancel from "./changePasswordCancel";
  * openIMIS upgrades stay a version bump. Forking fe-core would mean merging the
  * most actively developed component every release, for a switcher.
  *
- * Languages come from tblLanguages in the database (lo / en / fr). The entries
- * below must stay in step with that table: adding a row there does not add a row
- * here.
+ * Languages come from tblLanguages in the database (lo / en / fr) and are listed
+ * once in languages.json, which every consumer imports. Adding a language is a
+ * row there plus a row in tblLanguages; nothing else in this module changes.
  *
  * Layout note: MainMenuContribution entries take a plain string `text`, so the
  * native name and the English name share one line separated by a middot rather
  * than stacking as two lines. Two-line entries would need a forked component.
  */
 
-const LANGUAGES = [
-  { code: "lo", native: "ພາສາລາວ", english: "Lao", Flag: FlagLao },
-  { code: "en", native: "English", english: "English", Flag: FlagEnglish },
-  { code: "fr", native: "Français", english: "French", Flag: FlagFrench },
-];
-
 const LanguageMainMenu = (props) => (
   <MainMenuContribution
     {...props}
     header="ພາສາ / Language"
     icon={<TranslateIcon />}
-    entries={LANGUAGES.map(({ code, native, english, Flag }) => ({
+    entries={LANGUAGES.map(({ code, native, english }) => ({
       text: native === english ? native : `${native} · ${english}`,
-      icon: <Flag />,
+      icon: <Flag code={code} />,
       route: `/language/${code}`,
     }))}
   />

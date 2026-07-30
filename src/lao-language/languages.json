@@ -1,0 +1,20 @@
+[
+  {
+    "code": "lo",
+    "native": "ພາສາລາວ",
+    "english": "Lao",
+    "flag": "<rect width=\"24\" height=\"16\" fill=\"#ce1126\"/><rect y=\"4\" width=\"24\" height=\"8\" fill=\"#002868\"/><circle cx=\"12\" cy=\"8\" r=\"3\" fill=\"#fff\"/>"
+  },
+  {
+    "code": "en",
+    "native": "English",
+    "english": "English",
+    "flag": "<rect width=\"24\" height=\"16\" fill=\"#012169\"/><path d=\"M0,0 L24,16 M24,0 L0,16\" stroke=\"#fff\" stroke-width=\"3.2\"/><path d=\"M0,0 L24,16 M24,0 L0,16\" stroke=\"#c8102e\" stroke-width=\"1.8\"/><path d=\"M12,0 V16 M0,8 H24\" stroke=\"#fff\" stroke-width=\"5.4\"/><path d=\"M12,0 V16 M0,8 H24\" stroke=\"#c8102e\" stroke-width=\"3.2\"/>"
+  },
+  {
+    "code": "fr",
+    "native": "Français",
+    "english": "French",
+    "flag": "<rect width=\"24\" height=\"16\" fill=\"#fff\"/><rect width=\"8\" height=\"16\" fill=\"#002395\"/><rect x=\"16\" width=\"8\" height=\"16\" fill=\"#ed2939\"/>"
+  }
+]
