@@ -5,6 +5,7 @@ import { FlagLao, FlagEnglish, FlagFrench } from "./flags";
 import LanguageSwitchPage from "./LanguageSwitchPage";
 import messages_lo from "./lo.json";
 import mountHeaderSwitcher from "./headerSwitcher";
+import mountChangePasswordCancel from "./changePasswordCancel";
 
 /*
  * Language switcher, contributed as an ordinary openIMIS module.
@@ -48,6 +49,8 @@ const LanguageMainMenu = (props) => (
 // appear in, so "language.MainMenu" is never asked for -- the group below never
 // renders and the CSS that repositioned it had nothing to move.
 mountHeaderSwitcher();
+// Profile > Change Password ships with only a Submit button; see the module.
+mountChangePasswordCancel();
 
 const LaoLanguageModule = (cfg) => ({
   "core.Router": [{ path: "language/:code", component: LanguageSwitchPage }],

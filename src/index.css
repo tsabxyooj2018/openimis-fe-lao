@@ -44,7 +44,7 @@ body {
    listed first so it mutes the emblem beneath it. An earlier version used
    `background-blend-mode: soft-light` instead and the emblem came out bright and
    dominant. */
-body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
+body:not(:has(header)) .App > div:has(> [class*="MuiPaper"]) {
   display: block !important;
   overflow-y: auto;
   overflow-x: hidden;
@@ -66,7 +66,7 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
    panel is the conventional treatment for a split sign-in.
    `flex-direction: column` keeps the AGPL line (a ::after on this element) below
    the form instead of beside it. */
-[class*="MuiPaper"]:has(input[type="password"]) {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) {
   box-sizing: border-box;
   position: relative;
   width: clamp(21rem, 40%, 33rem);
@@ -85,18 +85,18 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
 
 /* Keep the form column narrow even when the panel is wide; long measures look
    careless on a two-field form. */
-[class*="MuiPaper"]:has(input[type="password"]) form {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) form {
   width: 100%;
 }
 
-[class*="MuiPaper"]:has(input[type="password"]) form > [class*="MuiBox"] {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) form > [class*="MuiBox"] {
   width: 100%;
   max-width: 22rem;
   margin: 0 auto;
 }
 
 /* --- Emblem ---------------------------------------------------------------- */
-[class*="MuiPaper"]:has(input[type="password"]) img {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) img {
   display: block;
   max-height: 11rem;
   max-width: 11rem;
@@ -110,13 +110,13 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
    leading the marks on a wrapped second line collide with the line above.
    The `img + *` selector matters -- fe-core renders this as a MuiBox div, not a
    heading, so the heading selectors alone would never match. */
-[class*="MuiPaper"]:has(input[type="password"]) h1,
-[class*="MuiPaper"]:has(input[type="password"]) h2,
-[class*="MuiPaper"]:has(input[type="password"]) h3,
-[class*="MuiPaper"]:has(input[type="password"]) h4,
-[class*="MuiPaper"]:has(input[type="password"]) h5,
-[class*="MuiPaper"]:has(input[type="password"]) h6,
-[class*="MuiPaper"]:has(input[type="password"]) img + * {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) h1,
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) h2,
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) h3,
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) h4,
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) h5,
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) h6,
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) img + * {
   font-size: 1.22rem;
   font-weight: 600;
   line-height: 1.6;
@@ -130,8 +130,8 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
 }
 
 /* --- Fields --------------------------------------------------------------- */
-[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiFormLabel"],
-[class*="MuiPaper"]:has(input[type="password"]) label {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) [class*="MuiFormLabel"],
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) label {
   font-size: 0.86rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -142,7 +142,7 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
    with left:0 and transform-origin:top left, so it needs a width to centre
    within, and the origin moved so the shrink-on-focus animation scales toward
    the middle rather than the left edge. */
-[class*="MuiPaper"]:has(input[type="password"]) label[class*="MuiInputLabel"] {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) label[class*="MuiInputLabel"] {
   left: 0;
   right: 0;
   width: 100%;
@@ -150,12 +150,12 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   transform-origin: top center;
 }
 
-[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiFormControl"],
-[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiTextField"] {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) [class*="MuiFormControl"],
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) [class*="MuiTextField"] {
   width: 100%;
 }
 
-[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiInputBase-input"] {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) [class*="MuiInputBase-input"] {
   font-size: 0.98rem;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
@@ -163,12 +163,12 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   color: #0b1f2a;
 }
 
-[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiInput-underline"]::after {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) [class*="MuiInput-underline"]::after {
   border-bottom: 2px solid #1e6f94;
 }
 
 /* --- Submit --------------------------------------------------------------- */
-[class*="MuiPaper"]:has(input[type="password"]) button[type="submit"] {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) button[type="submit"] {
   width: 100%;
   margin-top: 1.25rem;
   padding: 0.7rem 1rem;
@@ -181,12 +181,12 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   box-shadow: none;
 }
 
-[class*="MuiPaper"]:has(input[type="password"]) button[type="submit"]:not([disabled]) {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) button[type="submit"]:not([disabled]) {
   background: #123b63;
   color: #fff;
 }
 
-[class*="MuiPaper"]:has(input[type="password"]) button[type="submit"]:not([disabled]):hover {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) button[type="submit"]:not([disabled]):hover {
   background: #0d2c4b;
   box-shadow: 0 2px 8px -2px rgba(18, 59, 99, 0.4);
 }
@@ -194,8 +194,8 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
 /* --- Forgot password ------------------------------------------------------
    fe-core renders this as a Button, not an anchor, so it has to be styled back
    down to a text link rather than left standing as a second call to action. */
-[class*="MuiPaper"]:has(input[type="password"]) button:not([type="submit"]),
-[class*="MuiPaper"]:has(input[type="password"]) a {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) button:not([type="submit"]),
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) a {
   display: block;
   width: auto;
   margin: 0.75rem auto 0;
@@ -211,8 +211,8 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   color: #1e6f94;
 }
 
-[class*="MuiPaper"]:has(input[type="password"]) button:not([type="submit"]):hover,
-[class*="MuiPaper"]:has(input[type="password"]) a:hover {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) button:not([type="submit"]):hover,
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) a:hover {
   background: none;
   text-decoration: underline;
 }
@@ -221,7 +221,7 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
    Replacing the openIMIS logo removed the last visible credit on this screen.
    Interim: generated content cannot carry the link to Corresponding Source that
    AGPL s13 wants. A forked LoginPage would give it a real element and a link. */
-[class*="MuiPaper"]:has(input[type="password"])::after {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"])::after {
   content: "Powered by openIMIS 26.04 — free software under AGPL v3";
   position: absolute;
   bottom: 1.25rem;
@@ -235,9 +235,9 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
 }
 
 /* --- Keyboard focus ------------------------------------------------------- */
-[class*="MuiPaper"]:has(input[type="password"]) a:focus-visible,
-[class*="MuiPaper"]:has(input[type="password"]) button:focus-visible,
-[class*="MuiPaper"]:has(input[type="password"]) input:focus-visible {
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) a:focus-visible,
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) button:focus-visible,
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) input:focus-visible {
   outline: 2px solid #1e6f94;
   outline-offset: 2px;
 }
@@ -246,10 +246,10 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
    No room for a side panel: the panel becomes the whole page and the watermark
    goes, since behind a form it costs legibility and gains nothing. */
 @media (max-width: 60rem) {
-  body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
+  body:not(:has(header)) .App > div:has(> [class*="MuiPaper"]) {
     background-image: linear-gradient(160deg, #071b30 0%, #123b63 100%);
   }
-  [class*="MuiPaper"]:has(input[type="password"]) {
+  body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) {
     width: 100%;
     padding: 2.5rem 1.5rem 1.75rem;
     box-shadow: none;
