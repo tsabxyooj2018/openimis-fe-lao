@@ -473,12 +473,16 @@ main .MuiTypography-h4 {
    *.MainMenu, core.Router, refs, translations, reducers and middlewares -- so
    the switcher is contributed as a sidebar group and moved here visually.
 
-   Hooked on :last-of-type because the language module is injected last into
-   src/modules.js, making its group the final accordion. If another module is
-   ever appended after it, this selector must be updated.
+   Hooked on the AccordionSummary id, which fe-core derives from the group header
+   ("ພາສາ / Language" -> id="ພາສາ / Language-header"). The $= match keys off the
+   ASCII tail, so the selector does not depend on the Lao text.
+
+   An earlier version used :last-of-type. That never matched: the drawer renders a
+   trailing empty <div> after the last accordion, so ":last-of-type" resolves to
+   that div and no accordion ever qualified. The rules silently did nothing.
 
    z-index sits above the AppBar (1100) and the Drawer (1200). */
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) {
   position: fixed;
   top: 11px;
   right: 4.5rem;
@@ -489,31 +493,31 @@ main .MuiTypography-h4 {
   overflow: visible;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type:hover {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]):hover {
   background: rgba(255, 255, 255, 0.18);
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiAccordionSummary-root {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiAccordionSummary-root {
   min-height: 42px;
   padding: 0 0.5rem 0 0.75rem;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiAccordionSummary-content {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiAccordionSummary-content {
   margin: 4px 0;
 }
 
 /* the group's own icon is redundant once it sits in the bar */
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiAccordionSummary-content > .MuiIconButton-root {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiAccordionSummary-content > .MuiIconButton-root {
   display: none;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiAccordionSummary-content > .MuiTypography-body1 {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiAccordionSummary-content > .MuiTypography-body1 {
   font-size: 0.85rem;
   font-weight: 500;
 }
 
 /* Expanded state drops below the bar as a menu rather than pushing the sidebar */
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiCollapse-root {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiCollapse-root {
   position: absolute;
   top: calc(100% + 6px);
   right: 0;
@@ -524,28 +528,28 @@ main .MuiTypography-h4 {
   overflow: hidden;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiAccordionDetails-root {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiAccordionDetails-root {
   padding: 0.35rem 0;
 }
 
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiListItem-button {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiListItem-button {
   padding: 8px 14px;
   border-radius: 0;
 }
 
 /* flags need room; the sidebar's narrow icon slot would crop them */
-.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiListItemIcon-root {
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiListItemIcon-root {
   min-width: 34px;
 }
 
 /* On narrow screens the toolbar has no room; return it to the sidebar flow. */
 @media (max-width: 60rem) {
-  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type {
+  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) {
     position: static;
     width: auto;
     background: transparent;
   }
-  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiCollapse-root {
+  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id$="Language-header"]) .MuiCollapse-root {
     position: static;
     width: auto;
     background: transparent;
