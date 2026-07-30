@@ -467,3 +467,88 @@ main .MuiTypography-h4 {
   font-weight: 600;
   letter-spacing: -0.01em;
 }
+
+/* --- Language switcher, floated to the top-right ------------------------
+   fe-core exposes no contribution point for the toolbar -- the only keys are
+   *.MainMenu, core.Router, refs, translations, reducers and middlewares -- so
+   the switcher is contributed as a sidebar group and moved here visually.
+
+   Hooked on :last-of-type because the language module is injected last into
+   src/modules.js, making its group the final accordion. If another module is
+   ever appended after it, this selector must be updated.
+
+   z-index sits above the AppBar (1100) and the Drawer (1200). */
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type {
+  position: fixed;
+  top: 11px;
+  right: 4.5rem;
+  z-index: 1400;
+  width: 13.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border-radius: 6px;
+  overflow: visible;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiAccordionSummary-root {
+  min-height: 42px;
+  padding: 0 0.5rem 0 0.75rem;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiAccordionSummary-content {
+  margin: 4px 0;
+}
+
+/* the group's own icon is redundant once it sits in the bar */
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiAccordionSummary-content > .MuiIconButton-root {
+  display: none;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiAccordionSummary-content > .MuiTypography-body1 {
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* Expanded state drops below the bar as a menu rather than pushing the sidebar */
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiCollapse-root {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 15rem;
+  background: #10345a;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiAccordionDetails-root {
+  padding: 0.35rem 0;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiListItem-button {
+  padding: 8px 14px;
+  border-radius: 0;
+}
+
+/* flags need room; the sidebar's narrow icon slot would crop them */
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiListItemIcon-root {
+  min-width: 34px;
+}
+
+/* On narrow screens the toolbar has no room; return it to the sidebar flow. */
+@media (max-width: 60rem) {
+  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type {
+    position: static;
+    width: auto;
+    background: transparent;
+  }
+  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:last-of-type .MuiCollapse-root {
+    position: static;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+  }
+}
