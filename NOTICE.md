@@ -25,9 +25,22 @@ that users interacting with a modified version over a network be offered its sou
 | `lao/` | Added — bilingual Lao/English login labels and the build step that applies them |
 | `Dockerfile` | Pinned `npm@10`; strips CR from the entrypoint; runs the label overrides |
 | `.github/workflows/build-fe.yml` | Added — builds and publishes the image to GHCR |
+| `openimis.json` | Removed `GrievanceSocialProtectionModule` — see below |
 
 Upstream's own workflow files were removed: they reference secrets that do not
 exist here and would fail on every push.
+
+### Grievance module removed
+
+The module queries `grievanceConfig` as the app loads. Its backend resolver
+(`grievance_social_protection/schema.py`, `resolve_grievance_config`) raises
+`PermissionDenied("unauthorized")` for anonymous users, and `fe-core` treats any
+`unauthorized` GraphQL error as session expiry — so every visitor met a
+"Session Expired" dialog on the login page before they had a session at all.
+
+Restore the entry in `openimis.json` once the backend permits anonymous access to
+that config, or once the query is deferred until after sign-in. The grievance
+backend module is unaffected and still present in the stock backend image.
 
 ### Two upstream bugs fixed here
 
