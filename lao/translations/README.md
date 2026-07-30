@@ -48,9 +48,16 @@ changing a term later means revisiting every row that used it.
 Save as **CSV UTF-8**. Excel's plain "CSV" on a Windows machine writes the
 system codepage and will mangle Lao script.
 
+## Where the finished translations live
+
+`src/lao-language/lo.json` — **not** in this directory. Create React App refuses
+imports from outside `src/`, so the dictionary the build consumes must sit there.
+This folder holds the working spreadsheet only.
+
+`core` (92 strings) is already done as a first pass and needs review.
+
 ## Then
 
-Hand the file back and it gets converted into a `lo` dictionary wired into the
-build, alongside the existing login-label overrides. Nothing else needs to
+Hand the file back and it gets merged into `src/lao-language/lo.json`. Nothing else needs to
 change: the `lo` locale is already registered in `openimis.json`, Lao is already
 in `tblLanguages`, and the language switcher already works.

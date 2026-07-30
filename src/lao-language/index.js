@@ -3,7 +3,7 @@ import { MainMenuContribution } from "@openimis/fe-core";
 import TranslateIcon from "@material-ui/icons/Translate";
 import { FlagLao, FlagEnglish, FlagFrench } from "./flags";
 import LanguageSwitchPage from "./LanguageSwitchPage";
-import messages_lo from "../../lao/translations/lo.json";
+import messages_lo from "./lo.json";
 
 /*
  * Language switcher, contributed as an ordinary openIMIS module.
