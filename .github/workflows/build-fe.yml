@@ -1,0 +1,89 @@
+name: Build and publish frontend image
+
+# Builds this modified openIMIS frontend and publishes it to GHCR.
+# The repository is public, so the resulting package is public too and
+# Portainer can pull it without registry credentials.
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Image tag to publish (defaults to the openIMIS release)"
+        required: false
+        default: "26.04"
+
+concurrency:
+  group: build-fe-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  REGISTRY: ghcr.io
+  IMAGE_NAME: ${{ github.repository_owner }}/openimis-fe-lao
+  RELEASE_TAG: ${{ inputs.tag || '26.04' }}
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+
+      - name: Confirm the Lao customisations are present
+        # apply-overrides.js already fails the build when a label key is missing
+        # upstream; this catches the cruder case of the files being dropped,
+        # which would otherwise publish a stock-looking image without error.
+        run: |
+          set -e
+          test -f lao/apply-overrides.js
+          test -f lao/login-overrides.en.json
+          test -f src/emblem-moh.png
+          grep -q "apply-overrides.js" Dockerfile
+          echo "customisations present"
+
+      - name: Set up Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to GHCR
+        uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          # Built-in token: no PAT needed to publish to this account's registry.
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Derive tags
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=${{ env.RELEASE_TAG }}
+            type=sha,format=short
+
+      - name: Build and push
+        uses: docker/build-push-action@v6
+        with:
+          context: .
+          file: Dockerfile
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+          cache-from: type=gha
+          cache-to: type=gha,mode=max
+
+      - name: Summary
+        run: |
+          {
+            echo "### Published"
+            echo ""
+            echo '```'
+            echo "${{ steps.meta.outputs.tags }}"
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"

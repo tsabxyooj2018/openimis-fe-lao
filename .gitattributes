@@ -1,0 +1,13 @@
+# Shell scripts must keep LF endings even when checked out on Windows.
+#
+# openimis-fe_js/script/entrypoint.sh and openimis-be_py/script/entrypoint.sh are
+# COPYed into Linux images and run by bash. A CRLF checkout produces
+#   /script/entrypoint.sh: line 35: syntax error near unexpected token $'do\r'
+# and the container exits immediately.
+*.sh text eol=lf
+
+# Same reasoning for files interpreted inside containers.
+Dockerfile text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+.env text eol=lf

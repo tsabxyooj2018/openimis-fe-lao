@@ -1,0 +1,10 @@
+{
+  "core.LoginPage.pageTitle": "ເຂົ້າສູ່ລະບົບ / Log in",
+  "core.LoginPage.username.label": "ຊື່ຜູ້ໃຊ້ / Username",
+  "core.LoginPage.password.label": "ລະຫັດຜ່ານ / Password",
+  "core.LoginPage.loginBtn": "ເຂົ້າສູ່ລະບົບ / Log in",
+  "core.LoginPage.forgotPassword": "ລືມລະຫັດຜ່ານ? / Forgot password?",
+  "core.LoginPage.authError": "ຊື່ຜູ້ໃຊ້ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ / The username or password you entered is incorrect.",
+  "core.LoginPage.authErrorGeneral": "ເກີດຄວາມຜິດພາດທີ່ບໍ່ຮູ້ສາເຫດ / Unknown error.",
+  "core.LoginPage.howToUse": "ຄູ່ມືການໃຊ້ງານ / User guide"
+}

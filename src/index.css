@@ -1,0 +1,186 @@
+html,
+#root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Noto Sans Lao", "Phetsarath OT", "Saysettha OT", sans-serif;
+  height: 100%;
+  background: #eef2f6;
+  line-height: 1.5;
+  color: #123b63;
+}
+
+.bootstrap {
+  flex-grow: 1;
+}
+
+/* ---------------------------------------------------------------------------
+   Login screen — Lao deployment
+   ---------------------------------------------------------------------------
+   The login page lives in @openimis/fe-core and we do not fork it, so this
+   restyles the markup it already produces.
+
+   Scoping: `:has(input[type="password"])` limits every rule below to the
+   sign-in screen, so the rest of openIMIS is untouched. Only the login and
+   set-password screens contain a password field.
+
+   Selectors: MUI v4 emits its global class names (MuiPaper-root, ...) at
+   runtime alongside hashed makeStyles names, so `[class*="MuiPaper"]` matches
+   reliably where a literal `.MuiPaper-root` may not.
+   --------------------------------------------------------------------------- */
+
+body:has(input[type="password"]) {
+  background:
+    radial-gradient(1200px 600px at 50% -10%, #dfe8f0 0%, transparent 70%),
+    #eef2f6;
+}
+
+/* The card */
+body:has(input[type="password"]) [class*="MuiPaper"] {
+  width: 100%;
+  max-width: 25rem;
+  margin: 0 auto;
+  padding: 2.5rem 2.25rem 2rem;
+  box-sizing: border-box;
+  background: #fff;
+  border: 1px solid #dce4e9;
+  border-radius: 6px;
+  box-shadow:
+    0 1px 2px rgba(18, 59, 99, 0.06),
+    0 12px 32px -12px rgba(18, 59, 99, 0.18);
+}
+
+/* Emblem. Larger than a wordmark would need: it is a detailed circular seal
+   with Lao text in the ring, and below about 7rem the lettering turns to mush. */
+body:has(input[type="password"]) img {
+  display: block;
+  max-height: 7rem;
+  max-width: 7rem;
+  width: auto;
+  height: auto;
+  margin: 0 auto 1.25rem;
+}
+
+/* AGPL attribution.
+   Replacing the openIMIS logo removed the last visible credit on this screen,
+   so it is restored here. This is an interim measure: generated content is not
+   selectable and cannot carry the link to Corresponding Source that AGPL s13
+   requires. The durable fix is a real element in a forked LoginPage. */
+body:has(input[type="password"]) [class*="MuiPaper"]::after {
+  content: "Powered by openIMIS 26.04 — free software under AGPL v3";
+  display: block;
+  margin-top: 1.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid #e4ebf0;
+  font-size: 0.72rem;
+  line-height: 1.5;
+  text-align: center;
+  color: #8298a6;
+}
+
+/* Service name. Lao needs more line spacing than Latin: without it the
+   tone marks of one line collide with the ascenders of the next. */
+body:has(input[type="password"]) h1,
+body:has(input[type="password"]) h2,
+body:has(input[type="password"]) h3,
+body:has(input[type="password"]) h4,
+body:has(input[type="password"]) h5,
+body:has(input[type="password"]) h6,
+/* Fallback: fe-core may render the service name as a Typography div/span
+   rather than a heading. It is always the element right after the logo. */
+body:has(input[type="password"]) img + * {
+  font-size: 1.2rem;
+  font-weight: 600;
+  line-height: 1.65;
+  letter-spacing: 0.01em;
+  text-align: center;
+  text-wrap: balance;
+  color: #123b63;
+  margin: 0 0 1.5rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid #e4ebf0;
+}
+
+/* Field labels */
+body:has(input[type="password"]) [class*="MuiFormLabel"],
+body:has(input[type="password"]) label {
+  font-size: 0.86rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #5b7385;
+}
+
+/* Inputs */
+body:has(input[type="password"]) [class*="MuiFormControl"],
+body:has(input[type="password"]) [class*="MuiTextField"] {
+  width: 100%;
+  margin-bottom: 0.5rem;
+}
+
+body:has(input[type="password"]) [class*="MuiInputBase-input"] {
+  font-size: 0.98rem;
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
+  color: #0b1f2a;
+}
+
+body:has(input[type="password"]) [class*="MuiInput-underline"]::after {
+  border-bottom: 2px solid #1e6f94;
+}
+
+/* Submit */
+body:has(input[type="password"]) [class*="MuiButton"] {
+  width: 100%;
+  margin-top: 1.5rem;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
+  font-weight: 600;
+  /* Lao script has no case, so uppercasing only distorts the Latin half. */
+  text-transform: none;
+  letter-spacing: 0.01em;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+body:has(input[type="password"]) [class*="MuiButton"]:not([disabled]) {
+  background: #123b63;
+  color: #fff;
+}
+
+body:has(input[type="password"]) [class*="MuiButton"]:not([disabled]):hover {
+  background: #0d2c4b;
+  box-shadow: 0 2px 8px -2px rgba(18, 59, 99, 0.4);
+}
+
+/* Forgot-password link sits below the button as a quiet tertiary action */
+body:has(input[type="password"]) a {
+  display: block;
+  margin-top: 1.25rem;
+  font-size: 0.84rem;
+  text-align: center;
+  color: #1e6f94;
+  text-decoration: none;
+}
+
+body:has(input[type="password"]) a:hover {
+  text-decoration: underline;
+}
+
+/* Keyboard focus must stay visible after the restyle */
+body:has(input[type="password"]) a:focus-visible,
+body:has(input[type="password"]) button:focus-visible,
+body:has(input[type="password"]) input:focus-visible {
+  outline: 2px solid #1e6f94;
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  body:has(input[type="password"]) [class*="MuiPaper"] {
+    max-width: none;
+    margin: 0 1rem;
+    padding: 2rem 1.5rem 1.75rem;
+  }
+}
