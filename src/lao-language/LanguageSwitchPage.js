@@ -15,23 +15,60 @@ import { baseApiUrl, apiHeaders } from "@openimis/fe-core";
  *   changeUserLanguage(input: ChangeUserLanguageMutationInput!)
  *   ChangeUserLanguageMutationInput.languageId: String!
  *
- * CSRF: apiHeaders() returns only Content-Type -- it does NOT carry the token,
- * despite the name. openIMIS reads it from the csrftoken cookie and attaches it
- * explicitly (see login() in fe-core actions.js). Without the X-CSRFToken header
- * the backend raises KeyError 'HTTP_X_CSRFTOKEN', which surfaces as a GraphQL
- * error rather than a 403, so it looks like an application fault.
+ * CSRF, which took three attempts to get right. The backend does not use Django's
+ * cookie mechanism at all:
+ *
+ *   core/schema.py  _check_csrf_token()
+ *     session_csrf = request.session['csrftoken']
+ *     request_csrf = request.META['HTTP_X_CSRFTOKEN']
+ *
+ * The token lives in the Django SESSION, and no csrftoken cookie is ever set --
+ * the only cookies are JWT and openimis_session, both HttpOnly. The frontend
+ * obtains the value through a `getCsrfToken` mutation and caches it in
+ * localStorage under "csrfToken"; that is the same value the session holds.
+ *
+ * So: read localStorage, and ask for one if it is missing. Reading the cookie
+ * gave either nothing (KeyError HTTP_X_CSRFTOKEN) or a stale unrelated value
+ * ("CSRF token missing or incorrect").
+ *
+ * apiHeaders() is only Content-Type despite the name; it carries no token.
  *
  * A full reload follows, not a client-side redirect: dictionaries are loaded
  * once at startup, so the new language only takes effect on a fresh boot.
  */
 const ALLOWED = ["lo", "en", "fr"];
 
-// Django's CSRF cookie. Read here rather than imported: fe-core keeps
-// getCsrfToken() internal and does not export it.
-const csrfToken = () => {
-  const m = document.cookie.match(/(?:^|;\s*)csrftoken=([^;]*)/);
-  return m ? decodeURIComponent(m[1]) : null;
+// The same store openIMIS itself uses. Not exported by fe-core, so read directly.
+const cachedCsrf = () => {
+  try {
+    return window.localStorage.getItem("csrfToken");
+  } catch (e) {
+    return null;
+  }
 };
+
+// Mirrors fe-core: ask the backend for a token and cache it. Needed when the
+// session was established before this page loaded, or storage was cleared.
+async function ensureCsrf() {
+  const cached = cachedCsrf();
+  if (cached) return cached;
+  const res = await fetch(`${baseApiUrl}/graphql`, {
+    method: "POST",
+    headers: apiHeaders(),
+    credentials: "include",
+    body: JSON.stringify({ query: "mutation { getCsrfToken { csrfToken } }" }),
+  });
+  const body = await res.json();
+  const token = body?.data?.getCsrfToken?.csrfToken;
+  if (token) {
+    try {
+      window.localStorage.setItem("csrfToken", token);
+    } catch (e) {
+      /* private mode */
+    }
+  }
+  return token || null;
+}
 
 const LanguageSwitchPage = (props) => {
   const code = props?.match?.params?.code;
@@ -48,18 +85,16 @@ const LanguageSwitchPage = (props) => {
       }
     }`;
 
-    const token = csrfToken();
-    if (!token) {
-      setError("Missing CSRF cookie - sign out and back in, then try again.");
-      return;
-    }
-
-    fetch(`${baseApiUrl}/graphql`, {
-      method: "POST",
-      headers: { ...apiHeaders(), "X-CSRFToken": token },
-      credentials: "include",
-      body: JSON.stringify({ query: mutation }),
-    })
+    ensureCsrf()
+      .then((token) => {
+        if (!token) throw new Error("Could not obtain a CSRF token");
+        return fetch(`${baseApiUrl}/graphql`, {
+          method: "POST",
+          headers: { ...apiHeaders(), "X-CSRFToken": token },
+          credentials: "include",
+          body: JSON.stringify({ query: mutation }),
+        });
+      })
       .then((r) => r.json())
       .then((body) => {
         if (body?.errors?.length) {
