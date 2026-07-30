@@ -627,3 +627,109 @@ header .MuiToolbar-root > div:has(.MuiInputBase-root) {
     transform: none;
   }
 }
+
+/* --- Profile moved into the toolbar, replacing Documentation -------------
+   Unlike the language group, Profile is a real module contribution
+   (profile.MainMenu) and does render, so it can be repositioned. Keyed on the
+   AccordionSummary id, as with the other groups.
+
+   NOTE: the id derives from the English header text. Translating the menu labels
+   changes it and this stops matching -- update together. */
+header .MuiToolbar-root > .MuiIconButton-root[title="Documentation"] {
+  display: none;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) {
+  position: fixed;
+  top: 11px;
+  right: 1rem;
+  z-index: 1400;
+  width: auto;
+  background: transparent;
+  overflow: visible;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiAccordionSummary-root {
+  min-height: 42px;
+  padding: 0 4px 0 0;
+  border-radius: 21px;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiAccordionSummary-root:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiAccordionSummary-content {
+  margin: 0;
+  align-items: center;
+}
+
+/* The group's person icon becomes the avatar. openIMIS stores no user
+   photograph -- only insurees have images -- so this is a monogram-style avatar
+   rather than a picture. */
+.MuiDrawer-paperAnchorDockedLeft
+  .MuiAccordion-root:has(> [id="Profile-header"])
+  .MuiAccordionSummary-content
+  > .MuiIconButton-root {
+  width: 34px;
+  min-width: 34px;
+  height: 34px;
+  padding: 5px;
+  margin: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+/* The label would make the control too wide for a toolbar; the avatar carries it */
+.MuiDrawer-paperAnchorDockedLeft
+  .MuiAccordion-root:has(> [id="Profile-header"])
+  .MuiAccordionSummary-content
+  > .MuiTypography-body1 {
+  display: none;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiAccordionSummary-expandIcon {
+  padding: 4px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* Dropdown, matching the language switcher */
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiCollapse-root {
+  position: absolute;
+  top: calc(100% + 6px);
+  right: 0;
+  width: 14rem;
+  background: #10345a;
+  border-radius: 8px;
+  box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.55);
+  overflow: hidden;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiAccordionDetails-root {
+  padding: 0.35rem 0;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiListItem-button {
+  padding: 8px 14px;
+  border-radius: 0;
+}
+
+@media (max-width: 60rem) {
+  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) {
+    position: static;
+    width: auto;
+  }
+  .MuiDrawer-paperAnchorDockedLeft
+    .MuiAccordion-root:has(> [id="Profile-header"])
+    .MuiAccordionSummary-content
+    > .MuiTypography-body1 {
+    display: block;
+  }
+  .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [id="Profile-header"]) .MuiCollapse-root {
+    position: static;
+    width: auto;
+    background: transparent;
+    box-shadow: none;
+  }
+}
