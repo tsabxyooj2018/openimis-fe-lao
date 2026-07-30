@@ -41,19 +41,66 @@ body {
 /* Page ground behind the card. This one stays on <body> deliberately -- it is
    the only rule that should apply to the page rather than the card. */
 body:has(input[type="password"]) {
-  background:
-    radial-gradient(1200px 600px at 50% -10%, #dfe8f0 0%, transparent 70%),
-    #eef2f6;
+  background: #0a2440;
 }
 
-/* The container fe-core centres the card in is `position: absolute; inset: 0`
-   with no overflow handling, so a card taller than the viewport is clipped top
-   and bottom with no way to scroll. Make it scroll and align to the top. */
+/* Two-panel sign-in: card on the left, institutional ground filling the right.
+   fe-core centres the card in a `position: absolute; inset: 0` flex container,
+   so that container carries the panel treatment -- no fork needed.
+   `display: block` rather than flex is deliberate: a flex container with
+   `align-items: center` CLIPS a child taller than the viewport and cannot be
+   scrolled to. Block layout plus overflow always scrolls. Vertical centring
+   comes back below, only where there is room for it. */
 div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
-  align-items: flex-start !important;
+  display: block !important;
   overflow-y: auto;
-  padding: 2rem 1rem;
   box-sizing: border-box;
+  padding: 5vh clamp(1.25rem, 7vw, 7rem);
+  background-color: #0a2440;
+  background-image:
+    /* emblem watermark, right-hand panel */
+    url(./emblem-moh.png),
+    /* keeps the card side dark enough for white text to read over it */
+    linear-gradient(100deg, #0a2440 0%, #123b63 52%, #17456f 100%),
+    /* faint grid, echoing the seal's engraved feel without competing with it */
+    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 22px);
+  background-repeat: no-repeat, no-repeat, repeat;
+  background-position: right -6vw center, center, center;
+  background-size: auto 86%, cover, auto;
+  background-blend-mode: soft-light, normal, normal;
+}
+
+/* Card sits left. margin-right:auto rather than justify-content so the layout
+   stays block and keeps its scrollability. */
+[class*="MuiPaper"]:has(input[type="password"]) {
+  margin-right: auto !important;
+  margin-left: 0 !important;
+}
+
+/* Vertical centring only when the viewport can afford it, so short screens
+   scroll from the top instead of clipping. */
+@media (min-height: 46rem) {
+  div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  [class*="MuiPaper"]:has(input[type="password"]) {
+    margin-top: 50vh !important;
+    transform: translateY(-50%);
+  }
+}
+
+/* Narrow screens: no room for a side panel. Centre the card and drop the
+   watermark, which would sit behind the form and hurt legibility. */
+@media (max-width: 60rem) {
+  div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
+    padding: 4vh 1.25rem;
+    background-image: linear-gradient(160deg, #0a2440 0%, #123b63 100%);
+  }
+  [class*="MuiPaper"]:has(input[type="password"]) {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
 }
 
 /* The card */
@@ -212,7 +259,6 @@ div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
 @media (max-width: 480px) {
   [class*="MuiPaper"]:has(input[type="password"]) {
     max-width: none;
-    margin: 0 1rem;
-    padding: 2rem 1.5rem 1.75rem;
+    padding: 1.75rem 1.375rem 1.25rem;
   }
 }
