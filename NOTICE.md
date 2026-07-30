@@ -25,22 +25,27 @@ that users interacting with a modified version over a network be offered its sou
 | `lao/` | Added — bilingual Lao/English login labels and the build step that applies them |
 | `Dockerfile` | Pinned `npm@10`; strips CR from the entrypoint; runs the label overrides |
 | `.github/workflows/build-fe.yml` | Added — builds and publishes the image to GHCR |
-| `openimis.json` | Removed `GrievanceSocialProtectionModule` — see below |
+| `openimis.json` | Added the `lo` locale; module list otherwise unchanged |
 
 Upstream's own workflow files were removed: they reference secrets that do not
 exist here and would fail on every push.
 
-### Grievance module removed
+### The false "Session Expired" dialog
 
-The module queries `grievanceConfig` as the app loads. Its backend resolver
-(`grievance_social_protection/schema.py`, `resolve_grievance_config`) raises
-`PermissionDenied("unauthorized")` for anonymous users, and `fe-core` treats any
-`unauthorized` GraphQL error as session expiry — so every visitor met a
-"Session Expired" dialog on the login page before they had a session at all.
+`fe-core`'s API middleware treats any GraphQL error whose message normalises to
+`unauthorized` as session expiry, and offers to redirect to the login page.
 
-Restore the entry in `openimis.json` once the backend permits anonymous access to
-that config, or once the query is deferred until after sign-in. The grievance
-backend module is unaffected and still present in the stock backend image.
+The grievance module fetches `grievanceConfig` as the app loads, and that
+resolver (`grievance_social_protection/schema.py`, `resolve_grievance_config`)
+rejects anonymous callers outright. Every visitor therefore met a "Session
+Expired" dialog on the login page, before having a session at all.
+
+`lao/apply-overrides.js` requires an authenticated header to be present before
+the middleware draws that conclusion. "Unauthorized" only means the session ended
+if there was one. Genuine expiry is unaffected.
+
+The module itself was removed for a time as a workaround; it is back, and the
+menu with it.
 
 ### Two upstream bugs fixed here
 

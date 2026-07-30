@@ -1,6 +1,34 @@
 {
+  " Ticket.ComplainantInformation": {
+    "en": "REPORTER INFORMATION",
+    "lo": ""
+  },
+  " Ticket.DescriptionOfEvents": {
+    "en": "DETAILS OF EVENT LEADING TO GRIEVANCE (Provide a detailed account of the occurrence)",
+    "lo": ""
+  },
+  " Ticket.Resolution": {
+    "en": "RESOLUTION (time to resolution in form of CRON timedelta: {days},{hours} where days are values between <0, 99) and hours are between 0 and 24.)",
+    "lo": ""
+  },
+  "action.AddTicket.tooltip": {
+    "en": "Add Grievance",
+    "lo": ""
+  },
+  "addNewGrievanceTooltip": {
+    "en": "Add Grievance",
+    "lo": ""
+  },
   "addNewPremium.buttonText": {
     "en": "New contribution",
+    "lo": ""
+  },
+  "addNewticketTooltip": {
+    "en": "Add Grievance",
+    "lo": ""
+  },
+  "addNewTicketTooltip": {
+    "en": "Add New Bank",
     "lo": ""
   },
   "addToNewGroup": {
@@ -399,6 +427,10 @@
     "en": "Open",
     "lo": ""
   },
+  "anonymousUser": {
+    "en": "Anonymous User",
+    "lo": ""
+  },
   "any": {
     "en": "Any",
     "lo": ""
@@ -429,6 +461,10 @@
   },
   "attachmentStatus": {
     "en": "Attachment",
+    "lo": ""
+  },
+  "attendingStaff": {
+    "en": "Attending Staff",
     "lo": ""
   },
   "bill.amountDiscount": {
@@ -775,8 +811,40 @@
     "en": "Cancel",
     "lo": ""
   },
+  "category.categoryTitle": {
+    "en": "Category Name",
+    "lo": ""
+  },
+  "category.label": {
+    "en": "Category",
+    "lo": ""
+  },
+  "category.picker.dialog.title": {
+    "en": "Category",
+    "lo": ""
+  },
+  "category.slug": {
+    "en": "Category Slug",
+    "lo": ""
+  },
+  "CategoryPicker.label": {
+    "en": "Category",
+    "lo": ""
+  },
+  "CategoryPicker.placeholder": {
+    "en": "Category",
+    "lo": ""
+  },
   "changeGroupButtonTooltip": {
     "en": "Move to another group.",
+    "lo": ""
+  },
+  "ChannelPicker.label": {
+    "en": "Channel",
+    "lo": ""
+  },
+  "ChannelPicker.placeholder": {
+    "en": "Channel",
     "lo": ""
   },
   "claim_batch.account_preview_perms": {
@@ -4651,6 +4719,14 @@
     "en": "Delete Payer",
     "lo": ""
   },
+  "deleteTicketDialog.message": {
+    "en": "Delete Grievance",
+    "lo": ""
+  },
+  "deleteTicketDialog.title": {
+    "en": "Delete Grievance",
+    "lo": ""
+  },
   "detailPaymentInvoice.amount": {
     "en": "Amount",
     "lo": ""
@@ -4797,6 +4873,46 @@
   },
   "familySummaries.deleteFamily.buttonText": {
     "en": "Delete",
+    "lo": ""
+  },
+  "FlagPicker.label": {
+    "en": "Flag",
+    "lo": ""
+  },
+  "FlagPicker.placeholder": {
+    "en": "Flag",
+    "lo": ""
+  },
+  "grievance.ticket": {
+    "en": "Grievance",
+    "lo": ""
+  },
+  "grievanceSocialProtection.dialogs.GrievanceConfigurationDialog.dialogBody": {
+    "en": "Go to django admin panel and set up missing values: {configString}",
+    "lo": ""
+  },
+  "grievanceSocialProtection.dialogs.GrievanceConfigurationDialog.dialogHeader": {
+    "en": "Please fill the config.",
+    "lo": ""
+  },
+  "grievantType": {
+    "en": "Reporter Type",
+    "lo": ""
+  },
+  "grievantType.beneficiary": {
+    "en": "Beneficiary",
+    "lo": ""
+  },
+  "grievantType.individual": {
+    "en": "Individual",
+    "lo": ""
+  },
+  "grievantType.null": {
+    "en": "None",
+    "lo": ""
+  },
+  "grievantType.user": {
+    "en": "Attending Staff",
     "lo": ""
   },
   "group.code": {
@@ -7731,6 +7847,10 @@
     "en": "Legal and Finance",
     "lo": "ນິຕິກຳ ແລະ ການເງິນ"
   },
+  "mainMenuGrievance": {
+    "en": "Grievance",
+    "lo": "ຄຳຮ້ອງທຸກ"
+  },
   "mainMenuIndividuals": {
     "en": "Beneficiares and Households",
     "lo": "ຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ ແລະ ຄົວເຮືອນ"
@@ -8455,6 +8575,10 @@
     "en": "Referral",
     "lo": ""
   },
+  "menu.add_ticket": {
+    "en": "Add Grievance",
+    "lo": ""
+  },
   "menu.api": {
     "en": "Import Data - API",
     "lo": "ນຳເຂົ້າຂໍ້ມູນ - API"
@@ -8462,6 +8586,14 @@
   "menu.bills": {
     "en": "Bills",
     "lo": "ໃບບິນ"
+  },
+  "menu.grievance.add": {
+    "en": "Add Grievance",
+    "lo": "ເພີ່ມຄຳຮ້ອງທຸກ"
+  },
+  "menu.grievance.grievances": {
+    "en": "Grievances",
+    "lo": "ລາຍການຄຳຮ້ອງທຸກ"
   },
   "menu.groups": {
     "en": "Groups",
@@ -12211,6 +12343,10 @@
     "en": "Changelog",
     "lo": ""
   },
+  "reopenTicket.mutation.label": {
+    "en": "Reopen Ticket",
+    "lo": ""
+  },
   "report.gql_mutation_report_add_perms": {
     "en": "Report | Mutation Report Add",
     "lo": ""
@@ -12323,6 +12459,14 @@
     "en": "Reset",
     "lo": ""
   },
+  "resolveButtonTooltip": {
+    "en": "Resolve grievance with this comment.",
+    "lo": ""
+  },
+  "resolveGrievanceByComment.mutation.label": {
+    "en": "Resolve Ticket using comment",
+    "lo": ""
+  },
   "roleManagement.deleteButton.buttonText": {
     "en": "Delete",
     "lo": ""
@@ -12337,6 +12481,10 @@
   },
   "searchInsuree.buttonText": {
     "en": "Search",
+    "lo": ""
+  },
+  "showHistory": {
+    "en": "Show History",
     "lo": ""
   },
   "social_protection.gql_activity_search_perms": {
@@ -13473,6 +13621,414 @@
   },
   "tasksManagement.viewDetailsButton.tooltip": {
     "en": "View details",
+    "lo": ""
+  },
+  "Ticket Priority": {
+    "en": "Priority",
+    "lo": ""
+  },
+  "Ticket Priority.Critical": {
+    "en": "Critical",
+    "lo": ""
+  },
+  "Ticket Priority.High": {
+    "en": "High",
+    "lo": ""
+  },
+  "Ticket Priority.Low": {
+    "en": "Low",
+    "lo": ""
+  },
+  "Ticket Priority.Normal": {
+    "en": "Normal",
+    "lo": ""
+  },
+  "Ticket Priority.null": {
+    "en": "None",
+    "lo": ""
+  },
+  "Ticket Status": {
+    "en": "Status",
+    "lo": ""
+  },
+  "Ticket Status.CLOSED": {
+    "en": "Closed",
+    "lo": ""
+  },
+  "Ticket Status.Done": {
+    "en": "Done",
+    "lo": ""
+  },
+  "Ticket Status.IN_PROGRESS": {
+    "en": "In Progress",
+    "lo": ""
+  },
+  "Ticket Status.Inprogress": {
+    "en": "Inprogress",
+    "lo": ""
+  },
+  "Ticket Status.null": {
+    "en": "None",
+    "lo": ""
+  },
+  "Ticket Status.OPEN": {
+    "en": "Open",
+    "lo": ""
+  },
+  "Ticket Status.RECEIVED": {
+    "en": "Received",
+    "lo": ""
+  },
+  "Ticket Status.RESOLVED": {
+    "en": "Resolved",
+    "lo": ""
+  },
+  "Ticket Status.Review": {
+    "en": "Review",
+    "lo": ""
+  },
+  "Ticket Status.Todo": {
+    "en": "Todo",
+    "lo": ""
+  },
+  "Ticket Status.Waiting": {
+    "en": "Waiting",
+    "lo": ""
+  },
+  "ticket.anonymousUser": {
+    "en": "Anonymous User",
+    "lo": ""
+  },
+  "ticket.attachments.table": {
+    "en": "Attachments",
+    "lo": ""
+  },
+  "ticket.attachments.table.date": {
+    "en": "Date",
+    "lo": ""
+  },
+  "ticket.attachments.table.file": {
+    "en": "File",
+    "lo": ""
+  },
+  "ticket.attachments.table.filename": {
+    "en": "File Name",
+    "lo": ""
+  },
+  "ticket.attendingStaff": {
+    "en": "Attending Staff",
+    "lo": ""
+  },
+  "ticket.comment": {
+    "en": "Comment",
+    "lo": ""
+  },
+  "ticket.commenter": {
+    "en": "Commenter",
+    "lo": ""
+  },
+  "ticket.currentVillage": {
+    "en": "Village",
+    "lo": ""
+  },
+  "ticket.dateCreated": {
+    "en": "Date Created",
+    "lo": ""
+  },
+  "ticket.dateOfIncident": {
+    "en": "Date of Incident",
+    "lo": ""
+  },
+  "ticket.description": {
+    "en": "Description",
+    "lo": ""
+  },
+  "Ticket.description": {
+    "en": " Grievance Description",
+    "lo": ""
+  },
+  "ticket.editButtonTooltip": {
+    "en": "Edit Grievance",
+    "lo": ""
+  },
+  "ticket.email": {
+    "en": "Email",
+    "lo": ""
+  },
+  "ticket.eventDate": {
+    "en": "Date of Event",
+    "lo": ""
+  },
+  "ticket.eventLocation": {
+    "en": "Location of Event",
+    "lo": ""
+  },
+  "ticket.insureeLocation": {
+    "en": "Location",
+    "lo": ""
+  },
+  "ticket.mainMenu": {
+    "en": "Grievance",
+    "lo": ""
+  },
+  "ticket.markAsResolved": {
+    "en": "Resolve Using Comment",
+    "lo": ""
+  },
+  "ticket.menu.my_entities": {
+    "en": "MY Grievance",
+    "lo": ""
+  },
+  "ticket.name": {
+    "en": "Name",
+    "lo": ""
+  },
+  "ticket.phone": {
+    "en": "Phone",
+    "lo": ""
+  },
+  "Ticket.priority": {
+    "en": "",
+    "lo": ""
+  },
+  "ticket.resolution": {
+    "en": "RESOLUTION",
+    "lo": ""
+  },
+  "Ticket.status.DONE": {
+    "en": "DONE",
+    "lo": ""
+  },
+  "Ticket.status.INPROGRESS": {
+    "en": "INPROGRESS",
+    "lo": ""
+  },
+  "Ticket.status.REVIEW": {
+    "en": "REVIEW",
+    "lo": ""
+  },
+  "Ticket.status.TODO": {
+    "en": "TODO",
+    "lo": ""
+  },
+  "Ticket.status.WAITING": {
+    "en": "WAITING",
+    "lo": ""
+  },
+  "ticket.Table": {
+    "en": "Grievances",
+    "lo": ""
+  },
+  "ticket.template.attendingStaff": {
+    "en": "Attending Staff",
+    "lo": ""
+  },
+  "ticket.template.category": {
+    "en": "Category",
+    "lo": ""
+  },
+  "ticket.template.channel": {
+    "en": "Channel",
+    "lo": ""
+  },
+  "ticket.template.comments": {
+    "en": "Comments",
+    "lo": ""
+  },
+  "ticket.template.dateCreated": {
+    "en": "Date Created",
+    "lo": ""
+  },
+  "ticket.template.dateOfIncident": {
+    "en": "Date of Incident",
+    "lo": ""
+  },
+  "ticket.template.description": {
+    "en": "Description",
+    "lo": ""
+  },
+  "ticket.template.flags": {
+    "en": "Flags",
+    "lo": ""
+  },
+  "ticket.template.noComments": {
+    "en": "No Comments yet",
+    "lo": ""
+  },
+  "ticket.template.priority": {
+    "en": "Priority",
+    "lo": ""
+  },
+  "ticket.template.reporter": {
+    "en": "Reporter",
+    "lo": ""
+  },
+  "ticket.template.status": {
+    "en": "Status",
+    "lo": ""
+  },
+  "ticket.template.ticketCode": {
+    "en": "Code",
+    "lo": ""
+  },
+  "ticket.template.title": {
+    "en": "Title",
+    "lo": ""
+  },
+  "ticket.ticket.attendingStaff": {
+    "en": "Attending Staff",
+    "lo": ""
+  },
+  "Ticket.Ticket.Table": {
+    "en": "Grievance ({count})",
+    "lo": ""
+  },
+  "ticket.ticketCode": {
+    "en": "Code",
+    "lo": ""
+  },
+  "ticket.ticketDescription": {
+    "en": "DETAILS OF EVENT LEADING TO GRIEVANCE (Provide a detailed account of the occurrence)",
+    "lo": ""
+  },
+  "ticket.ticketGrievanct": {
+    "en": "Reporter",
+    "lo": ""
+  },
+  "ticket.ticketPriority": {
+    "en": "Priority",
+    "lo": ""
+  },
+  "ticket.ticketPriority.Critical": {
+    "en": "Critical",
+    "lo": ""
+  },
+  "ticket.ticketPriority.High": {
+    "en": "High",
+    "lo": ""
+  },
+  "ticket.ticketPriority.Low": {
+    "en": "Low",
+    "lo": ""
+  },
+  "ticket.ticketPriority.Normal": {
+    "en": "Normal",
+    "lo": ""
+  },
+  "ticket.ticketPriority.null": {
+    "en": "None",
+    "lo": ""
+  },
+  "ticket.ticketStatus": {
+    "en": "Status",
+    "lo": ""
+  },
+  "ticket.ticketStatus.CLOSED": {
+    "en": "Closed",
+    "lo": ""
+  },
+  "ticket.ticketStatus.IN_PROGRESS": {
+    "en": "In Progress",
+    "lo": ""
+  },
+  "ticket.ticketStatus.null": {
+    "en": "Any",
+    "lo": ""
+  },
+  "ticket.ticketStatus.OPEN": {
+    "en": "Open",
+    "lo": ""
+  },
+  "ticket.ticketStatus.RECEIVED": {
+    "en": "Received",
+    "lo": ""
+  },
+  "ticket.ticketStatus.RESOLVED": {
+    "en": "Resolved",
+    "lo": ""
+  },
+  "ticket.ticketSummaries.delete": {
+    "en": " ",
+    "lo": ""
+  },
+  "ticket.ticketTitle": {
+    "en": "Title",
+    "lo": ""
+  },
+  "ticket.title": {
+    "en": "Grievance Title",
+    "lo": ""
+  },
+  "Ticket.title": {
+    "en": " Grievance Title",
+    "lo": ""
+  },
+  "ticket.title.bar": {
+    "en": "Grievance",
+    "lo": ""
+  },
+  "ticket.witness": {
+    "en": "Witness (if applicable)",
+    "lo": ""
+  },
+  "TicketCommentsPanel.table.header": {
+    "en": "Comments",
+    "lo": ""
+  },
+  "tickets Status": {
+    "en": "Status",
+    "lo": ""
+  },
+  "tickets.beneficary": {
+    "en": "Reporter",
+    "lo": ""
+  },
+  "tickets.beneficaryCode": {
+    "en": "Insurance Number",
+    "lo": ""
+  },
+  "tickets.category": {
+    "en": "Category",
+    "lo": ""
+  },
+  "tickets.code": {
+    "en": "Code",
+    "lo": ""
+  },
+  "tickets.dueDate": {
+    "en": "Due Date",
+    "lo": ""
+  },
+  "tickets.priority": {
+    "en": "Priority",
+    "lo": ""
+  },
+  "tickets.status": {
+    "en": "Status",
+    "lo": ""
+  },
+  "tickets.ticketCode": {
+    "en": "Code",
+    "lo": ""
+  },
+  "tickets.title": {
+    "en": "Title",
+    "lo": ""
+  },
+  "tickets.version": {
+    "en": "Version",
+    "lo": ""
+  },
+  "ticketStatus.CLOSED": {
+    "en": "Closed",
+    "lo": ""
+  },
+  "ticketSummaries": {
+    "en": "({count}) Grievance(s)",
+    "lo": ""
+  },
+  "ticketSummaries.deleteTicket.tooltip": {
+    "en": "Delete Grievance",
     "lo": ""
   },
   "tools.ExtractsPage.ClaimsUploadBlock.ResultDialog.okBtn": {

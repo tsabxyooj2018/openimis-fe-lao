@@ -131,6 +131,10 @@
             "npm": "@openimis/fe-invoice@>=v1.10.0"
         },
         {
+            "name": "GrievanceSocialProtectionModule",
+            "npm": "@openimis/fe-grievance_social_protection@>=v1.2.0"
+        },
+        {
             "name": "LanguageFrModule",
             "npm": "@openimis/fe-language_fr@>=v1.9.0"
         },

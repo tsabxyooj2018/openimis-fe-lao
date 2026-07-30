@@ -84,6 +84,40 @@ const TOOLBAR_ACTIONS = [
   { icon: "HelpOutline", action: "help" },
 ];
 
+/*
+ * Do not announce "Session Expired" to someone who never had a session.
+ *
+ * fe-core's API middleware treats ANY GraphQL error whose message normalises to
+ * "unauthorized" as session expiry, and offers to redirect to the login page:
+ *
+ *   csrfError = gqlErrors.some(e => { const msg = norm(e?.message);
+ *     return msg === "csrftoken" || msg === "user not authorized for this
+ *            operation" || msg === "unauthorized"; });
+ *   if (csrfError) dispatch(coreConfirm("Session Expired", ...))
+ *
+ * The grievance module fetches grievanceConfig as the app loads, and that
+ * resolver rejects anonymous callers outright:
+ *
+ *   grievance_social_protection/schema.py  resolve_grievance_config()
+ *     if type(user) is AnonymousUser: raise PermissionDenied(_("unauthorized"))
+ *
+ * so every visitor met a Session Expired dialog on the login page, before
+ * having a session at all. The module was removed to stop it; this fixes the
+ * cause instead, so the Grievance menu can come back.
+ *
+ * "Unauthorized" only means the session ended if there WAS one. The header is
+ * the test: fe-core renders it only for an authenticated user, which is the
+ * same signal src/index.css uses to scope the login page. It is read when the
+ * error arrives rather than at mount, so it reflects the state at that moment.
+ *
+ * Genuine expiry is untouched -- the header is present then, and the dialog
+ * still appears.
+ */
+const SESSION_EXPIRY_GUARD = {
+  find: "csrfError = gqlErrors.some(function (e) {",
+  replace: 'csrfError = !!document.querySelector("header") && gqlErrors.some(function (e) {',
+};
+
 const toolbarPattern = (icon) =>
   new RegExp(
     `(createElement\\((?:[\\w$."\\[\\]]+\\.)?IconButton,\\s*\\{)([^{}]*)(\\}\\s*,\\s*(?:/\\*#__PURE__\\*/\\s*)?[\\w$."\\[\\]]+\\.createElement\\((?:[\\w$."\\[\\]]+\\.)?${icon}\\b)`,
@@ -93,6 +127,7 @@ const toolbarPattern = (icon) =>
 const totals = {};
 let filesPatched = 0;
 let menuIdPatched = 0;
+let guardPatched = 0;
 const toolbarHits = {};
 
 for (const rel of TARGETS) {
@@ -125,6 +160,11 @@ for (const rel of TARGETS) {
   if (menuIdHits) source = source.split(STABLE_MENU_ID.find).join(STABLE_MENU_ID.replace);
   menuIdPatched += menuIdHits || (already ? 1 : 0);
 
+  const guarded = source.includes(SESSION_EXPIRY_GUARD.replace);
+  const guardHits = guarded ? 0 : source.split(SESSION_EXPIRY_GUARD.find).length - 1;
+  if (guardHits) source = source.split(SESSION_EXPIRY_GUARD.find).join(SESSION_EXPIRY_GUARD.replace);
+  guardPatched += guardHits || (guarded ? 1 : 0);
+
   const actions = [];
   for (const { icon, action } of TOOLBAR_ACTIONS) {
     const marker = `"data-toolbar-action": "${action}"`;
@@ -148,7 +188,8 @@ for (const rel of TARGETS) {
   console.log(
     `  ${rel}: ${replacedHere} replacements, ` +
       `data-menu-id ${menuIdHits || (already ? "(already present)" : "NOT FOUND")}, ` +
-      `toolbar ${actions.join(" ")}`,
+      `toolbar ${actions.join(" ")}, ` +
+      `session-guard ${guardHits || (guarded ? "(already present)" : "NOT FOUND")}`,
   );
 }
 
@@ -162,6 +203,12 @@ if (unstamped.length) {
   console.error("\ncould not stamp these toolbar buttons:");
   unstamped.forEach(({ icon, action }) => console.error(`  ${action} (looked for the ${icon} icon)`));
   console.error("fe-core has changed how the toolbar is built; src/index.css needs a new hook.");
+  process.exit(1);
+}
+
+if (guardPatched === 0) {
+  console.error("\ncould not guard the Session Expired dialog: fe-core no longer builds csrfError");
+  console.error("the same way. Anonymous visitors may see a false session-expiry prompt.");
   process.exit(1);
 }
 
