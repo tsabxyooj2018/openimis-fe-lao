@@ -1,30 +1,31 @@
-# Translations
+# Lao translation
 
-Paired dictionaries, one file per language, all with the same keys — so any two
-can be read side by side for review.
+Only Lao lives here. English and French ship with openIMIS and are not ours to
+copy or maintain — keeping our own versions would duplicate data we do not own
+and go stale at every upgrade.
 
 | File | What it is |
 |---|---|
-| `en.json` | **Generated.** Every English string openIMIS ships (3,352). Do not edit. |
-| `fr.json` | **Generated.** The French pack (3,147), as a second reference. Do not edit. |
-| `lo.json` | **The file to edit.** Same keys as `en.json`; `""` means not translated yet. |
+| `lo.json` | **The file to edit.** Every key openIMIS has, with the English text alongside. |
 | `src/lao-language/lo.json` | **Generated** from `lo.json` — what the app imports. |
 
 ## Translating
 
-Open `en.json` and `lo.json` side by side. Both are sorted by key, so the lines
-line up. Fill in the empty values:
+Each entry carries its English text, so the pair is one line and there is no
+second file to keep aligned:
 
 ```json
-  "insuree.familyName": ""      →      "insuree.familyName": "ນາມສະກຸນ"
+  "insuree.familyName": { "en": "Family Name", "lo": "" }
+                                                     ↓
+  "insuree.familyName": { "en": "Family Name", "lo": "ນາມສະກຸນ" }
 ```
+
+Only ever edit `"lo"`. `"en"` is a copy of upstream, refreshed by the extractor;
+editing it changes nothing in the application.
 
 Leave a value empty if you are unsure. **Empty falls back to English; a wrong
 translation does not.** Partial coverage is safe by design — see
 `withBaseLanguageFallback` in `src/ModulesManager.js`.
-
-`fr.json` is worth consulting when an English string is ambiguous: the French
-pack is complete and was written by people who knew the domain.
 
 ### Placeholders must survive
 
@@ -70,16 +71,18 @@ of the interface blank. Only an absent key falls through to English.
 
 ## After an openIMIS upgrade
 
-New strings arrive with new keys. Regenerate the references:
-
 ```bash
 node lao/translations/extract-messages.js
 ```
 
-Then add any new keys to `lo.json` as empty values. The build reports keys in
-`lo.json` that no longer exist upstream; it never discards them.
+Adds new keys as untranslated, refreshes English wording that changed, and
+reports both. Existing Lao is never touched. Keys that disappeared upstream are
+left in place and listed, rather than deleted — upstream sometimes moves a key
+between modules, and discarding someone's work over that is not recoverable.
 
-### Where en.json comes from
+Run `build-lo.js` afterwards and commit both files.
+
+### Where the English text comes from
 
 The published modules contain only `dist/index.js` — no translation files, and
 the source maps do not carry them either. The strings exist solely as an object
@@ -88,5 +91,9 @@ literal inside each bundle, which `extract-messages.js` locates and evaluates.
 It has to evaluate rather than parse: rollup leaves keys unquoted where they are
 valid identifiers, and splits an imported JSON file into one const per top-level
 key. Eight of the thirty modules are therefore not valid JSON and reference
-bindings declared elsewhere in the bundle — including `fe-language_fr`, which
-holds essentially all of the French.
+bindings declared elsewhere in the bundle. Parsing them as JSON reads 2,020
+strings and skips those eight silently; resolving the references reads all
+thirty, for 3,352.
+
+If a module cannot be read, the script refuses to rewrite `lo.json` at all — a
+partial read would look exactly like keys being removed upstream.

@@ -20,18 +20,28 @@
  * input is a package this project already installs and executes in the browser
  * on every page load. Only the matched literal is evaluated, never the bundle.
  *
- * Usage:
- *   node lao/translations/extract-messages.js [modulesDir] [outDir]
+ * It does NOT write an English dictionary. openIMIS owns English and French;
+ * keeping a copy here would duplicate data this project does not maintain and
+ * go stale at every upgrade. The English text is folded into lao/translations/
+ * lo.json instead, as context beside each Lao value:
  *
- * Defaults to node_modules/@openimis and lao/translations. Re-run it after
- * upgrading openIMIS: new strings appear in en.json as untranslated keys.
+ *   "insuree.familyName": { "en": "Family Name", "lo": "" }
+ *
+ * Existing Lao is preserved. Re-running after an upgrade adds new keys as
+ * untranslated, refreshes English wording that changed, and reports keys that
+ * disappeared upstream without deleting anyone's work.
+ *
+ * Usage:
+ *   node lao/translations/extract-messages.js [modulesDir] [workingFile]
+ *
+ * Defaults to node_modules/@openimis and lao/translations/lo.json.
  */
 const fs = require("fs");
 const path = require("path");
 
 const MODULES_DIR = process.argv[2] || path.join("node_modules", "@openimis");
-const OUT_DIR = process.argv[3] || path.join("lao", "translations");
-const LANGS = ["en", "fr"];
+const WORKING = process.argv[3] || path.join("lao", "translations", "lo.json");
+const BASE_LANG = "en";
 
 const OPENERS = { "{": "}", "[": "]" };
 
@@ -137,42 +147,63 @@ function bundlesIn(dir) {
     .sort((a, b) => a.name.localeCompare(b.name));
 }
 
-const merged = Object.fromEntries(LANGS.map((l) => [l, {}]));
-const modules = bundlesIn(MODULES_DIR);
+const english = {};
 let failures = 0;
 
-modules.forEach(({ name, file }) => {
+bundlesIn(MODULES_DIR).forEach(({ name, file }) => {
   const src = fs.readFileSync(file, "utf8");
-  const found = [];
-  LANGS.forEach((lang) => {
-    let dict;
-    try {
-      dict = messagesFor(src, lang);
-    } catch (e) {
-      console.error(`  ${name} [${lang}]: ${e.message}`);
-      failures += 1;
-      return;
-    }
-    if (!dict) return;
-    found.push(`${lang}=${Object.keys(dict).length}`);
-    // First definition wins. Modules share the "core.*" prefix for a few
-    // strings; taking the first keeps the result stable across runs.
-    Object.entries(dict).forEach(([k, v]) => {
-      if (!(k in merged[lang])) merged[lang][k] = v;
-    });
+  let dict;
+  try {
+    dict = messagesFor(src, BASE_LANG);
+  } catch (e) {
+    console.error(`  ${name}: ${e.message}`);
+    failures += 1;
+    return;
+  }
+  console.log(`  ${name}: ${dict ? Object.keys(dict).length : "none"}`);
+  if (!dict) return;
+  // First definition wins. A few keys appear in more than one module; taking
+  // the first keeps the result stable across runs.
+  Object.entries(dict).forEach(([k, v]) => {
+    if (!(k in english)) english[k] = v;
   });
-  console.log(`  ${name}: ${found.join(", ") || "none"}`);
-});
-
-fs.mkdirSync(OUT_DIR, { recursive: true });
-LANGS.forEach((lang) => {
-  const sorted = Object.fromEntries(Object.entries(merged[lang]).sort(([a], [b]) => a.localeCompare(b)));
-  const out = path.join(OUT_DIR, `${lang}.json`);
-  fs.writeFileSync(out, `${JSON.stringify(sorted, null, 2)}\n`, "utf8");
-  console.log(`${out}: ${Object.keys(sorted).length} strings`);
 });
 
 if (failures) {
-  console.error(`\n${failures} dictionaries could not be read -- the output is incomplete.`);
+  console.error(`\n${failures} module(s) could not be read -- refusing to rewrite ${WORKING},`);
+  console.error("because a partial read would look like keys being removed upstream.");
   process.exit(1);
+}
+
+const existing = fs.existsSync(WORKING) ? JSON.parse(fs.readFileSync(WORKING, "utf8")) : {};
+
+const added = [];
+const rewordedEnglish = [];
+const merged = {};
+Object.keys(english)
+  .sort((a, b) => a.localeCompare(b))
+  .forEach((key) => {
+    const was = existing[key];
+    if (!was) added.push(key);
+    else if (was.en !== english[key] && was.lo) rewordedEnglish.push(key);
+    merged[key] = { en: english[key], lo: was?.lo ?? "" };
+  });
+
+// Kept, not dropped: discarding someone's translation because a key vanished
+// from one upgrade would be irreversible, and upstream sometimes moves keys
+// between modules. Reported so they can be pruned deliberately.
+const gone = Object.keys(existing).filter((k) => !(k in english));
+
+fs.writeFileSync(WORKING, `${JSON.stringify(merged, null, 2)}\n`, "utf8");
+
+const translated = Object.values(merged).filter((v) => v.lo.trim() !== "").length;
+console.log(`\n${WORKING}: ${Object.keys(merged).length} keys, ${translated} translated`);
+if (added.length) console.log(`  ${added.length} new key(s)`);
+if (gone.length) {
+  console.log(`  ${gone.length} key(s) no longer in openIMIS (left in place):`);
+  gone.slice(0, 10).forEach((k) => console.log(`    ${k}`));
+}
+if (rewordedEnglish.length) {
+  console.log(`  ${rewordedEnglish.length} translated key(s) whose English changed -- review:`);
+  rewordedEnglish.slice(0, 10).forEach((k) => console.log(`    ${k}`));
 }
