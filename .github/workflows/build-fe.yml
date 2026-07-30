@@ -55,8 +55,16 @@ jobs:
         with:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
-          # Built-in token: no PAT needed to publish to this account's registry.
-          password: ${{ secrets.GITHUB_TOKEN }}
+          # Prefers a PAT with write:packages if the GHCR_TOKEN secret exists,
+          # otherwise the built-in token.
+          #
+          # GITHUB_TOKEN alone returns 403 on push unless BOTH hold:
+          #   - Settings > Actions > General > Workflow permissions is set to
+          #     "Read and write permissions", and
+          #   - no package of this name already exists that is linked to another
+          #     repository (or to no repository at all)
+          # A PAT sidesteps both.
+          password: ${{ secrets.GHCR_TOKEN || secrets.GITHUB_TOKEN }}
 
       - name: Derive tags
         id: meta
