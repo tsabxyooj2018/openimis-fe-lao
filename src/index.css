@@ -23,15 +23,23 @@ body {
    The login page lives in @openimis/fe-core and we do not fork it, so this
    restyles the markup it already produces.
 
-   Scoping: `:has(input[type="password"])` limits every rule below to the
-   sign-in screen, so the rest of openIMIS is untouched. Only the login and
-   set-password screens contain a password field.
+   Scoping: every rule hangs off
+       [class*="MuiPaper"]:has(input[type="password"])
+   i.e. the Paper that *contains* the password field. That is the login card and
+   nothing else.
+
+   An earlier version scoped on `body:has(input[type="password"])` and matched
+   any descendant Paper or Button. MUI dialogs are Papers too, so the
+   session-expiry dialog inherited the card's heading style, its button styling
+   and -- absurdly -- the AGPL credit line.
 
    Selectors: MUI v4 emits its global class names (MuiPaper-root, ...) at
    runtime alongside hashed makeStyles names, so `[class*="MuiPaper"]` matches
    reliably where a literal `.MuiPaper-root` may not.
    --------------------------------------------------------------------------- */
 
+/* Page ground behind the card. This one stays on <body> deliberately -- it is
+   the only rule that should apply to the page rather than the card. */
 body:has(input[type="password"]) {
   background:
     radial-gradient(1200px 600px at 50% -10%, #dfe8f0 0%, transparent 70%),
@@ -39,7 +47,7 @@ body:has(input[type="password"]) {
 }
 
 /* The card */
-body:has(input[type="password"]) [class*="MuiPaper"] {
+[class*="MuiPaper"]:has(input[type="password"]) {
   width: 100%;
   max-width: 25rem;
   margin: 0 auto;
@@ -55,7 +63,7 @@ body:has(input[type="password"]) [class*="MuiPaper"] {
 
 /* Emblem. Larger than a wordmark would need: it is a detailed circular seal
    with Lao text in the ring, and below about 7rem the lettering turns to mush. */
-body:has(input[type="password"]) img {
+[class*="MuiPaper"]:has(input[type="password"]) img {
   display: block;
   max-height: 7rem;
   max-width: 7rem;
@@ -69,7 +77,7 @@ body:has(input[type="password"]) img {
    so it is restored here. This is an interim measure: generated content is not
    selectable and cannot carry the link to Corresponding Source that AGPL s13
    requires. The durable fix is a real element in a forked LoginPage. */
-body:has(input[type="password"]) [class*="MuiPaper"]::after {
+[class*="MuiPaper"]:has(input[type="password"])::after {
   content: "Powered by openIMIS 26.04 — free software under AGPL v3";
   display: block;
   margin-top: 1.75rem;
@@ -83,15 +91,15 @@ body:has(input[type="password"]) [class*="MuiPaper"]::after {
 
 /* Service name. Lao needs more line spacing than Latin: without it the
    tone marks of one line collide with the ascenders of the next. */
-body:has(input[type="password"]) h1,
-body:has(input[type="password"]) h2,
-body:has(input[type="password"]) h3,
-body:has(input[type="password"]) h4,
-body:has(input[type="password"]) h5,
-body:has(input[type="password"]) h6,
+[class*="MuiPaper"]:has(input[type="password"]) h1,
+[class*="MuiPaper"]:has(input[type="password"]) h2,
+[class*="MuiPaper"]:has(input[type="password"]) h3,
+[class*="MuiPaper"]:has(input[type="password"]) h4,
+[class*="MuiPaper"]:has(input[type="password"]) h5,
+[class*="MuiPaper"]:has(input[type="password"]) h6,
 /* Fallback: fe-core may render the service name as a Typography div/span
    rather than a heading. It is always the element right after the logo. */
-body:has(input[type="password"]) img + * {
+[class*="MuiPaper"]:has(input[type="password"]) img + * {
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.65;
@@ -105,8 +113,8 @@ body:has(input[type="password"]) img + * {
 }
 
 /* Field labels */
-body:has(input[type="password"]) [class*="MuiFormLabel"],
-body:has(input[type="password"]) label {
+[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiFormLabel"],
+[class*="MuiPaper"]:has(input[type="password"]) label {
   font-size: 0.86rem;
   font-weight: 500;
   letter-spacing: 0.01em;
@@ -114,25 +122,25 @@ body:has(input[type="password"]) label {
 }
 
 /* Inputs */
-body:has(input[type="password"]) [class*="MuiFormControl"],
-body:has(input[type="password"]) [class*="MuiTextField"] {
+[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiFormControl"],
+[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiTextField"] {
   width: 100%;
   margin-bottom: 0.5rem;
 }
 
-body:has(input[type="password"]) [class*="MuiInputBase-input"] {
+[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiInputBase-input"] {
   font-size: 0.98rem;
   padding-top: 0.55rem;
   padding-bottom: 0.55rem;
   color: #0b1f2a;
 }
 
-body:has(input[type="password"]) [class*="MuiInput-underline"]::after {
+[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiInput-underline"]::after {
   border-bottom: 2px solid #1e6f94;
 }
 
 /* Submit */
-body:has(input[type="password"]) [class*="MuiButton"] {
+[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiButton"] {
   width: 100%;
   margin-top: 1.5rem;
   padding: 0.7rem 1rem;
@@ -145,18 +153,18 @@ body:has(input[type="password"]) [class*="MuiButton"] {
   box-shadow: none;
 }
 
-body:has(input[type="password"]) [class*="MuiButton"]:not([disabled]) {
+[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiButton"]:not([disabled]) {
   background: #123b63;
   color: #fff;
 }
 
-body:has(input[type="password"]) [class*="MuiButton"]:not([disabled]):hover {
+[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiButton"]:not([disabled]):hover {
   background: #0d2c4b;
   box-shadow: 0 2px 8px -2px rgba(18, 59, 99, 0.4);
 }
 
 /* Forgot-password link sits below the button as a quiet tertiary action */
-body:has(input[type="password"]) a {
+[class*="MuiPaper"]:has(input[type="password"]) a {
   display: block;
   margin-top: 1.25rem;
   font-size: 0.84rem;
@@ -165,20 +173,20 @@ body:has(input[type="password"]) a {
   text-decoration: none;
 }
 
-body:has(input[type="password"]) a:hover {
+[class*="MuiPaper"]:has(input[type="password"]) a:hover {
   text-decoration: underline;
 }
 
 /* Keyboard focus must stay visible after the restyle */
-body:has(input[type="password"]) a:focus-visible,
-body:has(input[type="password"]) button:focus-visible,
-body:has(input[type="password"]) input:focus-visible {
+[class*="MuiPaper"]:has(input[type="password"]) a:focus-visible,
+[class*="MuiPaper"]:has(input[type="password"]) button:focus-visible,
+[class*="MuiPaper"]:has(input[type="password"]) input:focus-visible {
   outline: 2px solid #1e6f94;
   outline-offset: 2px;
 }
 
 @media (max-width: 480px) {
-  body:has(input[type="password"]) [class*="MuiPaper"] {
+  [class*="MuiPaper"]:has(input[type="password"]) {
     max-width: none;
     margin: 0 1rem;
     padding: 2rem 1.5rem 1.75rem;
