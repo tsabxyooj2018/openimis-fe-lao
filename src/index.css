@@ -255,3 +255,215 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
     box-shadow: none;
   }
 }
+
+/* ===========================================================================
+   Application shell — sidebar, header, logout
+   ===========================================================================
+   Written against the rendered DOM rather than guessed:
+
+     header.MuiAppBar-root > .MuiToolbar-root
+         > div (search)  > button[title="Log out"]  > button[title="Documentation"]
+     .MuiDrawer-paperAnchorDockedLeft            <- the sidebar
+         > button.MuiButton-root                  <- title block
+             > .MuiButton-label                   <- text node + div > .MuiTypography-caption (version)
+         > hr
+         > .MuiAccordion-root  x9                 <- menu groups
+             > .MuiAccordionSummary-root > .MuiAccordionSummary-content
+                 > button.MuiIconButton-root      <- icon slot; EMPTY for 4 groups
+                 > p.MuiTypography-body1          <- group label
+
+   None of these rules touch the sign-in screen: those are scoped on
+   :has(input[type="password"]), which no authenticated page has.
+   =========================================================================== */
+
+/* --- Sidebar shell -------------------------------------------------------- */
+.MuiDrawer-paperAnchorDockedLeft {
+  /* room for the pinned logout row at the bottom */
+  padding-bottom: 56px;
+  border-right: 0;
+}
+
+/* --- Sidebar header: emblem, name, version -------------------------------
+   The name and version were inline siblings inside .MuiButton-label, which is
+   why they ran together as "...ແຫ່ງຊາດ26.04". Stacking the label fixes it.
+   The emblem is a ::before background: CSS cannot insert an <img>, and the
+   sidebar variant does not render one. */
+.MuiDrawer-paperAnchorDockedLeft > .MuiButton-root {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 1.25rem 0.75rem 1rem;
+  border-radius: 0;
+  text-transform: none;
+}
+
+.MuiDrawer-paperAnchorDockedLeft > .MuiButton-root::before {
+  content: "";
+  display: block;
+  width: 76px;
+  height: 76px;
+  margin-bottom: 0.75rem;
+  box-sizing: border-box;
+  padding: 5px;
+  border-radius: 50%;
+  /* the seal is dark-on-transparent; it needs a light disc to read on blue */
+  background-color: rgba(255, 255, 255, 0.94);
+  background-image: url(./emblem-moh.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  background-origin: content-box;
+}
+
+.MuiDrawer-paperAnchorDockedLeft > .MuiButton-root .MuiButton-label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.95rem;
+  font-weight: 600;
+  /* Lao stacks tone marks above the consonant; tight leading clips them */
+  line-height: 1.55;
+  color: #fff;
+  text-align: center;
+}
+
+/* the version, on its own line and demoted */
+.MuiDrawer-paperAnchorDockedLeft > .MuiButton-root .MuiButton-label .MuiTypography-caption {
+  font-size: 0.66rem;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.MuiDrawer-paperAnchorDockedLeft > hr.MuiDivider-root {
+  background-color: rgba(255, 255, 255, 0.14);
+  margin: 0 0 0.5rem;
+}
+
+/* --- Menu groups ---------------------------------------------------------
+   Accordions inherit MuiPaper elevation1 from the theme, which paints a card
+   shadow on top of the sidebar. Flatten them here only. */
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root {
+  background: transparent;
+  box-shadow: none;
+  border-radius: 0;
+  margin: 0;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root::before {
+  display: none;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordionSummary-root {
+  min-height: 44px;
+  padding: 0 0.5rem 0 0.25rem;
+  border-radius: 6px;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordionSummary-root:hover {
+  background: rgba(255, 255, 255, 0.07);
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordionSummary-content {
+  align-items: center;
+  margin: 6px 0;
+}
+
+/* Four of the nine groups contribute no icon, so their icon button collapses
+   to nothing and their label starts further left than the rest. A fixed slot
+   keeps every label on the same axis without inventing icons. */
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordionSummary-content > .MuiIconButton-root {
+  width: 40px;
+  min-width: 40px;
+  height: 40px;
+  padding: 8px;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordionSummary-content > .MuiTypography-body1 {
+  font-size: 0.94rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: #fff;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordionSummary-expandIcon {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+/* --- Menu items ----------------------------------------------------------- */
+.MuiDrawer-paperAnchorDockedLeft .MuiAccordionDetails-root {
+  padding: 0 0 0.35rem;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiListItem-button {
+  padding: 6px 12px 6px 44px;
+  border-radius: 6px;
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiListItem-button:hover {
+  background: rgba(255, 255, 255, 0.09);
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiListItemIcon-root {
+  min-width: 30px;
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiListItemText-primary {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.MuiDrawer-paperAnchorDockedLeft .MuiDivider-root {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Logout, pinned to the foot of the sidebar --------------------------
+   CSS cannot move it out of the toolbar, so it is positioned over the sidebar's
+   reserved bottom strip. Same element, same handler -- only its position and
+   label change. Matched by title and by ordinal so a language change cannot
+   silently retarget the Documentation button beside it. */
+header .MuiToolbar-root > .MuiIconButton-root[title="Log out"] {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 1300;
+  width: 288px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0 1rem;
+  border-radius: 0;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.22);
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+header .MuiToolbar-root > .MuiIconButton-root[title="Log out"]:hover {
+  background: rgba(0, 0, 0, 0.34);
+}
+
+header .MuiToolbar-root > .MuiIconButton-root[title="Log out"]::after {
+  content: "ອອກຈາກລະບົບ / Log out";
+  font-size: 0.85rem;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* --- Journal drawer ------------------------------------------------------
+   Belt and braces alongside showJournalSidebar:false in the fe-core runtime
+   config: the rendered DOM still carried the right-hand drawer. */
+nav:has(.MuiDrawer-paperAnchorDockedRight) {
+  display: none;
+}
+
+/* --- Page content --------------------------------------------------------- */
+main .MuiTypography-h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
