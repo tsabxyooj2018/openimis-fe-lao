@@ -4,6 +4,7 @@ import TranslateIcon from "@material-ui/icons/Translate";
 import { FlagLao, FlagEnglish, FlagFrench } from "./flags";
 import LanguageSwitchPage from "./LanguageSwitchPage";
 import messages_lo from "./lo.json";
+import mountHeaderSwitcher from "./headerSwitcher";
 
 /*
  * Language switcher, contributed as an ordinary openIMIS module.
@@ -42,8 +43,16 @@ const LanguageMainMenu = (props) => (
   />
 );
 
+// Mount the toolbar switcher as the module loads. The shell requests menu
+// contributions by module name from openimis.json, which a local module cannot
+// appear in, so "language.MainMenu" is never asked for -- the group below never
+// renders and the CSS that repositioned it had nothing to move.
+mountHeaderSwitcher();
+
 const LaoLanguageModule = (cfg) => ({
   "core.Router": [{ path: "language/:code", component: LanguageSwitchPage }],
+  // Kept so the switcher still appears if a future openIMIS release renders
+  // contributions from modules it does not know by name.
   "language.MainMenu": [LanguageMainMenu],
   /*
    * Lao dictionary. App.js merges as { ...messages, ...moduleContributions },
