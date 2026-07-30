@@ -128,8 +128,15 @@ function flatten(obj, prefix, out) {
   return out;
 }
 
+/*
+ * Modules do not agree on how to name the dictionary. Most declare
+ * `var messages_en`; fe-admin, fe-opensearch_reports and fe-deduplication use
+ * `var messagesEn`. Matching only the first spelling skipped those three
+ * silently -- which is how "Administration" and "Dashboards", both visible
+ * sidebar headings, came to be missing from the working file with no error.
+ */
 function messagesFor(src, lang) {
-  const m = new RegExp(`var messages_${lang}\\s*=\\s*(?=\\{)`).exec(src);
+  const m = new RegExp(`var messages_?${lang}\\s*=\\s*(?=\\{)`, "i").exec(src);
   if (!m) return null;
   const value = evaluate(src, literalAt(src, m.index + m[0].length));
   return value && typeof value === "object" ? flatten(value, "", {}) : null;

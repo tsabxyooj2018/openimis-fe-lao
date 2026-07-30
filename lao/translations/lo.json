@@ -7,6 +7,398 @@
     "en": "Add individual to this group",
     "lo": ""
   },
+  "admin.ClaimAdministratorFormPanel.title": {
+    "en": "Claim Administrator",
+    "lo": ""
+  },
+  "admin.EnrolmentOfficerFormPanel.substitutionOfficer": {
+    "en": "Substitution Officer",
+    "lo": ""
+  },
+  "admin.EnrolmentOfficerFormPanel.substitutionOfficer.placeholder": {
+    "en": "Search for an Officer...",
+    "lo": ""
+  },
+  "admin.EnrolmentOfficerFormPanel.title": {
+    "en": "Enrolment Officer",
+    "lo": ""
+  },
+  "admin.EnrolmentOfficerPicker.clearText": {
+    "en": "Clear",
+    "lo": ""
+  },
+  "admin.EnrolmentOfficerPicker.closeText": {
+    "en": "Close",
+    "lo": ""
+  },
+  "admin.EnrolmentOfficerPicker.label": {
+    "en": "Select an Officer",
+    "lo": ""
+  },
+  "admin.EnrolmentOfficerPicker.loadingText": {
+    "en": "Loading...",
+    "lo": ""
+  },
+  "admin.EnrolmentOfficerPicker.openText": {
+    "en": "Open",
+    "lo": ""
+  },
+  "admin.EnrolmentZonesPicker.table.addButton": {
+    "en": "Add a municipality",
+    "lo": ""
+  },
+  "admin.EnrolmentZonesPicker.table.municipality": {
+    "en": "Municipality",
+    "lo": ""
+  },
+  "admin.EnrolmentZonesPicker.table.newRow": {
+    "en": "Add a municipality",
+    "lo": ""
+  },
+  "admin.EnrolmentZonesPicker.table.villages": {
+    "en": "Villages",
+    "lo": ""
+  },
+  "admin.InteractiveUserFormPanel.title": {
+    "en": "Interactive User",
+    "lo": ""
+  },
+  "admin.mainMenu": {
+    "en": "Administration",
+    "lo": "ການບໍລິຫານ"
+  },
+  "admin.menu.claimAdministrators": {
+    "en": "Claim Administrators",
+    "lo": "ຜູ້ຄຸ້ມຄອງຄຳຮ້ອງ"
+  },
+  "admin.menu.enrollmentOfficers": {
+    "en": "Enrollment Officers",
+    "lo": "ພະນັກງານລົງທະບຽນ"
+  },
+  "admin.menu.healthFacilities": {
+    "en": "Health Facilities",
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
+  },
+  "admin.menu.locations": {
+    "en": "Locations",
+    "lo": "ເຂດພື້ນທີ່"
+  },
+  "admin.menu.medicalItems": {
+    "en": "Medical Items",
+    "lo": "ເວດພັນ"
+  },
+  "admin.menu.medicalItemsPrices": {
+    "en": "Medical Items Price Lists",
+    "lo": "ບັນຊີລາຄາເວດພັນ"
+  },
+  "admin.menu.medicalServices": {
+    "en": "Medical Services",
+    "lo": "ການບໍລິການທາງການແພດ"
+  },
+  "admin.menu.medicalServicesPrices": {
+    "en": "Medical Services Price Lists",
+    "lo": "ບັນຊີລາຄາການບໍລິການທາງການແພດ"
+  },
+  "admin.menu.payers": {
+    "en": "Payers",
+    "lo": "ຜູ້ຈ່າຍເງິນ"
+  },
+  "admin.menu.products": {
+    "en": "Products",
+    "lo": "ຜະລິດຕະພັນປະກັນໄພ"
+  },
+  "admin.menu.users": {
+    "en": "Users",
+    "lo": "ຜູ້ໃຊ້ລະບົບ"
+  },
+  "admin.menu.usersProfiles": {
+    "en": "Users Profiles",
+    "lo": "ຂໍ້ມູນຜູ້ໃຊ້ລະບົບ"
+  },
+  "admin.password.lowerCase": {
+    "en": "{count, plural, one {# lowercase letter} other {# lowercase letters}}",
+    "lo": ""
+  },
+  "admin.password.medium": {
+    "en": "Medium",
+    "lo": ""
+  },
+  "admin.password.minLength": {
+    "en": "at least {count} characters",
+    "lo": ""
+  },
+  "admin.password.numbers": {
+    "en": "{count, plural, one {# number} other {# numbers}}",
+    "lo": ""
+  },
+  "admin.password.requirements": {
+    "en": "Password must include: {requirements}.",
+    "lo": ""
+  },
+  "admin.password.specialCharacters": {
+    "en": "{count, plural, one {# special character} other {# special characters}}",
+    "lo": ""
+  },
+  "admin.password.strong": {
+    "en": "Password is strong.",
+    "lo": ""
+  },
+  "admin.password.unknownScore": {
+    "en": "Unknown score.",
+    "lo": ""
+  },
+  "admin.password.upperCase": {
+    "en": "{count, plural, one {# uppercase letter} other {# uppercase letters}}",
+    "lo": ""
+  },
+  "admin.password.veryStrong": {
+    "en": "Password is very strong.",
+    "lo": ""
+  },
+  "admin.password.weak": {
+    "en": "Weak",
+    "lo": ""
+  },
+  "admin.PaymentPointManagerPicker.label": {
+    "en": "Payment Point Manager",
+    "lo": ""
+  },
+  "admin.PaymentPointManagerPicker.placeholder": {
+    "en": "Search for an PPM...",
+    "lo": ""
+  },
+  "admin.showHistory": {
+    "en": "Show historical values",
+    "lo": ""
+  },
+  "admin.user.addNewUser.tooltip": {
+    "en": "Add new user",
+    "lo": ""
+  },
+  "admin.user.addNewUserTooltip": {
+    "en": "Add new user",
+    "lo": ""
+  },
+  "admin.user.address": {
+    "en": "Address",
+    "lo": ""
+  },
+  "admin.user.confirmNewPassword": {
+    "en": "Confirm Password",
+    "lo": ""
+  },
+  "admin.user.createUser.mutationLabel": {
+    "en": "Create user",
+    "lo": ""
+  },
+  "admin.user.CreateUser.mutationLabel": {
+    "en": "Create user",
+    "lo": ""
+  },
+  "admin.user.deleteDialog.message": {
+    "en": "Are you sure you want to delete this user?",
+    "lo": ""
+  },
+  "admin.user.deleteDialog.title": {
+    "en": "Delete user",
+    "lo": ""
+  },
+  "admin.user.deleteDialog.yes.button": {
+    "en": "Yes",
+    "lo": ""
+  },
+  "admin.user.deleteUser.buttonText": {
+    "en": "Delete",
+    "lo": ""
+  },
+  "admin.user.deleteUser.tooltip": {
+    "en": "Delete user",
+    "lo": ""
+  },
+  "admin.user.deleteUserDialog.message": {
+    "en": "Are you sure you want to delete this user?",
+    "lo": ""
+  },
+  "admin.user.districts": {
+    "en": "Districts",
+    "lo": ""
+  },
+  "admin.user.dob": {
+    "en": "Birth date",
+    "lo": ""
+  },
+  "admin.user.dobFrom": {
+    "en": "Birth date from",
+    "lo": ""
+  },
+  "admin.user.dobTo": {
+    "en": "Birth date to",
+    "lo": ""
+  },
+  "admin.user.email": {
+    "en": "Email",
+    "lo": ""
+  },
+  "admin.user.emailAlreadyTaken": {
+    "en": "User email already in use",
+    "lo": ""
+  },
+  "admin.user.emailFormatInvalid": {
+    "en": "Invalid email format",
+    "lo": ""
+  },
+  "admin.user.generatePassword": {
+    "en": "Generate Password",
+    "lo": ""
+  },
+  "admin.user.givenNames": {
+    "en": "Given names",
+    "lo": ""
+  },
+  "admin.user.language": {
+    "en": "Interface Language",
+    "lo": ""
+  },
+  "admin.user.lastName": {
+    "en": "Last name",
+    "lo": ""
+  },
+  "admin.user.newPassword": {
+    "en": "New Password",
+    "lo": ""
+  },
+  "admin.user.openInNewTab.buttonText": {
+    "en": "Open in new tab",
+    "lo": ""
+  },
+  "admin.user.openNewTab": {
+    "en": "Open in new tab",
+    "lo": ""
+  },
+  "admin.user.openNewTab.buttonText": {
+    "en": "Open",
+    "lo": ""
+  },
+  "admin.user.otherNames": {
+    "en": "Other names",
+    "lo": ""
+  },
+  "admin.user.password": {
+    "en": "Password",
+    "lo": ""
+  },
+  "admin.user.phone": {
+    "en": "Phone",
+    "lo": ""
+  },
+  "admin.user.regions": {
+    "en": "Regions",
+    "lo": ""
+  },
+  "admin.user.updateUser.mutationLabel": {
+    "en": "Update user",
+    "lo": ""
+  },
+  "admin.user.username": {
+    "en": "User name",
+    "lo": ""
+  },
+  "admin.user.usernameAlreadyTaken": {
+    "en": "Username already in use",
+    "lo": ""
+  },
+  "admin.user.UserOverview.newTitle": {
+    "en": "New User",
+    "lo": ""
+  },
+  "admin.user.UserOverview.title": {
+    "en": "User Details",
+    "lo": ""
+  },
+  "admin.user.userRoles": {
+    "en": "User role(s)",
+    "lo": ""
+  },
+  "admin.user.userRoles.placeholder": {
+    "en": "Select User Role(s)",
+    "lo": ""
+  },
+  "admin.user.userSummaries": {
+    "en": "{count} user(s) found",
+    "lo": ""
+  },
+  "admin.user.userTypes": {
+    "en": "User type(s)",
+    "lo": ""
+  },
+  "admin.user.userTypes.CLAIM_ADMIN": {
+    "en": "Claim admin",
+    "lo": ""
+  },
+  "admin.user.userTypes.INTERACTIVE": {
+    "en": "Interactive",
+    "lo": ""
+  },
+  "admin.user.userTypes.none": {
+    "en": " ",
+    "lo": ""
+  },
+  "admin.user.userTypes.noOptions": {
+    "en": "No user type found",
+    "lo": ""
+  },
+  "admin.user.userTypes.null": {
+    "en": "Any",
+    "lo": ""
+  },
+  "admin.user.userTypes.OFFICER": {
+    "en": "Enrolment Officer",
+    "lo": ""
+  },
+  "admin.user.worksTo": {
+    "en": "Works to",
+    "lo": ""
+  },
+  "admin.UserFilter.showDeleted": {
+    "en": "Show Deleted",
+    "lo": ""
+  },
+  "admin.UserFilter.showHistory": {
+    "en": "Show History",
+    "lo": ""
+  },
+  "admin.UserMasterPanel.language.null": {
+    "en": "Select a language",
+    "lo": ""
+  },
+  "admin.UserMasterPanel.loginDetailsTitle": {
+    "en": "Login Details",
+    "lo": ""
+  },
+  "admin.UserPicker.clearText": {
+    "en": "Clear",
+    "lo": ""
+  },
+  "admin.UserPicker.closeText": {
+    "en": "Close",
+    "lo": ""
+  },
+  "admin.UserPicker.label": {
+    "en": "User",
+    "lo": ""
+  },
+  "admin.UserPicker.loadingText": {
+    "en": "Loading...",
+    "lo": ""
+  },
+  "admin.UserPicker.null": {
+    "en": "Any",
+    "lo": ""
+  },
+  "admin.UserPicker.openText": {
+    "en": "Open",
+    "lo": ""
+  },
   "any": {
     "en": "Any",
     "lo": ""
@@ -501,7 +893,7 @@
   },
   "claim_batch.menu.claim_batch": {
     "en": "Batch Runs",
-    "lo": ""
+    "lo": "ການປະມວນຜົນເປັນຊຸດ"
   },
   "claim_batch.previewer.dateFrom": {
     "en": "Date From",
@@ -1689,7 +2081,7 @@
   },
   "claim.mainMenu": {
     "en": "Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.medicalItem": {
     "en": "Medical Item",
@@ -1701,11 +2093,11 @@
   },
   "claim.menu.healthFacilityClaims": {
     "en": "Health Facility Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງຈາກສະຖານບໍລິການ"
   },
   "claim.menu.reviews": {
     "en": "Reviews",
-    "lo": ""
+    "lo": "ການກວດສອບ"
   },
   "claim.missingAttachment": {
     "en": "Missing Attachment",
@@ -2689,7 +3081,7 @@
   },
   "contract.menu.contracts": {
     "en": "Contracts",
-    "lo": ""
+    "lo": "ສັນຍາ"
   },
   "contract.page.title": {
     "en": "Contract {label}",
@@ -2929,7 +3321,7 @@
   },
   "contribution.menu.contributions": {
     "en": "Contributions",
-    "lo": ""
+    "lo": "ເງິນສົມທົບ"
   },
   "contribution.openNewTab": {
     "en": "Open in new tab",
@@ -3629,11 +4021,11 @@
   },
   "core.gql_mutation_create_claim_administrator_perms": {
     "en": "Core | Mutation Create Claim Administrator",
-    "lo": "ຫຼັກ | ສ້າງຜູ້ຄຸ້ມຄອງການຮຽກຮ້ອງ"
+    "lo": "ຫຼັກ | ສ້າງຜູ້ຄຸ້ມຄອງຄຳຮ້ອງ"
   },
   "core.gql_mutation_create_enrolment_officers_perms": {
     "en": "Core | Mutation Create Enrolment Officers",
-    "lo": "ຫຼັກ | ສ້າງເຈົ້າໜ້າທີ່ລົງທະບຽນ"
+    "lo": "ຫຼັກ | ສ້າງພະນັກງານລົງທະບຽນ"
   },
   "core.gql_mutation_create_roles_perms": {
     "en": "Core | Mutation Create Roles",
@@ -3645,11 +4037,11 @@
   },
   "core.gql_mutation_delete_claim_administrator_perms": {
     "en": "Core | Mutation Delete Claim Administrator",
-    "lo": "ຫຼັກ | ລຶບຜູ້ຄຸ້ມຄອງການຮຽກຮ້ອງ"
+    "lo": "ຫຼັກ | ລຶບຜູ້ຄຸ້ມຄອງຄຳຮ້ອງ"
   },
   "core.gql_mutation_delete_enrolment_officers_perms": {
     "en": "Core | Mutation Delete Enrolment Officers",
-    "lo": "ຫຼັກ | ລຶບເຈົ້າໜ້າທີ່ລົງທະບຽນ"
+    "lo": "ຫຼັກ | ລຶບພະນັກງານລົງທະບຽນ"
   },
   "core.gql_mutation_delete_roles_perms": {
     "en": "Core | Mutation Delete Roles",
@@ -3669,11 +4061,11 @@
   },
   "core.gql_mutation_update_claim_administrator_perms": {
     "en": "Core | Mutation Update Claim Administrator",
-    "lo": "ຫຼັກ | ແກ້ໄຂຜູ້ຄຸ້ມຄອງການຮຽກຮ້ອງ"
+    "lo": "ຫຼັກ | ແກ້ໄຂຜູ້ຄຸ້ມຄອງຄຳຮ້ອງ"
   },
   "core.gql_mutation_update_enrolment_officers_perms": {
     "en": "Core | Mutation Update Enrolment Officers",
-    "lo": "ຫຼັກ | ແກ້ໄຂເຈົ້າໜ້າທີ່ລົງທະບຽນ"
+    "lo": "ຫຼັກ | ແກ້ໄຂພະນັກງານລົງທະບຽນ"
   },
   "core.gql_mutation_update_roles_perms": {
     "en": "Core | Mutation Update Roles",
@@ -4165,6 +4557,78 @@
   },
   "createGroupFromColumns": {
     "en": "Create groups from column:",
+    "lo": ""
+  },
+  "deduplication.BeneficiaryDuplicatesTable.checkbox.header": {
+    "en": "Select all columns",
+    "lo": ""
+  },
+  "deduplication.BeneficiaryDuplicatesTable.merge.header": {
+    "en": "Don't merge",
+    "lo": ""
+  },
+  "deduplication.BeneficiaryDuplicatesTable.oldest": {
+    "en": "Oldest",
+    "lo": ""
+  },
+  "deduplication.BeneficiaryDuplicatesTable.output": {
+    "en": "OUTPUT:",
+    "lo": ""
+  },
+  "deduplication.deduplicate": {
+    "en": "Deduplicate",
+    "lo": ""
+  },
+  "deduplication.deduplicate.button.cancel": {
+    "en": "Cancel",
+    "lo": ""
+  },
+  "deduplication.deduplicate.button.createDeduplicationReviewTask": {
+    "en": "Create Deduplication Review Tasks",
+    "lo": ""
+  },
+  "deduplication.deduplicate.button.showDuplicateSummary": {
+    "en": "Show Duplicate Summary",
+    "lo": ""
+  },
+  "deduplication.deduplicate.fields": {
+    "en": "Duplicate Detection Field Selection",
+    "lo": ""
+  },
+  "deduplication.deduplicate.fields.placeholder": {
+    "en": "Duplicate Detection Field Selection",
+    "lo": ""
+  },
+  "deduplication.deduplicate.mutation.createTasks": {
+    "en": "Deduplication tasks have been created.",
+    "lo": ""
+  },
+  "deduplication.deduplicate.summary.title": {
+    "en": "Deduplication Summary",
+    "lo": ""
+  },
+  "deduplication.deduplicate.title": {
+    "en": "Deduplication - {benefitPlanName}",
+    "lo": ""
+  },
+  "deduplication.deduplicationSummaryTable.duplicates": {
+    "en": "Duplicates",
+    "lo": ""
+  },
+  "deduplication.deduplicationSummaryTable.group": {
+    "en": "Group",
+    "lo": ""
+  },
+  "deduplication.gql_create_deduplication_payment_review_perms": {
+    "en": "Deduplication | Create Deduplication Payment Review",
+    "lo": ""
+  },
+  "deduplication.gql_create_deduplication_review_perms": {
+    "en": "Deduplication | Create Deduplication Review",
+    "lo": ""
+  },
+  "deduplication.tasks.deduplication.title": {
+    "en": "Benefit Plan Deduplication Task",
     "lo": ""
   },
   "deleteButton.buttonText": {
@@ -6013,19 +6477,19 @@
   },
   "insuree.mainMenu": {
     "en": "Insurees and Policies",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ ແລະ ສັນຍາປະກັນໄພ"
   },
   "insuree.menu.addFamilyOrGroup": {
     "en": "Add Family/Group",
-    "lo": ""
+    "lo": "ເພີ່ມຄອບຄົວ/ກຸ່ມ"
   },
   "insuree.menu.familiesOrGroups": {
     "en": "Families/Groups",
-    "lo": ""
+    "lo": "ຄອບຄົວ/ກຸ່ມ"
   },
   "insuree.menu.insurees": {
     "en": "Insurees",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ"
   },
   "insuree.noFSP": {
     "en": "First Service Point not registered.",
@@ -6197,7 +6661,7 @@
   },
   "insuree.workersMainMenu": {
     "en": "Workers and Vouchers",
-    "lo": ""
+    "lo": "ຜູ້ອອກແຮງງານ ແລະ ໃບສຳຄັນ"
   },
   "insureeSummaries.openFamilyButton.buttonText": {
     "en": "Family",
@@ -7265,11 +7729,11 @@
   },
   "mainMenu": {
     "en": "Legal and Finance",
-    "lo": ""
+    "lo": "ນິຕິກຳ ແລະ ການເງິນ"
   },
   "mainMenuIndividuals": {
     "en": "Beneficiares and Households",
-    "lo": ""
+    "lo": "ຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ ແລະ ຄົວເຮືອນ"
   },
   "manualPrice": {
     "en": "Manual",
@@ -7993,26 +8457,106 @@
   },
   "menu.api": {
     "en": "Import Data - API",
-    "lo": ""
+    "lo": "ນຳເຂົ້າຂໍ້ມູນ - API"
   },
   "menu.bills": {
     "en": "Bills",
-    "lo": ""
+    "lo": "ໃບບິນ"
   },
   "menu.groups": {
     "en": "Groups",
-    "lo": ""
+    "lo": "ກຸ່ມ"
   },
   "menu.individuals": {
     "en": "Individuals",
-    "lo": ""
+    "lo": "ບຸກຄົນ"
   },
   "menu.invoices": {
     "en": "Invoices",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້"
   },
   "moveToNewGroup": {
     "en": "New Group",
+    "lo": ""
+  },
+  "opensearch_reports.gql_opensearch_dashboard_search_perms": {
+    "en": "Opensearch Reports | Opensearch Dashboard Search",
+    "lo": ""
+  },
+  "opensearch_reports.gql_opensearch_dashboard_update_perms": {
+    "en": "Opensearch Reports | Opensearch Dashboard Update",
+    "lo": ""
+  },
+  "openSearchReports.dashboard.edit": {
+    "en": "Edit Dashboard",
+    "lo": ""
+  },
+  "openSearchReports.dashboard.name": {
+    "en": "Dashboard Name",
+    "lo": ""
+  },
+  "openSearchReports.dashboard.synchDisabled": {
+    "en": "Synchronization Disabled",
+    "lo": ""
+  },
+  "openSearchReports.dashboard.synchStatus": {
+    "en": "Synchronization Disabled",
+    "lo": ""
+  },
+  "openSearchReports.dashboard.url": {
+    "en": "Dashboard URL",
+    "lo": ""
+  },
+  "openSearchReports.dialog.cancel": {
+    "en": "Cancel",
+    "lo": ""
+  },
+  "openSearchReports.dialog.save": {
+    "en": "Save",
+    "lo": ""
+  },
+  "openSearchReports.dialog.title": {
+    "en": "Edit Details - {dashboardName}",
+    "lo": ""
+  },
+  "openSearchReports.openSearch": {
+    "en": "Dashboards",
+    "lo": "ແຜງສະຫຼຸບຂໍ້ມູນ"
+  },
+  "openSearchReports.openSearch.beneficiaryReports": {
+    "en": "Beneficiary Reports",
+    "lo": ""
+  },
+  "openSearchReports.openSearch.dataUpdatesReports": {
+    "en": "Data Updates Reports",
+    "lo": ""
+  },
+  "openSearchReports.openSearch.grievanceReports": {
+    "en": "Grievance Reports",
+    "lo": ""
+  },
+  "openSearchReports.openSearch.groupReports": {
+    "en": "Group Reports",
+    "lo": ""
+  },
+  "openSearchReports.openSearch.individualReports": {
+    "en": "Individual Reports",
+    "lo": ""
+  },
+  "openSearchReports.openSearch.invoiceReports": {
+    "en": "Invoice Reports",
+    "lo": ""
+  },
+  "openSearchReports.openSearch.openSearchConfig": {
+    "en": "Manage Dashboards",
+    "lo": ""
+  },
+  "openSearchReports.openSearch.paymentReports": {
+    "en": "Payment Reports",
+    "lo": ""
+  },
+  "openSearchReports.openSearch.searcherResultsTitle": {
+    "en": "Manage Reports and Dashboards",
     "lo": ""
   },
   "payer.AddFundingDialog.submit": {
@@ -8029,7 +8573,7 @@
   },
   "payer.adminMenu.payers.title": {
     "en": "Payers",
-    "lo": ""
+    "lo": "ຜູ້ຈ່າຍເງິນ"
   },
   "payer.amount": {
     "en": "Amount",
@@ -8257,7 +8801,7 @@
   },
   "payment.menu.payments": {
     "en": "Payments",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນ"
   },
   "payment.openNewTab": {
     "en": "Open in new tab",
@@ -9781,7 +10325,7 @@
   },
   "policy.menu.policies": {
     "en": "Policies",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ"
   },
   "policy.policies.balance": {
     "en": "Balance",
@@ -10541,11 +11085,11 @@
   },
   "policyHolder.menu.policyHolders": {
     "en": "Policy Holders",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyHolder.menu.policyHolderUsers": {
     "en": "Policy Holder Users",
-    "lo": ""
+    "lo": "ຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາ"
   },
   "policyHolder.name": {
     "en": "Name",
@@ -11493,15 +12037,15 @@
   },
   "profile.mainMenu": {
     "en": "Profile",
-    "lo": ""
+    "lo": "ຂໍ້ມູນສ່ວນຕົວ"
   },
   "profile.menu.changePassword": {
     "en": "Change Password",
-    "lo": ""
+    "lo": "ປ່ຽນລະຫັດຜ່ານ"
   },
   "profile.menu.myProfile": {
     "en": "My Profile",
-    "lo": ""
+    "lo": "ຂໍ້ມູນສ່ວນຕົວຂອງຂ້ອຍ"
   },
   "profile.MyProfilePage.title": {
     "en": "My Profile",
@@ -12449,11 +12993,11 @@
   },
   "socialProtection.mainMenuSocialProtection": {
     "en": "Social Protection",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ"
   },
   "socialProtection.menu.socialProtection.benefitPlans": {
     "en": "Programs",
-    "lo": ""
+    "lo": "ໂຄງການສະຫວັດດີການ"
   },
   "socialProtection.project.activity": {
     "en": "Activity",
@@ -12629,7 +13173,7 @@
   },
   "tasksManagement.menu.taskExecutionerGroups": {
     "en": "Task Executioner Groups",
-    "lo": ""
+    "lo": "ກຸ່ມຜູ້ປະຕິບັດໜ້າວຽກ"
   },
   "tasksManagement.saveButton.tooltip": {
     "en": "Save changes",
@@ -12917,7 +13461,7 @@
   },
   "tasksManagement.tasksMainMenu": {
     "en": "Tasks Management",
-    "lo": ""
+    "lo": "ການຄຸ້ມຄອງໜ້າວຽກ"
   },
   "tasksManagement.TaskSourcePicker.label": {
     "en": "Task Sources",
@@ -13089,39 +13633,39 @@
   },
   "tools.mainMenu": {
     "en": "Tools",
-    "lo": ""
+    "lo": "ເຄື່ອງມື"
   },
   "tools.menu.emails": {
     "en": "Emails Settings",
-    "lo": ""
+    "lo": "ຕັ້ງຄ່າອີເມວ"
   },
   "tools.menu.extracts": {
     "en": "Extracts",
-    "lo": ""
+    "lo": "ການສະກັດຂໍ້ມູນ"
   },
   "tools.menu.feedbacks": {
     "en": "Feedback Prompts",
-    "lo": ""
+    "lo": "ການຂໍຄຳຕິຊົມ"
   },
   "tools.menu.funding": {
     "en": "Funding",
-    "lo": ""
+    "lo": "ແຫຼ່ງທຶນ"
   },
   "tools.menu.registers": {
     "en": "Registers",
-    "lo": ""
+    "lo": "ທະບຽນ"
   },
   "tools.menu.renewals": {
     "en": "Policy Renewals",
-    "lo": ""
+    "lo": "ການຕໍ່ອາຍຸສັນຍາປະກັນໄພ"
   },
   "tools.menu.reports": {
     "en": "Reports",
-    "lo": ""
+    "lo": "ບົດລາຍງານ"
   },
   "tools.menu.utilities": {
     "en": "Utilities",
-    "lo": ""
+    "lo": "ເຄື່ອງມືຊ່ວຍ"
   },
   "tools.registers_diagnoses_perms": {
     "en": "Tools | Diagnoses",
