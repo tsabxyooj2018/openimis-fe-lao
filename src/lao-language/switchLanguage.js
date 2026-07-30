@@ -3,12 +3,37 @@
  * /language/:code route, so there is one implementation of the CSRF and mutation
  * handling rather than two that can drift.
  *
- * CSRF: the backend compares request.session['csrftoken'] with the
- * HTTP_X_CSRFTOKEN header (core/schema.py, _check_csrf_token). The token lives in
- * the Django session and no csrftoken cookie is ever issued -- the only cookies
- * are JWT and openimis_session, both HttpOnly. openIMIS obtains the value with a
- * getCsrfToken mutation and caches it in localStorage under "csrfToken"; this
- * uses the same store and asks for one when it is absent.
+ * CSRF, as the backend actually implements it (core/schema.py):
+ *
+ *   _check_csrf_token()          session_csrf = request.session['csrftoken']
+ *                                request_csrf = request.META['HTTP_X_CSRFTOKEN']
+ *                                if session_csrf != request_csrf: PermissionDenied
+ *
+ *   GetCsrfTokenMutation         csrf_token = get_token(info.context)
+ *                                info.context.session['csrftoken'] = csrf_token
+ *
+ * Two consequences drive the retry below.
+ *
+ * First, django.middleware.csrf.get_token masks the secret with fresh randomness
+ * on every call, so each call returns a DIFFERENT string. The comparison is exact
+ * equality against whatever the session holds, so only the most recently issued
+ * token is ever valid -- asking for a token silently invalidates the previous one.
+ *
+ * Second, the token lives in the Django session, not a cookie; the only cookies
+ * are JWT and openimis_session, both HttpOnly. localStorage, where it is cached,
+ * outlives the session: Django cycles the session key on login, so after any
+ * re-login the cached token belongs to a session that no longer exists. That is
+ * the "CSRF token missing or incorrect." case, and no amount of re-reading the
+ * cache fixes it.
+ *
+ * So a rejected token is refreshed and the mutation retried once, rather than
+ * surfaced. The cache is still tried first: minting a token rotates the session
+ * value, and doing that on every language change for no reason would invalidate
+ * the token openIMIS's own requests are about to use.
+ *
+ * The refreshed value is written back to localStorage["csrfToken"] -- the same
+ * key fe-core reads and writes -- so the app and this module cannot drift onto
+ * different tokens. The session holds one value; there is one place to keep it.
  */
 export const LANGUAGE_STORAGE_KEY = "lao.currentLanguage";
 const CSRF_KEY = "csrfToken";
@@ -30,13 +55,19 @@ const write = (key, value) => {
   }
 };
 
-async function ensureCsrf() {
-  const cached = read(CSRF_KEY);
-  if (cached) return cached;
-  const res = await fetch(`${API}/graphql`, {
+const post = (body) =>
+  fetch(`${API}/graphql`, {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
+    // credentials matter: the token is compared against the session this cookie
+    // identifies, so an unauthenticated request cannot match by construction.
     credentials: "include",
+    ...body,
+  });
+
+/** Mints a token, which also stores it in the session server-side. */
+async function mintCsrf() {
+  const res = await post({
+    headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ query: "mutation { getCsrfToken { csrfToken } }" }),
   });
   const body = await res.json();
@@ -45,19 +76,10 @@ async function ensureCsrf() {
   return token || null;
 }
 
-/**
- * Applies the language and resolves once the backend has accepted it.
- * The caller decides when to reload; dictionaries are built at startup, so the
- * new language only appears after a fresh boot.
- */
-export async function applyLanguage(code) {
-  const token = await ensureCsrf();
-  if (!token) throw new Error("Could not obtain a CSRF token");
-
-  const res = await fetch(`${API}/graphql`, {
-    method: "POST",
+/** Runs the mutation. Returns null on success, or the error message. */
+async function changeLanguage(code, token) {
+  const res = await post({
     headers: { "Content-Type": "application/json", "X-CSRFToken": token },
-    credentials: "include",
     body: JSON.stringify({
       query: `mutation {
         changeUserLanguage(input: {languageId: "${code}", clientMutationId: "lang-${Date.now()}"}) {
@@ -66,20 +88,31 @@ export async function applyLanguage(code) {
       }`,
     }),
   });
-
   const body = await res.json();
-  if (body?.errors?.length) {
-    // A rejected token is usually a stale cache; drop it so the next attempt
-    // fetches a fresh one rather than failing the same way forever.
-    if (/csrf/i.test(body.errors[0].message)) {
-      try {
-        window.localStorage.removeItem(CSRF_KEY);
-      } catch (e) {
-        /* ignore */
-      }
-    }
-    throw new Error(body.errors[0].message);
+  return body?.errors?.length ? body.errors[0].message : null;
+}
+
+/**
+ * Applies the language and resolves once the backend has accepted it.
+ * The caller decides when to reload; dictionaries are built at startup, so the
+ * new language only appears after a fresh boot.
+ */
+export async function applyLanguage(code) {
+  let token = read(CSRF_KEY) || (await mintCsrf());
+  if (!token) throw new Error("Could not obtain a CSRF token");
+
+  let error = await changeLanguage(code, token);
+
+  // A rejected token means the cache outlived its session. Mint a fresh one --
+  // which the backend writes into the session as it issues it, so the retry is
+  // matched against a value that is guaranteed to be current -- and try again.
+  if (error && /csrf/i.test(error)) {
+    token = await mintCsrf();
+    if (!token) throw new Error("Could not obtain a CSRF token");
+    error = await changeLanguage(code, token);
   }
+
+  if (error) throw new Error(error);
 
   // Only recorded once the backend accepted it, so the toolbar cannot claim a
   // language that was not applied.

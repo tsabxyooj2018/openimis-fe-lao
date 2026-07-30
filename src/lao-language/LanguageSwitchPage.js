@@ -15,23 +15,9 @@ import { applyLanguage } from "./switchLanguage";
  *   changeUserLanguage(input: ChangeUserLanguageMutationInput!)
  *   ChangeUserLanguageMutationInput.languageId: String!
  *
- * CSRF, which took three attempts to get right. The backend does not use Django's
- * cookie mechanism at all:
- *
- *   core/schema.py  _check_csrf_token()
- *     session_csrf = request.session['csrftoken']
- *     request_csrf = request.META['HTTP_X_CSRFTOKEN']
- *
- * The token lives in the Django SESSION, and no csrftoken cookie is ever set --
- * the only cookies are JWT and openimis_session, both HttpOnly. The frontend
- * obtains the value through a `getCsrfToken` mutation and caches it in
- * localStorage under "csrfToken"; that is the same value the session holds.
- *
- * So: read localStorage, and ask for one if it is missing. Reading the cookie
- * gave either nothing (KeyError HTTP_X_CSRFTOKEN) or a stale unrelated value
- * ("CSRF token missing or incorrect").
- *
- * apiHeaders() is only Content-Type despite the name; it carries no token.
+ * The request itself, including the CSRF handling that took several attempts to
+ * get right, lives in ./switchLanguage so the toolbar switcher and this route
+ * cannot drift apart.
  *
  * A full reload follows, not a client-side redirect: dictionaries are loaded
  * once at startup, so the new language only takes effect on a fresh boot.
