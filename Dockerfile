@@ -30,7 +30,11 @@ ENTRYPOINT ["/bin/bash", "/app/script/entrypoint-dev.sh"]
 
 FROM dev-stage AS base
 USER node
-ENV GENERATE_SOURCEMAP=true
+# Sourcemaps off by default. Upstream forces them on, which yields a 23MB map and
+# pushes the React build past the ~7GB memory of a GitHub-hosted runner, killing
+# the build. Pass --build-arg GENERATE_SOURCEMAP=true when debugging the bundle.
+ARG GENERATE_SOURCEMAP=false
+ENV GENERATE_SOURCEMAP=${GENERATE_SOURCEMAP}
 ENV NODE_ENV=production
 RUN npm config set prefix /home/node/.npm-global
 # Pinned to the 10.x line. Upstream had `npm@latest`, which now resolves to
