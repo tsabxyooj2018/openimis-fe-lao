@@ -598,3 +598,32 @@ main .MuiTypography-h4 {
 .MuiDrawer-paperAnchorDockedLeft [id="Legal and Finance-header"] .MuiIconButton-label:empty {
   background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M1 21h12v2H1zM5.245 8.07l2.83-2.827 14.14 14.142-2.828 2.828zM12.317 1l5.657 5.656-2.83 2.83-5.654-5.66zM3.825 9.485l5.657 5.657-2.828 2.828-5.657-5.657z'/%3E%3C/svg%3E");
 }
+
+/* --- Search box centred in the toolbar -----------------------------------
+   The toolbar's first child is a flex spacer, which pushes the search box and
+   the icons to the right. Rather than fight that, the search is taken out of
+   flow and centred on the bar; the spacer and icons keep their own layout.
+
+   Matched by content -- the toolbar child that contains an MuiInputBase -- so it
+   does not depend on the generated jss class names, and cannot pick up the
+   language switcher, which contains no input. */
+header .MuiToolbar-root {
+  position: relative;
+}
+
+header .MuiToolbar-root > div:has(.MuiInputBase-root) {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  margin: 0;
+}
+
+/* Below this width the centred box would sit under the language switcher, so
+   put it back in the normal flow. */
+@media (max-width: 68rem) {
+  header .MuiToolbar-root > div:has(.MuiInputBase-root) {
+    position: static;
+    transform: none;
+  }
+}
