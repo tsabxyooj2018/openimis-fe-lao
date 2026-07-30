@@ -17,108 +17,83 @@ body {
   flex-grow: 1;
 }
 
-/* ---------------------------------------------------------------------------
-   Login screen — Lao deployment
-   ---------------------------------------------------------------------------
-   The login page lives in @openimis/fe-core and we do not fork it, so this
-   restyles the markup it already produces.
+/* ===========================================================================
+   Sign-in screen — Lao deployment
+   ===========================================================================
+   The login page lives in @openimis/fe-core and is not forked, so this restyles
+   the markup it already produces:
 
-   Scoping: every rule hangs off
-       [class*="MuiPaper"]:has(input[type="password"])
-   i.e. the Paper that *contains* the password field. That is the login card and
-   nothing else.
+     div.App
+       > div                          <- the container fe-core centres in
+           > div.MuiPaper-root        <- becomes the left panel
+               > form
+                   > div.MuiBox-root
+                       > div.MuiGrid-container   <- emblem, fields, buttons
 
-   An earlier version scoped on `body:has(input[type="password"])` and matched
-   any descendant Paper or Button. MUI dialogs are Papers too, so the
-   session-expiry dialog inherited the card's heading style, its button styling
-   and -- absurdly -- the AGPL credit line.
+   Two scoping notes, both learned the hard way:
 
-   Selectors: MUI v4 emits its global class names (MuiPaper-root, ...) at
-   runtime alongside hashed makeStyles names, so `[class*="MuiPaper"]` matches
-   reliably where a literal `.MuiPaper-root` may not.
-   --------------------------------------------------------------------------- */
+   1. `:has()` may NOT be nested inside `:has()`. It is invalid per spec and the
+      browser silently discards the whole rule. Use two `:has()` in one chain
+      instead -- that is legal.
+   2. `[class*="MuiButton"]` also matches `MuiButton-label`, the inner <span>.
+      Style the `button` element itself, or the label gets painted too.
+   =========================================================================== */
 
-/* Page ground behind the card. This one stays on <body> deliberately -- it is
-   the only rule that should apply to the page rather than the card. */
-body:has(input[type="password"]) {
-  background: #0a2440;
-}
-
-/* Two-panel sign-in: card on the left, institutional ground filling the right.
-   fe-core centres the card in a `position: absolute; inset: 0` flex container,
-   so that container carries the panel treatment -- no fork needed.
-
-   NOTE on the selector: `:has()` may NOT be nested inside `:has()` -- it is
-   invalid per spec and browsers discard the whole rule. An earlier version used
-   `div:has(> [class*=MuiPaper]:has(input[type=password]))`, so every container
-   rule here was silently dropped: no background, no scrolling, no left align.
-   Two `:has()` in one chain (one on body, one on the div) is fine; nesting is not.
-   `display: block` rather than flex is deliberate: a flex container with
-   `align-items: center` CLIPS a child taller than the viewport and cannot be
-   scrolled to. Block layout plus overflow always scrolls. Vertical centring
-   comes back below, only where there is room for it. */
+/* --- The ground: deep institutional blue with a muted emblem watermark ------
+   Layer order matters: the first background-image sits on top. The flat veil is
+   listed first so it mutes the emblem beneath it. An earlier version used
+   `background-blend-mode: soft-light` instead and the emblem came out bright and
+   dominant. */
 body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   display: block !important;
   overflow-y: auto;
   box-sizing: border-box;
-  padding: 5vh clamp(1.25rem, 7vw, 7rem);
+  padding: 0 !important;
   background-color: #0a2440;
   background-image:
-    /* emblem watermark, right-hand panel */
+    linear-gradient(rgba(10, 36, 64, 0.78), rgba(10, 36, 64, 0.86)),
     url(./emblem-moh.png),
-    /* keeps the card side dark enough for white text to read over it */
-    linear-gradient(100deg, #0a2440 0%, #123b63 52%, #17456f 100%),
-    /* faint grid, echoing the seal's engraved feel without competing with it */
-    repeating-linear-gradient(45deg, rgba(255, 255, 255, 0.03) 0 2px, transparent 2px 22px);
-  background-repeat: no-repeat, no-repeat, repeat;
-  background-position: right -6vw center, center, center;
-  background-size: auto 86%, cover, auto;
-  background-blend-mode: soft-light, normal, normal;
+    linear-gradient(125deg, #071b30 0%, #123b63 55%, #17456f 100%);
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: center, right 6% center, center;
+  background-size: cover, auto 44%, cover;
 }
 
-/* Card sits left. margin-right:auto rather than justify-content so the layout
-   stays block and keeps its scrollability. */
+/* --- The left panel --------------------------------------------------------
+   Full height rather than a floating card: with the service name, emblem and
+   two fields it is too tall to sit convincingly as a card, and a full-height
+   panel is the conventional treatment for a split sign-in.
+   `flex-direction: column` keeps the AGPL line (a ::after on this element) below
+   the form instead of beside it. */
 [class*="MuiPaper"]:has(input[type="password"]) {
-  margin-right: auto !important;
-  margin-left: 0 !important;
-}
-
-/* Deliberately NOT vertically centred. Centring the card -- via flex
-   align-items, or margin-top:50vh with a translate -- clips it whenever it is
-   taller than the viewport, and a transform does not extend the scroll area, so
-   the top becomes unreachable. Top-aligned with generous padding always works.
-   On a tall screen there is simply more ground below the card. */
-
-/* Narrow screens: no room for a side panel. Centre the card and drop the
-   watermark, which would sit behind the form and hurt legibility. */
-@media (max-width: 60rem) {
-  body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
-    padding: 4vh 1.25rem;
-    background-image: linear-gradient(160deg, #0a2440 0%, #123b63 100%);
-  }
-  [class*="MuiPaper"]:has(input[type="password"]) {
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-}
-
-/* The card */
-[class*="MuiPaper"]:has(input[type="password"]) {
-  width: 100%;
-  max-width: 24rem;
-  padding: 2rem 2rem 1.5rem;
   box-sizing: border-box;
+  width: clamp(21rem, 40%, 33rem);
+  max-width: none;
+  min-height: 100vh;
+  margin: 0 !important;
+  padding: 3rem clamp(1.75rem, 4vw, 3.5rem) 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   background: #fff;
-  border: 1px solid #dce4e9;
-  border-radius: 6px;
-  box-shadow:
-    0 1px 2px rgba(18, 59, 99, 0.06),
-    0 12px 32px -12px rgba(18, 59, 99, 0.18);
+  border: 0;
+  border-radius: 0;
+  box-shadow: 0 0 60px rgba(0, 0, 0, 0.35);
 }
 
-/* Emblem. Deliberately large: it is a detailed circular seal with Lao text in
-   the ring and a caduceus at the centre, none of which resolves at wordmark
-   size. It also carries the ministry identity, so it earns the space. */
+/* Keep the form column narrow even when the panel is wide; long measures look
+   careless on a two-field form. */
+[class*="MuiPaper"]:has(input[type="password"]) form {
+  width: 100%;
+}
+
+[class*="MuiPaper"]:has(input[type="password"]) form > [class*="MuiBox"] {
+  width: 100%;
+  max-width: 21rem;
+  margin: 0 auto;
+}
+
+/* --- Emblem ---------------------------------------------------------------- */
 [class*="MuiPaper"]:has(input[type="password"]) img {
   display: block;
   max-height: 8.5rem;
@@ -128,51 +103,31 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   margin: 0 auto 1.25rem;
 }
 
-/* AGPL attribution.
-   Replacing the openIMIS logo removed the last visible credit on this screen,
-   so it is restored here. This is an interim measure: generated content is not
-   selectable and cannot carry the link to Corresponding Source that AGPL s13
-   requires. The durable fix is a real element in a forked LoginPage. */
-[class*="MuiPaper"]:has(input[type="password"])::after {
-  content: "Powered by openIMIS 26.04 — free software under AGPL v3";
-  display: block;
-  margin-top: 1.25rem;
-  padding-top: 0.85rem;
-  border-top: 1px solid #e4ebf0;
-  font-size: 0.72rem;
-  line-height: 1.5;
-  text-align: center;
-  color: #8298a6;
-}
-
-/* Service name. Lao needs more line spacing than Latin: without it the
-   tone marks of one line collide with the ascenders of the next. */
+/* --- Service name ---------------------------------------------------------
+   line-height 1.6 because Lao stacks tone marks above the consonant: at normal
+   leading the marks on a wrapped second line collide with the line above.
+   The `img + *` selector matters -- fe-core renders this as a MuiBox div, not a
+   heading, so the heading selectors alone would never match. */
 [class*="MuiPaper"]:has(input[type="password"]) h1,
 [class*="MuiPaper"]:has(input[type="password"]) h2,
 [class*="MuiPaper"]:has(input[type="password"]) h3,
 [class*="MuiPaper"]:has(input[type="password"]) h4,
 [class*="MuiPaper"]:has(input[type="password"]) h5,
 [class*="MuiPaper"]:has(input[type="password"]) h6,
-/* Fallback: fe-core may render the service name as a Typography div/span
-   rather than a heading. It is always the element right after the logo. */
 [class*="MuiPaper"]:has(input[type="password"]) img + * {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 600;
-  line-height: 1.65;
+  line-height: 1.6;
   letter-spacing: 0.01em;
   text-align: center;
   text-wrap: balance;
   color: #123b63;
-  margin: 0 0 1.25rem;
-  padding-bottom: 1rem;
+  margin: 0 0 1.75rem;
+  padding-bottom: 1.25rem;
   border-bottom: 1px solid #e4ebf0;
 }
 
-/* Field labels, centred.
-   MUI positions InputLabel absolutely (left: 0, transform-origin: top left), so
-   text-align on its own does nothing: it needs a width to centre within, and the
-   origin moved to top centre so the shrink-on-focus animation scales toward the
-   middle instead of the left edge. */
+/* --- Fields --------------------------------------------------------------- */
 [class*="MuiPaper"]:has(input[type="password"]) [class*="MuiFormLabel"],
 [class*="MuiPaper"]:has(input[type="password"]) label {
   font-size: 0.86rem;
@@ -181,6 +136,10 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   color: #5b7385;
 }
 
+/* Centred labels need more than text-align: MUI positions InputLabel absolutely
+   with left:0 and transform-origin:top left, so it needs a width to centre
+   within, and the origin moved so the shrink-on-focus animation scales toward
+   the middle rather than the left edge. */
 [class*="MuiPaper"]:has(input[type="password"]) label[class*="MuiInputLabel"] {
   left: 0;
   right: 0;
@@ -189,23 +148,16 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   transform-origin: top center;
 }
 
-/* Value text centred too, so a centred label does not sit over left-aligned
-   text once it shrinks. */
-[class*="MuiPaper"]:has(input[type="password"]) [class*="MuiInputBase-input"] {
-  text-align: center;
-}
-
-/* Inputs */
 [class*="MuiPaper"]:has(input[type="password"]) [class*="MuiFormControl"],
 [class*="MuiPaper"]:has(input[type="password"]) [class*="MuiTextField"] {
   width: 100%;
-  margin-bottom: 0.5rem;
 }
 
 [class*="MuiPaper"]:has(input[type="password"]) [class*="MuiInputBase-input"] {
   font-size: 0.98rem;
-  padding-top: 0.55rem;
-  padding-bottom: 0.55rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
   color: #0b1f2a;
 }
 
@@ -213,17 +165,14 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   border-bottom: 2px solid #1e6f94;
 }
 
-/* Submit.
-   Match `button[type="submit"]`, not [class*="MuiButton"]. That attribute match
-   also hits MuiButton-label -- the inner <span> -- so styling it painted a blue
-   block inside the grey button. Restricting to the <button> element avoids it. */
+/* --- Submit --------------------------------------------------------------- */
 [class*="MuiPaper"]:has(input[type="password"]) button[type="submit"] {
   width: 100%;
   margin-top: 1.25rem;
   padding: 0.7rem 1rem;
   font-size: 1rem;
   font-weight: 600;
-  /* Lao script has no case, so uppercasing only distorts the Latin half. */
+  /* Lao has no case, so uppercasing only distorts the Latin half of the label. */
   text-transform: none;
   letter-spacing: 0.01em;
   border-radius: 4px;
@@ -240,13 +189,14 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   box-shadow: 0 2px 8px -2px rgba(18, 59, 99, 0.4);
 }
 
-/* Forgot password. fe-core renders this as a Button, not an anchor, so it has to
-   be styled back down to a quiet text link rather than left as a second CTA. */
+/* --- Forgot password ------------------------------------------------------
+   fe-core renders this as a Button, not an anchor, so it has to be styled back
+   down to a text link rather than left standing as a second call to action. */
 [class*="MuiPaper"]:has(input[type="password"]) button:not([type="submit"]),
 [class*="MuiPaper"]:has(input[type="password"]) a {
   display: block;
   width: auto;
-  margin: 1rem auto 0;
+  margin: 0.75rem auto 0;
   padding: 0.25rem 0.5rem;
   background: none;
   border: 0;
@@ -265,7 +215,25 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   text-decoration: underline;
 }
 
-/* Keyboard focus must stay visible after the restyle */
+/* --- AGPL attribution ----------------------------------------------------
+   Replacing the openIMIS logo removed the last visible credit on this screen.
+   Interim: generated content cannot carry the link to Corresponding Source that
+   AGPL s13 wants. A forked LoginPage would give it a real element and a link. */
+[class*="MuiPaper"]:has(input[type="password"])::after {
+  content: "Powered by openIMIS 26.04 — free software under AGPL v3";
+  display: block;
+  width: 100%;
+  max-width: 21rem;
+  margin: 2.5rem auto 0;
+  padding-top: 1rem;
+  border-top: 1px solid #eef2f6;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  text-align: center;
+  color: #93a7b4;
+}
+
+/* --- Keyboard focus ------------------------------------------------------- */
 [class*="MuiPaper"]:has(input[type="password"]) a:focus-visible,
 [class*="MuiPaper"]:has(input[type="password"]) button:focus-visible,
 [class*="MuiPaper"]:has(input[type="password"]) input:focus-visible {
@@ -273,9 +241,16 @@ body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   outline-offset: 2px;
 }
 
-@media (max-width: 480px) {
+/* --- Narrow screens ------------------------------------------------------
+   No room for a side panel: the panel becomes the whole page and the watermark
+   goes, since behind a form it costs legibility and gains nothing. */
+@media (max-width: 60rem) {
+  body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
+    background-image: linear-gradient(160deg, #071b30 0%, #123b63 100%);
+  }
   [class*="MuiPaper"]:has(input[type="password"]) {
-    max-width: none;
-    padding: 1.75rem 1.375rem 1.25rem;
+    width: 100%;
+    padding: 2.5rem 1.5rem 1.75rem;
+    box-shadow: none;
   }
 }
