@@ -47,11 +47,17 @@ body:has(input[type="password"]) {
 /* Two-panel sign-in: card on the left, institutional ground filling the right.
    fe-core centres the card in a `position: absolute; inset: 0` flex container,
    so that container carries the panel treatment -- no fork needed.
+
+   NOTE on the selector: `:has()` may NOT be nested inside `:has()` -- it is
+   invalid per spec and browsers discard the whole rule. An earlier version used
+   `div:has(> [class*=MuiPaper]:has(input[type=password]))`, so every container
+   rule here was silently dropped: no background, no scrolling, no left align.
+   Two `:has()` in one chain (one on body, one on the div) is fine; nesting is not.
    `display: block` rather than flex is deliberate: a flex container with
    `align-items: center` CLIPS a child taller than the viewport and cannot be
    scrolled to. Block layout plus overflow always scrolls. Vertical centring
    comes back below, only where there is room for it. */
-div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
+body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
   display: block !important;
   overflow-y: auto;
   box-sizing: border-box;
@@ -86,7 +92,7 @@ div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
 /* Narrow screens: no room for a side panel. Centre the card and drop the
    watermark, which would sit behind the form and hurt legibility. */
 @media (max-width: 60rem) {
-  div:has(> [class*="MuiPaper"]:has(input[type="password"])) {
+  body:has(input[type="password"]) .App > div:has(> [class*="MuiPaper"]) {
     padding: 4vh 1.25rem;
     background-image: linear-gradient(160deg, #0a2440 0%, #123b63 100%);
   }
