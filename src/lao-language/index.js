@@ -11,6 +11,7 @@ import mountProfileLogout from "./profileLogout";
 import mountProfileMenuDismiss from "./profileMenuDismiss";
 import mountUserPhoto from "./userPhoto";
 import mountSidebarResize from "./sidebarResize";
+import mountMutationToasts from "./mutationToasts";
 
 /*
  * Language switcher, contributed as an ordinary openIMIS module.
@@ -60,6 +61,8 @@ mountProfileMenuDismiss();
 mountUserPhoto();
 // The drawer width is a fixed number in the theme, and Lao labels do not fit it.
 mountSidebarResize();
+// The journal is hidden but still mounted; this surfaces its results as toasts.
+mountMutationToasts();
 
 const LaoLanguageModule = (cfg) => ({
   "core.Router": [{ path: "language/:code", component: LanguageSwitchPage }],
