@@ -679,3 +679,74 @@ header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="help"] {
     box-shadow: none;
   }
 }
+
+/* ===========================================================================
+   Scrolling
+   ===========================================================================
+   A wide table was scrolling the whole PAGE sideways rather than scrolling
+   inside itself. Two things followed from that, and both read as "the scrollbar
+   is too narrow":
+
+     - the bar belonged to the document, so its thumb was sized against the full
+       page width and came out tiny, and dragging it moved the sidebar and the
+       toolbar along with the table
+     - the bar sat at the bottom of the window, far from the table it scrolled
+
+   So the shell is pinned and the overflow is handed to the element that
+   actually has too much in it. The table scrolls; nothing else moves.
+
+   Searcher results are a Paper containing a Table -- fe-core does not wrap them
+   in a TableContainer -- so the Paper is what gets the scroller. */
+main {
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+main .MuiPaper-root:has(.MuiTable-root),
+main .MuiTableContainer-root {
+  overflow-x: auto;
+}
+
+/* Wide tables are legitimate -- a searcher has many columns -- so let the table
+   keep its natural width inside that scroller instead of cramming columns. */
+main .MuiPaper-root:has(.MuiTable-root) .MuiTable-root {
+  min-width: max-content;
+}
+
+/* Scrollbars thick enough to grab. The browser default is a few pixels tall on
+   Windows, which is hard to hit deliberately and was the other half of the
+   complaint. Firefox takes the standard properties; Chromium and Edge, which is
+   what these workstations run, need the -webkit- pseudo-elements. */
+* {
+  scrollbar-width: auto;
+  scrollbar-color: #9fb0bf #e9eef3;
+}
+
+::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: #e9eef3;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #9fb0bf;
+  border: 2px solid #e9eef3;
+  border-radius: 6px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7d92a4;
+}
+
+/* The sidebar is dark; a light thumb there would look like a stray element. */
+.MuiDrawer-paperAnchorDockedLeft::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.MuiDrawer-paperAnchorDockedLeft::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.28);
+  border-color: transparent;
+}
