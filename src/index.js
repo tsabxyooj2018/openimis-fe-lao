@@ -80,6 +80,27 @@ const AppContainer = () => {
   const logo = getConfiguredLogo(appState.config);
   const disableTextLogo = appState?.config?.["fe-core"]?.logo?.disableTextLogo || false;
 
+  /*
+   * Publish the configured logo to CSS.
+   *
+   * fe-core passes `logo` to the App for the sign-in panel, but the emblem also
+   * appears twice in places React does not render: the sidebar header and the
+   * sign-in watermark, both drawn by src/index.css. Hardcoding the image there
+   * meant an administrator could change one of the three and not the others,
+   * and only by rebuilding the image for the other two.
+   *
+   * As a custom property, all three follow one setting -- fe-core.logo.value in
+   * the module configuration, a base64 data URI held in the database -- and it
+   * takes effect on a refresh with no rebuild and no redeploy. The stylesheet
+   * keeps url(./emblem-moh.png) as the fallback, so an absent or malformed
+   * setting simply leaves the bundled emblem in place.
+   */
+  useEffect(() => {
+    // Quoted: a data URI contains commas and semicolons, which are separators
+    // inside url() when unquoted. It cannot contain a double quote itself.
+    document.documentElement.style.setProperty("--lao-emblem", `url("${logo}")`);
+  }, [logo]);
+
   if (appState.isLoading) {
     return (
       <MuiThemeProvider theme={dynamicTheme}>

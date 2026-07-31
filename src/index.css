@@ -83,7 +83,8 @@ body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::before {
   right: 0;
   /* Lifted off centre to leave room for the motto beneath it, so the two read
      as one lockup rather than two things that happen to be near each other. */
-  background: url(./emblem-moh.png) no-repeat center calc(50% - 3.25rem);
+  background: var(--lao-emblem, url(./emblem-moh.png)) no-repeat center
+    calc(50% - 3.25rem);
   /* Viewport units only. A percentage here would resolve against this layer's
      width, which the motto's `top` below cannot refer to -- both must be
      expressed in the same terms for the text to land under the emblem. */
@@ -436,7 +437,7 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) input:foc
   border-radius: 50%;
   /* the seal is dark-on-transparent; it needs a light disc to read on blue */
   background-color: rgba(255, 255, 255, 0.94);
-  background-image: url(./emblem-moh.png);
+  background-image: var(--lao-emblem, url(./emblem-moh.png));
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
