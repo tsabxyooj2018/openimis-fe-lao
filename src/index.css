@@ -441,10 +441,30 @@ header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="logout"] {
 }
 
 /* --- Journal drawer ------------------------------------------------------
-   Belt and braces alongside showJournalSidebar:false in the fe-core runtime
-   config: the rendered DOM still carried the right-hand drawer. */
+   NOT hidden, deliberately, though it was.
+
+   The journal is where openIMIS reports whether a save succeeded. It polls each
+   submitted mutation (status 0 = still processing) and shows the outcome; there
+   is no other feedback anywhere in the product. Hiding it, together with
+   showJournalSidebar:false, meant Save produced no confirmation and no error --
+   for creating a user, and for every other record in the system.
+
+   That is not a cosmetic matter in an insurance system: "did that save?" has to
+   be answerable.
+
+   It is narrowed instead, so it reads as a status rail rather than a second
+   sidebar competing with the menu. */
+nav:has(.MuiDrawer-paperAnchorDockedRight) .MuiDrawer-paperAnchorDockedRight {
+  width: 20rem;
+  max-width: 34vw;
+  background: #f7f9fb;
+  border-left: 1px solid #e0e7ee;
+}
+
+/* The drawer keeps its own width reservation in the layout; without this the
+   page content is pushed by the original width rather than the one above. */
 nav:has(.MuiDrawer-paperAnchorDockedRight) {
-  display: none;
+  width: auto;
 }
 
 /* --- Page content --------------------------------------------------------- */
