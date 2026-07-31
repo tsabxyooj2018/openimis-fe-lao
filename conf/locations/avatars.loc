@@ -3,7 +3,19 @@
     # so the browser stays same-origin: session cookies and the CSRF token apply
     # without CORS, and no second Cloudflare hostname is needed.
     location /avatars/ {
-            proxy_pass http://${avatars}/;
+            # Strip the prefix with a rewrite, not with a URI on proxy_pass.
+            #
+            # The upstream is a variable so that nginx starts even when the
+            # sidecar is absent -- a literal host is resolved at startup and a
+            # missing one stops the whole frontend. But when proxy_pass contains
+            # a variable, nginx does not substitute the location prefix: a URI
+            # part REPLACES the request URI outright. `http://${avatars}/` was
+            # therefore sending every request to "/", so /avatars/me and
+            # /avatars/healthz both arrived as "/" and returned 404.
+            #
+            # Same idiom as lightning.loc, which had it right.
+            rewrite /avatars/(.*) /$1 break;
+            proxy_pass http://${avatars};
             proxy_set_header   Host $host;
             proxy_set_header   X-Real-IP $remote_addr;
             proxy_set_header   X-Forwarded-For $proxy_add_x_forwarded_for;
