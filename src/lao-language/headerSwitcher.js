@@ -24,10 +24,8 @@ import LANGUAGES from "./languages.json";
 const ROOT_ID = "lao-language-switcher";
 
 /*
- * The active language. LanguageSwitchPage records it here once the backend has
- * accepted the change, so this reflects what was actually applied rather than
- * what was clicked. Read from storage rather than the API because this widget
- * mounts outside the app's redux store and has no access to the user object.
+ * The language this browser last recorded. A hint for the first paint only --
+ * see syncWithServer below for what actually decides.
  */
 const currentCode = () => {
   try {
@@ -36,6 +34,32 @@ const currentCode = () => {
     return "en";
   }
 };
+
+/*
+ * The language the interface is actually in.
+ *
+ * It lives on the user record, not in this browser: openIMIS renders whatever
+ * tblUsers.LanguageID says. Showing localStorage instead meant the switcher
+ * could read "English" over a Lao interface -- on a machine where the change
+ * was never made, or after the storage was cleared, the cache was simply absent
+ * and the widget fell back to "en" while the menus were in Lao.
+ *
+ * i_user.language is a plain code ("lo") in the same payload the avatar service
+ * already uses to identify a caller.
+ */
+const SERVER_LANGUAGE = "/api/core/users/current_user/";
+
+async function serverLanguage() {
+  try {
+    const res = await fetch(SERVER_LANGUAGE, { credentials: "include" });
+    if (!res.ok) return null;
+    const body = await res.json();
+    const code = body && body.i_user && body.i_user.language;
+    return typeof code === "string" && code ? code : null;
+  } catch (e) {
+    return null; // signed out, or offline: leave the hint in place
+  }
+}
 
 const el = (tag, styles, html) => {
   const n = document.createElement(tag);
@@ -52,6 +76,8 @@ function build() {
     marginRight: "8px",
   });
   wrap.id = ROOT_ID;
+  // Recorded so syncWithServer can tell whether a rebuild is needed.
+  wrap.dataset.code = (LANGUAGES.find((l) => l.code === currentCode()) || LANGUAGES[1]).code;
 
   const button = el("button", {
     display: "flex",
@@ -185,12 +211,43 @@ function mount() {
   return true;
 }
 
+/*
+ * Reconcile once per page with the user record.
+ *
+ * The widget paints immediately from the stored hint -- a flag that appears and
+ * then corrects itself is worse than one that appears slightly late -- and is
+ * rebuilt only when the two disagree.
+ */
+let synced = false;
+function syncWithServer() {
+  if (synced) return;
+  synced = true;
+  serverLanguage().then((code) => {
+    if (!code) return;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, code);
+    } catch (e) {
+      /* private mode: the hint stays wrong, the interface does not */
+    }
+    const existing = document.getElementById(ROOT_ID);
+    if (existing && existing.dataset.code !== code) {
+      existing.remove();
+      mount();
+    }
+  });
+}
+
 export default function mountHeaderSwitcher() {
   if (typeof document === "undefined") return;
-  if (mount()) return;
+  if (mount()) {
+    syncWithServer();
+    return;
+  }
   // The toolbar only exists after sign-in, and the shell re-renders, so keep
   // watching rather than mounting once.
-  const observer = new MutationObserver(() => mount());
+  const observer = new MutationObserver(() => {
+    if (mount()) syncWithServer();
+  });
   const start = () => observer.observe(document.body, { childList: true, subtree: true });
   if (document.body) start();
   else document.addEventListener("DOMContentLoaded", start);
