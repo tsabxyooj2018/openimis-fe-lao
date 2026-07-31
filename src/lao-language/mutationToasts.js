@@ -34,7 +34,6 @@ const LIFETIME = 6000;
 
 // key -> "pending" | "done", so a row is announced once, when it settles.
 const seen = new Map();
-let primed = false;
 
 function host() {
   let el = document.getElementById(HOST_ID);
@@ -110,6 +109,37 @@ const isError = (row) => {
 
 const isPending = (row) => !!row.querySelector(".MuiCircularProgress-root");
 
+/*
+ * The journal stamps each row with moment().format("YYYY-MM-DD HH:mm"), local
+ * time. Parsed by hand rather than with Date.parse, whose handling of that
+ * shape is not consistent between browsers -- some read it as UTC.
+ */
+const STAMP = /^(\d{4})-(\d{2})-(\d{2})\s+(\d{2}):(\d{2})$/;
+function stampToTime(text) {
+  const m = STAMP.exec(text.trim());
+  if (!m) return null;
+  return new Date(+m[1], +m[2] - 1, +m[3], +m[4], +m[5]).getTime();
+}
+
+/*
+ * Anything stamped before this minute happened in an earlier visit.
+ *
+ * A "first scan primes, later scans announce" rule looked right and was not:
+ * the first scan runs before the drawer has rendered anything, so it primed
+ * against an empty list, and every row that arrived afterwards counted as new.
+ * Reloading the home page therefore replayed the last few mutations as toasts.
+ *
+ * The timestamp is the honest test, and it does not depend on when this code
+ * happens to look. Truncated to the minute because that is all the journal
+ * prints; a save made in the same minute as the reload can still be announced,
+ * which is the harmless direction to err in.
+ */
+const OPENED_AT = (() => {
+  const d = new Date();
+  d.setSeconds(0, 0);
+  return d.getTime();
+})();
+
 function scan() {
   const drawer = document.querySelector(DRAWER);
   if (!drawer) return;
@@ -123,30 +153,29 @@ function scan() {
     if (!secondary) return; // not a mutation row
 
     const label = (primary && primary.textContent.trim()) || "";
+    // No label means an internal mutation -- changeUserLanguage and getCsrfToken
+    // are logged without one. Confirming those to the user is noise: they did
+    // not ask for anything to be saved.
+    if (!label) return;
+
+    const stamped = stampToTime(secondary.textContent);
     const key = `${label}|${secondary.textContent.trim()}`;
     present.add(key);
 
-    const pending = isPending(row);
-    const was = seen.get(key);
-
-    if (!primed) {
-      // First pass shows history. Record it, announce none of it.
-      seen.set(key, pending ? "pending" : "done");
+    if (stamped !== null && stamped < OPENED_AT) {
+      seen.set(key, "done"); // history: remember it, never announce it
       return;
     }
 
-    if (was === "done") return;
-    if (pending) {
+    if (seen.get(key) === "done") return;
+    if (isPending(row)) {
       seen.set(key, "pending");
       return;
     }
 
     seen.set(key, "done");
     const failed = isError(row);
-    toast(
-      label || (failed ? "ບັນທຶກບໍ່ສຳເລັດ / Save failed" : "ບັນທຶກແລ້ວ / Saved"),
-      failed,
-    );
+    toast(failed ? `${label} — ບໍ່ສຳເລັດ / failed` : label, failed);
   });
 
   // Rows fall off the end of the journal; forget them so the map cannot grow
@@ -154,8 +183,6 @@ function scan() {
   [...seen.keys()].forEach((k) => {
     if (!present.has(k)) seen.delete(k);
   });
-
-  primed = true;
 }
 
 export default function mountMutationToasts() {
