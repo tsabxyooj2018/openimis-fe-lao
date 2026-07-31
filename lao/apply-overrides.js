@@ -273,6 +273,57 @@ if (menuIdPatched === 0) {
   process.exit(1);
 }
 
+/*
+ * Do not load the dashboard iframe before its URL is known.
+ *
+ * fe-opensearch_reports builds the src unconditionally:
+ *
+ *   var dashboardUrl = props.dashboardUrl;
+ *   <iframe src={"https://" + host + "/opensearch/" + dashboardUrl}>
+ *
+ * and the page passes `dashboard?.url`, which is undefined until the record
+ * arrives from the API. So every report page first fetched
+ * /opensearch/undefined and displayed OpenSearch's raw error to the user --
+ *
+ *   {"statusCode":404,"error":"Not Found","message":"Not Found"}
+ *
+ * -- before replacing it with the real dashboard a moment later. Rendering
+ * nothing until the URL exists shows an empty panel for that moment instead.
+ */
+const REPORTS_PKG = path.join(__dirname, "..", "node_modules", "@openimis", "fe-opensearch_reports");
+const DEFER_IFRAME = {
+  find: "var dashboardUrl = props.dashboardUrl;",
+  replace: "var dashboardUrl = props.dashboardUrl;\n  if (!dashboardUrl) return null;",
+};
+
+let iframePatched = 0;
+if (fs.existsSync(REPORTS_PKG)) {
+  for (const rel of TARGETS) {
+    const file = path.join(REPORTS_PKG, rel);
+    if (!fs.existsSync(file)) continue;
+    let src = fs.readFileSync(file, "utf-8");
+    if (src.includes(DEFER_IFRAME.replace)) {
+      iframePatched += 1;
+      console.log(`  fe-opensearch_reports/${rel}: iframe guard (already present)`);
+      continue;
+    }
+    const hits = src.split(DEFER_IFRAME.find).length - 1;
+    if (hits) {
+      src = src.split(DEFER_IFRAME.find).join(DEFER_IFRAME.replace);
+      fs.writeFileSync(file, src, "utf-8");
+      iframePatched += hits;
+    }
+    console.log(`  fe-opensearch_reports/${rel}: iframe guard ${hits || "NOT FOUND"}`);
+  }
+  if (iframePatched === 0) {
+    console.error("\ncould not defer the dashboard iframe: fe-opensearch_reports no longer reads");
+    console.error("props.dashboardUrl that way. Report pages will flash an OpenSearch 404.");
+    process.exit(1);
+  }
+} else {
+  console.log("  @openimis/fe-opensearch_reports absent, iframe guard skipped");
+}
+
 const missing = Object.keys(overrides).filter((k) => !totals[k]);
 if (missing.length) {
   console.error("\nThese keys were not found in fe-core - upstream may have renamed them:");
