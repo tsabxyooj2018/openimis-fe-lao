@@ -13,6 +13,18 @@
     location = /check_user/ {
            internal;
            proxy_pass_request_body off;
+           # Without this, nginx sends its default Host for a proxied request --
+           # the upstream name, "backend:8000" -- which is not in Django's
+           # ALLOWED_HOSTS, so the subrequest returned 400 DisallowedHost.
+           #
+           # auth_request understands 2xx as allow and 401/403 as deny. Anything
+           # else is an error, so that 400 surfaced as a bare nginx
+           # "500 Internal Server Error" on every OpenSearch dashboard page.
+           #
+           # With the client's host it returns 401 when signed out and 200 when
+           # signed in, which is what auth_request needs. The /api/ location
+           # above already passes $host; only this one was missing it.
+           proxy_set_header Host $host;
            proxy_set_header Content-Length "";
            proxy_set_header X-Original-URI $request_uri;
            proxy_set_header X-Real-IP $remote_addr;
