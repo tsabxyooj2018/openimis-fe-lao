@@ -10,6 +10,7 @@ import mountChangePasswordCancel from "./changePasswordCancel";
 import mountProfileLogout from "./profileLogout";
 import mountProfileMenuDismiss from "./profileMenuDismiss";
 import mountUserPhoto from "./userPhoto";
+import mountSidebarResize from "./sidebarResize";
 
 /*
  * Language switcher, contributed as an ordinary openIMIS module.
@@ -57,6 +58,8 @@ mountProfileMenuDismiss();
 // Photos come from a sidecar; openIMIS has no user image field. Does nothing
 // at all when that service is not deployed.
 mountUserPhoto();
+// The drawer width is a fixed number in the theme, and Lao labels do not fit it.
+mountSidebarResize();
 
 const LaoLanguageModule = (cfg) => ({
   "core.Router": [{ path: "language/:code", component: LanguageSwitchPage }],

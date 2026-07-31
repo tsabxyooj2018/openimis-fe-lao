@@ -278,9 +278,27 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) input:foc
 
 /* --- Sidebar shell -------------------------------------------------------- */
 .MuiDrawer-paperAnchorDockedLeft {
-  /* room for the pinned logout row at the bottom */
-  padding-bottom: 56px;
   border-right: 0;
+}
+
+/* Long labels wrap instead of forcing a horizontal scrollbar.
+   theme.menu.drawer.width is a single number chosen for English; Lao runs
+   longer -- "ຜູ້ຖືສັນຍາປະກັນໄພ" overflows it -- and the drawer scrolled
+   sideways rather than wrapping. Width is draggable too (see
+   src/lao-language/sidebarResize.js), but no width is right for every label in
+   every language, so they wrap as well.
+
+   line-height 1.45 because Lao stacks tone marks above the consonant: at normal
+   leading the marks on a second line collide with the line above. */
+.MuiDrawer-paperAnchorDockedLeft .MuiListItemText-primary,
+.MuiDrawer-paperAnchorDockedLeft .MuiTypography-body1 {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  line-height: 1.45;
+}
+
+.MuiDrawer-paperAnchorDockedLeft {
+  overflow-x: hidden;
 }
 
 /* --- Sidebar header: emblem, name, version -------------------------------
