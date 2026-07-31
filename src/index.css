@@ -81,11 +81,45 @@ body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::before {
   bottom: 0;
   left: clamp(21rem, 40%, 33rem);
   right: 0;
-  background: url(./emblem-moh.png) no-repeat center;
-  background-size: min(46vh, 62%) auto;
+  /* Lifted off centre to leave room for the motto beneath it, so the two read
+     as one lockup rather than two things that happen to be near each other. */
+  background: url(./emblem-moh.png) no-repeat center calc(50% - 3.25rem);
+  /* Viewport units only. A percentage here would resolve against this layer's
+     width, which the motto's `top` below cannot refer to -- both must be
+     expressed in the same terms for the text to land under the emblem. */
+  background-size: min(46vh, 38vw) auto;
   opacity: 0.16;
   pointer-events: none;
   animation: lao-emblem-drift 20s ease-in-out infinite;
+}
+
+/* --- The motto ------------------------------------------------------------
+   Sits directly below the emblem and drifts with it: same duration, same
+   easing, same transform values, so the pair never separates. Only the opacity
+   range differs -- at the emblem's 0.13 the text would be unreadable.
+
+   `top` is the emblem's centre, minus the lift above, plus half the emblem, plus
+   a gap. min(23vh, 19vw) is half of min(46vh, 38vw). */
+body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::after {
+  content: "ຄວາມໄວ້ວາງໃຈຂອງປະຊາຊົນ ຄືສິ່ງທີ່ພວກເຮົາຮັກສາ\A We are keepers of the public's trust";
+  white-space: pre-line;
+  position: fixed;
+  left: clamp(21rem, 40%, 33rem);
+  right: 0;
+  top: calc(50% + min(23vh, 19vw) - 2rem);
+  padding: 0 2rem;
+  box-sizing: border-box;
+  text-align: center;
+  text-wrap: balance;
+  color: #fff;
+  font-size: clamp(0.9rem, 1.15vw, 1.1rem);
+  font-weight: 500;
+  /* Lao stacks tone marks above the consonant; at normal leading they collide
+     with the line above on the second line. */
+  line-height: 1.9;
+  letter-spacing: 0.01em;
+  pointer-events: none;
+  animation: lao-motto-drift 20s ease-in-out infinite;
 }
 
 /* Slow enough to read as ambient rather than as something demanding attention:
@@ -102,12 +136,30 @@ body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::before {
   }
 }
 
-/* Movement in the background of a sign-in page is exactly what this setting is
-   for. The emblem stays, at the midpoint of the cycle. */
+/* Identical motion to the emblem. The scale is dropped: text scaling by 3%
+   resamples the glyphs and reads as a focus wobble rather than as drift. */
+@keyframes lao-motto-drift {
+  0%,
+  100% {
+    transform: translateY(-8px);
+    opacity: 0.44;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 0.58;
+  }
+}
+
+/* Movement behind a sign-in form is exactly what this setting is for. Both stay,
+   at the midpoint of their cycles. */
 @media (prefers-reduced-motion: reduce) {
   body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::before {
     animation: none;
     opacity: 0.16;
+  }
+  body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::after {
+    animation: none;
+    opacity: 0.52;
   }
 }
 
@@ -301,8 +353,9 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) input:foc
     background-image: linear-gradient(160deg, #071b30 0%, #123b63 100%);
   }
   /* The panel is the whole page here, so there is no dark area to centre in --
-     the emblem would sit behind the form. */
-  body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::before {
+     the emblem and motto would sit behind the form. */
+  body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::before,
+  body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::after {
     display: none;
   }
   body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) {
