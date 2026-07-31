@@ -113,6 +113,45 @@ const TOOLBAR_ACTIONS = [
  * Genuine expiry is untouched -- the header is present then, and the dialog
  * still appears.
  */
+/*
+ * Keep the sidebar group open for the page you are on.
+ *
+ * Clicking an entry collapsed its group. Not because the entry toggles it -- in
+ * the drawer variant onClick only redirects -- but because fetchSubmenuConfig
+ * builds a NEW component function on every render:
+ *
+ *   return { ...menu, component: function (props) { ... } }
+ *
+ * A new function is a new component type to React, so the whole menu is
+ * unmounted and remounted on every navigation, and the constructor resets
+ * `expanded: props.isInitiallyOpen || false`.
+ *
+ * fe-core does have an intended answer -- isInitiallyOpen is set for the group
+ * matching activeMenuId -- but only when getConf("fe-core", "menus") is
+ * populated, and populating it is a trap: once non-empty, filterNoConfig drops
+ * every menu absent from it and fetchSubmenuConfig drops every entry without an
+ * explicit position. A partial config silently hides menus, and it would need
+ * revisiting on each upgrade of all thirty-one modules.
+ *
+ * So the initial state is derived from the location instead, using fe-core's own
+ * menuEntryMatchesLocationPath -- the same test it already uses to mark the
+ * entry selected. Since the component remounts on every navigation, this is
+ * recomputed each time: the group owning the current page opens, the others
+ * close. Collapsing one by hand still works and lasts until the next
+ * navigation, because this only affects the initial state.
+ *
+ * Profile is excluded. It is the same kind of group, but src/index.css renders
+ * it as the toolbar dropdown rather than a sidebar section, so opening it for
+ * the current page would leave that menu hanging over the screen every time
+ * someone lands on My Profile or Change Password.
+ */
+const KEEP_ACTIVE_GROUP_OPEN = {
+  find: "expanded: props.isInitiallyOpen || false",
+  replace:
+    'expanded: props.isInitiallyOpen || (props.menuId !== "ProfileMainMenu" ' +
+    "&& (props.entries || []).some(menuEntryMatchesLocationPath)) || false",
+};
+
 const SESSION_EXPIRY_GUARD = {
   find: "csrfError = gqlErrors.some(function (e) {",
   replace: 'csrfError = !!document.querySelector("header") && gqlErrors.some(function (e) {',
@@ -128,6 +167,7 @@ const totals = {};
 let filesPatched = 0;
 let menuIdPatched = 0;
 let guardPatched = 0;
+let keepOpenPatched = 0;
 const toolbarHits = {};
 
 for (const rel of TARGETS) {
@@ -160,6 +200,13 @@ for (const rel of TARGETS) {
   if (menuIdHits) source = source.split(STABLE_MENU_ID.find).join(STABLE_MENU_ID.replace);
   menuIdPatched += menuIdHits || (already ? 1 : 0);
 
+  const keptOpen = source.includes(KEEP_ACTIVE_GROUP_OPEN.replace);
+  const openHits = keptOpen ? 0 : source.split(KEEP_ACTIVE_GROUP_OPEN.find).length - 1;
+  if (openHits) {
+    source = source.split(KEEP_ACTIVE_GROUP_OPEN.find).join(KEEP_ACTIVE_GROUP_OPEN.replace);
+  }
+  keepOpenPatched += openHits || (keptOpen ? 1 : 0);
+
   const guarded = source.includes(SESSION_EXPIRY_GUARD.replace);
   const guardHits = guarded ? 0 : source.split(SESSION_EXPIRY_GUARD.find).length - 1;
   if (guardHits) source = source.split(SESSION_EXPIRY_GUARD.find).join(SESSION_EXPIRY_GUARD.replace);
@@ -189,7 +236,8 @@ for (const rel of TARGETS) {
     `  ${rel}: ${replacedHere} replacements, ` +
       `data-menu-id ${menuIdHits || (already ? "(already present)" : "NOT FOUND")}, ` +
       `toolbar ${actions.join(" ")}, ` +
-      `session-guard ${guardHits || (guarded ? "(already present)" : "NOT FOUND")}`,
+      `session-guard ${guardHits || (guarded ? "(already present)" : "NOT FOUND")}, ` +
+      `keep-open ${openHits || (keptOpen ? "(already present)" : "NOT FOUND")}`,
   );
 }
 
@@ -203,6 +251,12 @@ if (unstamped.length) {
   console.error("\ncould not stamp these toolbar buttons:");
   unstamped.forEach(({ icon, action }) => console.error(`  ${action} (looked for the ${icon} icon)`));
   console.error("fe-core has changed how the toolbar is built; src/index.css needs a new hook.");
+  process.exit(1);
+}
+
+if (keepOpenPatched === 0) {
+  console.error("\ncould not keep the active sidebar group open: fe-core no longer initialises");
+  console.error("expanded from props.isInitiallyOpen. Groups will collapse on every navigation.");
   process.exit(1);
 }
 
