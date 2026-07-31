@@ -53,11 +53,62 @@ body:not(:has(header)) .App > div:has(> [class*="MuiPaper"]) {
   background-color: #0a2440;
   background-image:
     linear-gradient(rgba(10, 36, 64, 0.78), rgba(10, 36, 64, 0.86)),
-    url(./emblem-moh.png),
     linear-gradient(125deg, #071b30 0%, #123b63 55%, #17456f 100%);
-  background-repeat: no-repeat, no-repeat, no-repeat;
-  background-position: center, right 6% center, center;
-  background-size: cover, auto 44%, cover;
+  background-repeat: no-repeat, no-repeat;
+  background-position: center, center;
+  background-size: cover, cover;
+}
+
+/* --- The emblem watermark ---------------------------------------------------
+   Its own layer rather than a third background-image on the element above.
+
+   As a background it could only be placed against the whole page, so "centre"
+   put it behind the sign-in panel; it sat at `right 6%` to stay clear, which
+   read as off to one side. A layer inset by the panel's own width centres it in
+   the dark area the viewer actually sees. The clamp is repeated from the panel
+   deliberately -- the two must agree, and there is nowhere shared to put it.
+
+   It also cannot be animated as a background layer: transform does not apply to
+   one, and animating background-position would move it in steps against the
+   gradient rather than drift.
+
+   `position: fixed` because the container scrolls when the viewport is short;
+   the watermark should stay put rather than slide with the form. */
+body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: clamp(21rem, 40%, 33rem);
+  right: 0;
+  background: url(./emblem-moh.png) no-repeat center;
+  background-size: min(46vh, 62%) auto;
+  opacity: 0.16;
+  pointer-events: none;
+  animation: lao-emblem-drift 20s ease-in-out infinite;
+}
+
+/* Slow enough to read as ambient rather than as something demanding attention:
+   a full cycle is 20s, the travel is 8px and the scale change 3%. */
+@keyframes lao-emblem-drift {
+  0%,
+  100% {
+    transform: translateY(-8px) scale(1);
+    opacity: 0.13;
+  }
+  50% {
+    transform: translateY(8px) scale(1.03);
+    opacity: 0.2;
+  }
+}
+
+/* Movement in the background of a sign-in page is exactly what this setting is
+   for. The emblem stays, at the midpoint of the cycle. */
+@media (prefers-reduced-motion: reduce) {
+  body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::before {
+    animation: none;
+    opacity: 0.16;
+  }
 }
 
 /* --- The left panel --------------------------------------------------------
@@ -248,6 +299,11 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) input:foc
 @media (max-width: 60rem) {
   body:not(:has(header)) .App > div:has(> [class*="MuiPaper"]) {
     background-image: linear-gradient(160deg, #071b30 0%, #123b63 100%);
+  }
+  /* The panel is the whole page here, so there is no dark area to centre in --
+     the emblem would sit behind the form. */
+  body:not(:has(header)) .App > div:has(> [class*="MuiPaper"])::before {
+    display: none;
   }
   body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) {
     width: 100%;
