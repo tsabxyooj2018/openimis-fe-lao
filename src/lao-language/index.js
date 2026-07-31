@@ -9,6 +9,7 @@ import mountHeaderSwitcher from "./headerSwitcher";
 import mountChangePasswordCancel from "./changePasswordCancel";
 import mountProfileLogout from "./profileLogout";
 import mountProfileMenuDismiss from "./profileMenuDismiss";
+import mountUserPhoto from "./userPhoto";
 
 /*
  * Language switcher, contributed as an ordinary openIMIS module.
@@ -53,6 +54,9 @@ mountChangePasswordCancel();
 mountProfileLogout();
 // That dropdown is an Accordion, so it has no dismiss of its own.
 mountProfileMenuDismiss();
+// Photos come from a sidecar; openIMIS has no user image field. Does nothing
+// at all when that service is not deployed.
+mountUserPhoto();
 
 const LaoLanguageModule = (cfg) => ({
   "core.Router": [{ path: "language/:code", component: LanguageSwitchPage }],
