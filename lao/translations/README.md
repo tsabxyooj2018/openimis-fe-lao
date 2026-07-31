@@ -69,6 +69,22 @@ Removing the empties is the point: an empty string is a valid translation as far
 as react-intl is concerned, so shipping the working file as-is would render most
 of the interface blank. Only an absent key falls through to English.
 
+## Checking the menus
+
+```bash
+node lao/translations/menu-coverage.js
+```
+
+Lists any sidebar label still in English. Do not look for these by searching the
+dictionary for keys containing `menu` — that misses whole groups.
+`fe-opensearch_reports` names its entries `openSearchReports.openSearch.*` and
+`fe-tasks_management` uses `tasksManagement.entries.*`, so the Dashboards group
+and two Tasks entries stayed English twice with nothing to show it. The script
+reads the `MainMenuContribution` call in each module instead of guessing.
+
+Not wired into the build: partial translation is normal here, and failing every
+build over it would be wrong.
+
 ## After an openIMIS upgrade
 
 ```bash

@@ -8621,35 +8621,35 @@
   },
   "openSearchReports.dashboard.edit": {
     "en": "Edit Dashboard",
-    "lo": ""
+    "lo": "ແກ້ໄຂແຜງສະຫຼຸບຂໍ້ມູນ"
   },
   "openSearchReports.dashboard.name": {
     "en": "Dashboard Name",
-    "lo": ""
+    "lo": "ຊື່ແຜງສະຫຼຸບຂໍ້ມູນ"
   },
   "openSearchReports.dashboard.synchDisabled": {
     "en": "Synchronization Disabled",
-    "lo": ""
+    "lo": "ປິດການເຊື່ອມຂໍ້ມູນ"
   },
   "openSearchReports.dashboard.synchStatus": {
     "en": "Synchronization Disabled",
-    "lo": ""
+    "lo": "ປິດການເຊື່ອມຂໍ້ມູນ"
   },
   "openSearchReports.dashboard.url": {
     "en": "Dashboard URL",
-    "lo": ""
+    "lo": "ທີ່ຢູ່ URL ຂອງແຜງສະຫຼຸບຂໍ້ມູນ"
   },
   "openSearchReports.dialog.cancel": {
     "en": "Cancel",
-    "lo": ""
+    "lo": "ຍົກເລີກ"
   },
   "openSearchReports.dialog.save": {
     "en": "Save",
-    "lo": ""
+    "lo": "ບັນທຶກ"
   },
   "openSearchReports.dialog.title": {
     "en": "Edit Details - {dashboardName}",
-    "lo": ""
+    "lo": "ແກ້ໄຂລາຍລະອຽດ - {dashboardName}"
   },
   "openSearchReports.openSearch": {
     "en": "Dashboards",
@@ -8657,39 +8657,39 @@
   },
   "openSearchReports.openSearch.beneficiaryReports": {
     "en": "Beneficiary Reports",
-    "lo": ""
+    "lo": "ບົດລາຍງານຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "openSearchReports.openSearch.dataUpdatesReports": {
     "en": "Data Updates Reports",
-    "lo": ""
+    "lo": "ບົດລາຍງານການປັບປຸງຂໍ້ມູນ"
   },
   "openSearchReports.openSearch.grievanceReports": {
     "en": "Grievance Reports",
-    "lo": ""
+    "lo": "ບົດລາຍງານຄຳຮ້ອງທຸກ"
   },
   "openSearchReports.openSearch.groupReports": {
     "en": "Group Reports",
-    "lo": ""
+    "lo": "ບົດລາຍງານກຸ່ມ"
   },
   "openSearchReports.openSearch.individualReports": {
     "en": "Individual Reports",
-    "lo": ""
+    "lo": "ບົດລາຍງານບຸກຄົນ"
   },
   "openSearchReports.openSearch.invoiceReports": {
     "en": "Invoice Reports",
-    "lo": ""
+    "lo": "ບົດລາຍງານໃບແຈ້ງໜີ້"
   },
   "openSearchReports.openSearch.openSearchConfig": {
     "en": "Manage Dashboards",
-    "lo": ""
+    "lo": "ຄຸ້ມຄອງແຜງສະຫຼຸບຂໍ້ມູນ"
   },
   "openSearchReports.openSearch.paymentReports": {
     "en": "Payment Reports",
-    "lo": ""
+    "lo": "ບົດລາຍງານການຊຳລະເງິນ"
   },
   "openSearchReports.openSearch.searcherResultsTitle": {
     "en": "Manage Reports and Dashboards",
-    "lo": ""
+    "lo": "ຄຸ້ມຄອງບົດລາຍງານ ແລະ ແຜງສະຫຼຸບຂໍ້ມູນ"
   },
   "payer.AddFundingDialog.submit": {
     "en": "Submit",
@@ -13309,11 +13309,11 @@
   },
   "tasksManagement.entries.tasksManagementAllView": {
     "en": "All tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກທັງໝົດ"
   },
   "tasksManagement.entries.tasksManagementView": {
     "en": "Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກ"
   },
   "tasksManagement.groupsManagement.groupHelmet": {
     "en": "Task Group",
