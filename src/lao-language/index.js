@@ -12,6 +12,7 @@ import mountProfileMenuDismiss from "./profileMenuDismiss";
 import mountUserPhoto from "./userPhoto";
 import mountSidebarResize from "./sidebarResize";
 import mountMutationToasts from "./mutationToasts";
+import mountSiteLogo from "./siteLogo";
 
 /*
  * Language switcher, contributed as an ordinary openIMIS module.
@@ -63,6 +64,8 @@ mountUserPhoto();
 mountSidebarResize();
 // The journal is hidden but still mounted; this surfaces its results as toasts.
 mountMutationToasts();
+// Administrators can replace the site emblem; openIMIS has no form for it.
+mountSiteLogo();
 
 const LaoLanguageModule = (cfg) => ({
   "core.Router": [{ path: "language/:code", component: LanguageSwitchPage }],

@@ -19,6 +19,11 @@ import messages_ref from "./translations/ref.json";
 import "./index.css";
 import "./rc-cascader.css";
 
+// Served by the avatar sidecar; absent until an administrator uploads one.
+// Declared after the imports, not among them: Create React App treats
+// import/first as an error when CI is set, as it is in Actions.
+const BRANDING_LOGO = "/avatars/branding/logo";
+
 Sentry.init({ 
   dsn: process.env.REACT_APP_SENTRY_DSN,
   debug: false,
@@ -81,25 +86,51 @@ const AppContainer = () => {
   const disableTextLogo = appState?.config?.["fe-core"]?.logo?.disableTextLogo || false;
 
   /*
-   * Publish the configured logo to CSS.
+   * The emblem, from the most specific source that has one.
    *
-   * fe-core passes `logo` to the App for the sign-in panel, but the emblem also
-   * appears twice in places React does not render: the sidebar header and the
-   * sign-in watermark, both drawn by src/index.css. Hardcoding the image there
-   * meant an administrator could change one of the three and not the others,
-   * and only by rebuilding the image for the other two.
+   *   1. uploaded through the interface (the avatar sidecar, /avatars/branding)
+   *   2. fe-core.logo.value in the module configuration, set in Django admin
+   *   3. the emblem bundled into this build
    *
-   * As a custom property, all three follow one setting -- fe-core.logo.value in
-   * the module configuration, a base64 data URI held in the database -- and it
-   * takes effect on a refresh with no rebuild and no redeploy. The stylesheet
-   * keeps url(./emblem-moh.png) as the fallback, so an absent or malformed
-   * setting simply leaves the bundled emblem in place.
+   * (2) already existed but has no form behind it: ModuleConfiguration is
+   * exposed as a GraphQL query with no mutation, so a screen in openIMIS would
+   * mean forking the backend. (1) is a file an administrator uploads, which is
+   * why it wins.
+   *
+   * The probe is a HEAD, so nothing is downloaded when no logo has been set --
+   * which is the usual case, and it happens on the sign-in page before anyone
+   * has authenticated.
+   */
+  const [uploadedLogo, setUploadedLogo] = React.useState(null);
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch(BRANDING_LOGO, { method: "HEAD" })
+      .then((r) => {
+        if (!cancelled && r.ok) setUploadedLogo(BRANDING_LOGO);
+      })
+      // Absent sidecar, offline, 404: all mean "no uploaded logo", and none of
+      // them should keep the page from rendering.
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const emblem = uploadedLogo || logo;
+
+  /*
+   * Published to CSS as well as passed to the App, because the emblem appears
+   * twice in places React does not render: the sidebar header and the sign-in
+   * watermark, both drawn by src/index.css. Without this an administrator would
+   * change one of the three and leave the other two, and only a rebuild would
+   * bring them into line.
    */
   useEffect(() => {
     // Quoted: a data URI contains commas and semicolons, which are separators
     // inside url() when unquoted. It cannot contain a double quote itself.
-    document.documentElement.style.setProperty("--lao-emblem", `url("${logo}")`);
-  }, [logo]);
+    document.documentElement.style.setProperty("--lao-emblem", `url("${emblem}")`);
+  }, [emblem]);
 
   if (appState.isLoading) {
     return (
@@ -134,7 +165,7 @@ const AppContainer = () => {
                 basename={process.env.PUBLIC_URL}
                 localesManager={localesManager}
                 messages={messages_ref}
-                logo={logo}
+                logo={emblem}
                 disableTextLogo={disableTextLogo}
               />
             </ModulesManagerProvider>
