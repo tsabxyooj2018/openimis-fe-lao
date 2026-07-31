@@ -420,44 +420,24 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) input:foc
   background-color: rgba(255, 255, 255, 0.1);
 }
 
-/* --- Logout, pinned to the foot of the sidebar --------------------------
-   CSS cannot move it out of the toolbar, so it is positioned over the sidebar's
-   reserved bottom strip. Same element, same handler -- only its position and
-   label change.
+/* --- Logout, moved into the Profile dropdown ----------------------------
+   It sits under Change Password now, with the other account actions, rather
+   than pinned to the foot of the sidebar.
+
+   The button itself is only hidden, never moved. src/lao-language/profileLogout.js
+   adds a row to the dropdown that forwards its click here: relocating a node
+   React rendered would leave it in the fiber tree at its old position, so the
+   next toolbar render could put it back or update around a missing child.
+   Hidden, it keeps the handler fe-core installed -- redirect and store cleanup
+   included -- and the row stays a plain DOM sibling React does not own.
 
    Matched on data-toolbar-action, which lao/apply-overrides.js stamps onto the
    button. It cannot be matched on anything fe-core renders: the two toolbar
    buttons carry no id, no name and the same class, and are distinguished only
    by a `title` holding the TRANSLATED tooltip. Keying on title="Log out" worked
-   in English and stopped matching in Lao, so this rule quietly switched off and
-   logout reappeared in the toolbar. */
+   in English and stopped matching in Lao. */
 header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="logout"] {
-  position: fixed;
-  left: 0;
-  bottom: 0;
-  z-index: 1300;
-  width: 288px;
-  height: 52px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 0 1rem;
-  border-radius: 0;
-  color: #fff;
-  background: rgba(0, 0, 0, 0.22);
-  border-top: 1px solid rgba(255, 255, 255, 0.14);
-}
-
-header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="logout"]:hover {
-  background: rgba(0, 0, 0, 0.34);
-}
-
-header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="logout"]::after {
-  content: "ອອກຈາກລະບົບ / Log out";
-  font-size: 0.85rem;
-  font-weight: 500;
-  line-height: 1;
+  display: none;
 }
 
 /* --- Journal drawer ------------------------------------------------------

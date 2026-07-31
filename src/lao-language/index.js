@@ -7,6 +7,7 @@ import LanguageSwitchPage from "./LanguageSwitchPage";
 import messages_lo from "./lo.json";
 import mountHeaderSwitcher from "./headerSwitcher";
 import mountChangePasswordCancel from "./changePasswordCancel";
+import mountProfileLogout from "./profileLogout";
 
 /*
  * Language switcher, contributed as an ordinary openIMIS module.
@@ -46,6 +47,9 @@ const LanguageMainMenu = (props) => (
 mountHeaderSwitcher();
 // Profile > Change Password ships with only a Submit button; see the module.
 mountChangePasswordCancel();
+// Logout lives in the toolbar in fe-core; this puts it with the other account
+// actions, under Change Password.
+mountProfileLogout();
 
 const LaoLanguageModule = (cfg) => ({
   "core.Router": [{ path: "language/:code", component: LanguageSwitchPage }],
