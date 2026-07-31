@@ -1,4 +1,7 @@
-import { loadModules, packages } from "./modules";
+// `packages` is no longer imported: it fed getModulesVersions() below, which is
+// now empty. Leaving the import would fail the build, since Create React App
+// treats an unused binding as an error when CI is set, as it is in Actions.
+import { loadModules } from "./modules";
 import { memoize } from "lodash";
 import pkg from "../package.json";
 import { ensureArray } from "@openimis/fe-core";
@@ -98,8 +101,26 @@ class ModulesManager {
     return pkg.version;
   }
 
+  /*
+   * Deliberately empty.
+   *
+   * fe-core hangs a tooltip off the version caption under the logo:
+   *
+   *   <Tooltip title={modulesManager.getModulesVersions().join(", ")}>
+   *     <Typography variant="caption">{getOpenIMISVersion()}</Typography>
+   *
+   * so hovering "26.04" dumped all thirty-one packages and their exact
+   * versions over the sidebar. It is unreadable, it is not information a user
+   * of a health insurance system has any use for, and it tells anyone who
+   * hovers precisely which component versions this deployment runs.
+   *
+   * MUI renders no tooltip when the title is an empty string, so returning
+   * nothing removes it without touching fe-core. The version caption itself
+   * stays. The module versions are still in package.json and in the image's
+   * OCI labels, where support can read them.
+   */
   getModulesVersions() {
-    return packages.map((name) => `${name}@${pkg.dependencies[name] ?? "?"}`);
+    return [];
   }
 
   hideField(module, key) {
