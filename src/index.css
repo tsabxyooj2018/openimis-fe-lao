@@ -809,7 +809,15 @@ header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="help"] {
    in a TableContainer -- so the Paper is what gets the scroller. */
 main {
   max-width: 100%;
-  overflow-x: hidden;
+  /* `clip`, NOT `hidden`.
+
+     When one axis is set to anything but `visible`, the other computes from
+     `visible` to `auto` -- so `overflow-x: hidden` quietly turned this into a
+     vertical scroll container and put a scrollbar down the right of every page,
+     including empty ones. `clip` carries no such implication: it clips the
+     overflow without creating a scroll container, and leaves the vertical axis
+     alone. */
+  overflow-x: clip;
 }
 
 main .MuiPaper-root:has(.MuiTable-root),
@@ -823,35 +831,60 @@ main .MuiPaper-root:has(.MuiTable-root) .MuiTable-root {
   min-width: max-content;
 }
 
-/* Scrollbars thick enough to grab. The browser default is a few pixels tall on
-   Windows, which is hard to hit deliberately and was the other half of the
-   complaint. Firefox takes the standard properties; Chromium and Edge, which is
-   what these workstations run, need the -webkit- pseudo-elements. */
+/* Scrollbars: wide enough to grab, quiet enough to ignore.
+
+   The Windows default is a few pixels and hard to hit deliberately, so the
+   width stays. What went was the filled track -- a grey band down the side of
+   every scrollable element, drawn whether or not anything could scroll, which
+   is what made the interface look busy. The thumb alone carries the meaning.
+
+   Firefox takes the standard properties; Chromium and Edge, which is what these
+   workstations run, need the -webkit- pseudo-elements. */
 * {
-  scrollbar-width: auto;
-  scrollbar-color: #9fb0bf #e9eef3;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(18, 59, 99, 0.28) transparent;
 }
 
 ::-webkit-scrollbar {
-  width: 12px;
-  height: 12px;
+  width: 11px;
+  height: 11px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #e9eef3;
+  background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #9fb0bf;
-  border: 2px solid #e9eef3;
-  border-radius: 6px;
+  /* Translucent, so it reads against whatever it happens to sit on rather than
+     assuming the page background. The transparent border plus background-clip
+     insets the thumb, leaving it clear of the content edge without a track. */
+  background: rgba(18, 59, 99, 0.28);
+  border: 3px solid transparent;
+  border-radius: 999px;
+  background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #7d92a4;
+  background: rgba(18, 59, 99, 0.45);
+  border: 3px solid transparent;
+  background-clip: padding-box;
 }
 
-/* The sidebar is dark; a light thumb there would look like a stray element. */
+/* Chromium draws arrow buttons at each end by default; they are not part of any
+   current interface and add two more grey blocks per bar. */
+::-webkit-scrollbar-button {
+  display: none;
+}
+
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+/* The sidebar is dark; the ink-blue thumb above would be invisible on it. */
+.MuiDrawer-paperAnchorDockedLeft {
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent;
+}
+
 .MuiDrawer-paperAnchorDockedLeft::-webkit-scrollbar-track {
   background: transparent;
 }
