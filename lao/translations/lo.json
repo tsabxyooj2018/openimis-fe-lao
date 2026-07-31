@@ -3785,7 +3785,7 @@
   },
   "contributionPlan.paymentPlans.page.title": {
     "en": "Payment Plans",
-    "lo": ""
+    "lo": "ແຜນການຈ່າຍເງິນ"
   },
   "contributionPlan.paymentPlans.searcher.results.title": {
     "en": "{paymentPlansTotalCount} Payment Plans Found",
@@ -5201,7 +5201,7 @@
   },
   "groupTasks.label": {
     "en": "Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກ"
   },
   "HealthFacilityForm.contractEndDate": {
     "en": "Contract End Date",
@@ -5485,7 +5485,7 @@
   },
   "individual.individualTasks.label": {
     "en": "Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກ"
   },
   "individual.isDeleted": {
     "en": "Show Deleted",
@@ -9269,7 +9269,7 @@
   },
   "paymentCycle.paymentCycles.page.title": {
     "en": "Payment Cycles",
-    "lo": ""
+    "lo": "ຮອບການຈ່າຍເງິນ"
   },
   "paymentCycle.paymentCycleStatusPicker": {
     "en": "Payment Cycle Status",
@@ -9345,7 +9345,7 @@
   },
   "PaymentCycleTaskTab.label": {
     "en": "Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກ"
   },
   "paymentInvoice.amountReceived": {
     "en": "Amount Received",
@@ -9597,7 +9597,7 @@
   },
   "paymentPlan.paymentPlans.page.title": {
     "en": "Payment Plans",
-    "lo": ""
+    "lo": "ແຜນການຈ່າຍເງິນ"
   },
   "paymentPlan.periodicity": {
     "en": "Periodicity (no of months)",
@@ -9961,7 +9961,7 @@
   },
   "payroll.paymentPoint.page.title": {
     "en": "Payment Points",
-    "lo": ""
+    "lo": "ຈຸດຈ່າຍເງິນ"
   },
   "payroll.paymentPoint.ppm": {
     "en": "Payment Point Manager",
@@ -9969,7 +9969,7 @@
   },
   "payroll.paymentPoint.route": {
     "en": "Payment Points",
-    "lo": ""
+    "lo": "ຈຸດຈ່າຍເງິນ"
   },
   "payroll.PaymentPointPage.title": {
     "en": "Payment Point {name}",
@@ -10029,7 +10029,7 @@
   },
   "payroll.payroll.page.title": {
     "en": "Payrolls",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ"
   },
   "payroll.payroll.paymentPlan": {
     "en": "Payment Plan",
@@ -10069,7 +10069,7 @@
   },
   "payroll.payroll.route": {
     "en": "Payrolls",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ"
   },
   "payroll.payroll.status": {
     "en": "Status",
@@ -10113,7 +10113,7 @@
   },
   "payroll.PayrollTaskTab.label": {
     "en": "Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກ"
   },
   "payroll.reconciliationSummary": {
     "en": "View Reconciliation Summary: {payrollName}",
@@ -10121,15 +10121,15 @@
   },
   "payroll.route.payrollsApproved": {
     "en": "Approved Payrolls",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນທີ່ອະນຸມັດແລ້ວ"
   },
   "payroll.route.payrollsPending": {
     "en": "Pending Payrolls",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນລໍຖ້າອະນຸມັດ"
   },
   "payroll.route.payrollsReconciled": {
     "en": "Reconciled Payrolls",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນທີ່ກວດຍອດແລ້ວ"
   },
   "payroll.summary.amount": {
     "en": "Amount",
@@ -13029,7 +13029,7 @@
   },
   "socialProtection.benefitPlanTasks.label": {
     "en": "Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກ"
   },
   "socialProtection.benefitUploadRecord.benefitPlanCode": {
     "en": "Program code",
@@ -13833,7 +13833,7 @@
   },
   "ticket.template.comments": {
     "en": "Comments",
-    "lo": ""
+    "lo": "ຄຳເຫັນ"
   },
   "ticket.template.dateCreated": {
     "en": "Date Created",
@@ -13973,7 +13973,7 @@
   },
   "TicketCommentsPanel.table.header": {
     "en": "Comments",
-    "lo": ""
+    "lo": "ຄຳເຫັນ"
   },
   "tickets Status": {
     "en": "Status",
