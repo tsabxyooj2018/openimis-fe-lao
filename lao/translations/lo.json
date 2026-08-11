@@ -13,11 +13,11 @@
   },
   "action.AddTicket.tooltip": {
     "en": "Add Grievance",
-    "lo": ""
+    "lo": "ເພີ່ມຄຳຮ້ອງທຸກ"
   },
   "addNewGrievanceTooltip": {
     "en": "Add Grievance",
-    "lo": ""
+    "lo": "ເພີ່ມຄຳຮ້ອງທຸກ"
   },
   "addNewPremium.buttonText": {
     "en": "New contribution",
@@ -25,7 +25,7 @@
   },
   "addNewticketTooltip": {
     "en": "Add Grievance",
-    "lo": ""
+    "lo": "ເພີ່ມຄຳຮ້ອງທຸກ"
   },
   "addNewTicketTooltip": {
     "en": "Add New Bank",
@@ -37,7 +37,7 @@
   },
   "admin.ClaimAdministratorFormPanel.title": {
     "en": "Claim Administrator",
-    "lo": ""
+    "lo": "ຜູ້ຄຸ້ມຄອງຄຳຮ້ອງ"
   },
   "admin.EnrolmentOfficerFormPanel.substitutionOfficer": {
     "en": "Substitution Officer",
@@ -49,7 +49,7 @@
   },
   "admin.EnrolmentOfficerFormPanel.title": {
     "en": "Enrolment Officer",
-    "lo": ""
+    "lo": "ພະນັກງານລົງທະບຽນ"
   },
   "admin.EnrolmentOfficerPicker.clearText": {
     "en": "Clear",
@@ -65,11 +65,11 @@
   },
   "admin.EnrolmentOfficerPicker.loadingText": {
     "en": "Loading...",
-    "lo": ""
+    "lo": "ກຳລັງໂຫລດ..."
   },
   "admin.EnrolmentOfficerPicker.openText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "admin.EnrolmentZonesPicker.table.addButton": {
     "en": "Add a municipality",
@@ -77,7 +77,7 @@
   },
   "admin.EnrolmentZonesPicker.table.municipality": {
     "en": "Municipality",
-    "lo": ""
+    "lo": "ກຸ່ມບ້ານ"
   },
   "admin.EnrolmentZonesPicker.table.newRow": {
     "en": "Add a municipality",
@@ -85,7 +85,7 @@
   },
   "admin.EnrolmentZonesPicker.table.villages": {
     "en": "Villages",
-    "lo": ""
+    "lo": "ບ້ານ"
   },
   "admin.InteractiveUserFormPanel.title": {
     "en": "Interactive User",
@@ -197,7 +197,7 @@
   },
   "admin.showHistory": {
     "en": "Show historical values",
-    "lo": ""
+    "lo": "ສະແດງຂໍ້ມູນເກົ່າ"
   },
   "admin.user.addNewUser.tooltip": {
     "en": "Add new user",
@@ -209,7 +209,7 @@
   },
   "admin.user.address": {
     "en": "Address",
-    "lo": ""
+    "lo": "ທີ່ຢູ່"
   },
   "admin.user.confirmNewPassword": {
     "en": "Confirm Password",
@@ -249,7 +249,7 @@
   },
   "admin.user.districts": {
     "en": "Districts",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "admin.user.dob": {
     "en": "Birth date",
@@ -265,7 +265,7 @@
   },
   "admin.user.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "admin.user.emailAlreadyTaken": {
     "en": "User email already in use",
@@ -297,15 +297,15 @@
   },
   "admin.user.openInNewTab.buttonText": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "admin.user.openNewTab": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "admin.user.openNewTab.buttonText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "admin.user.otherNames": {
     "en": "Other names",
@@ -317,11 +317,11 @@
   },
   "admin.user.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "admin.user.regions": {
     "en": "Regions",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "admin.user.updateUser.mutationLabel": {
     "en": "Update user",
@@ -377,11 +377,11 @@
   },
   "admin.user.userTypes.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "admin.user.userTypes.OFFICER": {
     "en": "Enrolment Officer",
-    "lo": ""
+    "lo": "ພະນັກງານລົງທະບຽນ"
   },
   "admin.user.worksTo": {
     "en": "Works to",
@@ -389,11 +389,11 @@
   },
   "admin.UserFilter.showDeleted": {
     "en": "Show Deleted",
-    "lo": ""
+    "lo": "ສະແດງລາຍການທີ່ລຶບແລ້ວ"
   },
   "admin.UserFilter.showHistory": {
     "en": "Show History",
-    "lo": ""
+    "lo": "ສະແດງປະຫວັດ"
   },
   "admin.UserMasterPanel.language.null": {
     "en": "Select a language",
@@ -417,15 +417,15 @@
   },
   "admin.UserPicker.loadingText": {
     "en": "Loading...",
-    "lo": ""
+    "lo": "ກຳລັງໂຫລດ..."
   },
   "admin.UserPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "admin.UserPicker.openText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "anonymousUser": {
     "en": "Anonymous User",
@@ -433,7 +433,7 @@
   },
   "any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "api_etl.gql_mutation_execute_api_etl_rule_perms": {
     "en": "Api Etl | Mutation Execute Api Etl Rule",
@@ -465,11 +465,11 @@
   },
   "attendingStaff": {
     "en": "Attending Staff",
-    "lo": ""
+    "lo": "ພະນັກງານຜູ້ໃຫ້ບໍລິການ"
   },
   "bill.amountDiscount": {
     "en": "Discount",
-    "lo": ""
+    "lo": "ສ່ວນຫຼຸດ"
   },
   "bill.amountNet": {
     "en": "Net",
@@ -477,7 +477,7 @@
   },
   "bill.amountTotal": {
     "en": "Amount Total",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນລວມ"
   },
   "bill.code": {
     "en": "Code",
@@ -533,7 +533,7 @@
   },
   "bill.headPanelTitle": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "bill.note": {
     "en": "Note",
@@ -545,7 +545,7 @@
   },
   "bill.paymentReference": {
     "en": "Payment Reference",
-    "lo": ""
+    "lo": "ເລກອ້າງອີງການຊຳລະ"
   },
   "bill.selection.count": {
     "en": "Selected {count} bill(s)",
@@ -553,19 +553,19 @@
   },
   "bill.status.CANCELLED": {
     "en": "Cancelled",
-    "lo": ""
+    "lo": "ຍົກເລີກແລ້ວ"
   },
   "bill.status.DELETED": {
     "en": "Deleted",
-    "lo": ""
+    "lo": "ລຶບແລ້ວ"
   },
   "bill.status.DRAFT": {
     "en": "Draft",
-    "lo": ""
+    "lo": "ຮ່າງ"
   },
   "bill.status.label": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "bill.status.PAID": {
     "en": "Paid",
@@ -577,7 +577,7 @@
   },
   "bill.status.SUSPENDED": {
     "en": "Suspended",
-    "lo": ""
+    "lo": "ໂຈະ"
   },
   "bill.status.UNPAID": {
     "en": "Unpaid",
@@ -585,7 +585,7 @@
   },
   "bill.status.VALIDATED": {
     "en": "Validated",
-    "lo": ""
+    "lo": "ກວດສອບແລ້ວ"
   },
   "bill.subject": {
     "en": "Subject",
@@ -609,7 +609,7 @@
   },
   "billEvent.eventType.MESSAGE": {
     "en": "Message",
-    "lo": ""
+    "lo": "ຂໍ້ຄວາມ"
   },
   "billEvent.eventType.PAYMENT": {
     "en": "Payment",
@@ -621,7 +621,7 @@
   },
   "billEvent.eventType.STATUS": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "billEvent.eventType.WARNING": {
     "en": "Warning",
@@ -629,7 +629,7 @@
   },
   "billEvent.message": {
     "en": "Message",
-    "lo": ""
+    "lo": "ຂໍ້ຄວາມ"
   },
   "billEventMessage.create.label": {
     "en": "Create new Comment",
@@ -657,7 +657,7 @@
   },
   "billItem.amountTotal": {
     "en": "Amount Total",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນລວມ"
   },
   "billItem.code": {
     "en": "Code",
@@ -669,11 +669,11 @@
   },
   "billItem.description": {
     "en": "Description",
-    "lo": ""
+    "lo": "ຄຳອະທິບາຍ"
   },
   "billItem.discount": {
     "en": "Discount",
-    "lo": ""
+    "lo": "ສ່ວນຫຼຸດ"
   },
   "billItem.ledgerAccount": {
     "en": "Ledger Account",
@@ -681,7 +681,7 @@
   },
   "billItem.quantity": {
     "en": "Quantity",
-    "lo": ""
+    "lo": "ຈຳນວນ"
   },
   "billItem.unitPrice": {
     "en": "Unit Price",
@@ -725,7 +725,7 @@
   },
   "billPayment.datePayment": {
     "en": "Payment Date",
-    "lo": ""
+    "lo": "ວັນທີຊຳລະເງິນ"
   },
   "billPayment.delete.confirm.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
@@ -741,7 +741,7 @@
   },
   "billPayment.fees": {
     "en": "Fees",
-    "lo": ""
+    "lo": "ຄ່າທຳນຽມ"
   },
   "billPayment.label": {
     "en": "Label",
@@ -753,23 +753,23 @@
   },
   "billPayment.status.ACCEPTED": {
     "en": "Accepted",
-    "lo": ""
+    "lo": "ຮັບແລ້ວ"
   },
   "billPayment.status.CANCELLED": {
     "en": "Cancelled",
-    "lo": ""
+    "lo": "ຍົກເລີກແລ້ວ"
   },
   "billPayment.status.label": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "billPayment.status.REFUNDED": {
     "en": "Refunded",
-    "lo": ""
+    "lo": "ຄືນເງິນແລ້ວ"
   },
   "billPayment.status.REJECTED": {
     "en": "Rejected",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດ"
   },
   "billPayment.update.label": {
     "en": "Update Payment",
@@ -781,7 +781,7 @@
   },
   "billPayments.label": {
     "en": "Payments",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນ"
   },
   "billPayments.searcherResultsTitle": {
     "en": "{billPaymentsTotalCount} Payments Found",
@@ -817,11 +817,11 @@
   },
   "category.label": {
     "en": "Category",
-    "lo": ""
+    "lo": "ໝວດໝູ່"
   },
   "category.picker.dialog.title": {
     "en": "Category",
-    "lo": ""
+    "lo": "ໝວດໝູ່"
   },
   "category.slug": {
     "en": "Category Slug",
@@ -829,11 +829,11 @@
   },
   "CategoryPicker.label": {
     "en": "Category",
-    "lo": ""
+    "lo": "ໝວດໝູ່"
   },
   "CategoryPicker.placeholder": {
     "en": "Category",
-    "lo": ""
+    "lo": "ໝວດໝູ່"
   },
   "changeGroupButtonTooltip": {
     "en": "Move to another group.",
@@ -873,7 +873,7 @@
   },
   "claim_batch.accountType.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim_batch.BatchRun": {
     "en": "Batch Run ({location})",
@@ -893,7 +893,7 @@
   },
   "claim_batch.BatchRunPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim_batch.BatchRunSearcher.title": {
     "en": "Relative Indexes ({totalCount})",
@@ -913,15 +913,15 @@
   },
   "claim_batch.batchRunSummaries.month": {
     "en": "Month",
-    "lo": ""
+    "lo": "ເດືອນ"
   },
   "claim_batch.batchRunSummaries.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "claim_batch.batchRunSummaries.year": {
     "en": "Year",
-    "lo": ""
+    "lo": "ປີ"
   },
   "claim_batch.BatchRunWithLocationPicker": {
     "en": "Batch Run",
@@ -933,7 +933,7 @@
   },
   "claim_batch.BatchRunWithLocationPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim_batch.claimBatch.page.title": {
     "en": "Batch Runs",
@@ -953,11 +953,11 @@
   },
   "claim_batch.groupBy.H": {
     "en": "Health Facility",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
   },
   "claim_batch.groupBy.P": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "claim_batch.menu.claim_batch": {
     "en": "Batch Runs",
@@ -965,11 +965,11 @@
   },
   "claim_batch.previewer.dateFrom": {
     "en": "Date From",
-    "lo": ""
+    "lo": "ຈາກວັນທີ"
   },
   "claim_batch.previewer.dateTo": {
     "en": "Date To",
-    "lo": ""
+    "lo": "ຫາວັນທີ"
   },
   "claim_batch.previewer.showClaims": {
     "en": "Show claims",
@@ -1025,7 +1025,7 @@
   },
   "claim.approvalStatus.2": {
     "en": "Rejected",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດ"
   },
   "claim.approvalStatus.null": {
     "en": " ",
@@ -1101,11 +1101,11 @@
   },
   "claim.attachmentType.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.balance": {
     "en": "Balance",
-    "lo": ""
+    "lo": "ຍອດເຫຼືອ"
   },
   "claim.BypassClaimFeedback.mutationLabel": {
     "en": "Bypass claim {code} feedback",
@@ -1153,7 +1153,7 @@
   },
   "claim.careType.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.careType.OPD": {
     "en": "OPD",
@@ -1165,11 +1165,11 @@
   },
   "claim.ClaimAdminPicker.label": {
     "en": "Claim Administrator",
-    "lo": ""
+    "lo": "ຜູ້ຄຸ້ມຄອງຄຳຮ້ອງ"
   },
   "claim.ClaimAdminPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.ClaimAdminPicker.placeholder": {
     "en": "Search a Claim Administrator",
@@ -1185,7 +1185,7 @@
   },
   "claim.claimAttachment.date": {
     "en": "Date",
-    "lo": ""
+    "lo": "ວັນທີ"
   },
   "claim.ClaimAttachment.delete.mutationLabel": {
     "en": "Deleted attachment {file} from claim {code}",
@@ -1205,7 +1205,7 @@
   },
   "claim.claimAttachment.title": {
     "en": "Title",
-    "lo": ""
+    "lo": "ຫົວຂໍ້"
   },
   "claim.claimAttachment.type": {
     "en": "Type",
@@ -1245,7 +1245,7 @@
   },
   "claim.ClaimFilter.claimAdmin": {
     "en": "Claim Administrator",
-    "lo": ""
+    "lo": "ຜູ້ຄຸ້ມຄອງຄຳຮ້ອງ"
   },
   "claim.ClaimFilter.claimedAbove": {
     "en": "Claimed More Than",
@@ -1265,15 +1265,15 @@
   },
   "claim.ClaimFilter.claimNo": {
     "en": "Claim No.",
-    "lo": ""
+    "lo": "ເລກທີຄຳຮ້ອງ"
   },
   "claim.ClaimFilter.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "claim.ClaimFilter.healthFacility": {
     "en": "Health Facility",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
   },
   "claim.ClaimFilter.insureeCHFID": {
     "en": "Insuree No.",
@@ -1305,7 +1305,7 @@
   },
   "claim.ClaimFilter.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "claim.ClaimFilter.Reviews.random": {
     "en": "Random Filter",
@@ -1329,15 +1329,15 @@
   },
   "claim.ClaimHistoryReport.claimStatus.1": {
     "en": "Rejected",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດ"
   },
   "claim.ClaimHistoryReport.claimStatus.16": {
     "en": "Valuated",
-    "lo": ""
+    "lo": "ຄິດໄລ່ມູນຄ່າແລ້ວ"
   },
   "claim.ClaimHistoryReport.claimStatus.2": {
     "en": "Entered",
-    "lo": ""
+    "lo": "ປ້ອນແລ້ວ"
   },
   "claim.ClaimHistoryReport.claimStatus.4": {
     "en": "Checked",
@@ -1349,35 +1349,35 @@
   },
   "claim.ClaimHistoryReport.claimStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.ClaimHistoryReport.dateEnd": {
     "en": "Date To",
-    "lo": ""
+    "lo": "ຫາວັນທີ"
   },
   "claim.ClaimHistoryReport.dateStart": {
     "en": "Date From",
-    "lo": ""
+    "lo": "ຈາກວັນທີ"
   },
   "claim.ClaimHistoryReport.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "claim.ClaimHistoryReport.hf": {
     "en": "Health Facility",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
   },
   "claim.ClaimHistoryReport.insuree": {
     "en": "Insuree",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ"
   },
   "claim.ClaimHistoryReport.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "claim.ClaimHistoryReport.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "claim.ClaimMasterPanel.autogenerate": {
     "en": "Autogenerated",
@@ -1389,7 +1389,7 @@
   },
   "claim.ClaimMasterPanelExt.InsureeLastVisit.claimCode": {
     "en": "Claim No.",
-    "lo": ""
+    "lo": "ເລກທີຄຳຮ້ອງ"
   },
   "claim.ClaimMasterPanelExt.InsureeLastVisit.header": {
     "en": "Insuree Last Visit",
@@ -1421,11 +1421,11 @@
   },
   "claim.ClaimOfficerPicker.label": {
     "en": "Enrolment Officer",
-    "lo": ""
+    "lo": "ພະນັກງານລົງທະບຽນ"
   },
   "claim.ClaimOfficerPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.ClaimOfficerPicker.placeholder": {
     "en": "Search an Enrolment Officer",
@@ -1433,19 +1433,19 @@
   },
   "claim.ClaimPercentageReferralsReport.dateEnd": {
     "en": "Date To",
-    "lo": ""
+    "lo": "ຫາວັນທີ"
   },
   "claim.ClaimPercentageReferralsReport.dateStart": {
     "en": "Date From",
-    "lo": ""
+    "lo": "ຈາກວັນທີ"
   },
   "claim.ClaimPercentageReferralsReport.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "claim.ClaimPercentageReferralsReport.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "claim.claimReview.buttonText": {
     "en": "Review",
@@ -1457,15 +1457,15 @@
   },
   "claim.ClaimsOverviewReport.claimStatus.1": {
     "en": "Rejected",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດ"
   },
   "claim.ClaimsOverviewReport.claimStatus.16": {
     "en": "Valuated",
-    "lo": ""
+    "lo": "ຄິດໄລ່ມູນຄ່າແລ້ວ"
   },
   "claim.ClaimsOverviewReport.claimStatus.2": {
     "en": "Entered",
-    "lo": ""
+    "lo": "ປ້ອນແລ້ວ"
   },
   "claim.ClaimsOverviewReport.claimStatus.4": {
     "en": "Checked",
@@ -1477,47 +1477,47 @@
   },
   "claim.ClaimsOverviewReport.claimStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.ClaimsOverviewReport.dateEnd": {
     "en": "Date To",
-    "lo": ""
+    "lo": "ຫາວັນທີ"
   },
   "claim.ClaimsOverviewReport.dateStart": {
     "en": "Date From",
-    "lo": ""
+    "lo": "ຈາກວັນທີ"
   },
   "claim.ClaimsOverviewReport.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "claim.ClaimsOverviewReport.hf": {
     "en": "Health Facility",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
   },
   "claim.ClaimsOverviewReport.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "claim.ClaimsOverviewReport.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "claim.ClaimsPrimaryOperationalIndicators.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "claim.ClaimsPrimaryOperationalIndicators.hf": {
     "en": "Health Facility",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
   },
   "claim.ClaimsPrimaryOperationalIndicators.month": {
     "en": "Month",
-    "lo": ""
+    "lo": "ເດືອນ"
   },
   "claim.ClaimsPrimaryOperationalIndicators.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "claim.ClaimsPrimaryOperationalIndicators.quarter": {
     "en": "Quarter",
@@ -1541,15 +1541,15 @@
   },
   "claim.ClaimsPrimaryOperationalIndicators.quarter.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.ClaimsPrimaryOperationalIndicators.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "claim.ClaimsPrimaryOperationalIndicators.year": {
     "en": "Year",
-    "lo": ""
+    "lo": "ປີ"
   },
   "claim.claimStatus": {
     "en": "Claim Status",
@@ -1557,15 +1557,15 @@
   },
   "claim.claimStatus.1": {
     "en": "Rejected",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດ"
   },
   "claim.claimStatus.16": {
     "en": "Valuated",
-    "lo": ""
+    "lo": "ຄິດໄລ່ມູນຄ່າແລ້ວ"
   },
   "claim.claimStatus.2": {
     "en": "Entered",
-    "lo": ""
+    "lo": "ປ້ອນແລ້ວ"
   },
   "claim.claimStatus.4": {
     "en": "Checked",
@@ -1577,7 +1577,7 @@
   },
   "claim.claimStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.claimSummaries": {
     "en": "{count} Claims Found",
@@ -1601,11 +1601,11 @@
   },
   "claim.claimSummaries.claimStatus": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "claim.claimSummaries.code": {
     "en": "Claim No.",
-    "lo": ""
+    "lo": "ເລກທີຄຳຮ້ອງ"
   },
   "claim.claimSummaries.deleteSelected": {
     "en": "Delete Selected",
@@ -1617,11 +1617,11 @@
   },
   "claim.claimSummaries.healthFacility": {
     "en": "Health Facility",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
   },
   "claim.claimSummaries.insuree": {
     "en": "Insuree",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ"
   },
   "claim.claimSummaries.markBypassedFeedback": {
     "en": "Bypass Feedback",
@@ -1693,7 +1693,7 @@
   },
   "claim.code": {
     "en": "Claim No.",
-    "lo": ""
+    "lo": "ເລກທີຄຳຮ້ອງ"
   },
   "claim.codeTaken": {
     "en": "Claim code already exists",
@@ -1793,15 +1793,15 @@
   },
   "claim.edit.items.price": {
     "en": "Price",
-    "lo": ""
+    "lo": "ລາຄາ"
   },
   "claim.edit.items.pricevaluated": {
     "en": "Valuated",
-    "lo": ""
+    "lo": "ຄິດໄລ່ມູນຄ່າແລ້ວ"
   },
   "claim.edit.items.quantity": {
     "en": "Quantity",
-    "lo": ""
+    "lo": "ຈຳນວນ"
   },
   "claim.edit.items.rejectall": {
     "en": "Reject All items",
@@ -1813,7 +1813,7 @@
   },
   "claim.edit.items.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "claim.edit.items.title": {
     "en": "Items",
@@ -1869,15 +1869,15 @@
   },
   "claim.edit.services.price": {
     "en": "Price",
-    "lo": ""
+    "lo": "ລາຄາ"
   },
   "claim.edit.services.pricevaluated": {
     "en": "Valuated",
-    "lo": ""
+    "lo": "ຄິດໄລ່ມູນຄ່າແລ້ວ"
   },
   "claim.edit.services.quantity": {
     "en": "Quantity",
-    "lo": ""
+    "lo": "ຈຳນວນ"
   },
   "claim.edit.services.rejectall": {
     "en": "Reject all Services",
@@ -1893,7 +1893,7 @@
   },
   "claim.edit.services.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "claim.edit.services.title": {
     "en": "Services",
@@ -2001,7 +2001,7 @@
   },
   "claim.feedbackStatus.1": {
     "en": "Idle",
-    "lo": ""
+    "lo": "ບໍ່ເຄື່ອນໄຫວ"
   },
   "claim.feedbackStatus.16": {
     "en": "Bypassed",
@@ -2021,7 +2021,7 @@
   },
   "claim.feedbackStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.gql_mutation_bypass_claim_feedback_perms": {
     "en": "Claim | Mutation Bypass Claim Feedback",
@@ -2137,7 +2137,7 @@
   },
   "claim.justification.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.lastVisitDate": {
     "en": "Last Visit Date",
@@ -2189,11 +2189,11 @@
   },
   "claim.openNewTab.buttonText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "claim.openNewTabButton.tooltip": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "claim.patientCondition": {
     "en": "Patient's condition at discharge",
@@ -2229,7 +2229,7 @@
   },
   "claim.preAuthorization.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.preAuthorization.true": {
     "en": "Yes",
@@ -2261,7 +2261,7 @@
   },
   "claim.rejectionReason.0": {
     "en": "Accepted",
-    "lo": ""
+    "lo": "ຮັບແລ້ວ"
   },
   "claim.rejectionReason.1": {
     "en": "Item/Service not in the registers of medical items/services",
@@ -2365,7 +2365,7 @@
   },
   "claim.reviewStatus.1": {
     "en": "Idle",
-    "lo": ""
+    "lo": "ບໍ່ເຄື່ອນໄຫວ"
   },
   "claim.reviewStatus.16": {
     "en": "Bypassed",
@@ -2385,7 +2385,7 @@
   },
   "claim.reviewStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "claim.SaveClaimReview.mutationLabel": {
     "en": "Save claim {code} review",
@@ -2537,7 +2537,7 @@
   },
   "claimHistory.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "ClaimMasterPanelExt.InsureeInfo.FSP": {
     "en": "FSP",
@@ -2601,7 +2601,7 @@
   },
   "ClaimSampling.dialogActions.confirm": {
     "en": "Confirm",
-    "lo": ""
+    "lo": "ຢືນຢັນ"
   },
   "ClaimSampling.dialogActions.confirmationContent": {
     "en": "New task for claim sampling was created.",
@@ -2613,7 +2613,7 @@
   },
   "ClaimSampling.dialogActions.continue": {
     "en": "Continue",
-    "lo": ""
+    "lo": "ສືບຕໍ່"
   },
   "ClaimSampling.dialogActions.goBack": {
     "en": "Go Back",
@@ -2677,7 +2677,7 @@
   },
   "common.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "common.false": {
     "en": "No",
@@ -2689,7 +2689,7 @@
   },
   "confirm": {
     "en": "Confirm",
-    "lo": ""
+    "lo": "ຢືນຢັນ"
   },
   "contract.amendButton.tooltip": {
     "en": "Amend",
@@ -2713,7 +2713,7 @@
   },
   "contract.amount": {
     "en": "Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນ"
   },
   "contract.amountDue": {
     "en": "Amount Due",
@@ -2737,7 +2737,7 @@
   },
   "contract.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "contract.approveAll": {
     "en": "Approve all negotiable contracts",
@@ -2885,7 +2885,7 @@
   },
   "contract.ContractStatePicker.draft": {
     "en": "Draft",
-    "lo": ""
+    "lo": "ຮ່າງ"
   },
   "contract.ContractStatePicker.effective": {
     "en": "Effective",
@@ -3029,7 +3029,7 @@
   },
   "contract.dialog.create": {
     "en": "Create",
-    "lo": ""
+    "lo": "ສ້າງ"
   },
   "contract.dialog.update": {
     "en": "Save",
@@ -3121,11 +3121,11 @@
   },
   "contract.headPanel.title": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "contract.insuree": {
     "en": "Insuree",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ"
   },
   "contract.insureeChfId": {
     "en": "Insuree No.",
@@ -3141,11 +3141,11 @@
   },
   "contract.isDeleted": {
     "en": "Show Deleted",
-    "lo": ""
+    "lo": "ສະແດງລາຍການທີ່ລຶບແລ້ວ"
   },
   "contract.mandatoryFieldsEmptyError": {
     "en": "* These fields are required",
-    "lo": ""
+    "lo": "* ຂໍ້ມູນເຫຼົ່ານີ້ຈຳເປັນຕ້ອງຕື່ມ"
   },
   "contract.menu.contracts": {
     "en": "Contracts",
@@ -3157,7 +3157,7 @@
   },
   "contract.paymentReference": {
     "en": "Payment Reference",
-    "lo": ""
+    "lo": "ເລກອ້າງອີງການຊຳລະ"
   },
   "contract.saveButton.tooltip.disabled": {
     "en": "Please fill General Information fields first",
@@ -3165,7 +3165,7 @@
   },
   "contract.saveButton.tooltip.enabled": {
     "en": "Save changes",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "contract.state": {
     "en": "State",
@@ -3281,7 +3281,7 @@
   },
   "contribution.amount": {
     "en": "Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນ"
   },
   "contribution.amount_Gte": {
     "en": "Amount above",
@@ -3301,7 +3301,7 @@
   },
   "contribution.category.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "contribution.category.photoFee": {
     "en": "Photo Fee",
@@ -3317,15 +3317,15 @@
   },
   "contribution.ContributionsDistributionReport.month": {
     "en": "Month",
-    "lo": ""
+    "lo": "ເດືອນ"
   },
   "contribution.ContributionsDistributionReport.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "contribution.ContributionsDistributionReport.year": {
     "en": "Year",
-    "lo": ""
+    "lo": "ປີ"
   },
   "contribution.contributionSummaries": {
     "en": "{count} contributions Found",
@@ -3393,11 +3393,11 @@
   },
   "contribution.openNewTab": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "contribution.openNewTab.buttonText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "contribution.openNewTabHead": {
     "en": " ",
@@ -3405,7 +3405,7 @@
   },
   "contribution.payDate": {
     "en": "Payment Date",
-    "lo": ""
+    "lo": "ວັນທີຊຳລະເງິນ"
   },
   "contribution.payDateFrom": {
     "en": "Payment Date from",
@@ -3421,27 +3421,27 @@
   },
   "contribution.PaymentCategoryOverviewReport.dateEnd": {
     "en": "Date To",
-    "lo": ""
+    "lo": "ຫາວັນທີ"
   },
   "contribution.PaymentCategoryOverviewReport.dateStart": {
     "en": "Date From",
-    "lo": ""
+    "lo": "ຈາກວັນທີ"
   },
   "contribution.PaymentCategoryOverviewReport.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "contribution.PaymentCategoryOverviewReport.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "contribution.PaymentCategoryOverviewReport.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "contribution.payType": {
     "en": "Payment Type",
-    "lo": ""
+    "lo": "ປະເພດການຊຳລະ"
   },
   "contribution.payType.B": {
     "en": "Bank Transfer",
@@ -3457,7 +3457,7 @@
   },
   "contribution.payType.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "contribution.PoliciesPremiums": {
     "en": "{count} Contributions",
@@ -3489,19 +3489,19 @@
   },
   "contribution.PremiumCollectionReport.dateEnd": {
     "en": "Date To",
-    "lo": ""
+    "lo": "ຫາວັນທີ"
   },
   "contribution.PremiumCollectionReport.dateStart": {
     "en": "Date From",
-    "lo": ""
+    "lo": "ຈາກວັນທີ"
   },
   "contribution.PremiumCollectionReport.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "contribution.PremiumCollectionReport.paymentType": {
     "en": "Payment Type",
-    "lo": ""
+    "lo": "ປະເພດການຊຳລະ"
   },
   "contribution.PremiumCollectionReport.paymentType.B": {
     "en": "Bank transfer",
@@ -3517,19 +3517,19 @@
   },
   "contribution.PremiumCollectionReport.paymentType.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "contribution.PremiumCollectionReport.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "contribution.PremiumCollectionReport.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "contribution.PremiumPaymentTypePicker.label": {
     "en": "Payment Type",
-    "lo": ""
+    "lo": "ປະເພດການຊຳລະ"
   },
   "contribution.receipt": {
     "en": "Receipt No.",
@@ -3581,7 +3581,7 @@
   },
   "contribution.showHistory": {
     "en": "Show historical values",
-    "lo": ""
+    "lo": "ສະແດງຂໍ້ມູນເກົ່າ"
   },
   "contribution.UpdateContribution.mutationLabel": {
     "en": "Update contribution",
@@ -3601,7 +3601,7 @@
   },
   "contributionPlan.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "contributionPlan.benefitPlan": {
     "en": "Insurance Product",
@@ -3637,7 +3637,7 @@
   },
   "contributionPlan.contributionPlan.headPanel.title": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "contributionPlan.contributionPlan.label": {
     "en": "Contribution Plan",
@@ -3657,7 +3657,7 @@
   },
   "contributionPlan.contributionPlanBundle.contributionPlansAttachedPanel.dialog.create": {
     "en": "Create",
-    "lo": ""
+    "lo": "ສ້າງ"
   },
   "contributionPlan.contributionPlanBundle.contributionPlansAttachedPanel.dialog.replace": {
     "en": "Add",
@@ -3773,11 +3773,11 @@
   },
   "contributionPlan.isDeleted": {
     "en": "Show Deleted",
-    "lo": ""
+    "lo": "ສະແດງລາຍການທີ່ລຶບແລ້ວ"
   },
   "contributionPlan.mandatoryFieldsEmptyError": {
     "en": "* These fields are required",
-    "lo": ""
+    "lo": "* ຂໍ້ມູນເຫຼົ່ານີ້ຈຳເປັນຕ້ອງຕື່ມ"
   },
   "contributionPlan.name": {
     "en": "Name",
@@ -3813,11 +3813,11 @@
   },
   "contributionPlan.saveButton.tooltip.enabled": {
     "en": "Save changes",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "contributionPlan.showHistory": {
     "en": "Show History",
-    "lo": ""
+    "lo": "ສະແດງປະຫວັດ"
   },
   "contributionPlan.UpdateContributionPlan.mutationLabel": {
     "en": "Update Contribution Plan - {label}",
@@ -3873,7 +3873,7 @@
   },
   "core.advancedFilters.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "core.advancedFilters.exact": {
     "en": "Exact",
@@ -3933,7 +3933,7 @@
   },
   "core.advancedFilters.value": {
     "en": "Value",
-    "lo": ""
+    "lo": "ມູນຄ່າ"
   },
   "core.AuthorityPicker.label": {
     "en": "Authority",
@@ -3953,11 +3953,11 @@
   },
   "core.Autocomplete.loadingText": {
     "en": "Loading...",
-    "lo": ""
+    "lo": "ກຳລັງໂຫລດ..."
   },
   "core.Autocomplete.openText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "core.Autocomplete.placeholder": {
     "en": "Search...",
@@ -4185,7 +4185,7 @@
   },
   "core.LanguageQuickPicker.dialog.confirm": {
     "en": "Confirm",
-    "lo": ""
+    "lo": "ຢືນຢັນ"
   },
   "core.LanguageQuickPicker.dialog.message": {
     "en": "You are about to change the language to {language}. Do you want to proceed?",
@@ -4341,7 +4341,7 @@
   },
   "core.roleManagement.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "core.roleManagement.requiredFieldsEmptyError": {
     "en": "* These fields are required",
@@ -4465,7 +4465,7 @@
   },
   "core.table.resultsLoading": {
     "en": "Loading...",
-    "lo": ""
+    "lo": "ກຳລັງໂຫລດ..."
   },
   "core.tooltip.help": {
     "en": "Documentation",
@@ -4525,7 +4525,7 @@
   },
   "core.UserActivityReport.entity.Family": {
     "en": "Family",
-    "lo": ""
+    "lo": "ຄອບຄົວ"
   },
   "core.UserActivityReport.entity.Feedback": {
     "en": "Feedback",
@@ -4533,11 +4533,11 @@
   },
   "core.UserActivityReport.entity.HealthFacility": {
     "en": "Health Facility",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
   },
   "core.UserActivityReport.entity.Insuree": {
     "en": "Insuree",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ"
   },
   "core.UserActivityReport.entity.InsureePhoto": {
     "en": "Insuree Photo",
@@ -4561,7 +4561,7 @@
   },
   "core.UserActivityReport.entity.Location": {
     "en": "Location",
-    "lo": ""
+    "lo": "ທີ່ຕັ້ງ"
   },
   "core.UserActivityReport.entity.null": {
     "en": "All entities",
@@ -4569,7 +4569,7 @@
   },
   "core.UserActivityReport.entity.Officer": {
     "en": "Officer",
-    "lo": ""
+    "lo": "ພະນັກງານ"
   },
   "core.UserActivityReport.entity.Payer": {
     "en": "Payer",
@@ -4585,7 +4585,7 @@
   },
   "core.UserActivityReport.entity.Product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "core.UserActivityReport.entity.ProductItem": {
     "en": "Product Item",
@@ -4729,11 +4729,11 @@
   },
   "detailPaymentInvoice.amount": {
     "en": "Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນ"
   },
   "detailPaymentInvoice.fees": {
     "en": "Fees",
-    "lo": ""
+    "lo": "ຄ່າທຳນຽມ"
   },
   "detailPaymentInvoice.reconciliationDate": {
     "en": "Reconciliation Date",
@@ -4745,23 +4745,23 @@
   },
   "detailPaymentInvoice.status.ACCEPTED": {
     "en": "Accepted",
-    "lo": ""
+    "lo": "ຮັບແລ້ວ"
   },
   "detailPaymentInvoice.status.CANCELLED": {
     "en": "Cancelled",
-    "lo": ""
+    "lo": "ຍົກເລີກແລ້ວ"
   },
   "detailPaymentInvoice.status.label": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "detailPaymentInvoice.status.REFUNDED": {
     "en": "Refunded",
-    "lo": ""
+    "lo": "ຄືນເງິນແລ້ວ"
   },
   "detailPaymentInvoice.status.REJECTED": {
     "en": "Rejected",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດ"
   },
   "dialog.cancel": {
     "en": "Cancel",
@@ -4769,7 +4769,7 @@
   },
   "dialog.create": {
     "en": "Create",
-    "lo": ""
+    "lo": "ສ້າງ"
   },
   "dialog.update": {
     "en": "Save",
@@ -4777,7 +4777,7 @@
   },
   "dialogActions.continue": {
     "en": "Continue",
-    "lo": ""
+    "lo": "ສືບຕໍ່"
   },
   "dialogActions.goBack": {
     "en": "Cancel",
@@ -4785,11 +4785,11 @@
   },
   "edit.items.ceiling": {
     "en": "Ceiling",
-    "lo": ""
+    "lo": "ເພດານ"
   },
   "edit.services.ceiling": {
     "en": "Ceiling",
-    "lo": ""
+    "lo": "ເພດານ"
   },
   "editButton.buttonText": {
     "en": "Edit",
@@ -4805,7 +4805,7 @@
   },
   "export.dateCreated": {
     "en": "Date Created",
-    "lo": ""
+    "lo": "ວັນທີສ້າງ"
   },
   "export.dob": {
     "en": "date_of_birth",
@@ -4829,7 +4829,7 @@
   },
   "export.label": {
     "en": "DOWNLOAD",
-    "lo": ""
+    "lo": "ດາວໂຫລດ"
   },
   "export.lastName": {
     "en": "last_name",
@@ -4909,11 +4909,11 @@
   },
   "grievantType.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "grievantType.user": {
     "en": "Attending Staff",
-    "lo": ""
+    "lo": "ພະນັກງານຜູ້ໃຫ້ບໍລິການ"
   },
   "group.code": {
     "en": "Code",
@@ -4961,7 +4961,7 @@
   },
   "group.mandatoryFieldsEmptyError": {
     "en": "* These fields are required",
-    "lo": ""
+    "lo": "* ຂໍ້ມູນເຫຼົ່ານີ້ຈຳເປັນຕ້ອງຕື່ມ"
   },
   "group.members": {
     "en": "Members",
@@ -4993,11 +4993,11 @@
   },
   "groupHistory.any": {
     "en": "ANY",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "groupHistory.dateUpdated": {
     "en": "Date Updated",
-    "lo": ""
+    "lo": "ວັນທີປັບປຸງ"
   },
   "groupHistory.dateUpdated_Gte": {
     "en": "Date updated after",
@@ -5013,7 +5013,7 @@
   },
   "groupHistory.headPanelTitle": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "groupHistory.id": {
     "en": "ID",
@@ -5025,7 +5025,7 @@
   },
   "groupHistory.location": {
     "en": "Location",
-    "lo": ""
+    "lo": "ທີ່ຕັ້ງ"
   },
   "groupHistory.members": {
     "en": "Members",
@@ -5053,7 +5053,7 @@
   },
   "groupHistory.version": {
     "en": "Version",
-    "lo": ""
+    "lo": "ເວີຊັນ"
   },
   "groupHistoryList.pageTitle": {
     "en": "Groups History",
@@ -5081,7 +5081,7 @@
   },
   "groupIndividual.groupIndividualRolePicker": {
     "en": "Role",
-    "lo": ""
+    "lo": "ບົດບາດ"
   },
   "groupIndividual.groupIndividualRolePicker.DAUGHTER": {
     "en": "DAUGHTER",
@@ -5133,7 +5133,7 @@
   },
   "groupIndividual.individual.role": {
     "en": "Role",
-    "lo": ""
+    "lo": "ບົດບາດ"
   },
   "groupIndividual.statusOfMembership": {
     "en": "Status Of Membership",
@@ -5153,7 +5153,7 @@
   },
   "groupIndividualHistory.groupIndividualRolePicker": {
     "en": "Role",
-    "lo": ""
+    "lo": "ບົດບາດ"
   },
   "groupIndividualHistory.groupIndividualRolePicker.HEAD": {
     "en": "HEAD",
@@ -5173,7 +5173,7 @@
   },
   "groupIndividualHistory.individual.role": {
     "en": "Role",
-    "lo": ""
+    "lo": "ບົດບາດ"
   },
   "groupIndividualHistory.label": {
     "en": "Group History",
@@ -5241,7 +5241,7 @@
   },
   "ImportPageAPI.confirmPullingData.confirm": {
     "en": "Confirm",
-    "lo": ""
+    "lo": "ຢືນຢັນ"
   },
   "ImportPageAPI.confirmPullingData.message": {
     "en": "Are you sure you want to confirm pulling data from selected API service?",
@@ -5281,7 +5281,7 @@
   },
   "individual.any": {
     "en": "ANY",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "individual.benefits.label": {
     "en": "Benefits",
@@ -5301,7 +5301,7 @@
   },
   "individual.dob": {
     "en": "Day of birth",
-    "lo": ""
+    "lo": "ວັນເດືອນປີເກີດ"
   },
   "individual.enrollment.addFilters": {
     "en": "Add Filters",
@@ -5309,7 +5309,7 @@
   },
   "individual.enrollment.buttonLabel": {
     "en": "ENROLLMENT",
-    "lo": ""
+    "lo": "ການລົງທະບຽນ"
   },
   "individual.enrollment.cancel": {
     "en": "Cancel",
@@ -5425,7 +5425,7 @@
   },
   "individual.firstName": {
     "en": "First Name",
-    "lo": ""
+    "lo": "ຊື່"
   },
   "individual.gql_group_create_perms": {
     "en": "Individual | Group Create",
@@ -5469,11 +5469,11 @@
   },
   "individual.hasNoLocation": {
     "en": "Missing Location",
-    "lo": ""
+    "lo": "ບໍ່ມີທີ່ຕັ້ງ"
   },
   "individual.headPanelTitle": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "individual.individualChangelog.label": {
     "en": "Change Log",
@@ -5489,15 +5489,15 @@
   },
   "individual.isDeleted": {
     "en": "Show Deleted",
-    "lo": ""
+    "lo": "ສະແດງລາຍການທີ່ລຶບແລ້ວ"
   },
   "individual.lastName": {
     "en": "Last Name",
-    "lo": ""
+    "lo": "ນາມສະກຸນ"
   },
   "individual.location": {
     "en": "Location",
-    "lo": ""
+    "lo": "ທີ່ຕັ້ງ"
   },
   "individual.locationEditDisabledTitle": {
     "en": "Individual belongs to a group; Please edit location on their group",
@@ -5505,7 +5505,7 @@
   },
   "individual.mandatoryFieldsEmptyError": {
     "en": "* These fields are required",
-    "lo": ""
+    "lo": "* ຂໍ້ມູນເຫຼົ່ານີ້ຈຳເປັນຕ້ອງຕື່ມ"
   },
   "individual.ok": {
     "en": "ok",
@@ -5521,7 +5521,7 @@
   },
   "individual.saveButton.tooltip.enabled": {
     "en": "Save changes",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "individual.tasks.title": {
     "en": "Individual Tasks",
@@ -5565,7 +5565,7 @@
   },
   "individual.upload.buttonLabel": {
     "en": "UPLOAD",
-    "lo": ""
+    "lo": "ອັບໂຫລດ"
   },
   "individual.upload.cancel": {
     "en": "Cancel",
@@ -5581,11 +5581,11 @@
   },
   "individual.upload.uploadHistoryTable.buttonLabel": {
     "en": "UPLOAD HISTORY",
-    "lo": ""
+    "lo": "ປະຫວັດການອັບໂຫລດ"
   },
   "individual.upload.uploadHistoryTable.dateCreated": {
     "en": "Date Created",
-    "lo": ""
+    "lo": "ວັນທີສ້າງ"
   },
   "individual.upload.uploadHistoryTable.downloadInvalidItems": {
     "en": "Download Invalid Items",
@@ -5613,7 +5613,7 @@
   },
   "individual.upload.uploadHistoryTable.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "individual.upload.uploadHistoryTable.userCreated": {
     "en": "User Created",
@@ -5621,19 +5621,19 @@
   },
   "individual.upload.uploadHistoryTable.workflow": {
     "en": "Workflow",
-    "lo": ""
+    "lo": "ຂັ້ນຕອນການເຮັດວຽກ"
   },
   "individual.upload.workflowPicker": {
     "en": "Workflow",
-    "lo": ""
+    "lo": "ຂັ້ນຕອນການເຮັດວຽກ"
   },
   "individualHistory.any": {
     "en": "ANY",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "individualHistory.dateUpdated": {
     "en": "Date Updated",
-    "lo": ""
+    "lo": "ວັນທີປັບປຸງ"
   },
   "individualHistory.dateUpdated_Gte": {
     "en": "Date updated after",
@@ -5645,7 +5645,7 @@
   },
   "individualHistory.headPanelTitle": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "individualHistory.individualsList.label": {
     "en": "MEMBERS",
@@ -5669,7 +5669,7 @@
   },
   "individualHistory.version": {
     "en": "Version",
-    "lo": ""
+    "lo": "ເວີຊັນ"
   },
   "individualHistoryList.pageTitle": {
     "en": "Individuals History",
@@ -5713,7 +5713,7 @@
   },
   "insuree.balance": {
     "en": "Balance",
-    "lo": ""
+    "lo": "ຍອດເຫຼືອ"
   },
   "insuree.changeInsureeFamilyDialog.cancelPolicies.button": {
     "en": "Move and cancel Policies",
@@ -5745,7 +5745,7 @@
   },
   "insuree.ConfirmationType.B": {
     "en": "Municipality",
-    "lo": ""
+    "lo": "ກຸ່ມບ້ານ"
   },
   "insuree.ConfirmationType.C": {
     "en": "State",
@@ -5753,11 +5753,11 @@
   },
   "insuree.ConfirmationType.D": {
     "en": "Other",
-    "lo": ""
+    "lo": "ອື່ນໆ"
   },
   "insuree.ConfirmationType.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.ConfirmationTypePicker.label": {
     "en": "Confirmation Type",
@@ -5833,7 +5833,7 @@
   },
   "insuree.Education.7": {
     "en": "Other",
-    "lo": ""
+    "lo": "ອື່ນໆ"
   },
   "insuree.Education.none": {
     "en": "Not specified",
@@ -5841,7 +5841,7 @@
   },
   "insuree.Education.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.EducationPicker.label": {
     "en": "Education",
@@ -5865,7 +5865,7 @@
   },
   "insuree.Family.ConfirmationType.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "insuree.Family.contributions": {
     "en": "Contributions",
@@ -5873,7 +5873,7 @@
   },
   "insuree.Family.FamilyType.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "insuree.Family.headInsuree.chfId": {
     "en": "Head Ins. No.",
@@ -5949,7 +5949,7 @@
   },
   "insuree.Family.payments": {
     "en": "Payments",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນ"
   },
   "insuree.Family.policies": {
     "en": "Policies",
@@ -5969,7 +5969,7 @@
   },
   "insuree.Family.povertyStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.Family.povertyStatus.true": {
     "en": "Yes",
@@ -6009,7 +6009,7 @@
   },
   "insuree.FamilyFilter.showHistory": {
     "en": "Show historical values",
-    "lo": ""
+    "lo": "ສະແດງຂໍ້ມູນເກົ່າ"
   },
   "insuree.FamilyMembersTable.InsuranceNo": {
     "en": "Insurance No.",
@@ -6025,7 +6025,7 @@
   },
   "insuree.FamilyMembersTable.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "insuree.FamilyOverview.title": {
     "en": "Family/Group {label}",
@@ -6049,7 +6049,7 @@
   },
   "insuree.FamilyStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.FamilyStatus.with": {
     "en": "With family",
@@ -6101,11 +6101,11 @@
   },
   "insuree.familySummaries.openNewTabButton.buttonText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "insuree.familySummaries.openNewTabButton.tooltip": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "insuree.familySummaries.otherNames": {
     "en": "Head Given Name",
@@ -6121,11 +6121,11 @@
   },
   "insuree.familySummaries.validityFrom": {
     "en": "Valid From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່ວັນທີ"
   },
   "insuree.familySummaries.validityTo": {
     "en": "Valid To",
-    "lo": ""
+    "lo": "ມີຜົນຮອດວັນທີ"
   },
   "insuree.familySummary": {
     "en": "Family Details",
@@ -6145,7 +6145,7 @@
   },
   "insuree.familySummary.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "insuree.FamilyType.C": {
     "en": "Council",
@@ -6161,7 +6161,7 @@
   },
   "insuree.FamilyType.O": {
     "en": "Other",
-    "lo": ""
+    "lo": "ອື່ນໆ"
   },
   "insuree.FamilyType.P": {
     "en": "Priests",
@@ -6245,7 +6245,7 @@
   },
   "insuree.IdentificationType.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.IdentificationType.P": {
     "en": "Passport",
@@ -6273,7 +6273,7 @@
   },
   "insuree.Insuree.currentAddress": {
     "en": "Address",
-    "lo": ""
+    "lo": "ທີ່ຢູ່"
   },
   "insuree.Insuree.currentAddress.sameAsFamily": {
     "en": "Same Address as Family",
@@ -6297,7 +6297,7 @@
   },
   "insuree.Insuree.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "insuree.Insuree.gender": {
     "en": "Gender",
@@ -6305,11 +6305,11 @@
   },
   "insuree.Insuree.label": {
     "en": "Insuree",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ"
   },
   "insuree.Insuree.lastName": {
     "en": "Last Name",
-    "lo": ""
+    "lo": "ນາມສະກຸນ"
   },
   "insuree.Insuree.names": {
     "en": "Name",
@@ -6329,7 +6329,7 @@
   },
   "insuree.Insuree.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "insuree.Insuree.photoDate": {
     "en": "Photo Date",
@@ -6353,11 +6353,11 @@
   },
   "insuree.Insuree.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "insuree.Insuree.status.AC": {
     "en": "Active",
-    "lo": ""
+    "lo": "ເຄື່ອນໄຫວ"
   },
   "insuree.Insuree.status.DE": {
     "en": "Dead",
@@ -6369,7 +6369,7 @@
   },
   "insuree.Insuree.status.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.Insuree.statusDate": {
     "en": "Status date",
@@ -6397,7 +6397,7 @@
   },
   "insuree.InsureeFilter.showHistory": {
     "en": "Show historical values",
-    "lo": ""
+    "lo": "ສະແດງຂໍ້ມູນເກົ່າ"
   },
   "insuree.InsureeFirstServicePointPanel.title": {
     "en": "First Service Point",
@@ -6413,11 +6413,11 @@
   },
   "insuree.InsureeGender.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.InsureeGender.O": {
     "en": "Other",
-    "lo": ""
+    "lo": "ອື່ນໆ"
   },
   "insuree.InsureeGenderPicker.label": {
     "en": "Gender",
@@ -6441,7 +6441,7 @@
   },
   "insuree.InsureeMaritalStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.InsureeMaritalStatus.S": {
     "en": "Single",
@@ -6457,19 +6457,19 @@
   },
   "insuree.InsureeMissingPhotoReport.officer": {
     "en": "Officer",
-    "lo": ""
+    "lo": "ພະນັກງານ"
   },
   "insuree.InsureeOfficer.none": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "insuree.InsureeOfficer.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.InsureeOfficerPicker.label": {
     "en": "Officer",
-    "lo": ""
+    "lo": "ພະນັກງານ"
   },
   "insuree.InsureePhotoDialog.title": {
     "en": "Select photo for insuree {label}",
@@ -6501,7 +6501,7 @@
   },
   "insuree.insureeSummaries.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "insuree.insureeSummaries.gender": {
     "en": "Gender",
@@ -6525,7 +6525,7 @@
   },
   "insuree.insureeSummaries.lastName": {
     "en": "Last Name",
-    "lo": ""
+    "lo": "ນາມສະກຸນ"
   },
   "insuree.insureeSummaries.maritalStatus": {
     "en": "Marital Status",
@@ -6545,7 +6545,7 @@
   },
   "insuree.insureeSummaries.openNewTabButton.tooltip": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "insuree.insureeSummaries.otherNames": {
     "en": "Given Name",
@@ -6553,15 +6553,15 @@
   },
   "insuree.insureeSummaries.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "insuree.insureeSummaries.validityFrom": {
     "en": "Valid From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່ວັນທີ"
   },
   "insuree.insureeSummaries.validityTo": {
     "en": "Valid To",
-    "lo": ""
+    "lo": "ມີຜົນຮອດວັນທີ"
   },
   "insuree.InsureeSummary.insureeLocation": {
     "en": "Address: {location}",
@@ -6621,7 +6621,7 @@
   },
   "insuree.PhotoStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.PhotoStatus.with": {
     "en": "With",
@@ -6645,7 +6645,7 @@
   },
   "insuree.Profession.4": {
     "en": "Other",
-    "lo": ""
+    "lo": "ອື່ນໆ"
   },
   "insuree.Profession.none": {
     "en": "Not specified",
@@ -6653,7 +6653,7 @@
   },
   "insuree.Profession.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.ProfessionPicker.label": {
     "en": "Profession",
@@ -6685,7 +6685,7 @@
   },
   "insuree.Relation.7": {
     "en": "Other",
-    "lo": ""
+    "lo": "ອື່ນໆ"
   },
   "insuree.Relation.8": {
     "en": "Spouse",
@@ -6693,11 +6693,11 @@
   },
   "insuree.Relation.none": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "insuree.Relation.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "insuree.RelationPicker.label": {
     "en": "Relationship",
@@ -6781,7 +6781,7 @@
   },
   "insureeSummaries.openFamilyButton.buttonText": {
     "en": "Family",
-    "lo": ""
+    "lo": "ຄອບຄົວ"
   },
   "insureeSummaries.openInsureeButton.buttonText": {
     "en": "Overview",
@@ -6789,11 +6789,11 @@
   },
   "insureeSummaries.openNewTabButton.buttonText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "invoice.amountDiscount": {
     "en": "Discount",
-    "lo": ""
+    "lo": "ສ່ວນຫຼຸດ"
   },
   "invoice.amountNet": {
     "en": "Net",
@@ -6801,7 +6801,7 @@
   },
   "invoice.amountTotal": {
     "en": "Amount Total",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນລວມ"
   },
   "invoice.code": {
     "en": "Code",
@@ -6993,7 +6993,7 @@
   },
   "invoice.headPanelTitle": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "invoice.note": {
     "en": "Note",
@@ -7005,23 +7005,23 @@
   },
   "invoice.paymentReference": {
     "en": "Payment Reference",
-    "lo": ""
+    "lo": "ເລກອ້າງອີງການຊຳລະ"
   },
   "invoice.status.CANCELLED": {
     "en": "Cancelled",
-    "lo": ""
+    "lo": "ຍົກເລີກແລ້ວ"
   },
   "invoice.status.DELETED": {
     "en": "Deleted",
-    "lo": ""
+    "lo": "ລຶບແລ້ວ"
   },
   "invoice.status.DRAFT": {
     "en": "Draft",
-    "lo": ""
+    "lo": "ຮ່າງ"
   },
   "invoice.status.label": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "invoice.status.PAID": {
     "en": "Paid",
@@ -7033,7 +7033,7 @@
   },
   "invoice.status.SUSPENDED": {
     "en": "Suspended",
-    "lo": ""
+    "lo": "ໂຈະ"
   },
   "invoice.status.UNPAID": {
     "en": "Unpaid",
@@ -7041,7 +7041,7 @@
   },
   "invoice.status.VALIDATED": {
     "en": "Validated",
-    "lo": ""
+    "lo": "ກວດສອບແລ້ວ"
   },
   "invoice.subject": {
     "en": "Subject",
@@ -7065,7 +7065,7 @@
   },
   "invoiceEvent.eventType.MESSAGE": {
     "en": "Message",
-    "lo": ""
+    "lo": "ຂໍ້ຄວາມ"
   },
   "invoiceEvent.eventType.PAYMENT": {
     "en": "Payment",
@@ -7077,7 +7077,7 @@
   },
   "invoiceEvent.eventType.STATUS": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "invoiceEvent.eventType.WARNING": {
     "en": "Warning",
@@ -7085,7 +7085,7 @@
   },
   "invoiceEvent.message": {
     "en": "Message",
-    "lo": ""
+    "lo": "ຂໍ້ຄວາມ"
   },
   "invoiceEventMessage.create.label": {
     "en": "Create new Comment",
@@ -7113,7 +7113,7 @@
   },
   "invoiceLineItem.amountTotal": {
     "en": "Amount Total",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນລວມ"
   },
   "invoiceLineItem.code": {
     "en": "Code",
@@ -7125,11 +7125,11 @@
   },
   "invoiceLineItem.description": {
     "en": "Description",
-    "lo": ""
+    "lo": "ຄຳອະທິບາຍ"
   },
   "invoiceLineItem.discount": {
     "en": "Discount",
-    "lo": ""
+    "lo": "ສ່ວນຫຼຸດ"
   },
   "invoiceLineItem.ledgerAccount": {
     "en": "Ledger Account",
@@ -7137,7 +7137,7 @@
   },
   "invoiceLineItem.quantity": {
     "en": "Quantity",
-    "lo": ""
+    "lo": "ຈຳນວນ"
   },
   "invoiceLineItem.unitPrice": {
     "en": "Unit Price",
@@ -7181,7 +7181,7 @@
   },
   "invoicePayment.datePayment": {
     "en": "Payment Date",
-    "lo": ""
+    "lo": "ວັນທີຊຳລະເງິນ"
   },
   "invoicePayment.delete.confirm.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
@@ -7197,7 +7197,7 @@
   },
   "invoicePayment.fees": {
     "en": "Fees",
-    "lo": ""
+    "lo": "ຄ່າທຳນຽມ"
   },
   "invoicePayment.label": {
     "en": "Label",
@@ -7209,23 +7209,23 @@
   },
   "invoicePayment.status.ACCEPTED": {
     "en": "Accepted",
-    "lo": ""
+    "lo": "ຮັບແລ້ວ"
   },
   "invoicePayment.status.CANCELLED": {
     "en": "Cancelled",
-    "lo": ""
+    "lo": "ຍົກເລີກແລ້ວ"
   },
   "invoicePayment.status.label": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "invoicePayment.status.REFUNDED": {
     "en": "Refunded",
-    "lo": ""
+    "lo": "ຄືນເງິນແລ້ວ"
   },
   "invoicePayment.status.REJECTED": {
     "en": "Rejected",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດ"
   },
   "invoicePayment.update.label": {
     "en": "Update Payment",
@@ -7237,7 +7237,7 @@
   },
   "invoicePayments.label": {
     "en": "Payments",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນ"
   },
   "invoicePayments.searcherResultsTitle": {
     "en": "{invoicePaymentsTotalCount} Payments Found",
@@ -7317,15 +7317,15 @@
   },
   "location.DistrictPicker.label": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "location.DistrictPicker.none": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "location.DistrictPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "location.EditDialog.cancel": {
     "en": "Cancel",
@@ -7341,7 +7341,7 @@
   },
   "location.EditDialog.family": {
     "en": "Family",
-    "lo": ""
+    "lo": "ຄອບຄົວ"
   },
   "location.EditDialog.female": {
     "en": "Female",
@@ -7357,7 +7357,7 @@
   },
   "location.EditDialog.other": {
     "en": "Other",
-    "lo": ""
+    "lo": "ອື່ນໆ"
   },
   "location.EditDialog.save": {
     "en": "Save",
@@ -7433,11 +7433,11 @@
   },
   "location.HealthFacilityFilter.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "location.HealthFacilityFilter.fax": {
     "en": "Fax",
-    "lo": ""
+    "lo": "ແຟັກ"
   },
   "location.HealthFacilityFilter.name": {
     "en": "Name",
@@ -7445,11 +7445,11 @@
   },
   "location.HealthFacilityFilter.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "location.HealthFacilityFilter.showHistory": {
     "en": "Show historical values",
-    "lo": ""
+    "lo": "ສະແດງຂໍ້ມູນເກົ່າ"
   },
   "location.HealthFacilityForm.accCode": {
     "en": "Accounting Code",
@@ -7457,7 +7457,7 @@
   },
   "location.HealthFacilityForm.address": {
     "en": "Address",
-    "lo": ""
+    "lo": "ທີ່ຢູ່"
   },
   "location.HealthFacilityForm.code": {
     "en": "Code",
@@ -7469,11 +7469,11 @@
   },
   "location.HealthFacilityForm.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "location.HealthFacilityForm.fax": {
     "en": "Fax",
-    "lo": ""
+    "lo": "ແຟັກ"
   },
   "location.HealthFacilityForm.name": {
     "en": "Name",
@@ -7481,15 +7481,15 @@
   },
   "location.HealthFacilityForm.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "location.HealthFacilityForm.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "location.HealthFacilityForm.status.AC": {
     "en": "Active",
-    "lo": ""
+    "lo": "ເຄື່ອນໄຫວ"
   },
   "location.HealthFacilityForm.status.DE": {
     "en": "Delisted",
@@ -7497,7 +7497,7 @@
   },
   "location.HealthFacilityForm.status.ID": {
     "en": "Idle",
-    "lo": ""
+    "lo": "ບໍ່ເຄື່ອນໄຫວ"
   },
   "location.HealthFacilityForm.status.IN": {
     "en": "Inactive",
@@ -7505,11 +7505,11 @@
   },
   "location.HealthFacilityForm.status.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "location.HealthFacilityFullPath.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "location.HealthFacilityFullPath.healthFacility": {
     "en": "HF",
@@ -7517,7 +7517,7 @@
   },
   "location.HealthFacilityFullPath.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "location.healthFacilityLegalForm": {
     "en": "Health Facility Legal Form",
@@ -7537,7 +7537,7 @@
   },
   "location.healthFacilityLegalForm.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "location.healthFacilityLegalForm.P": {
     "en": "Private Organization",
@@ -7561,7 +7561,7 @@
   },
   "location.healthFacilityLevel.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "location.HealthFacilityMasterPanel.careType.nullLabel": {
     "en": "Select Care Type",
@@ -7569,11 +7569,11 @@
   },
   "location.HealthFacilityPicker.label": {
     "en": "Health Facility",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
   },
   "location.HealthFacilityPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "location.HealthFacilityPicker.placeholder": {
     "en": "Search a Health Facility...",
@@ -7593,7 +7593,7 @@
   },
   "location.healthFacilitySubLevel.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "location.healthFacilitySubLevel.R": {
     "en": "Reference",
@@ -7617,15 +7617,15 @@
   },
   "location.healthFacilitySummaries.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "location.healthFacilitySummaries.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "location.healthFacilitySummaries.fax": {
     "en": "Fax",
-    "lo": ""
+    "lo": "ແຟັກ"
   },
   "location.healthFacilitySummaries.id": {
     "en": "Id",
@@ -7637,7 +7637,7 @@
   },
   "location.healthFacilitySummaries.level": {
     "en": "Level",
-    "lo": ""
+    "lo": "ລະດັບ"
   },
   "location.healthFacilitySummaries.name": {
     "en": "Name",
@@ -7645,11 +7645,11 @@
   },
   "location.healthFacilitySummaries.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "location.healthFacilitySummaries.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "location.healthFacilitySummaries.validityFrom": {
     "en": "Validity From",
@@ -7661,27 +7661,27 @@
   },
   "location.Location2Picker.label": {
     "en": "Municipality",
-    "lo": ""
+    "lo": "ກຸ່ມບ້ານ"
   },
   "location.Location2Picker.none": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "location.Location2Picker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "location.Location3Picker.label": {
     "en": "Village",
-    "lo": ""
+    "lo": "ບ້ານ"
   },
   "location.Location3Picker.none": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "location.Location3Picker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "location.LocationPicker.clearText": {
     "en": "Clear",
@@ -7693,11 +7693,11 @@
   },
   "location.LocationPicker.loadingText": {
     "en": "Loading...",
-    "lo": ""
+    "lo": "ກຳລັງໂຫລດ..."
   },
   "location.LocationPicker.openText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "location.locations.page.title": {
     "en": "Locations",
@@ -7705,19 +7705,19 @@
   },
   "location.locations.searcher.title.0": {
     "en": "Regions",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "location.locations.searcher.title.1": {
     "en": "Districts",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "location.locations.searcher.title.2": {
     "en": "Municipalities",
-    "lo": ""
+    "lo": "ກຸ່ມບ້ານ"
   },
   "location.locations.searcher.title.3": {
     "en": "Villages",
-    "lo": ""
+    "lo": "ບ້ານ"
   },
   "location.locations.searcher.title.3.catchments": {
     "en": "Village Catchments",
@@ -7729,7 +7729,7 @@
   },
   "location.locationType.0": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "location.locationType.0.children": {
     "en": "Districts, Municipalities and Villages",
@@ -7737,7 +7737,7 @@
   },
   "location.locationType.0.directChildren": {
     "en": "Districts",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "location.locationType.0.placeholder": {
     "en": "Search for a Region...",
@@ -7745,7 +7745,7 @@
   },
   "location.locationType.1": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "location.locationType.1.children": {
     "en": "Municipalities and Villages",
@@ -7753,7 +7753,7 @@
   },
   "location.locationType.1.directChildren": {
     "en": "Municipalities",
-    "lo": ""
+    "lo": "ກຸ່ມບ້ານ"
   },
   "location.locationType.1.placeholder": {
     "en": "Search for a District...",
@@ -7761,39 +7761,39 @@
   },
   "location.locationType.2": {
     "en": "Municipality",
-    "lo": ""
+    "lo": "ກຸ່ມບ້ານ"
   },
   "location.locationType.2.children": {
     "en": "Villages",
-    "lo": ""
+    "lo": "ບ້ານ"
   },
   "location.locationType.2.directChildren": {
     "en": "Villages",
-    "lo": ""
+    "lo": "ບ້ານ"
   },
   "location.locationType.3": {
     "en": "Village",
-    "lo": ""
+    "lo": "ບ້ານ"
   },
   "location.locationType.D": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "location.locationType.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "location.locationType.R": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "location.locationType.V": {
     "en": "Village",
-    "lo": ""
+    "lo": "ບ້ານ"
   },
   "location.locationType.W": {
     "en": "Municipality",
-    "lo": ""
+    "lo": "ກຸ່ມບ້ານ"
   },
   "location.MoveDialog.cancel": {
     "en": "Cancel",
@@ -7813,7 +7813,7 @@
   },
   "location.MoveDialog.Parent.None": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "location.MoveDialog.title": {
     "en": "Move {code} - {name} {type}",
@@ -7825,15 +7825,15 @@
   },
   "location.RegionPicker.label": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "location.RegionPicker.none": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "location.RegionPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "location.UpdateHealthFacility.mutationLabel": {
     "en": "Update Health Facilityt { code}",
@@ -7889,7 +7889,7 @@
   },
   "medical_pricelist.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "medical_pricelist.gql_mutation_pricelists_medical_items_add_perms": {
     "en": "Medical Pricelist | Mutation Pricelists Medical Items Add",
@@ -7949,7 +7949,7 @@
   },
   "medical_pricelist.openNewTabButton.buttonText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "medical_pricelist.pickerNoOptionsLabel": {
     "en": "No options available(no pricelist has a matching location)",
@@ -7957,7 +7957,7 @@
   },
   "medical_pricelist.pricelist_date": {
     "en": "Date",
-    "lo": ""
+    "lo": "ວັນທີ"
   },
   "medical_pricelist.pricelistForm.emptyTitle": {
     "en": "New Pricelist",
@@ -7969,7 +7969,7 @@
   },
   "medical_pricelist.pricelistForm.table.title": {
     "en": "Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດ"
   },
   "medical_pricelist.pricelistForm.title": {
     "en": "Pricelist ({label})",
@@ -7985,7 +7985,7 @@
   },
   "medical_pricelist.priceOverruleDialog.input": {
     "en": "Price",
-    "lo": ""
+    "lo": "ລາຄາ"
   },
   "medical_pricelist.priceOverruleDialog.message": {
     "en": "You can override the price of this element for this pricelist",
@@ -8001,7 +8001,7 @@
   },
   "medical_pricelist.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "medical_pricelist.servicesPricelist": {
     "en": "Services Pricelist",
@@ -8033,11 +8033,11 @@
   },
   "medical_pricelist.table.overrule": {
     "en": "Price",
-    "lo": ""
+    "lo": "ລາຄາ"
   },
   "medical_pricelist.table.price": {
     "en": "Price",
-    "lo": ""
+    "lo": "ລາຄາ"
   },
   "medical_pricelist.table.selectAll": {
     "en": "Select All",
@@ -8069,11 +8069,11 @@
   },
   "medical_pricelist.valid_from": {
     "en": "Valid From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່ວັນທີ"
   },
   "medical_pricelist.valid_to": {
     "en": "Valid To",
-    "lo": ""
+    "lo": "ມີຜົນຮອດວັນທີ"
   },
   "medical.addNewMedicalItem.tooltip": {
     "en": "Add a new medical item",
@@ -8097,7 +8097,7 @@
   },
   "medical.careType.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "medical.careType.O": {
     "en": "Out - Patient",
@@ -8113,7 +8113,7 @@
   },
   "medical.DiagnosisPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "medical.DiagnosisPicker.placeholder": {
     "en": "Search Diagnosis…",
@@ -8165,7 +8165,7 @@
   },
   "medical.item.category": {
     "en": "Category",
-    "lo": ""
+    "lo": "ໝວດໝູ່"
   },
   "medical.item.code": {
     "en": "Code",
@@ -8233,11 +8233,11 @@
   },
   "medical.item.openNewTab": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "medical.item.openNewTabButton.buttonText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "medical.item.overviewTitle": {
     "en": "Medical Item details",
@@ -8253,11 +8253,11 @@
   },
   "medical.item.price": {
     "en": "Price",
-    "lo": ""
+    "lo": "ລາຄາ"
   },
   "medical.item.quantity": {
     "en": "Quantity",
-    "lo": ""
+    "lo": "ຈຳນວນ"
   },
   "medical.item.type": {
     "en": "Type",
@@ -8269,11 +8269,11 @@
   },
   "medical.item.validFrom": {
     "en": "Valid From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່ວັນທີ"
   },
   "medical.item.validTo": {
     "en": "Valid To",
-    "lo": ""
+    "lo": "ມີຜົນຮອດວັນທີ"
   },
   "medical.ItemPicker.label": {
     "en": "Item",
@@ -8281,7 +8281,7 @@
   },
   "medical.ItemPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "medical.ItemPicker.placeholder": {
     "en": "Search Item…",
@@ -8293,7 +8293,7 @@
   },
   "medical.itemType.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "medical.itemType.D": {
     "en": "Drug",
@@ -8305,7 +8305,7 @@
   },
   "medical.itemType.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "medical.patientCategory.1": {
     "en": "Male",
@@ -8333,7 +8333,7 @@
   },
   "medical.service.category": {
     "en": "Category",
-    "lo": ""
+    "lo": "ໝວດໝູ່"
   },
   "medical.service.code": {
     "en": "Code",
@@ -8369,7 +8369,7 @@
   },
   "medical.service.level": {
     "en": "Level",
-    "lo": ""
+    "lo": "ລະດັບ"
   },
   "medical.service.maximumAmount": {
     "en": "Maximum Amount per Claim",
@@ -8393,11 +8393,11 @@
   },
   "medical.service.openNewTab": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "medical.service.openNewTabButton.buttonText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "medical.service.overviewTitle": {
     "en": "Medical Service details",
@@ -8413,7 +8413,7 @@
   },
   "medical.service.price": {
     "en": "Price",
-    "lo": ""
+    "lo": "ລາຄາ"
   },
   "medical.service.servicesTitle": {
     "en": "Medical Services",
@@ -8433,11 +8433,11 @@
   },
   "medical.service.validFrom": {
     "en": "Valid From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່ວັນທີ"
   },
   "medical.service.validTo": {
     "en": "Valid To",
-    "lo": ""
+    "lo": "ມີຜົນຮອດວັນທີ"
   },
   "medical.serviceCategory": {
     "en": "Service Category",
@@ -8461,11 +8461,11 @@
   },
   "medical.serviceCategory.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "medical.serviceCategory.O": {
     "en": "Other",
-    "lo": ""
+    "lo": "ອື່ນໆ"
   },
   "medical.serviceCategory.S": {
     "en": "Surgery",
@@ -8489,7 +8489,7 @@
   },
   "medical.serviceLevel.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "medical.serviceLevel.S": {
     "en": "Simple Service",
@@ -8505,7 +8505,7 @@
   },
   "medical.ServicePicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "medical.ServicePicker.placeholder": {
     "en": "Search Service…",
@@ -8517,7 +8517,7 @@
   },
   "medical.serviceType.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "medical.serviceType.C": {
     "en": "Curative",
@@ -8525,7 +8525,7 @@
   },
   "medical.serviceType.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "medical.serviceType.P": {
     "en": "Preventative",
@@ -8541,7 +8541,7 @@
   },
   "medical.serviceTypePP.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "medical.serviceTypePP.P": {
     "en": "Flat fee bundle",
@@ -8565,11 +8565,11 @@
   },
   "medical.visitType.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "medical.visitType.O": {
     "en": "Other",
-    "lo": ""
+    "lo": "ອື່ນໆ"
   },
   "medical.visitType.R": {
     "en": "Referral",
@@ -8577,7 +8577,7 @@
   },
   "menu.add_ticket": {
     "en": "Add Grievance",
-    "lo": ""
+    "lo": "ເພີ່ມຄຳຮ້ອງທຸກ"
   },
   "menu.api": {
     "en": "Import Data - API",
@@ -8701,7 +8701,7 @@
   },
   "payer.address": {
     "en": "Address",
-    "lo": ""
+    "lo": "ທີ່ຢູ່"
   },
   "payer.adminMenu.payers.title": {
     "en": "Payers",
@@ -8709,7 +8709,7 @@
   },
   "payer.amount": {
     "en": "Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນ"
   },
   "payer.createMutation.label": {
     "en": "Create payer {name}",
@@ -8721,15 +8721,15 @@
   },
   "payer.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "payer.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "payer.fax": {
     "en": "Fax",
-    "lo": ""
+    "lo": "ແຟັກ"
   },
   "payer.FundingPanel.table.addFunding": {
     "en": "Add Funding",
@@ -8777,15 +8777,15 @@
   },
   "payer.PayerPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "payer.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "payer.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "payer.receipt": {
     "en": "Receipt",
@@ -8793,7 +8793,7 @@
   },
   "payer.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "payer.type": {
     "en": "Type",
@@ -8821,7 +8821,7 @@
   },
   "payer.type.O": {
     "en": "Other",
-    "lo": ""
+    "lo": "ອື່ນໆ"
   },
   "payer.type.P": {
     "en": "Private Organization",
@@ -8849,7 +8849,7 @@
   },
   "PayerSearcher.openNewTab": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "PayerSearcher.tableTitle": {
     "en": "{count} Payers",
@@ -8937,7 +8937,7 @@
   },
   "payment.openNewTab": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "payment.openNewTabHead": {
     "en": " ",
@@ -8957,7 +8957,7 @@
   },
   "payment.payment.officer": {
     "en": "Officer",
-    "lo": ""
+    "lo": "ພະນັກງານ"
   },
   "payment.payment.officerCode": {
     "en": "Officer code",
@@ -9005,7 +9005,7 @@
   },
   "payment.payment.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "payment.payment.status.-1": {
     "en": "Failed to Create Payment",
@@ -9029,7 +9029,7 @@
   },
   "payment.payment.status.0": {
     "en": "Cancelled",
-    "lo": ""
+    "lo": "ຍົກເລີກແລ້ວ"
   },
   "payment.payment.status.1": {
     "en": "Payment Created",
@@ -9057,7 +9057,7 @@
   },
   "payment.payment.status.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "payment.payment.transferFee": {
     "en": "Transfer fee",
@@ -9069,11 +9069,11 @@
   },
   "payment.PaymentFilter.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "payment.PaymentFilter.typeOfPayment": {
     "en": "Payment Type",
-    "lo": ""
+    "lo": "ປະເພດການຊຳລະ"
   },
   "payment.PaymentOverview.newTitle": {
     "en": "New payment",
@@ -9105,7 +9105,7 @@
   },
   "payment.showHistory": {
     "en": "Show historical values",
-    "lo": ""
+    "lo": "ສະແດງຂໍ້ມູນເກົ່າ"
   },
   "payment.showReconciledOnly": {
     "en": "Show reconciled only",
@@ -9121,7 +9121,7 @@
   },
   "paymentCycle.bills.amountTotal": {
     "en": "Amount Total",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນລວມ"
   },
   "paymentCycle.bills.code": {
     "en": "Code",
@@ -9141,19 +9141,19 @@
   },
   "paymentCycle.bills.status.CANCELLED": {
     "en": "Cancelled",
-    "lo": ""
+    "lo": "ຍົກເລີກແລ້ວ"
   },
   "paymentCycle.bills.status.DELETED": {
     "en": "Deleted",
-    "lo": ""
+    "lo": "ລຶບແລ້ວ"
   },
   "paymentCycle.bills.status.DRAFT": {
     "en": "Draft",
-    "lo": ""
+    "lo": "ຮ່າງ"
   },
   "paymentCycle.bills.status.label": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "paymentCycle.bills.status.PAYED": {
     "en": "Payed",
@@ -9161,11 +9161,11 @@
   },
   "paymentCycle.bills.status.SUSPENDED": {
     "en": "Suspended",
-    "lo": ""
+    "lo": "ໂຈະ"
   },
   "paymentCycle.bills.status.VALIDATED": {
     "en": "Validated",
-    "lo": ""
+    "lo": "ກວດສອບແລ້ວ"
   },
   "paymentCycle.bills.subject": {
     "en": "Subject",
@@ -9185,7 +9185,7 @@
   },
   "paymentCycle.createButton.tooltip": {
     "en": "Create",
-    "lo": ""
+    "lo": "ສ້າງ"
   },
   "paymentCycle.deduplicate": {
     "en": "Deduplicate",
@@ -9213,11 +9213,11 @@
   },
   "paymentCycle.label.dateValidFrom": {
     "en": "Date From",
-    "lo": ""
+    "lo": "ຈາກວັນທີ"
   },
   "paymentCycle.label.dateValidTo": {
     "en": "Date To",
-    "lo": ""
+    "lo": "ຫາວັນທີ"
   },
   "paymentCycle.paymentCycle.code": {
     "en": "Code",
@@ -9237,7 +9237,7 @@
   },
   "paymentCycle.paymentCycle.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "paymentCycle.PaymentCycleBillsTab.label": {
     "en": "Bills",
@@ -9257,11 +9257,11 @@
   },
   "paymentCycle.PaymentCycleHeadPanel.label.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "paymentCycle.PaymentCycleHeadPanel.subtitle": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "paymentCycle.PaymentCyclePage.title": {
     "en": "Payment Cycle {code} ",
@@ -9281,7 +9281,7 @@
   },
   "paymentCycle.paymentCycleStatusPicker.null": {
     "en": "ANY",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "paymentCycle.paymentCycleStatusPicker.PENDING": {
     "en": "PENDING",
@@ -9297,7 +9297,7 @@
   },
   "paymentCycle.saveButton.tooltip": {
     "en": "Save changes",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "paymentCycle.searcherResultsTitle": {
     "en": "{paymentCyclesTotalCount} Payment Cycles Found",
@@ -9313,7 +9313,7 @@
   },
   "paymentCycle.tooltip.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "paymentCycle.tooltip.edit": {
     "en": "Edit",
@@ -9325,7 +9325,7 @@
   },
   "paymentCycle.viewDetailsButton.tooltip": {
     "en": "Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດ"
   },
   "PaymentCycleBenefitsTab.label": {
     "en": "Benefits",
@@ -9373,7 +9373,7 @@
   },
   "paymentInvoice.datePayment": {
     "en": "Payment Date",
-    "lo": ""
+    "lo": "ວັນທີຊຳລະເງິນ"
   },
   "paymentInvoice.delete.confirm.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
@@ -9389,7 +9389,7 @@
   },
   "paymentInvoice.fees": {
     "en": "Fees",
-    "lo": ""
+    "lo": "ຄ່າທຳນຽມ"
   },
   "paymentInvoice.label": {
     "en": "Label",
@@ -9409,7 +9409,7 @@
   },
   "paymentInvoice.reconciliationStatus.CANCELLED": {
     "en": "Cancelled",
-    "lo": ""
+    "lo": "ຍົກເລີກແລ້ວ"
   },
   "paymentInvoice.reconciliationStatus.label": {
     "en": "Reconciliation Status",
@@ -9425,27 +9425,27 @@
   },
   "paymentInvoice.reconciliationStatus.REFUNDED": {
     "en": "Refunded",
-    "lo": ""
+    "lo": "ຄືນເງິນແລ້ວ"
   },
   "paymentInvoice.status.ACCEPTED": {
     "en": "Accepted",
-    "lo": ""
+    "lo": "ຮັບແລ້ວ"
   },
   "paymentInvoice.status.CANCELLED": {
     "en": "Cancelled",
-    "lo": ""
+    "lo": "ຍົກເລີກແລ້ວ"
   },
   "paymentInvoice.status.label": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "paymentInvoice.status.REFUNDED": {
     "en": "Refunded",
-    "lo": ""
+    "lo": "ຄືນເງິນແລ້ວ"
   },
   "paymentInvoice.status.REJECTED": {
     "en": "Rejected",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດ"
   },
   "paymentInvoice.update.label": {
     "en": "Update Payment",
@@ -9457,7 +9457,7 @@
   },
   "paymentInvoices.label": {
     "en": "Payments",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນ"
   },
   "paymentInvoices.searcherResultsTitle": {
     "en": "{paymentInvoicesTotalCount} Payments Found",
@@ -9469,7 +9469,7 @@
   },
   "paymentPlan.advancedCriteria.amount": {
     "en": "Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນ"
   },
   "paymentPlan.advancedCriteria.button.addFilters": {
     "en": "Add criterion",
@@ -9505,11 +9505,11 @@
   },
   "paymentPlan.advancedCriteria.value": {
     "en": "Value",
-    "lo": ""
+    "lo": "ມູນຄ່າ"
   },
   "paymentPlan.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "paymentPlan.benefitPlan": {
     "en": "Benefit Product",
@@ -9573,15 +9573,15 @@
   },
   "paymentPlan.headPanel.title": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "paymentPlan.isDeleted": {
     "en": "Show Deleted",
-    "lo": ""
+    "lo": "ສະແດງລາຍການທີ່ລຶບແລ້ວ"
   },
   "paymentPlan.mandatoryFieldsEmptyError": {
     "en": "* These fields are required",
-    "lo": ""
+    "lo": "* ຂໍ້ມູນເຫຼົ່ານີ້ຈຳເປັນຕ້ອງຕື່ມ"
   },
   "paymentPlan.name": {
     "en": "Name",
@@ -9617,7 +9617,7 @@
   },
   "paymentPlan.saveButton.tooltip.enabled": {
     "en": "Save changes",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "paymentPlan.type": {
     "en": "Type",
@@ -9625,11 +9625,11 @@
   },
   "paymentPlan.type.benefitplan": {
     "en": "Program",
-    "lo": ""
+    "lo": "ໂຄງການ"
   },
   "paymentPlan.type.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "paymentPlan.UpdatePaymentPlan.mutationLabel": {
     "en": "Update Payment Plan - {label}",
@@ -9665,7 +9665,7 @@
   },
   "payroll.advancedFilters.amount": {
     "en": "Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນ"
   },
   "payroll.advancedFilters.button.addFilters": {
     "en": "Add Criterion",
@@ -9697,7 +9697,7 @@
   },
   "payroll.advancedFilters.value": {
     "en": "Value",
-    "lo": ""
+    "lo": "ມູນຄ່າ"
   },
   "payroll.benefitAttachment.searcherResultsTitle": {
     "en": "{benefitAttachmentsTotalCount} Benefits Found",
@@ -9705,7 +9705,7 @@
   },
   "payroll.benefitConsumption.amount": {
     "en": "Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນ"
   },
   "payroll.benefitConsumption.cancel": {
     "en": "Cancel",
@@ -9717,7 +9717,7 @@
   },
   "payroll.benefitConsumption.confirm": {
     "en": "Confirm",
-    "lo": ""
+    "lo": "ຢືນຢັນ"
   },
   "payroll.benefitConsumption.dateDue": {
     "en": "Date Due",
@@ -9737,11 +9737,11 @@
   },
   "payroll.benefitConsumption.individual.firstName": {
     "en": "First Name",
-    "lo": ""
+    "lo": "ຊື່"
   },
   "payroll.benefitConsumption.individual.lastName": {
     "en": "Last Name",
-    "lo": ""
+    "lo": "ນາມສະກຸນ"
   },
   "payroll.benefitConsumption.pageTitle": {
     "en": "Benefit Consumptions",
@@ -9753,7 +9753,7 @@
   },
   "payroll.benefitConsumption.paymentDate": {
     "en": "Payment Date",
-    "lo": ""
+    "lo": "ວັນທີຊຳລະເງິນ"
   },
   "payroll.benefitConsumption.payroll.benefitPlan": {
     "en": "Benefit Plan",
@@ -9789,19 +9789,19 @@
   },
   "payroll.benefitConsumption.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "payroll.benefitConsumption.status.CANCELLED": {
     "en": "Cancelled",
-    "lo": ""
+    "lo": "ຍົກເລີກແລ້ວ"
   },
   "payroll.benefitConsumption.status.DELETED": {
     "en": "Deleted",
-    "lo": ""
+    "lo": "ລຶບແລ້ວ"
   },
   "payroll.benefitConsumption.status.DRAFT": {
     "en": "Draft",
-    "lo": ""
+    "lo": "ຮ່າງ"
   },
   "payroll.benefitConsumption.status.PAYED": {
     "en": "Payed",
@@ -9809,11 +9809,11 @@
   },
   "payroll.benefitConsumption.status.SUSPENDED": {
     "en": "Suspended",
-    "lo": ""
+    "lo": "ໂຈະ"
   },
   "payroll.benefitConsumption.status.VALIDATED": {
     "en": "Validated",
-    "lo": ""
+    "lo": "ກວດສອບແລ້ວ"
   },
   "payroll.benefitConsumption.type": {
     "en": "Type",
@@ -9821,7 +9821,7 @@
   },
   "payroll.benefitConsumptionStatusPicker": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "payroll.benefitConsumptionStatusPicker.ACCEPTED": {
     "en": "ACCEPTED",
@@ -9849,7 +9849,7 @@
   },
   "payroll.createButton.tooltip": {
     "en": "Create",
-    "lo": ""
+    "lo": "ສ້າງ"
   },
   "payroll.errorSummary.close": {
     "en": "Close",
@@ -9937,11 +9937,11 @@
   },
   "payroll.paymentPoint.label": {
     "en": "Payment Point",
-    "lo": ""
+    "lo": "ຈຸດຈ່າຍເງິນ"
   },
   "payroll.paymentPoint.location": {
     "en": "Location",
-    "lo": ""
+    "lo": "ທີ່ຕັ້ງ"
   },
   "payroll.paymentPoint.mutation.createLabel": {
     "en": "Create Payment Point {id}",
@@ -9977,11 +9977,11 @@
   },
   "payroll.paymentPointPicker.label": {
     "en": "Payment Point",
-    "lo": ""
+    "lo": "ຈຸດຈ່າຍເງິນ"
   },
   "payroll.paymentPointPicker.placeholder": {
     "en": "Payment Point",
-    "lo": ""
+    "lo": "ຈຸດຈ່າຍເງິນ"
   },
   "payroll.PaymentPointSearcher.results": {
     "en": "{totalCount} Payment Points Found",
@@ -9997,11 +9997,11 @@
   },
   "payroll.payroll.dateValidFrom": {
     "en": "Valid From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່ວັນທີ"
   },
   "payroll.payroll.dateValidTo": {
     "en": "Valid To",
-    "lo": ""
+    "lo": "ມີຜົນຮອດວັນທີ"
   },
   "payroll.payroll.delete.confirm.message": {
     "en": "Are you sure you want to delete the Payroll? This will result in permanent, irreversible changes.",
@@ -10037,7 +10037,7 @@
   },
   "payroll.payroll.paymentPoint": {
     "en": "Payment Point",
-    "lo": ""
+    "lo": "ຈຸດຈ່າຍເງິນ"
   },
   "payroll.payroll.paymentStrategy": {
     "en": "Payment Strategy",
@@ -10045,7 +10045,7 @@
   },
   "payroll.payroll.payrollStatusPicker": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "payroll.payroll.payrollStatusPicker.APPROVE_FOR_PAYMENT": {
     "en": "APPROVE FOR PAYMENT",
@@ -10057,7 +10057,7 @@
   },
   "payroll.payroll.payrollStatusPicker.placeholder": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "payroll.payroll.payrollStatusPicker.RECONCILED": {
     "en": "RECONCILED",
@@ -10073,7 +10073,7 @@
   },
   "payroll.payroll.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "payroll.payrollBenefitConsumption.searcherResultsTitle": {
     "en": "{payrollBenefitConsumptionsTotalCount} Benefit Consumptions Found",
@@ -10097,7 +10097,7 @@
   },
   "payroll.payrollPaymentFile.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "payroll.payrollPaymentFilesSearcher.results": {
     "en": "{totalCount} Files Found",
@@ -10133,7 +10133,7 @@
   },
   "payroll.summary.amount": {
     "en": "Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນ"
   },
   "payroll.summary.approveAndClose": {
     "en": "Approve and Close",
@@ -10157,7 +10157,7 @@
   },
   "payroll.summary.confirm": {
     "en": "Confirm",
-    "lo": ""
+    "lo": "ຢືນຢັນ"
   },
   "payroll.summary.createPaymentForFailedInvoice": {
     "en": "Create Payment For Failed Invoice",
@@ -10169,7 +10169,7 @@
   },
   "payroll.summary.download": {
     "en": "Download",
-    "lo": ""
+    "lo": "ດາວໂຫລດ"
   },
   "payroll.summary.makePayment": {
     "en": "Make Payment",
@@ -10233,7 +10233,7 @@
   },
   "payroll.tooltip.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "payroll.tooltip.delete": {
     "en": "Delete",
@@ -10241,7 +10241,7 @@
   },
   "payroll.tooltip.download": {
     "en": "Download",
-    "lo": ""
+    "lo": "ດາວໂຫລດ"
   },
   "payroll.tooltip.edit": {
     "en": "Edit",
@@ -10249,7 +10249,7 @@
   },
   "payroll.tooltip.isDeleted": {
     "en": "Show Deleted",
-    "lo": ""
+    "lo": "ສະແດງລາຍການທີ່ລຶບແລ້ວ"
   },
   "payroll.tooltip.save": {
     "en": "Save",
@@ -10261,7 +10261,7 @@
   },
   "payroll.viewDetailsButton.tooltip": {
     "en": "Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດ"
   },
   "payroll.viewReconciliationFiles": {
     "en": "View Reconciliation Files",
@@ -10273,7 +10273,7 @@
   },
   "payrollPaymentFile.download": {
     "en": "Download",
-    "lo": ""
+    "lo": "ດາວໂຫລດ"
   },
   "policy.action.AddPolicy.buttonText": {
     "en": "Add policy",
@@ -10329,7 +10329,7 @@
   },
   "policy.dialogActions.continue": {
     "en": "Continue",
-    "lo": ""
+    "lo": "ສືບຕໍ່"
   },
   "policy.dialogActions.goBack": {
     "en": "Go back",
@@ -10461,11 +10461,11 @@
   },
   "policy.policies.balance": {
     "en": "Balance",
-    "lo": ""
+    "lo": "ຍອດເຫຼືອ"
   },
   "policy.policies.ceiling": {
     "en": "Ceiling",
-    "lo": ""
+    "lo": "ເພດານ"
   },
   "policy.policies.deduction": {
     "en": "Deduction",
@@ -10533,7 +10533,7 @@
   },
   "policy.policies.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "policy.policies.status.0": {
     "en": "",
@@ -10541,15 +10541,15 @@
   },
   "policy.policies.status.1": {
     "en": "Idle",
-    "lo": ""
+    "lo": "ບໍ່ເຄື່ອນໄຫວ"
   },
   "policy.policies.status.2": {
     "en": "Active",
-    "lo": ""
+    "lo": "ເຄື່ອນໄຫວ"
   },
   "policy.policies.status.4": {
     "en": "Suspended",
-    "lo": ""
+    "lo": "ໂຈະ"
   },
   "policy.policies.status.8": {
     "en": "Expired",
@@ -10561,7 +10561,7 @@
   },
   "policy.Policy.balance": {
     "en": "Balance",
-    "lo": ""
+    "lo": "ຍອດເຫຼືອ"
   },
   "policy.Policy.contribDetails": {
     "en": "Contribution Details",
@@ -10605,7 +10605,7 @@
   },
   "policy.Policy.value": {
     "en": "Value",
-    "lo": ""
+    "lo": "ມູນຄ່າ"
   },
   "policy.Policy.values.title": {
     "en": "Policy values",
@@ -10649,7 +10649,7 @@
   },
   "policy.PolicyFilter.product.label": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "policy.PolicyFilter.product.placeholder": {
     "en": "Search for a Product...",
@@ -10673,15 +10673,15 @@
   },
   "policy.PolicyOfficer.none": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "policy.PolicyOfficerPicker.label": {
     "en": "Officer",
-    "lo": ""
+    "lo": "ພະນັກງານ"
   },
   "policy.PolicyOfficerPicker.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "policy.PolicyOfficerPicker.placeholder": {
     "en": "Search for an Officer...",
@@ -10689,27 +10689,27 @@
   },
   "policy.PolicyRenewalsReport.dateEnd": {
     "en": "Date To",
-    "lo": ""
+    "lo": "ຫາວັນທີ"
   },
   "policy.PolicyRenewalsReport.dateStart": {
     "en": "Date From",
-    "lo": ""
+    "lo": "ຈາກວັນທີ"
   },
   "policy.PolicyRenewalsReport.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "policy.PolicyRenewalsReport.officer": {
     "en": "Officer",
-    "lo": ""
+    "lo": "ພະນັກງານ"
   },
   "policy.PolicyRenewalsReport.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "policy.PolicyRenewalsReport.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "policy.PolicyRenewalsReport.sorting": {
     "en": "Sorting",
@@ -10721,7 +10721,7 @@
   },
   "policy.PolicyRenewalsReport.sorting.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "policy.PolicyRenewalsReport.sorting.O": {
     "en": "By enrollment officer",
@@ -10741,7 +10741,7 @@
   },
   "policy.PolicyStage.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "policy.PolicyStage.R": {
     "en": "Renewed policy",
@@ -10749,11 +10749,11 @@
   },
   "policy.PolicyStatus": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "policy.PolicyStatus.1": {
     "en": "Entered",
-    "lo": ""
+    "lo": "ປ້ອນແລ້ວ"
   },
   "policy.PolicyStatus.16": {
     "en": "Ready",
@@ -10761,11 +10761,11 @@
   },
   "policy.PolicyStatus.2": {
     "en": "Active",
-    "lo": ""
+    "lo": "ເຄື່ອນໄຫວ"
   },
   "policy.PolicyStatus.4": {
     "en": "Suspended",
-    "lo": ""
+    "lo": "ໂຈະ"
   },
   "policy.PolicyStatus.8": {
     "en": "Expired",
@@ -10773,11 +10773,11 @@
   },
   "policy.PolicyStatus.none": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "policy.PolicyStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "policy.policySummaries": {
     "en": "{count} Policies found",
@@ -10785,7 +10785,7 @@
   },
   "policy.policySummaries.balance": {
     "en": "Balance",
-    "lo": ""
+    "lo": "ຍອດເຫຼືອ"
   },
   "policy.policySummaries.delete": {
     "en": " ",
@@ -10809,7 +10809,7 @@
   },
   "policy.policySummaries.officer": {
     "en": "Officer",
-    "lo": ""
+    "lo": "ພະນັກງານ"
   },
   "policy.policySummaries.openFamily": {
     "en": " ",
@@ -10821,7 +10821,7 @@
   },
   "policy.policySummaries.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "policy.policySummaries.renew": {
     "en": " ",
@@ -10837,7 +10837,7 @@
   },
   "policy.policySummaries.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "policy.policySummaries.suspend": {
     "en": " ",
@@ -10845,15 +10845,15 @@
   },
   "policy.policySummaries.validityFrom": {
     "en": "Valid From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່ວັນທີ"
   },
   "policy.policySummaries.validityTo": {
     "en": "Valid To",
-    "lo": ""
+    "lo": "ມີຜົນຮອດວັນທີ"
   },
   "policy.policySummaries.value": {
     "en": "Value",
-    "lo": ""
+    "lo": "ມູນຄ່າ"
   },
   "policy.policyValues.alert.message": {
     "en": "The family has more Insurees than the maximum number of members allowed in the selected product. However, the policy can still be created. Do you want to continue?",
@@ -10901,11 +10901,11 @@
   },
   "policyHolder.address": {
     "en": "Address",
-    "lo": ""
+    "lo": "ທີ່ຢູ່"
   },
   "policyHolder.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "policyHolder.bankAccount": {
     "en": "Bank Account",
@@ -10997,7 +10997,7 @@
   },
   "policyHolder.dialog.create": {
     "en": "Create",
-    "lo": ""
+    "lo": "ສ້າງ"
   },
   "policyHolder.dialog.delete.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
@@ -11029,7 +11029,7 @@
   },
   "policyHolder.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "policyHolder.emailValidation.regexMsg.en": {
     "en": "Invalid email",
@@ -11045,7 +11045,7 @@
   },
   "policyHolder.fax": {
     "en": "Fax",
-    "lo": ""
+    "lo": "ແຟັກ"
   },
   "policyHolder.faxValidation.regexMsg.en": {
     "en": "Invalid fax number",
@@ -11057,7 +11057,7 @@
   },
   "policyHolder.generalInfoPanel.title": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "policyholder.gql_mutation_create_policyholder_perms": {
     "en": "Policyholder | Mutation Create Policyholder",
@@ -11205,7 +11205,7 @@
   },
   "policyHolder.location": {
     "en": "Location",
-    "lo": ""
+    "lo": "ທີ່ຕັ້ງ"
   },
   "policyHolder.mandatoryField.error": {
     "en": "This field is mandatory",
@@ -11213,7 +11213,7 @@
   },
   "policyHolder.mandatoryFieldsEmptyError": {
     "en": "* These fields are required",
-    "lo": ""
+    "lo": "* ຂໍ້ມູນເຫຼົ່ານີ້ຈຳເປັນຕ້ອງຕື່ມ"
   },
   "policyHolder.menu.policyHolders": {
     "en": "Policy Holders",
@@ -11229,7 +11229,7 @@
   },
   "policyHolder.paymentReference": {
     "en": "Payment Reference",
-    "lo": ""
+    "lo": "ເລກອ້າງອີງການຊຳລະ"
   },
   "policyHolder.paymentReferenceValidation.regexMsg.en": {
     "en": "Invalid payment reference",
@@ -11241,7 +11241,7 @@
   },
   "policyHolder.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "policyHolder.phoneValidation.regexMsg.en": {
     "en": "Invalid phone number",
@@ -11261,7 +11261,7 @@
   },
   "policyHolder.policyHolderContributionPlanBundle.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "policyHolder.policyHolderContributionPlanBundle.createPolicyHolderContributionPlanBundle": {
     "en": "Add new Contribution Plan Bundle",
@@ -11385,11 +11385,11 @@
   },
   "policyHolder.savePolicyHolderButton.tooltip.enabled": {
     "en": "Save changes",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "policyHolder.selectEconomicUnit.confirm": {
     "en": "Confirm",
-    "lo": ""
+    "lo": "ຢືນຢັນ"
   },
   "policyHolder.selectEconomicUnit.description": {
     "en": "By confirming the company, you accept the {link} and agree to the processing of your personal data.",
@@ -11433,7 +11433,7 @@
   },
   "policySummaries.openFamilyButton.buttonText": {
     "en": "Family",
-    "lo": ""
+    "lo": "ຄອບຄົວ"
   },
   "policySummaries.openFamilyButton.tooltip": {
     "en": "Open family",
@@ -11441,11 +11441,11 @@
   },
   "policySummaries.openNewTabButton.buttonText": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "policySummaries.openNewTabButton.tooltip": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "policySummaries.renewButton.tooltip": {
     "en": "Renew policy",
@@ -11477,7 +11477,7 @@
   },
   "product.CapitationLevelsTable.level": {
     "en": "Level",
-    "lo": ""
+    "lo": "ລະດັບ"
   },
   "product.CapitationLevelsTable.subType": {
     "en": "Sub Type",
@@ -11497,7 +11497,7 @@
   },
   "product.CapitationTabForm.weightsTable.category": {
     "en": "Category",
-    "lo": ""
+    "lo": "ໝວດໝູ່"
   },
   "product.CapitationTabForm.weightsTable.weight": {
     "en": "Weight (%)",
@@ -11549,7 +11549,7 @@
   },
   "product.ceilingType.INSUREE": {
     "en": "Insuree",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ"
   },
   "product.ceilingType.POLICY": {
     "en": "Policy",
@@ -11585,11 +11585,11 @@
   },
   "product.CycleInput.month": {
     "en": "Month",
-    "lo": ""
+    "lo": "ເດືອນ"
   },
   "product.CycleInput.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "product.DataGrid.actions": {
     "en": "Actions",
@@ -11597,11 +11597,11 @@
   },
   "product.dateFrom": {
     "en": "Date From",
-    "lo": ""
+    "lo": "ຈາກວັນທີ"
   },
   "product.dateTo": {
     "en": "Date To",
-    "lo": ""
+    "lo": "ຫາວັນທີ"
   },
   "product.dedInsuree": {
     "en": "Threshold",
@@ -11621,7 +11621,7 @@
   },
   "product.DeductiblesCeilingsTabForm.DeductiblesTable.ceiling": {
     "en": "Ceiling",
-    "lo": ""
+    "lo": "ເພດານ"
   },
   "product.DeductiblesCeilingsTabForm.DeductiblesTable.deductible": {
     "en": "Deductible",
@@ -11629,7 +11629,7 @@
   },
   "product.DeductiblesCeilingsTabForm.DeductiblesTable.insuree": {
     "en": "Insuree",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ"
   },
   "product.DeductiblesCeilingsTabForm.DeductiblesTable.policy": {
     "en": "Policy",
@@ -11661,7 +11661,7 @@
   },
   "product.DeductiblesCeilingsTabForm.MaxTable.ceiling": {
     "en": "Ceiling",
-    "lo": ""
+    "lo": "ເພດານ"
   },
   "product.DeductiblesCeilingsTabForm.MaxTable.consultations": {
     "en": "Consultations",
@@ -11713,7 +11713,7 @@
   },
   "product.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "product.duplicateMutation.label": {
     "en": "Duplicate product {name}",
@@ -11805,7 +11805,7 @@
   },
   "product.ItemsOrServicesGrid.ceilingExclusion.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "product.ItemsOrServicesGrid.ceilingExclusionAdult": {
     "en": "Ceiling Adult",
@@ -11825,7 +11825,7 @@
   },
   "product.ItemsOrServicesGrid.level": {
     "en": "Level",
-    "lo": ""
+    "lo": "ລະດັບ"
   },
   "product.ItemsOrServicesGrid.limitAdult": {
     "en": "Adult O",
@@ -11889,7 +11889,7 @@
   },
   "product.ItemsOrServicesGrid.price": {
     "en": "Price",
-    "lo": ""
+    "lo": "ລາຄາ"
   },
   "product.ItemsOrServicesGrid.priceOrigin": {
     "en": "Price Origin",
@@ -11953,23 +11953,23 @@
   },
   "product.Product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "product.Product.none": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "product.ProductDerivedOperationalIndicators.month": {
     "en": "Month",
-    "lo": ""
+    "lo": "ເດືອນ"
   },
   "product.ProductDerivedOperationalIndicators.product": {
     "en": "Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ"
   },
   "product.ProductDerivedOperationalIndicators.year": {
     "en": "Year",
-    "lo": ""
+    "lo": "ປີ"
   },
   "product.ProductFilters.showHistory": {
     "en": "Show Historical Values",
@@ -12017,11 +12017,11 @@
   },
   "product.ProductSalesReport.district": {
     "en": "District",
-    "lo": ""
+    "lo": "ເມືອງ"
   },
   "product.ProductSalesReport.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "product.ProductSearcher.deleteProductButton": {
     "en": "Delete",
@@ -12041,11 +12041,11 @@
   },
   "product.ProductSearcher.openNewTab": {
     "en": "Open in new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "product.ProductSearcher.openNewTabButton": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "product.ProductSearcher.tableTitle": {
     "en": "{count} Products",
@@ -12061,7 +12061,7 @@
   },
   "product.region": {
     "en": "Region",
-    "lo": ""
+    "lo": "ແຂວງ"
   },
   "product.registrationFee": {
     "en": "Registration Fee",
@@ -12157,7 +12157,7 @@
   },
   "profile.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "profile.language": {
     "en": "Interface Language",
@@ -12165,7 +12165,7 @@
   },
   "profile.lastName": {
     "en": "Last Name",
-    "lo": ""
+    "lo": "ນາມສະກຸນ"
   },
   "profile.mainMenu": {
     "en": "Profile",
@@ -12221,7 +12221,7 @@
   },
   "project.dateUpdated": {
     "en": "Date Updated",
-    "lo": ""
+    "lo": "ວັນທີປັບປຸງ"
   },
   "project.day": {
     "en": "Work Day",
@@ -12245,7 +12245,7 @@
   },
   "project.isDeleted": {
     "en": "Show Deleted",
-    "lo": ""
+    "lo": "ສະແດງລາຍການທີ່ລຶບແລ້ວ"
   },
   "project.picker.label": {
     "en": "Projects",
@@ -12281,7 +12281,7 @@
   },
   "project.version": {
     "en": "Version",
-    "lo": ""
+    "lo": "ເວີຊັນ"
   },
   "projectBeneficiaries.activeSelected": {
     "en": "{n} active beneficiaries selected",
@@ -12485,7 +12485,7 @@
   },
   "showHistory": {
     "en": "Show History",
-    "lo": ""
+    "lo": "ສະແດງປະຫວັດ"
   },
   "social_protection.gql_activity_search_perms": {
     "en": "Social Protection | Activity Search",
@@ -12561,7 +12561,7 @@
   },
   "socialProtection.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "socialProtection.approveAll": {
     "en": "Accept  All",
@@ -12589,7 +12589,7 @@
   },
   "socialProtection.beneficiary.beneficiaryStatusPicker": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "socialProtection.beneficiary.beneficiaryStatusPicker.ACTIVE": {
     "en": "ACTIVE",
@@ -12649,11 +12649,11 @@
   },
   "socialProtection.beneficiary.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "socialProtection.beneficiary.task.benefitPlan.id": {
     "en": "Program",
-    "lo": ""
+    "lo": "ໂຄງການ"
   },
   "socialProtection.beneficiary.task.individual.id": {
     "en": "Individual",
@@ -12681,7 +12681,7 @@
   },
   "socialProtection.benefitPackage.benefitPackagePaymentsTab.label": {
     "en": "Payments",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນ"
   },
   "socialProtection.benefitPackage.BenefitPlanDetailPanel.title": {
     "en": "Program Details",
@@ -12733,7 +12733,7 @@
   },
   "socialProtection.BenefitPlan": {
     "en": "Program",
-    "lo": ""
+    "lo": "ໂຄງການ"
   },
   "socialProtection.benefitPlan.beneficiaries.tabGroup.label": {
     "en": "Beneficiaries",
@@ -12753,7 +12753,7 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.upload": {
     "en": "Upload",
-    "lo": ""
+    "lo": "ອັບໂຫລດ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.upload.alert.header.invalid_format": {
     "en": "Invalid file format!",
@@ -12769,11 +12769,11 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistory": {
     "en": "Upload History",
-    "lo": ""
+    "lo": "ປະຫວັດການອັບໂຫລດ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.dateCreated": {
     "en": "Date",
-    "lo": ""
+    "lo": "ວັນທີ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.downloadInvalidItems": {
     "en": "Download Invalid Items",
@@ -12789,7 +12789,7 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.errorNone": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.sourceName": {
     "en": "Upload Source",
@@ -12801,7 +12801,7 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.user": {
     "en": "User Uploaded",
@@ -12813,11 +12813,11 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.workflow": {
     "en": "Workflow",
-    "lo": ""
+    "lo": "ຂັ້ນຕອນການເຮັດວຽກ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiariesActive.label": {
     "en": "Active",
-    "lo": ""
+    "lo": "ເຄື່ອນໄຫວ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiariesGraduated.label": {
     "en": "Graduated",
@@ -12833,7 +12833,7 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiariesSuspended.label": {
     "en": "Suspended",
-    "lo": ""
+    "lo": "ໂຈະ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiariesWrapper.label": {
     "en": "Beneficiaries",
@@ -12845,7 +12845,7 @@
   },
   "socialProtection.benefitPlan.benefitPlanHelmet": {
     "en": "Program",
-    "lo": ""
+    "lo": "ໂຄງການ"
   },
   "socialProtection.benefitPlan.BenefitPlanProjects.label": {
     "en": "Projects",
@@ -12877,7 +12877,7 @@
   },
   "socialProtection.benefitPlan.dateUpdated": {
     "en": "Date Updated",
-    "lo": ""
+    "lo": "ວັນທີປັບປຸງ"
   },
   "socialProtection.benefitPlan.dateValidFrom": {
     "en": "Date from",
@@ -12905,7 +12905,7 @@
   },
   "socialProtection.benefitPlan.description": {
     "en": "Description",
-    "lo": ""
+    "lo": "ຄຳອະທິບາຍ"
   },
   "socialProtection.benefitPlan.editButtonTooltip": {
     "en": "Edit",
@@ -12941,11 +12941,11 @@
   },
   "socialProtection.benefitPlan.saveButton.tooltip.disabled": {
     "en": "Save changes",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "socialProtection.benefitPlan.saveButton.tooltip.enabled": {
     "en": "Save changes",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "socialProtection.benefitPlan.schema": {
     "en": "Schema",
@@ -13009,7 +13009,7 @@
   },
   "socialProtection.benefitPlan.version": {
     "en": "Version",
-    "lo": ""
+    "lo": "ເວີຊັນ"
   },
   "socialProtection.benefitPlanChangelog.label": {
     "en": "Changelog",
@@ -13017,7 +13017,7 @@
   },
   "socialProtection.BenefitPlanPicker.label": {
     "en": "Program",
-    "lo": ""
+    "lo": "ໂຄງການ"
   },
   "socialProtection.BenefitPlanPicker.placeholder": {
     "en": "Please select a Program",
@@ -13045,7 +13045,7 @@
   },
   "socialProtection.benefitUploadRecord.workflow": {
     "en": "Workflow",
-    "lo": ""
+    "lo": "ຂັ້ນຕອນການເຮັດວຽກ"
   },
   "socialProtection.bulkApprove": {
     "en": "Do you want to approve this task for all records?",
@@ -13057,7 +13057,7 @@
   },
   "socialProtection.createButton.tooltip": {
     "en": "Create",
-    "lo": ""
+    "lo": "ສ້າງ"
   },
   "socialProtection.deleteButtonTooltip": {
     "en": "Delete",
@@ -13065,7 +13065,7 @@
   },
   "socialProtection.dialogActions.continue": {
     "en": "Continue",
-    "lo": ""
+    "lo": "ສືບຕໍ່"
   },
   "socialProtection.dialogActions.goBack": {
     "en": "Go back",
@@ -13073,7 +13073,7 @@
   },
   "socialProtection.download": {
     "en": "Download",
-    "lo": ""
+    "lo": "ດາວໂຫລດ"
   },
   "socialProtection.downloadBeneficiaries.mutationLabel": {
     "en": "Download beneficiaries",
@@ -13109,7 +13109,7 @@
   },
   "socialProtection.export.label": {
     "en": "DOWNLOAD",
-    "lo": ""
+    "lo": "ດາວໂຫລດ"
   },
   "socialProtection.export.lastName": {
     "en": "last_name",
@@ -13133,7 +13133,7 @@
   },
   "socialProtection.groupBeneficiary.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "socialProtection.groupBeneficiary.update.mutationLabel": {
     "en": "Update group beneficiary {id}",
@@ -13153,11 +13153,11 @@
   },
   "socialProtection.project.benefitPlan": {
     "en": "Program",
-    "lo": ""
+    "lo": "ໂຄງການ"
   },
   "socialProtection.project.location": {
     "en": "Location",
-    "lo": ""
+    "lo": "ທີ່ຕັ້ງ"
   },
   "socialProtection.project.name": {
     "en": "Name",
@@ -13177,11 +13177,11 @@
   },
   "socialProtection.project.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "socialProtection.project.statusPicker": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "socialProtection.project.statusPicker.COMPLETED": {
     "en": "Completed",
@@ -13253,11 +13253,11 @@
   },
   "socialProtection.viewDetailsButton.tooltip": {
     "en": "Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດ"
   },
   "socialProtection.workflowPicker": {
     "en": "Workflow",
-    "lo": ""
+    "lo": "ຂັ້ນຕອນການເຮັດວຽກ"
   },
   "tasks_management.gql_task_create_perms": {
     "en": "Tasks Management | Task Create",
@@ -13297,11 +13297,11 @@
   },
   "tasksManagement.createButton.tooltip": {
     "en": "Create",
-    "lo": ""
+    "lo": "ສ້າງ"
   },
   "tasksManagement.defaultValue.any": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "tasksManagement.deleteButton.tooltip": {
     "en": "Delete",
@@ -13325,7 +13325,7 @@
   },
   "tasksManagement.saveButton.tooltip": {
     "en": "Save changes",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "tasksManagement.saveButton.tooltip.disabled": {
     "en": "Disabled",
@@ -13333,7 +13333,7 @@
   },
   "tasksManagement.saveButton.tooltip.enabled": {
     "en": "Save changes",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "tasksManagement.task.assignee": {
     "en": "Task Group",
@@ -13345,7 +13345,7 @@
   },
   "tasksManagement.task.dateCreated": {
     "en": "Date Created",
-    "lo": ""
+    "lo": "ວັນທີສ້າງ"
   },
   "tasksManagement.task.dateCreated.after": {
     "en": "Date Created From",
@@ -13357,11 +13357,11 @@
   },
   "tasksManagement.task.dateUpdated": {
     "en": "Date Updated",
-    "lo": ""
+    "lo": "ວັນທີປັບປຸງ"
   },
   "tasksManagement.task.detailsPage.triage.headPanelTitle": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "tasksManagement.task.detailsPage.triage.preview": {
     "en": "Preview",
@@ -13453,7 +13453,7 @@
   },
   "tasksManagement.task.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "tasksManagement.task.status.ACCEPTED": {
     "en": "ACCEPTED",
@@ -13485,7 +13485,7 @@
   },
   "tasksManagement.task.type.create": {
     "en": "Create",
-    "lo": ""
+    "lo": "ສ້າງ"
   },
   "tasksManagement.task.type.import_valid_items": {
     "en": "Import Valid Items",
@@ -13509,7 +13509,7 @@
   },
   "tasksManagement.task.version": {
     "en": "Version",
-    "lo": ""
+    "lo": "ເວີຊັນ"
   },
   "tasksManagement.TaskExecutorsPicker.label": {
     "en": "Task Executors",
@@ -13533,7 +13533,7 @@
   },
   "tasksManagement.taskGroup.completionPolicy.ANY": {
     "en": "ANY",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "tasksManagement.taskGroup.completionPolicy.N": {
     "en": "N",
@@ -13557,11 +13557,11 @@
   },
   "tasksManagement.taskGroup.description": {
     "en": "Description",
-    "lo": ""
+    "lo": "ຄຳອະທິບາຍ"
   },
   "tasksManagement.taskGroup.detailsPage.headPanelTitle": {
     "en": "General Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "tasksManagement.taskGroup.detailsPage.title": {
     "en": "Task Group {code}",
@@ -13625,7 +13625,7 @@
   },
   "Ticket Priority": {
     "en": "Priority",
-    "lo": ""
+    "lo": "ບຸລິມະສິດ"
   },
   "Ticket Priority.Critical": {
     "en": "Critical",
@@ -13645,11 +13645,11 @@
   },
   "Ticket Priority.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "Ticket Status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "Ticket Status.CLOSED": {
     "en": "Closed",
@@ -13669,11 +13669,11 @@
   },
   "Ticket Status.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "Ticket Status.OPEN": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "Ticket Status.RECEIVED": {
     "en": "Received",
@@ -13705,7 +13705,7 @@
   },
   "ticket.attachments.table.date": {
     "en": "Date",
-    "lo": ""
+    "lo": "ວັນທີ"
   },
   "ticket.attachments.table.file": {
     "en": "File",
@@ -13717,7 +13717,7 @@
   },
   "ticket.attendingStaff": {
     "en": "Attending Staff",
-    "lo": ""
+    "lo": "ພະນັກງານຜູ້ໃຫ້ບໍລິການ"
   },
   "ticket.comment": {
     "en": "Comment",
@@ -13729,11 +13729,11 @@
   },
   "ticket.currentVillage": {
     "en": "Village",
-    "lo": ""
+    "lo": "ບ້ານ"
   },
   "ticket.dateCreated": {
     "en": "Date Created",
-    "lo": ""
+    "lo": "ວັນທີສ້າງ"
   },
   "ticket.dateOfIncident": {
     "en": "Date of Incident",
@@ -13741,7 +13741,7 @@
   },
   "ticket.description": {
     "en": "Description",
-    "lo": ""
+    "lo": "ຄຳອະທິບາຍ"
   },
   "Ticket.description": {
     "en": " Grievance Description",
@@ -13753,7 +13753,7 @@
   },
   "ticket.email": {
     "en": "Email",
-    "lo": ""
+    "lo": "ອີເມວ"
   },
   "ticket.eventDate": {
     "en": "Date of Event",
@@ -13765,7 +13765,7 @@
   },
   "ticket.insureeLocation": {
     "en": "Location",
-    "lo": ""
+    "lo": "ທີ່ຕັ້ງ"
   },
   "ticket.mainMenu": {
     "en": "Grievance",
@@ -13785,7 +13785,7 @@
   },
   "ticket.phone": {
     "en": "Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບ"
   },
   "Ticket.priority": {
     "en": "",
@@ -13821,11 +13821,11 @@
   },
   "ticket.template.attendingStaff": {
     "en": "Attending Staff",
-    "lo": ""
+    "lo": "ພະນັກງານຜູ້ໃຫ້ບໍລິການ"
   },
   "ticket.template.category": {
     "en": "Category",
-    "lo": ""
+    "lo": "ໝວດໝູ່"
   },
   "ticket.template.channel": {
     "en": "Channel",
@@ -13837,7 +13837,7 @@
   },
   "ticket.template.dateCreated": {
     "en": "Date Created",
-    "lo": ""
+    "lo": "ວັນທີສ້າງ"
   },
   "ticket.template.dateOfIncident": {
     "en": "Date of Incident",
@@ -13845,7 +13845,7 @@
   },
   "ticket.template.description": {
     "en": "Description",
-    "lo": ""
+    "lo": "ຄຳອະທິບາຍ"
   },
   "ticket.template.flags": {
     "en": "Flags",
@@ -13857,7 +13857,7 @@
   },
   "ticket.template.priority": {
     "en": "Priority",
-    "lo": ""
+    "lo": "ບຸລິມະສິດ"
   },
   "ticket.template.reporter": {
     "en": "Reporter",
@@ -13865,7 +13865,7 @@
   },
   "ticket.template.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "ticket.template.ticketCode": {
     "en": "Code",
@@ -13873,11 +13873,11 @@
   },
   "ticket.template.title": {
     "en": "Title",
-    "lo": ""
+    "lo": "ຫົວຂໍ້"
   },
   "ticket.ticket.attendingStaff": {
     "en": "Attending Staff",
-    "lo": ""
+    "lo": "ພະນັກງານຜູ້ໃຫ້ບໍລິການ"
   },
   "Ticket.Ticket.Table": {
     "en": "Grievance ({count})",
@@ -13897,7 +13897,7 @@
   },
   "ticket.ticketPriority": {
     "en": "Priority",
-    "lo": ""
+    "lo": "ບຸລິມະສິດ"
   },
   "ticket.ticketPriority.Critical": {
     "en": "Critical",
@@ -13917,11 +13917,11 @@
   },
   "ticket.ticketPriority.null": {
     "en": "None",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "ticket.ticketStatus": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "ticket.ticketStatus.CLOSED": {
     "en": "Closed",
@@ -13933,11 +13933,11 @@
   },
   "ticket.ticketStatus.null": {
     "en": "Any",
-    "lo": ""
+    "lo": "ໃດກໍໄດ້"
   },
   "ticket.ticketStatus.OPEN": {
     "en": "Open",
-    "lo": ""
+    "lo": "ເປີດ"
   },
   "ticket.ticketStatus.RECEIVED": {
     "en": "Received",
@@ -13953,7 +13953,7 @@
   },
   "ticket.ticketTitle": {
     "en": "Title",
-    "lo": ""
+    "lo": "ຫົວຂໍ້"
   },
   "ticket.title": {
     "en": "Grievance Title",
@@ -13977,7 +13977,7 @@
   },
   "tickets Status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "tickets.beneficary": {
     "en": "Reporter",
@@ -13989,7 +13989,7 @@
   },
   "tickets.category": {
     "en": "Category",
-    "lo": ""
+    "lo": "ໝວດໝູ່"
   },
   "tickets.code": {
     "en": "Code",
@@ -14001,11 +14001,11 @@
   },
   "tickets.priority": {
     "en": "Priority",
-    "lo": ""
+    "lo": "ບຸລິມະສິດ"
   },
   "tickets.status": {
     "en": "Status",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "tickets.ticketCode": {
     "en": "Code",
@@ -14013,11 +14013,11 @@
   },
   "tickets.title": {
     "en": "Title",
-    "lo": ""
+    "lo": "ຫົວຂໍ້"
   },
   "tickets.version": {
     "en": "Version",
-    "lo": ""
+    "lo": "ເວີຊັນ"
   },
   "ticketStatus.CLOSED": {
     "en": "Closed",
@@ -14037,7 +14037,7 @@
   },
   "tools.ExtractsPage.ClaimsUploadBlock.ResultDialog.success": {
     "en": "Success",
-    "lo": ""
+    "lo": "ສຳເລັດ"
   },
   "tools.ExtractsPage.ClaimsUploadBlock.ResultDialog.title": {
     "en": "Claims Upload Done",
@@ -14049,11 +14049,11 @@
   },
   "tools.ExtractsPage.ClaimsUploadBlock.uploadBtn": {
     "en": "Upload",
-    "lo": ""
+    "lo": "ອັບໂຫລດ"
   },
   "tools.ExtractsPage.DownloadMasterData.downloadBtn": {
     "en": "Download",
-    "lo": ""
+    "lo": "ດາວໂຫລດ"
   },
   "tools.ExtractsPage.DownloadMasterData.title": {
     "en": "Download Master Data",
@@ -14065,7 +14065,7 @@
   },
   "tools.ExtractsPage.EnrollmentsUploadBlock.ResultDialog.success": {
     "en": "Success",
-    "lo": ""
+    "lo": "ສຳເລັດ"
   },
   "tools.ExtractsPage.EnrollmentsUploadBlock.ResultDialog.title": {
     "en": "Enrolments Upload Done",
@@ -14077,7 +14077,7 @@
   },
   "tools.ExtractsPage.EnrollmentsUploadBlock.uploadBtn": {
     "en": "Upload",
-    "lo": ""
+    "lo": "ອັບໂຫລດ"
   },
   "tools.ExtractsPage.FeedbacksUploadBlock.ResultDialog.okBtn": {
     "en": "OK",
@@ -14085,7 +14085,7 @@
   },
   "tools.ExtractsPage.FeedbacksUploadBlock.ResultDialog.success": {
     "en": "Success",
-    "lo": ""
+    "lo": "ສຳເລັດ"
   },
   "tools.ExtractsPage.FeedbacksUploadBlock.ResultDialog.title": {
     "en": "Feedbacks Upload Done",
@@ -14097,7 +14097,7 @@
   },
   "tools.ExtractsPage.FeedbacksUploadBlock.uploadBtn": {
     "en": "Upload",
-    "lo": ""
+    "lo": "ອັບໂຫລດ"
   },
   "tools.ExtractsPage.OfficerDownloadBlock.downloadFeedbacksBtn": {
     "en": "Download Feedbacks",
@@ -14121,7 +14121,7 @@
   },
   "tools.ExtractsPage.RenewalsUploadBlock.ResultDialog.success": {
     "en": "Success",
-    "lo": ""
+    "lo": "ສຳເລັດ"
   },
   "tools.ExtractsPage.RenewalsUploadBlock.ResultDialog.title": {
     "en": "Renewals Upload Done",
@@ -14133,7 +14133,7 @@
   },
   "tools.ExtractsPage.RenewalsUploadBlock.uploadBtn": {
     "en": "Upload",
-    "lo": ""
+    "lo": "ອັບໂຫລດ"
   },
   "tools.ExtractsPage.ResultDialog.okBtn": {
     "en": "OK",
@@ -14265,7 +14265,7 @@
   },
   "tools.RegistersPage.downloadBtn": {
     "en": "Download",
-    "lo": ""
+    "lo": "ດາວໂຫລດ"
   },
   "tools.RegistersPage.dryRunLabel": {
     "en": "Dry run",
@@ -14341,7 +14341,7 @@
   },
   "tools.RegistersPage.uploadBtn": {
     "en": "Upload",
-    "lo": ""
+    "lo": "ອັບໂຫລດ"
   },
   "tools.RegistersPage.UploadDialog.confirmDiagnoses": {
     "en": "Are you sure you want to upload a new list of diagnoses?",
@@ -14413,7 +14413,7 @@
   },
   "tools.RegistersPage.UploadDialog.success": {
     "en": "Success",
-    "lo": ""
+    "lo": "ສຳເລັດ"
   },
   "tools.RegistersPage.UploadDialog.title": {
     "en": "Upload Register",
@@ -14429,11 +14429,11 @@
   },
   "tools.report.description": {
     "en": "Description",
-    "lo": ""
+    "lo": "ຄຳອະທິບາຍ"
   },
   "tools.report.validityFrom": {
     "en": "Valid From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່ວັນທີ"
   },
   "tools.ReportDefinitionEditor.cancel": {
     "en": "Cancel",
