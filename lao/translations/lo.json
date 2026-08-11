@@ -12341,7 +12341,7 @@
   },
   "projectChangelog.label": {
     "en": "Changelog",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "reopenTicket.mutation.label": {
     "en": "Reopen Ticket",
@@ -12597,11 +12597,11 @@
   },
   "socialProtection.beneficiary.beneficiaryStatusPicker.GRADUATED": {
     "en": "GRADUATED",
-    "lo": ""
+    "lo": "ຈົບໂຄງການ"
   },
   "socialProtection.beneficiary.beneficiaryStatusPicker.POTENTIAL": {
     "en": "POTENTIAL",
-    "lo": ""
+    "lo": "ມີທ່າແຮງ"
   },
   "socialProtection.beneficiary.beneficiaryStatusPicker.SUSPENDED": {
     "en": "SUSPENDED",
@@ -12821,15 +12821,15 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiariesGraduated.label": {
     "en": "Graduated",
-    "lo": ""
+    "lo": "ຈົບໂຄງການ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiariesList.label": {
     "en": "List",
-    "lo": ""
+    "lo": "ລາຍຊື່"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiariesPotential.label": {
     "en": "Potential",
-    "lo": ""
+    "lo": "ມີທ່າແຮງ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiariesSuspended.label": {
     "en": "Suspended",
@@ -12857,7 +12857,7 @@
   },
   "socialProtection.benefitPlan.benefitPlanTabPanel.createPayroll": {
     "en": "CREATE PAYROLL",
-    "lo": ""
+    "lo": "ສ້າງບັນຊີການຈ່າຍເງິນ"
   },
   "socialProtection.benefitPlan.benefitPlanTabPanel.createPayroll.tooltip": {
     "en": "Create Payment Plan first.",
@@ -12913,7 +12913,7 @@
   },
   "socialProtection.benefitPlan.institution": {
     "en": "Institution",
-    "lo": ""
+    "lo": "ອົງກອນ"
   },
   "socialProtection.benefitPlan.isDeleted": {
     "en": "Show historical",
@@ -12949,7 +12949,7 @@
   },
   "socialProtection.benefitPlan.schema": {
     "en": "Schema",
-    "lo": ""
+    "lo": "ໂຄງສ້າງຂໍ້ມູນ"
   },
   "socialProtection.benefitPlan.schema.showSchema": {
     "en": "Show Schema",
@@ -13013,7 +13013,7 @@
   },
   "socialProtection.benefitPlanChangelog.label": {
     "en": "Changelog",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "socialProtection.BenefitPlanPicker.label": {
     "en": "Program",
