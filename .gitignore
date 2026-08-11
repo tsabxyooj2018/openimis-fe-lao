@@ -10,3 +10,13 @@ src/locales.js
 .idea
 yarn.lock
 .env
+
+# Local development, added for working on this repo from a workstation.
+# .env alone does not match .env.local, so it was being offered for commit.
+.env.local
+.env.*.local
+
+# Produced by `npm install` against the package.json that `npm run load-config`
+# generates. That package.json is not the one in git, so the lock file it
+# produces does not describe a reproducible build and must not be committed.
+package-lock.json
