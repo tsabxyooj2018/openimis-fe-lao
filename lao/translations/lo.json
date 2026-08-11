@@ -437,11 +437,11 @@
   },
   "api_etl.gql_mutation_execute_api_etl_rule_perms": {
     "en": "Api Etl | Mutation Execute Api Etl Rule",
-    "lo": ""
+    "lo": "API ETL | ແລ່ນກົດ API ETL"
   },
   "api_etl.gql_query_api_etl_rule_perms": {
     "en": "Api Etl | Query Api Etl Rule",
-    "lo": ""
+    "lo": "API ETL | ເບິ່ງກົດ API ETL"
   },
   "api_fhir_r4.R4_fhir_subscription_config_fhir_sub_create_perms": {
     "en": "Api Fhir R4 | Subscription Config Fhir Sub Create",
@@ -5229,11 +5229,11 @@
   },
   "ImportPageAPI.apiSelection": {
     "en": "Selected API",
-    "lo": ""
+    "lo": "API ທີ່ເລືອກ"
   },
   "ImportPageAPI.confirmPullingData": {
     "en": "Pulling Data from API",
-    "lo": ""
+    "lo": "ກຳລັງດຶງຂໍ້ມູນຈາກ API"
   },
   "ImportPageAPI.confirmPullingData.cancel": {
     "en": "Cancel",
@@ -5245,23 +5245,23 @@
   },
   "ImportPageAPI.confirmPullingData.message": {
     "en": "Are you sure you want to confirm pulling data from selected API service?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການດຶງຂໍ້ມູນຈາກບໍລິການ API ທີ່ເລືອກ?"
   },
   "ImportPageAPI.confirmPullingData.title": {
     "en": "Pulling Data from API",
-    "lo": ""
+    "lo": "ກຳລັງດຶງຂໍ້ມູນຈາກ API"
   },
   "ImportPageAPI.ImportPage": {
     "en": "Import Data - API",
-    "lo": ""
+    "lo": "ນຳເຂົ້າຂໍ້ມູນ - API"
   },
   "ImportPageAPI.triggerImport": {
     "en": "Pull data",
-    "lo": ""
+    "lo": "ດຶງຂໍ້ມູນ"
   },
   "ImportPageAPI.workflowName": {
     "en": "Workflow Name",
-    "lo": ""
+    "lo": "ຊື່ຂັ້ນຕອນການເຮັດວຽກ"
   },
   "individual.addButtonTooltip": {
     "en": "Add Individual to Group",
