@@ -2553,7 +2553,7 @@
   },
   "ClaimMasterPanelExt.InsureeInfo.FSP": {
     "en": "FSP",
-    "lo": "ສະຖານບໍລິການທີ່ຂຶ້ນທະບຽນ"
+    "lo": "ຈຸດບໍລິການທຳອິດ"
   },
   "ClaimMasterPanelExt.InsureeInfo.goToClaim.Button": {
     "en": "Go to claim",
@@ -3277,27 +3277,27 @@
   },
   "contribution.addContributionDialog.maxINstallments.message": {
     "en": "You've reached the limit of maximum installments for this plan. You can't add more contributions.",
-    "lo": ""
+    "lo": "ທ່ານໄດ້ຮອດຂີດຈຳກັດການແບ່ງງວດຈ່າຍສູງສຸດຂອງແຜນນີ້ແລ້ວ. ບໍ່ສາມາດເພີ່ມເງິນສົມທົບໄດ້ອີກ."
   },
   "contribution.addContributionDialog.maxINstallments.title": {
     "en": "Limit of Installments Reached",
-    "lo": ""
+    "lo": "ຮອດຂີດຈຳກັດການແບ່ງງວດຈ່າຍແລ້ວ"
   },
   "contribution.addContributionDialog.noInstallmentsAllowed.message": {
     "en": "No installments are allowed for this plan. You can't add any contributions.",
-    "lo": ""
+    "lo": "ແຜນນີ້ບໍ່ອະນຸຍາດໃຫ້ແບ່ງງວດຈ່າຍ. ທ່ານບໍ່ສາມາດເພີ່ມເງິນສົມທົບໄດ້."
   },
   "contribution.addNewPremium.tooltip": {
     "en": "Add new contribution",
-    "lo": ""
+    "lo": "ເພີ່ມເງິນສົມທົບໃໝ່"
   },
   "contribution.addNewPremium.tooltip.selectPolicy": {
     "en": "Please select a policy to add a contribution",
-    "lo": ""
+    "lo": "ກະລຸນາເລືອກສັນຍາປະກັນໄພເພື່ອເພີ່ມເງິນສົມທົບ"
   },
   "contribution.alreadyUsed": {
     "en": "Receipt already in use for product {productCode}",
-    "lo": ""
+    "lo": "ໃບຮັບເງິນນີ້ຖືກໃຊ້ແລ້ວສຳລັບຜະລິດຕະພັນ {productCode}"
   },
   "contribution.amount": {
     "en": "Amount",
@@ -3305,19 +3305,19 @@
   },
   "contribution.amount_Gte": {
     "en": "Amount above",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນສູງກວ່າ"
   },
   "contribution.amount_Lte": {
     "en": "Amount under",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນຕ່ຳກວ່າ"
   },
   "contribution.category": {
     "en": "Contribution Category",
-    "lo": ""
+    "lo": "ປະເພດເງິນສົມທົບ"
   },
   "contribution.category.contribution": {
     "en": "Contribution",
-    "lo": ""
+    "lo": "ເງິນສົມທົບ"
   },
   "contribution.category.null": {
     "en": "Any",
@@ -3325,15 +3325,15 @@
   },
   "contribution.category.photoFee": {
     "en": "Photo Fee",
-    "lo": ""
+    "lo": "ຄ່າຖ່າຍຮູບ"
   },
   "contribution.ContributionOverview.newTitle": {
     "en": "Add a contribution",
-    "lo": ""
+    "lo": "ເພີ່ມເງິນສົມທົບ"
   },
   "contribution.ContributionOverview.title": {
     "en": "Contribution Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດເງິນສົມທົບ"
   },
   "contribution.ContributionsDistributionReport.month": {
     "en": "Month",
@@ -3353,15 +3353,15 @@
   },
   "contribution.CreateContribution.mutationLabel": {
     "en": "Create contribution",
-    "lo": ""
+    "lo": "ສ້າງເງິນສົມທົບ"
   },
   "contribution.deleteContributionDialog.message": {
     "en": "Are you sure you want to delete this contribution?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບເງິນສົມທົບນີ້?"
   },
   "contribution.deleteContributionDialog.title": {
     "en": "Delete contribution",
-    "lo": ""
+    "lo": "ລຶບເງິນສົມທົບ"
   },
   "contribution.deleteContributionDialog.yes.button": {
     "en": "Yes",
@@ -3373,7 +3373,7 @@
   },
   "contribution.deletePremium.tooltip": {
     "en": "Delete contribution",
-    "lo": ""
+    "lo": "ລຶບເງິນສົມທົບ"
   },
   "contribution.familySummaries.dob": {
     "en": "Head Birth Date",
@@ -3429,11 +3429,11 @@
   },
   "contribution.payDateFrom": {
     "en": "Payment Date from",
-    "lo": ""
+    "lo": "ວັນທີຊຳລະແຕ່"
   },
   "contribution.payDateTo": {
     "en": "Payment Date to",
-    "lo": ""
+    "lo": "ວັນທີຊຳລະເຖິງ"
   },
   "contribution.payer": {
     "en": "Payer",
@@ -3465,15 +3465,15 @@
   },
   "contribution.payType.B": {
     "en": "Bank Transfer",
-    "lo": ""
+    "lo": "ໂອນຜ່ານທະນາຄານ"
   },
   "contribution.payType.C": {
     "en": "Cash",
-    "lo": ""
+    "lo": "ເງິນສົດ"
   },
   "contribution.payType.M": {
     "en": "Mobile Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບມືຖື"
   },
   "contribution.payType.null": {
     "en": "Any",
@@ -3489,23 +3489,23 @@
   },
   "contribution.policy": {
     "en": "Policy n°",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພເລກທີ"
   },
   "contribution.policy.expiryDate": {
     "en": "Expiry date",
-    "lo": ""
+    "lo": "ວັນທີໝົດອາຍຸ"
   },
   "contribution.policy.name": {
     "en": "Policy name",
-    "lo": ""
+    "lo": "ຊື່ສັນຍາປະກັນໄພ"
   },
   "contribution.policy.startDate": {
     "en": "Start date",
-    "lo": ""
+    "lo": "ວັນທີເລີ່ມຕົ້ນ"
   },
   "contribution.policy.value": {
     "en": "Policy value",
-    "lo": ""
+    "lo": "ມູນຄ່າສັນຍາປະກັນໄພ"
   },
   "contribution.PremiumCollectionReport.dateEnd": {
     "en": "Date To",
@@ -3525,15 +3525,15 @@
   },
   "contribution.PremiumCollectionReport.paymentType.B": {
     "en": "Bank transfer",
-    "lo": ""
+    "lo": "ໂອນຜ່ານທະນາຄານ"
   },
   "contribution.PremiumCollectionReport.paymentType.C": {
     "en": "Cash",
-    "lo": ""
+    "lo": "ເງິນສົດ"
   },
   "contribution.PremiumCollectionReport.paymentType.M": {
     "en": "Mobile phone",
-    "lo": ""
+    "lo": "ໂທລະສັບມືຖື"
   },
   "contribution.PremiumCollectionReport.paymentType.null": {
     "en": "Any",
@@ -3553,35 +3553,35 @@
   },
   "contribution.receipt": {
     "en": "Receipt No.",
-    "lo": ""
+    "lo": "ເລກທີໃບຮັບເງິນ"
   },
   "contribution.redirectToFamily.tooltip": {
     "en": "Redirect to the family",
-    "lo": ""
+    "lo": "ໄປທີ່ຄອບຄົວ"
   },
   "contribution.reload.tooltip": {
     "en": "Reload",
-    "lo": ""
+    "lo": "ໂຫຼດຄືນໃໝ່"
   },
   "contribution.saveContributionDialog.maxINstallments.message": {
     "en": "Adding another 'contribution' will exceed the installment limit",
-    "lo": ""
+    "lo": "ການເພີ່ມເງິນສົມທົບອີກຈະເກີນຂີດຈຳກັດການແບ່ງງວດຈ່າຍ"
   },
   "contribution.saveContributionDialog.messageEqual": {
     "en": "The contribution matches the value of the policy",
-    "lo": ""
+    "lo": "ເງິນສົມທົບເທົ່າກັບມູນຄ່າຂອງສັນຍາປະກັນໄພ"
   },
   "contribution.saveContributionDialog.messageHigher": {
     "en": "The contribution is higher than the value of the policy",
-    "lo": ""
+    "lo": "ເງິນສົມທົບສູງກວ່າມູນຄ່າຂອງສັນຍາປະກັນໄພ"
   },
   "contribution.saveContributionDialog.messageLower": {
     "en": "The contribution is lower than the policy value",
-    "lo": ""
+    "lo": "ເງິນສົມທົບຕ່ຳກວ່າມູນຄ່າຂອງສັນຍາປະກັນໄພ"
   },
   "contribution.saveContributionDialog.messageLowerConfirm": {
     "en": "Should the policy come into force?",
-    "lo": ""
+    "lo": "ຈະໃຫ້ສັນຍາປະກັນໄພມີຜົນບັງຄັບໃຊ້ບໍ່?"
   },
   "contribution.saveContributionDialog.no.button": {
     "en": "No",
@@ -3593,7 +3593,7 @@
   },
   "contribution.saveContributionDialog.title": {
     "en": "Contribution confirmation",
-    "lo": ""
+    "lo": "ຢືນຢັນເງິນສົມທົບ"
   },
   "contribution.saveContributionDialog.yes.button": {
     "en": "Yes",
@@ -3605,19 +3605,19 @@
   },
   "contribution.UpdateContribution.mutationLabel": {
     "en": "Update contribution",
-    "lo": ""
+    "lo": "ປັບປຸງເງິນສົມທົບ"
   },
   "contribution.warning.header": {
     "en": "WARNING",
-    "lo": ""
+    "lo": "ຄຳເຕືອນ"
   },
   "contribution.warning.paid.description": {
     "en": "The policy is already paid.",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພນີ້ຖືກຊຳລະແລ້ວ."
   },
   "contribution.warning.paid.exceedsPolicyValue": {
     "en": "Sum of contributions exceeds policy value. Saving not allowed.",
-    "lo": ""
+    "lo": "ຜົນລວມຂອງເງິນສົມທົບເກີນມູນຄ່າສັນຍາປະກັນໄພ. ບໍ່ອະນຸຍາດໃຫ້ບັນທຶກ."
   },
   "contributionPlan.any": {
     "en": "Any",
@@ -5725,27 +5725,27 @@
   },
   "insuree.addInsuree.alert.message": {
     "en": "However, insuree can still be added to the family.",
-    "lo": ""
+    "lo": "ເຖິງຢ່າງໃດກໍຕາມ, ຍັງສາມາດເພີ່ມຜູ້ເອົາປະກັນເຂົ້າຄອບຄົວໄດ້."
   },
   "insuree.addInsuree.alert.title": {
     "en": "Add insuree to family warning(s):",
-    "lo": ""
+    "lo": "ຄຳເຕືອນໃນການເພີ່ມຜູ້ເອົາປະກັນເຂົ້າຄອບຄົວ:"
   },
   "insuree.addNewFamilyTooltip": {
     "en": "Create new Family",
-    "lo": ""
+    "lo": "ສ້າງຄອບຄົວໃໝ່"
   },
   "insuree.addNewInsureeTooltip": {
     "en": "Create new Insuree",
-    "lo": ""
+    "lo": "ສ້າງຜູ້ເອົາປະກັນໃໝ່"
   },
   "insuree.ageUnit": {
     "en": "Years",
-    "lo": ""
+    "lo": "ປີ"
   },
   "insuree.appBar.enquiry": {
     "en": "Insuree enquiry…",
-    "lo": ""
+    "lo": "ສອບຖາມຂໍ້ມູນຜູ້ເອົາປະກັນ…"
   },
   "insuree.balance": {
     "en": "Balance",
@@ -5753,23 +5753,23 @@
   },
   "insuree.changeInsureeFamilyDialog.cancelPolicies.button": {
     "en": "Move and cancel Policies",
-    "lo": ""
+    "lo": "ຍ້າຍ ແລະ ຍົກເລີກສັນຍາປະກັນໄພ"
   },
   "insuree.changeInsureeFamilyDialog.keepPolicies.button": {
     "en": "Move and keep Policies",
-    "lo": ""
+    "lo": "ຍ້າຍ ແລະ ຮັກສາສັນຍາປະກັນໄພໄວ້"
   },
   "insuree.changeInsureeFamilyDialog.message": {
     "en": "Are you sure you want to move insuree {insuree} into family {family}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຍ້າຍຜູ້ເອົາປະກັນ {insuree} ເຂົ້າຄອບຄົວ {family}?"
   },
   "insuree.changeInsureeFamilyDialog.title": {
     "en": "Move insuree - {insuree}?",
-    "lo": ""
+    "lo": "ຍ້າຍຜູ້ເອົາປະກັນ - {insuree}?"
   },
   "insuree.chfIdNotFound": {
     "en": "No insuree with chfid {chfid} found.",
-    "lo": ""
+    "lo": "ບໍ່ພົບຜູ້ເອົາປະກັນທີ່ມີເລກປະກັນສຸຂະພາບ {chfid}."
   },
   "insuree.closeInsureeSearchCriteria.tooltip": {
     "en": "Close search criteria",
@@ -5777,7 +5777,7 @@
   },
   "insuree.ConfirmationType.A": {
     "en": "Local council",
-    "lo": ""
+    "lo": "ສະພາທ້ອງຖິ່ນ"
   },
   "insuree.ConfirmationType.B": {
     "en": "Municipality",
@@ -5785,7 +5785,7 @@
   },
   "insuree.ConfirmationType.C": {
     "en": "State",
-    "lo": ""
+    "lo": "ລັດ"
   },
   "insuree.ConfirmationType.D": {
     "en": "Other",
@@ -5797,75 +5797,75 @@
   },
   "insuree.ConfirmationTypePicker.label": {
     "en": "Confirmation Type",
-    "lo": ""
+    "lo": "ປະເພດໃບຢັ້ງຢືນ"
   },
   "insuree.CreateFamily.mutationLabel": {
     "en": "Create family - {label}",
-    "lo": ""
+    "lo": "ສ້າງຄອບຄົວ - {label}"
   },
   "insuree.CreateInsuree.mutationLabel": {
     "en": "Create insuree - {label}",
-    "lo": ""
+    "lo": "ສ້າງຜູ້ເອົາປະກັນ - {label}"
   },
   "insuree.DeleteFamilies.mutationLabel": {
     "en": "Delete family - {label}",
-    "lo": ""
+    "lo": "ລຶບຄອບຄົວ - {label}"
   },
   "insuree.deleteFamily.mutationLabel": {
     "en": "Delete family {label}",
-    "lo": ""
+    "lo": "ລຶບຄອບຄົວ {label}"
   },
   "insuree.deleteFamilyDialog.deleteFamilyAndInsurres.button": {
     "en": "Delete family and members",
-    "lo": ""
+    "lo": "ລຶບຄອບຄົວ ແລະ ສະມາຊິກ"
   },
   "insuree.deleteFamilyDialog.deleteFamilyOnly.button": {
     "en": "Delete family only",
-    "lo": ""
+    "lo": "ລຶບສະເພາະຄອບຄົວ"
   },
   "insuree.deleteFamilyDialog.message": {
     "en": "Are you sure you want to delete family {label} and all its members?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບຄອບຄົວ {label} ແລະ ສະມາຊິກທັງໝົດ?"
   },
   "insuree.deleteFamilyDialog.title": {
     "en": "Delete family - {label}",
-    "lo": ""
+    "lo": "ລຶບຄອບຄົວ - {label}"
   },
   "insuree.DeleteInsuree.mutationLabel": {
     "en": "Delete insuree - {label}",
-    "lo": ""
+    "lo": "ລຶບຜູ້ເອົາປະກັນ - {label}"
   },
   "insuree.deleteInsureeDialog.message": {
     "en": "Are you sure you want to delete insuree {label}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບຜູ້ເອົາປະກັນ {label}?"
   },
   "insuree.deleteInsureeDialog.title": {
     "en": "Delete insuree - {label}?",
-    "lo": ""
+    "lo": "ລຶບຜູ້ເອົາປະກັນ - {label}?"
   },
   "insuree.Education.1": {
     "en": "Nursery",
-    "lo": ""
+    "lo": "ອະນຸບານ"
   },
   "insuree.Education.2": {
     "en": "Primary School",
-    "lo": ""
+    "lo": "ປະຖົມສຶກສາ"
   },
   "insuree.Education.3": {
     "en": "Secondary School",
-    "lo": ""
+    "lo": "ມັດທະຍົມສຶກສາ"
   },
   "insuree.Education.4": {
     "en": "University",
-    "lo": ""
+    "lo": "ມະຫາວິທະຍາໄລ"
   },
   "insuree.Education.5": {
     "en": "Postgraduate Studies",
-    "lo": ""
+    "lo": "ຫຼັງປະລິນຍາຕີ"
   },
   "insuree.Education.6": {
     "en": "PHD",
-    "lo": ""
+    "lo": "ປະລິນຍາເອກ"
   },
   "insuree.Education.7": {
     "en": "Other",
@@ -5881,23 +5881,23 @@
   },
   "insuree.EducationPicker.label": {
     "en": "Education",
-    "lo": ""
+    "lo": "ລະດັບການສຶກສາ"
   },
   "insuree.EnrolledFamiliesReport.dateFrom": {
     "en": "From Date",
-    "lo": ""
+    "lo": "ແຕ່ວັນທີ"
   },
   "insuree.EnrolledFamiliesReport.dateTo": {
     "en": "To Date",
-    "lo": ""
+    "lo": "ເຖິງວັນທີ"
   },
   "insuree.Family.address": {
     "en": "Address details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດທີ່ຢູ່"
   },
   "insuree.Family.confirmationNo": {
     "en": "Confirmation No.",
-    "lo": ""
+    "lo": "ເລກທີໃບຢັ້ງຢືນ"
   },
   "insuree.Family.ConfirmationType.null": {
     "en": "None",
@@ -5921,19 +5921,19 @@
   },
   "insuree.Family.headInsuree.dobFrom": {
     "en": "Head Birth From",
-    "lo": ""
+    "lo": "ວັນເກີດຫົວໜ້າຄອບຄົວແຕ່"
   },
   "insuree.Family.headInsuree.dobTo": {
     "en": "Head Birth To",
-    "lo": ""
+    "lo": "ວັນເກີດຫົວໜ້າຄອບຄົວເຖິງ"
   },
   "insuree.Family.headInsuree.email": {
     "en": "Head Email",
-    "lo": ""
+    "lo": "ອີເມວຫົວໜ້າຄອບຄົວ"
   },
   "insuree.Family.headInsuree.gender": {
     "en": "Head Gender",
-    "lo": ""
+    "lo": "ເພດຫົວໜ້າຄອບຄົວ"
   },
   "insuree.Family.headInsuree.lastName": {
     "en": "Head Last Name",
@@ -5945,7 +5945,7 @@
   },
   "insuree.Family.headInsuree.phone": {
     "en": "Head Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບຫົວໜ້າຄອບຄົວ"
   },
   "insuree.Family.insurees": {
     "en": "{count} Insurees",
@@ -5953,35 +5953,35 @@
   },
   "insuree.Family.members.chfId": {
     "en": "Member Ins. No.",
-    "lo": ""
+    "lo": "ເລກປະກັນຂອງສະມາຊິກ"
   },
   "insuree.Family.members.dobFrom": {
     "en": "Member Birth From",
-    "lo": ""
+    "lo": "ວັນເກີດສະມາຊິກແຕ່"
   },
   "insuree.Family.members.dobTo": {
     "en": "Member Birth To",
-    "lo": ""
+    "lo": "ວັນເກີດສະມາຊິກເຖິງ"
   },
   "insuree.Family.members.email": {
     "en": "Member Email",
-    "lo": ""
+    "lo": "ອີເມວສະມາຊິກ"
   },
   "insuree.Family.members.gender": {
     "en": "Member Gender",
-    "lo": ""
+    "lo": "ເພດສະມາຊິກ"
   },
   "insuree.Family.members.lastName": {
     "en": "Member Last Name",
-    "lo": ""
+    "lo": "ນາມສະກຸນສະມາຊິກ"
   },
   "insuree.Family.members.otherNames": {
     "en": "Member Given Name",
-    "lo": ""
+    "lo": "ຊື່ຕົວສະມາຊິກ"
   },
   "insuree.Family.members.phone": {
     "en": "Member Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບສະມາຊິກ"
   },
   "insuree.Family.payments": {
     "en": "Payments",
@@ -5993,11 +5993,11 @@
   },
   "insuree.Family.poverty": {
     "en": "Poverty Status",
-    "lo": ""
+    "lo": "ສະຖານະຄວາມທຸກຍາກ"
   },
   "insuree.Family.povertyStatus": {
     "en": "Poverty Status",
-    "lo": ""
+    "lo": "ສະຖານະຄວາມທຸກຍາກ"
   },
   "insuree.Family.povertyStatus.false": {
     "en": "No",
@@ -6013,23 +6013,23 @@
   },
   "insuree.Family.title": {
     "en": "Family/Group {label}",
-    "lo": ""
+    "lo": "ຄອບຄົວ/ກຸ່ມ {label}"
   },
   "insuree.familyAddExistingInsuree.tooltip": {
     "en": "Add (move) existing insuree into family",
-    "lo": ""
+    "lo": "ເພີ່ມ (ຍ້າຍ) ຜູ້ເອົາປະກັນທີ່ມີຢູ່ແລ້ວເຂົ້າຄອບຄົວ"
   },
   "insuree.familyAddNewInsuree.tooltip": {
     "en": "Create new insuree in family",
-    "lo": ""
+    "lo": "ສ້າງຜູ້ເອົາປະກັນໃໝ່ໃນຄອບຄົວ"
   },
   "insuree.familyAmountsSummary": {
     "en": "Family Amounts Summary",
-    "lo": ""
+    "lo": "ສະຫຼຸບຈຳນວນເງິນຂອງຄອບຄົວ"
   },
   "insuree.familyCheckCanAdd": {
     "en": "Checking wherever insuree can be added",
-    "lo": ""
+    "lo": "ກຳລັງກວດສອບວ່າສາມາດເພີ່ມຜູ້ເອົາປະກັນໄດ້ບໍ່"
   },
   "insuree.familyDeleteInsuree.buttonText": {
     "en": "Delete",
@@ -6041,7 +6041,7 @@
   },
   "insuree.FamilyDetailPanel.title": {
     "en": "Family Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດຄອບຄົວ"
   },
   "insuree.FamilyFilter.showHistory": {
     "en": "Show historical values",
@@ -6053,11 +6053,11 @@
   },
   "insuree.FamilyMembersTable.memberName": {
     "en": "Family Member",
-    "lo": ""
+    "lo": "ສະມາຊິກຄອບຄົວ"
   },
   "insuree.FamilyMembersTable.noMembers": {
     "en": "Family not registered.",
-    "lo": ""
+    "lo": "ຍັງບໍ່ໄດ້ລົງທະບຽນຄອບຄົວ."
   },
   "insuree.FamilyMembersTable.phone": {
     "en": "Phone",
@@ -6065,23 +6065,23 @@
   },
   "insuree.FamilyOverview.title": {
     "en": "Family/Group {label}",
-    "lo": ""
+    "lo": "ຄອບຄົວ/ກຸ່ມ {label}"
   },
   "insuree.familyRemoveInsuree.tooltip": {
     "en": "Remove insuree from family",
-    "lo": ""
+    "lo": "ເອົາຜູ້ເອົາປະກັນອອກຈາກຄອບຄົວ"
   },
   "insuree.familySelectHeadInsuree.buttonText": {
     "en": "Select Head",
-    "lo": ""
+    "lo": "ເລືອກຫົວໜ້າຄອບຄົວ"
   },
   "insuree.familySetHeadInsuree.tooltip": {
     "en": "Set as family head",
-    "lo": ""
+    "lo": "ຕັ້ງເປັນຫົວໜ້າຄອບຄົວ"
   },
   "insuree.FamilyStatus": {
     "en": "Family status",
-    "lo": ""
+    "lo": "ສະຖານະຄອບຄົວ"
   },
   "insuree.FamilyStatus.null": {
     "en": "Any",
@@ -6089,11 +6089,11 @@
   },
   "insuree.FamilyStatus.with": {
     "en": "With family",
-    "lo": ""
+    "lo": "ມີຄອບຄົວ"
   },
   "insuree.FamilyStatus.without": {
     "en": "Without family",
-    "lo": ""
+    "lo": "ບໍ່ມີຄອບຄົວ"
   },
   "insuree.familySummaries": {
     "en": "{count} Families/Groups Found",
@@ -6101,7 +6101,7 @@
   },
   "insuree.familySummaries.confirmationNo": {
     "en": "Confirmation No.",
-    "lo": ""
+    "lo": "ເລກທີໃບຢັ້ງຢືນ"
   },
   "insuree.familySummaries.delete": {
     "en": " ",
@@ -6109,7 +6109,7 @@
   },
   "insuree.familySummaries.deleteFamily.tooltip": {
     "en": "Delete family",
-    "lo": ""
+    "lo": "ລຶບຄອບຄົວ"
   },
   "insuree.familySummaries.dob": {
     "en": "Head Birth Date",
@@ -6117,7 +6117,7 @@
   },
   "insuree.familySummaries.email": {
     "en": "Head Email",
-    "lo": ""
+    "lo": "ອີເມວຫົວໜ້າຄອບຄົວ"
   },
   "insuree.familySummaries.id": {
     "en": "Id",
@@ -6149,11 +6149,11 @@
   },
   "insuree.familySummaries.phone": {
     "en": "Head Phone",
-    "lo": ""
+    "lo": "ໂທລະສັບຫົວໜ້າຄອບຄົວ"
   },
   "insuree.familySummaries.poverty": {
     "en": "Poverty",
-    "lo": ""
+    "lo": "ຄວາມທຸກຍາກ"
   },
   "insuree.familySummaries.validityFrom": {
     "en": "Valid From",
@@ -6165,19 +6165,19 @@
   },
   "insuree.familySummary": {
     "en": "Family Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດຄອບຄົວ"
   },
   "insuree.familySummary.chfId": {
     "en": "CHFID",
-    "lo": ""
+    "lo": "ເລກປະກັນສຸຂະພາບ"
   },
   "insuree.familySummary.head": {
     "en": "(HEAD)",
-    "lo": ""
+    "lo": "(ຫົວໜ້າຄອບຄົວ)"
   },
   "insuree.familySummary.name": {
     "en": "Member Name",
-    "lo": ""
+    "lo": "ຊື່ສະມາຊິກ"
   },
   "insuree.familySummary.phone": {
     "en": "Phone",
@@ -6185,15 +6185,15 @@
   },
   "insuree.FamilyType.C": {
     "en": "Council",
-    "lo": ""
+    "lo": "ສະພາ"
   },
   "insuree.FamilyType.G": {
     "en": "Organization",
-    "lo": ""
+    "lo": "ອົງກອນ"
   },
   "insuree.FamilyType.H": {
     "en": "Household",
-    "lo": ""
+    "lo": "ຄົວເຮືອນ"
   },
   "insuree.FamilyType.O": {
     "en": "Other",
@@ -6201,19 +6201,19 @@
   },
   "insuree.FamilyType.P": {
     "en": "Priests",
-    "lo": ""
+    "lo": "ພະສົງ"
   },
   "insuree.FamilyType.S": {
     "en": "Students",
-    "lo": ""
+    "lo": "ນັກຮຽນ/ນັກສຶກສາ"
   },
   "insuree.FamilyType.T": {
     "en": "Teachers",
-    "lo": ""
+    "lo": "ຄູອາຈານ"
   },
   "insuree.FamilyTypePicker.label": {
     "en": "Family Type",
-    "lo": ""
+    "lo": "ປະເພດຄອບຄົວ"
   },
   "insuree.FSP.title": {
     "en": "First Service Point",
@@ -6265,11 +6265,11 @@
   },
   "insuree.HeadInsureeMasterPanel.title": {
     "en": "Head Insuree Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດຫົວໜ້າຄອບຄົວ"
   },
   "insuree.IdentificationType.D": {
     "en": "Driver's License",
-    "lo": ""
+    "lo": "ໃບຂັບຂີ່"
   },
   "insuree.IdentificationType.N": {
     "en": "National ID",
@@ -6285,23 +6285,23 @@
   },
   "insuree.IdentificationType.P": {
     "en": "Passport",
-    "lo": ""
+    "lo": "ໜັງສືຜ່ານແດນ"
   },
   "insuree.IdentificationType.V": {
     "en": "Voter Card",
-    "lo": ""
+    "lo": "ບັດເລືອກຕັ້ງ"
   },
   "insuree.IdentificationTypePicker.label": {
     "en": "Id Type",
-    "lo": ""
+    "lo": "ປະເພດເອກະສານຢືນຢັນຕົວຕົນ"
   },
   "insuree.Insuree.assignedVouchers": {
     "en": "Vouchers This Year",
-    "lo": ""
+    "lo": "ຄູປອງໃນປີນີ້"
   },
   "insuree.Insuree.cardIssued": {
     "en": "Beneficiary Card",
-    "lo": ""
+    "lo": "ບັດຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "insuree.Insuree.chfId": {
     "en": "Insurance No.",
@@ -6313,23 +6313,23 @@
   },
   "insuree.Insuree.currentAddress.sameAsFamily": {
     "en": "Same Address as Family",
-    "lo": ""
+    "lo": "ທີ່ຢູ່ດຽວກັນກັບຄອບຄົວ"
   },
   "insuree.Insuree.currentVillage.sameAsFamily": {
     "en": "Same Village as Family",
-    "lo": ""
+    "lo": "ບ້ານດຽວກັນກັບຄອບຄົວ"
   },
   "insuree.Insuree.dob": {
     "en": "Birth Date",
-    "lo": ""
+    "lo": "ວັນເດືອນປີເກີດ"
   },
   "insuree.Insuree.dobFrom": {
     "en": "Birth Date From",
-    "lo": ""
+    "lo": "ວັນເດືອນປີເກີດແຕ່"
   },
   "insuree.Insuree.dobTo": {
     "en": "Birth Date To",
-    "lo": ""
+    "lo": "ວັນເດືອນປີເກີດເຖິງ"
   },
   "insuree.Insuree.email": {
     "en": "Email",
@@ -6357,11 +6357,11 @@
   },
   "insuree.Insuree.otherNames": {
     "en": "Given Names",
-    "lo": ""
+    "lo": "ຊື່ຕົວ"
   },
   "insuree.Insuree.passport": {
     "en": "Identification No.",
-    "lo": ""
+    "lo": "ເລກເອກະສານຢືນຢັນຕົວຕົນ"
   },
   "insuree.Insuree.phone": {
     "en": "Phone",
@@ -6369,19 +6369,19 @@
   },
   "insuree.Insuree.photoDate": {
     "en": "Photo Date",
-    "lo": ""
+    "lo": "ວັນທີຖ່າຍຮູບ"
   },
   "insuree.Insuree.photoFilename": {
     "en": "File Name",
-    "lo": ""
+    "lo": "ຊື່ໄຟລ໌"
   },
   "insuree.Insuree.photoOfficer": {
     "en": "Officer (Photo)",
-    "lo": ""
+    "lo": "ເຈົ້າໜ້າທີ່ (ຮູບພາບ)"
   },
   "insuree.Insuree.picker.dialog.title": {
     "en": "Search Insuree",
-    "lo": ""
+    "lo": "ຄົ້ນຫາຜູ້ເອົາປະກັນ"
   },
   "insuree.Insuree.searchCriteria": {
     "en": "Search Criteria",
@@ -6397,11 +6397,11 @@
   },
   "insuree.Insuree.status.DE": {
     "en": "Dead",
-    "lo": ""
+    "lo": "ເສຍຊີວິດ"
   },
   "insuree.Insuree.status.IN": {
     "en": "Inactive",
-    "lo": ""
+    "lo": "ບໍ່ເຄື່ອນໄຫວ"
   },
   "insuree.Insuree.status.null": {
     "en": "Any",
@@ -6409,27 +6409,27 @@
   },
   "insuree.Insuree.statusDate": {
     "en": "Status date",
-    "lo": ""
+    "lo": "ວັນທີປ່ຽນສະຖານະ"
   },
   "insuree.Insuree.statusReason": {
     "en": "Reason",
-    "lo": ""
+    "lo": "ເຫດຜົນ"
   },
   "insuree.Insuree.title": {
     "en": "Insuree {label}",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ {label}"
   },
   "insuree.insureeChangeFamily.mutationLabel": {
     "en": "Move {insuree} to family {family}",
-    "lo": ""
+    "lo": "ຍ້າຍ {insuree} ໄປຄອບຄົວ {family}"
   },
   "insuree.InsureeFamilyOverviewReport.dateFrom": {
     "en": "From Date",
-    "lo": ""
+    "lo": "ແຕ່ວັນທີ"
   },
   "insuree.InsureeFamilyOverviewReport.dateTo": {
     "en": "To Date",
-    "lo": ""
+    "lo": "ເຖິງວັນທີ"
   },
   "insuree.InsureeFilter.showHistory": {
     "en": "Show historical values",
@@ -6461,19 +6461,19 @@
   },
   "insuree.InsureeMaritalStatus": {
     "en": "Marital Status",
-    "lo": ""
+    "lo": "ສະຖານະພາບການແຕ່ງງານ"
   },
   "insuree.InsureeMaritalStatus.D": {
     "en": "Divorced",
-    "lo": ""
+    "lo": "ຢ່າຮ້າງ"
   },
   "insuree.InsureeMaritalStatus.M": {
     "en": "Married",
-    "lo": ""
+    "lo": "ແຕ່ງງານແລ້ວ"
   },
   "insuree.InsureeMaritalStatus.N": {
     "en": "Not Specified",
-    "lo": ""
+    "lo": "ບໍ່ໄດ້ລະບຸ"
   },
   "insuree.InsureeMaritalStatus.null": {
     "en": "Any",
@@ -6481,15 +6481,15 @@
   },
   "insuree.InsureeMaritalStatus.S": {
     "en": "Single",
-    "lo": ""
+    "lo": "ໂສດ"
   },
   "insuree.InsureeMaritalStatus.W": {
     "en": "Widowed",
-    "lo": ""
+    "lo": "ໝ້າຍ"
   },
   "insuree.InsureeMasterPanel.title": {
     "en": "Insuree Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດຜູ້ເອົາປະກັນ"
   },
   "insuree.InsureeMissingPhotoReport.officer": {
     "en": "Officer",
@@ -6509,11 +6509,11 @@
   },
   "insuree.InsureePhotoDialog.title": {
     "en": "Select photo for insuree {label}",
-    "lo": ""
+    "lo": "ເລືອກຮູບພາບສຳລັບຜູ້ເອົາປະກັນ {label}"
   },
   "insuree.InsureeReasonPicker.placeholder": {
     "en": "Search reason…",
-    "lo": ""
+    "lo": "ຄົ້ນຫາເຫດຜົນ…"
   },
   "insuree.insureeSummaries": {
     "en": "{count} Insurees Found",
@@ -6533,7 +6533,7 @@
   },
   "insuree.insureeSummaries.dob": {
     "en": "Birth Date",
-    "lo": ""
+    "lo": "ວັນເດືອນປີເກີດ"
   },
   "insuree.insureeSummaries.email": {
     "en": "Email",
@@ -6545,11 +6545,11 @@
   },
   "insuree.insureeSummaries.goToFamilyButton": {
     "en": "Go to family",
-    "lo": ""
+    "lo": "ໄປທີ່ຄອບຄົວ"
   },
   "insuree.insureeSummaries.goToTheProfile": {
     "en": "Go to profile",
-    "lo": ""
+    "lo": "ໄປທີ່ຂໍ້ມູນສ່ວນຕົວ"
   },
   "insuree.insureeSummaries.id": {
     "en": "Id",
@@ -6565,7 +6565,7 @@
   },
   "insuree.insureeSummaries.maritalStatus": {
     "en": "Marital Status",
-    "lo": ""
+    "lo": "ສະຖານະພາບການແຕ່ງງານ"
   },
   "insuree.insureeSummaries.openFamily": {
     "en": " ",
@@ -6573,7 +6573,7 @@
   },
   "insuree.insureeSummaries.openFamilyButton.tooltip": {
     "en": "Open insuree's family",
-    "lo": ""
+    "lo": "ເປີດຄອບຄົວຂອງຜູ້ເອົາປະກັນ"
   },
   "insuree.insureeSummaries.openNewTab": {
     "en": " ",
@@ -6585,7 +6585,7 @@
   },
   "insuree.insureeSummaries.otherNames": {
     "en": "Given Name",
-    "lo": ""
+    "lo": "ຊື່ຕົວ"
   },
   "insuree.insureeSummaries.phone": {
     "en": "Phone",
@@ -6601,11 +6601,11 @@
   },
   "insuree.InsureeSummary.insureeLocation": {
     "en": "Address: {location}",
-    "lo": ""
+    "lo": "ທີ່ຢູ່: {location}"
   },
   "insuree.label.districtFSP": {
     "en": "District of FSP",
-    "lo": ""
+    "lo": "ເມືອງຂອງຈຸດບໍລິການທຳອິດ"
   },
   "insuree.label.firstServicePoint": {
     "en": "First Service Point",
@@ -6613,15 +6613,15 @@
   },
   "insuree.label.levelFSP": {
     "en": "Level of FSP",
-    "lo": ""
+    "lo": "ລະດັບຂອງຈຸດບໍລິການທຳອິດ"
   },
   "insuree.label.regionFSP": {
     "en": "Region of FSP",
-    "lo": ""
+    "lo": "ແຂວງຂອງຈຸດບໍລິການທຳອິດ"
   },
   "insuree.link.cappedItemService": {
     "en": "Capped Items/Services",
-    "lo": ""
+    "lo": "ລາຍການ/ການບໍລິການທີ່ມີເພດານ"
   },
   "insuree.link.profile": {
     "en": "Profile",
@@ -6645,15 +6645,15 @@
   },
   "insuree.noFSP": {
     "en": "First Service Point not registered.",
-    "lo": ""
+    "lo": "ບໍ່ໄດ້ລົງທະບຽນຈຸດບໍລິການທຳອິດ."
   },
   "insuree.notFound": {
     "en": "Not Found",
-    "lo": ""
+    "lo": "ບໍ່ພົບ"
   },
   "insuree.PhotoStatus": {
     "en": "Photo status",
-    "lo": ""
+    "lo": "ສະຖານະຮູບພາບ"
   },
   "insuree.PhotoStatus.null": {
     "en": "Any",
@@ -6661,23 +6661,23 @@
   },
   "insuree.PhotoStatus.with": {
     "en": "With",
-    "lo": ""
+    "lo": "ມີ"
   },
   "insuree.PhotoStatus.without": {
     "en": "Without",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "insuree.Profession.1": {
     "en": "Housewife",
-    "lo": ""
+    "lo": "ແມ່ບ້ານ"
   },
   "insuree.Profession.2": {
     "en": "Employee",
-    "lo": ""
+    "lo": "ພະນັກງານ"
   },
   "insuree.Profession.3": {
     "en": "Self Employee",
-    "lo": ""
+    "lo": "ປະກອບອາຊີບອິດສະຫຼະ"
   },
   "insuree.Profession.4": {
     "en": "Other",
@@ -6693,31 +6693,31 @@
   },
   "insuree.ProfessionPicker.label": {
     "en": "Profession",
-    "lo": ""
+    "lo": "ອາຊີບ"
   },
   "insuree.Relation.1": {
     "en": "Brother/Sister",
-    "lo": ""
+    "lo": "ອ້າຍ/ເອື້ອຍ/ນ້ອງ"
   },
   "insuree.Relation.2": {
     "en": "Father/Mother",
-    "lo": ""
+    "lo": "ພໍ່/ແມ່"
   },
   "insuree.Relation.3": {
     "en": "Uncle/Aunt",
-    "lo": ""
+    "lo": "ລຸງ/ປ້າ"
   },
   "insuree.Relation.4": {
     "en": "Son/Daughter",
-    "lo": ""
+    "lo": "ລູກຊາຍ/ລູກສາວ"
   },
   "insuree.Relation.5": {
     "en": "Grand parent",
-    "lo": ""
+    "lo": "ປູ່ຍ່າຕາຍາຍ"
   },
   "insuree.Relation.6": {
     "en": "Employee",
-    "lo": ""
+    "lo": "ພະນັກງານ"
   },
   "insuree.Relation.7": {
     "en": "Other",
@@ -6725,7 +6725,7 @@
   },
   "insuree.Relation.8": {
     "en": "Spouse",
-    "lo": ""
+    "lo": "ຄູ່ສົມລົດ"
   },
   "insuree.Relation.none": {
     "en": "None",
@@ -6737,31 +6737,31 @@
   },
   "insuree.RelationPicker.label": {
     "en": "Relationship",
-    "lo": ""
+    "lo": "ຄວາມສຳພັນ"
   },
   "insuree.RemoveInsuree.cancelPolicies.mutationLabel": {
     "en": "Remove insuree - {label} from family {family} and cancel policies",
-    "lo": ""
+    "lo": "ເອົາຜູ້ເອົາປະກັນ - {label} ອອກຈາກຄອບຄົວ {family} ແລະ ຍົກເລີກສັນຍາປະກັນໄພ"
   },
   "insuree.RemoveInsuree.keepPolicies.mutationLabel": {
     "en": "Remove insuree - {label} from family {family}, but keep policies",
-    "lo": ""
+    "lo": "ເອົາຜູ້ເອົາປະກັນ - {label} ອອກຈາກຄອບຄົວ {family} ແຕ່ຮັກສາສັນຍາປະກັນໄພໄວ້"
   },
   "insuree.removeInsureeFromFamilyDialog.cancelPolicies.button": {
     "en": "Remove and cancel Policies",
-    "lo": ""
+    "lo": "ເອົາອອກ ແລະ ຍົກເລີກສັນຍາປະກັນໄພ"
   },
   "insuree.removeInsureeFromFamilyDialog.keepPolicies.button": {
     "en": "Remove and keep Policies",
-    "lo": ""
+    "lo": "ເອົາອອກ ແລະ ຮັກສາສັນຍາປະກັນໄພໄວ້"
   },
   "insuree.removeInsureeFromFamilyDialog.message": {
     "en": "Are you sure you want to remove insuree {insuree} from family {family}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການເອົາຜູ້ເອົາປະກັນ {insuree} ອອກຈາກຄອບຄົວ {family}?"
   },
   "insuree.removeInsureeFromFamilyDialog.title": {
     "en": "Remove insuree - {insuree}?",
-    "lo": ""
+    "lo": "ເອົາຜູ້ເອົາປະກັນອອກ - {insuree}?"
   },
   "insuree.resetFilters.tooltip": {
     "en": "Reset search criteria",
@@ -6769,27 +6769,27 @@
   },
   "insuree.searchAgain.tooltip": {
     "en": "Search again",
-    "lo": ""
+    "lo": "ຄົ້ນຫາອີກຄັ້ງ"
   },
   "insuree.selectHeadInsuree.tooltip": {
     "en": "Select existing insuree as head",
-    "lo": ""
+    "lo": "ເລືອກຜູ້ເອົາປະກັນທີ່ມີຢູ່ແລ້ວເປັນຫົວໜ້າຄອບຄົວ"
   },
   "insuree.SetFamilyHead.mutationLabel": {
     "en": "Set (change) Family head - {label}",
-    "lo": ""
+    "lo": "ຕັ້ງ (ປ່ຽນ) ຫົວໜ້າຄອບຄົວ - {label}"
   },
   "insuree.setHeadInsureeDialog.message": {
     "en": "Are you sure you want to change the family head from {current} to {new}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການປ່ຽນຫົວໜ້າຄອບຄົວຈາກ {current} ເປັນ {new}?"
   },
   "insuree.setHeadInsureeDialog.title": {
     "en": "Change family head?",
-    "lo": ""
+    "lo": "ປ່ຽນຫົວໜ້າຄອບຄົວ?"
   },
   "insuree.setInsureePhoto.mutationLabel": {
     "en": "Add/update photo to insuree {insuree}",
-    "lo": ""
+    "lo": "ເພີ່ມ/ປັບປຸງຮູບພາບຂອງຜູ້ເອົາປະກັນ {insuree}"
   },
   "insuree.showInsureeSearchCriteria.tooltip": {
     "en": "Find an insuree",
@@ -6797,19 +6797,19 @@
   },
   "insuree.totalContributions": {
     "en": "Total Contributions",
-    "lo": ""
+    "lo": "ລວມເງິນສົມທົບ"
   },
   "insuree.totalPoliciesAmount": {
     "en": "Total Policies Amount",
-    "lo": ""
+    "lo": "ລວມມູນຄ່າສັນຍາປະກັນໄພ"
   },
   "insuree.UpdateFamily.mutationLabel": {
     "en": "Update family - {label}",
-    "lo": ""
+    "lo": "ປັບປຸງຄອບຄົວ - {label}"
   },
   "insuree.UpdateInsuree.mutationLabel": {
     "en": "Update insuree - {label}",
-    "lo": ""
+    "lo": "ປັບປຸງຜູ້ເອົາປະກັນ - {label}"
   },
   "insuree.workersMainMenu": {
     "en": "Workers and Vouchers",
@@ -10389,11 +10389,11 @@
   },
   "policy.action.AddPolicy.buttonText": {
     "en": "Add policy",
-    "lo": ""
+    "lo": "ເພີ່ມສັນຍາປະກັນໄພ"
   },
   "policy.action.AddPolicy.tooltip": {
     "en": "Create new policy",
-    "lo": ""
+    "lo": "ສ້າງສັນຍາປະກັນໄພໃໝ່"
   },
   "policy.action.DeletePolicy.buttonText": {
     "en": "Delete",
@@ -10401,15 +10401,15 @@
   },
   "policy.action.DeletePolicy.tooltip": {
     "en": "Delete policy",
-    "lo": ""
+    "lo": "ລຶບສັນຍາປະກັນໄພ"
   },
   "policy.action.RenewPolicy.buttonText": {
     "en": "Renew",
-    "lo": ""
+    "lo": "ຕໍ່ອາຍຸ"
   },
   "policy.action.RenewPolicy.tooltip": {
     "en": "Renew policy",
-    "lo": ""
+    "lo": "ຕໍ່ອາຍຸສັນຍາປະກັນໄພ"
   },
   "policy.action.suspend.tooltip": {
     "en": "Suspend policy",
@@ -10425,19 +10425,19 @@
   },
   "policy.CreatePolicy.mutationLabel": {
     "en": "Create Policy {policy}",
-    "lo": ""
+    "lo": "ສ້າງສັນຍາປະກັນໄພ {policy}"
   },
   "policy.DeletePolicy.mutationLabel": {
     "en": "Delete Policy {policy}",
-    "lo": ""
+    "lo": "ລຶບສັນຍາປະກັນໄພ {policy}"
   },
   "policy.deletePolicyDialog.message": {
     "en": "Are you sure you want to delete policy {label}? Related contributions will be deleted (but not payments).",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບສັນຍາປະກັນໄພ {label}? ເງິນສົມທົບທີ່ກ່ຽວຂ້ອງຈະຖືກລຶບນຳ (ແຕ່ບໍ່ລວມການຊຳລະເງິນ)."
   },
   "policy.deletePolicyDialog.title": {
     "en": "Delete policy?",
-    "lo": ""
+    "lo": "ລຶບສັນຍາປະກັນໄພ?"
   },
   "policy.dialogActions.continue": {
     "en": "Continue",
@@ -10445,15 +10445,15 @@
   },
   "policy.dialogActions.goBack": {
     "en": "Go back",
-    "lo": ""
+    "lo": "ຍ້ອນກັບ"
   },
   "policy.dispatchExpiryDate.message": {
     "en": "Your policy has been registered with this expiry date: {label}",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພຂອງທ່ານຖືກລົງທະບຽນດ້ວຍວັນທີໝົດອາຍຸນີ້: {label}"
   },
   "policy.dispatchExpiryDate.title": {
     "en": "Policy expiry date ",
-    "lo": ""
+    "lo": "ວັນທີໝົດອາຍຸຂອງສັນຍາປະກັນໄພ "
   },
   "policy.gql_mutation_create_policies_perms": {
     "en": "Policy | Mutation Create Policies",
@@ -10493,7 +10493,7 @@
   },
   "policy.insureeEligibility.admissionsLeft": {
     "en": "Admissions",
-    "lo": ""
+    "lo": "ການເຂົ້ານອນໂຮງໝໍ"
   },
   "policy.insureeEligibility.antenatalAmountLeft": {
     "en": "Antenatal",
@@ -10501,35 +10501,35 @@
   },
   "policy.insureeEligibility.antenatalsLeft": {
     "en": "Antenatals",
-    "lo": ""
+    "lo": "ການກວດຄັນທ້ອງ"
   },
   "policy.insureeEligibility.consultationAmountLeft": {
     "en": "Consultation",
-    "lo": ""
+    "lo": "ການປຶກສາ"
   },
   "policy.insureeEligibility.consultationsLeft": {
     "en": "Consultations",
-    "lo": ""
+    "lo": "ການປຶກສາ"
   },
   "policy.insureeEligibility.deliveriesLeft": {
     "en": "Deliveries",
-    "lo": ""
+    "lo": "ການເກີດລູກ"
   },
   "policy.insureeEligibility.deliveryAmountLeft": {
     "en": "Delivery",
-    "lo": ""
+    "lo": "ການເກີດລູກ"
   },
   "policy.insureeEligibility.hospitalizationAmountLeft": {
     "en": "Admission",
-    "lo": ""
+    "lo": "ການເຂົ້ານອນໂຮງໝໍ"
   },
   "policy.insureeEligibility.item": {
     "en": "Item Eligibility",
-    "lo": ""
+    "lo": "ສິດທິປະໂຫຍດລາຍການ"
   },
   "policy.insureeEligibility.item.search": {
     "en": "Search item…",
-    "lo": ""
+    "lo": "ຄົ້ນຫາລາຍການ…"
   },
   "policy.insureeEligibility.left": {
     "en": "{count} left",
@@ -10537,35 +10537,35 @@
   },
   "policy.insureeEligibility.minDate": {
     "en": "Eligible from {date}",
-    "lo": ""
+    "lo": "ມີສິດແຕ່ວັນທີ {date}"
   },
   "policy.insureeEligibility.remainAmounts": {
     "en": "Remain Amounts",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ຍັງເຫຼືອ"
   },
   "policy.insureeEligibility.remainNbr": {
     "en": "Remain Counts",
-    "lo": ""
+    "lo": "ຈຳນວນຄັ້ງທີ່ຍັງເຫຼືອ"
   },
   "policy.insureeEligibility.service": {
     "en": "Service Eligibility",
-    "lo": ""
+    "lo": "ສິດທິປະໂຫຍດການບໍລິການ"
   },
   "policy.insureeEligibility.service.search": {
     "en": "Search service…",
-    "lo": ""
+    "lo": "ຄົ້ນຫາການບໍລິການ…"
   },
   "policy.insureeEligibility.surgeriesLeft": {
     "en": "Surgeries",
-    "lo": ""
+    "lo": "ການຜ່າຕັດ"
   },
   "policy.insureeEligibility.surgeryAmountLeft": {
     "en": "Surgery",
-    "lo": ""
+    "lo": "ການຜ່າຕັດ"
   },
   "policy.insureeEligibility.visitsLeft": {
     "en": "Visits",
-    "lo": ""
+    "lo": "ການມາຮັບບໍລິການ"
   },
   "policy.menu.policies": {
     "en": "Policies",
@@ -10585,15 +10585,15 @@
   },
   "policy.policies.effectiveDate": {
     "en": "Effective Date",
-    "lo": ""
+    "lo": "ວັນທີມີຜົນ"
   },
   "policy.policies.enrollDate": {
     "en": "Enroll Date",
-    "lo": ""
+    "lo": "ວັນທີສະໝັກ"
   },
   "policy.policies.enrolmentDate": {
     "en": "Enrolment Date",
-    "lo": ""
+    "lo": "ວັນທີສະໝັກ"
   },
   "policy.policies.expiryDate": {
     "en": "Expiry Date",
@@ -10605,39 +10605,39 @@
   },
   "policy.policies.hospitalCeiling": {
     "en": "Hospital Ceiling",
-    "lo": ""
+    "lo": "ເພດານໂຮງໝໍ"
   },
   "policy.policies.hospitalDeduction": {
     "en": "Hospital Deduction",
-    "lo": ""
+    "lo": "ຄ່າຮ່ວມຈ່າຍໂຮງໝໍ"
   },
   "policy.policies.noActivePolicy": {
     "en": "No active Policy",
-    "lo": ""
+    "lo": "ບໍ່ມີສັນຍາປະກັນໄພທີ່ໃຊ້ງານຢູ່"
   },
   "policy.policies.nonHospitalCeiling": {
     "en": "Non Hospital Ceiling",
-    "lo": ""
+    "lo": "ເພດານນອກໂຮງໝໍ"
   },
   "policy.policies.nonHospitalDeduction": {
     "en": "Non Hospital Deduction",
-    "lo": ""
+    "lo": "ຄ່າຮ່ວມຈ່າຍນອກໂຮງໝໍ"
   },
   "policy.policies.officer": {
     "en": "Enrollment Officer",
-    "lo": ""
+    "lo": "ເຈົ້າໜ້າທີ່ຮັບສະໝັກ"
   },
   "policy.policies.onlyActiveOrLastExpired": {
     "en": "Show only not yet active, and last active or last suspended/expired",
-    "lo": ""
+    "lo": "ສະແດງສະເພາະທີ່ຍັງບໍ່ທັນມີຜົນ, ແລະ ລາຍການລ່າສຸດທີ່ໃຊ້ງານ ຫຼື ຖືກໂຈະ/ໝົດອາຍຸ"
   },
   "policy.policies.policyValue": {
     "en": "Policy Value",
-    "lo": ""
+    "lo": "ມູນຄ່າສັນຍາປະກັນໄພ"
   },
   "policy.policies.productCode": {
     "en": "Product Code",
-    "lo": ""
+    "lo": "ລະຫັດຜະລິດຕະພັນ"
   },
   "policy.policies.productName": {
     "en": "Name",
@@ -10665,7 +10665,7 @@
   },
   "policy.policies.status.8": {
     "en": "Expired",
-    "lo": ""
+    "lo": "ໝົດອາຍຸ"
   },
   "policy.policiesOfInsuree.header": {
     "en": "{count} Policies of Insuree {chfId}",
@@ -10677,23 +10677,23 @@
   },
   "policy.Policy.contribDetails": {
     "en": "Contribution Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດເງິນສົມທົບ"
   },
   "policy.Policy.contribDetails.warning": {
     "en": "WARNING: Leaving the receipt field blank triggers auto-generation. Ensure uniqueness.",
-    "lo": ""
+    "lo": "ຄຳເຕືອນ: ຖ້າປະຊ່ອງໃບຮັບເງິນວ່າງໄວ້ ລະບົບຈະສ້າງເລກໃຫ້ອັດຕະໂນມັດ. ກະລຸນາກວດສອບບໍ່ໃຫ້ຊ້ຳກັນ."
   },
   "policy.Policy.details.title": {
     "en": "Policy details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດສັນຍາປະກັນໄພ"
   },
   "policy.Policy.effectiveDate": {
     "en": "Effective Date",
-    "lo": ""
+    "lo": "ວັນທີມີຜົນ"
   },
   "policy.Policy.enrollDate": {
     "en": "Enrolment Date",
-    "lo": ""
+    "lo": "ວັນທີສະໝັກ"
   },
   "policy.Policy.expiryDate": {
     "en": "Expiry Date",
@@ -10701,7 +10701,7 @@
   },
   "policy.Policy.payInOneInstallment": {
     "en": "Pay in one installment",
-    "lo": ""
+    "lo": "ຈ່າຍເປັນງວດດຽວ"
   },
   "policy.Policy.startDate": {
     "en": "Start Date",
@@ -10709,11 +10709,11 @@
   },
   "policy.Policy.sumPremiums": {
     "en": "Contributions paid",
-    "lo": ""
+    "lo": "ເງິນສົມທົບທີ່ຊຳລະແລ້ວ"
   },
   "policy.Policy.title": {
     "en": "Policy {label}",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ {label}"
   },
   "policy.Policy.value": {
     "en": "Value",
@@ -10721,43 +10721,43 @@
   },
   "policy.Policy.values.title": {
     "en": "Policy values",
-    "lo": ""
+    "lo": "ມູນຄ່າສັນຍາປະກັນໄພ"
   },
   "policy.PolicyFilter.balanceGte": {
     "en": "Balance above",
-    "lo": ""
+    "lo": "ຍອດຄ້າງສູງກວ່າ"
   },
   "policy.PolicyFilter.balanceLte": {
     "en": "Balance under",
-    "lo": ""
+    "lo": "ຍອດຄ້າງຕ່ຳກວ່າ"
   },
   "policy.PolicyFilter.effectiveDateFrom": {
     "en": "Effective From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່"
   },
   "policy.PolicyFilter.effectiveDateTo": {
     "en": "Effective To",
-    "lo": ""
+    "lo": "ມີຜົນເຖິງ"
   },
   "policy.PolicyFilter.enrollDateFrom": {
     "en": "Enrolment From",
-    "lo": ""
+    "lo": "ສະໝັກແຕ່"
   },
   "policy.PolicyFilter.enrollDateTo": {
     "en": "Enrolment To",
-    "lo": ""
+    "lo": "ສະໝັກເຖິງ"
   },
   "policy.PolicyFilter.expiryDateFrom": {
     "en": "Expiry From",
-    "lo": ""
+    "lo": "ໝົດອາຍຸແຕ່"
   },
   "policy.PolicyFilter.expiryDateTo": {
     "en": "Expiry To",
-    "lo": ""
+    "lo": "ໝົດອາຍຸເຖິງ"
   },
   "policy.PolicyFilter.policyStatus": {
     "en": "Policy Status",
-    "lo": ""
+    "lo": "ສະຖານະສັນຍາປະກັນໄພ"
   },
   "policy.PolicyFilter.product.label": {
     "en": "Product",
@@ -10765,7 +10765,7 @@
   },
   "policy.PolicyFilter.product.placeholder": {
     "en": "Search for a Product...",
-    "lo": ""
+    "lo": "ຄົ້ນຫາຜະລິດຕະພັນ..."
   },
   "policy.PolicyFilter.showHistory": {
     "en": "Show historical",
@@ -10773,15 +10773,15 @@
   },
   "policy.PolicyFilter.showInactive": {
     "en": "Only with inactive insurees",
-    "lo": ""
+    "lo": "ສະເພາະທີ່ມີຜູ້ເອົາປະກັນບໍ່ເຄື່ອນໄຫວ"
   },
   "policy.PolicyFilter.startDateFrom": {
     "en": "Start From",
-    "lo": ""
+    "lo": "ເລີ່ມແຕ່"
   },
   "policy.PolicyFilter.startDateTo": {
     "en": "Start To",
-    "lo": ""
+    "lo": "ເລີ່ມເຖິງ"
   },
   "policy.PolicyOfficer.none": {
     "en": "None",
@@ -10825,11 +10825,11 @@
   },
   "policy.PolicyRenewalsReport.sorting": {
     "en": "Sorting",
-    "lo": ""
+    "lo": "ການຈັດລຽງ"
   },
   "policy.PolicyRenewalsReport.sorting.D": {
     "en": "By renewal date",
-    "lo": ""
+    "lo": "ຕາມວັນທີຕໍ່ອາຍຸ"
   },
   "policy.PolicyRenewalsReport.sorting.null": {
     "en": "Any",
@@ -10837,11 +10837,11 @@
   },
   "policy.PolicyRenewalsReport.sorting.O": {
     "en": "By enrollment officer",
-    "lo": ""
+    "lo": "ຕາມເຈົ້າໜ້າທີ່ຮັບສະໝັກ"
   },
   "policy.PolicyRenewalsReport.sorting.R": {
     "en": "By receipt number",
-    "lo": ""
+    "lo": "ຕາມເລກທີໃບຮັບເງິນ"
   },
   "policy.PolicyStage": {
     "en": "Type",
@@ -10849,7 +10849,7 @@
   },
   "policy.PolicyStage.N": {
     "en": "New policy",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພໃໝ່"
   },
   "policy.PolicyStage.null": {
     "en": "Any",
@@ -10857,7 +10857,7 @@
   },
   "policy.PolicyStage.R": {
     "en": "Renewed policy",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພທີ່ຕໍ່ອາຍຸ"
   },
   "policy.PolicyStatus": {
     "en": "Status",
@@ -10869,7 +10869,7 @@
   },
   "policy.PolicyStatus.16": {
     "en": "Ready",
-    "lo": ""
+    "lo": "ພ້ອມໃຊ້ງານ"
   },
   "policy.PolicyStatus.2": {
     "en": "Active",
@@ -10881,7 +10881,7 @@
   },
   "policy.PolicyStatus.8": {
     "en": "Expired",
-    "lo": ""
+    "lo": "ໝົດອາຍຸ"
   },
   "policy.PolicyStatus.none": {
     "en": "None",
@@ -10905,15 +10905,15 @@
   },
   "policy.policySummaries.effectiveDate": {
     "en": "Effective",
-    "lo": ""
+    "lo": "ມີຜົນ"
   },
   "policy.policySummaries.enrollDate": {
     "en": "Enrolment",
-    "lo": ""
+    "lo": "ສະໝັກ"
   },
   "policy.policySummaries.expiryDate": {
     "en": "Expiry",
-    "lo": ""
+    "lo": "ໝົດອາຍຸ"
   },
   "policy.policySummaries.name": {
     "en": "Name",
@@ -10945,7 +10945,7 @@
   },
   "policy.policySummaries.startDate": {
     "en": "Start",
-    "lo": ""
+    "lo": "ເລີ່ມຕົ້ນ"
   },
   "policy.policySummaries.status": {
     "en": "Status",
@@ -10969,31 +10969,31 @@
   },
   "policy.policyValues.alert.message": {
     "en": "The family has more Insurees than the maximum number of members allowed in the selected product. However, the policy can still be created. Do you want to continue?",
-    "lo": ""
+    "lo": "ຄອບຄົວນີ້ມີຜູ້ເອົາປະກັນຫຼາຍກວ່າຈຳນວນສະມາຊິກສູງສຸດທີ່ຜະລິດຕະພັນທີ່ເລືອກອະນຸຍາດ. ເຖິງຢ່າງໃດກໍຕາມ, ຍັງສາມາດສ້າງສັນຍາປະກັນໄພໄດ້. ທ່ານຕ້ອງການດຳເນີນຕໍ່ບໍ່?"
   },
   "policy.policyValues.alert.title": {
     "en": "Policy Value Warning:",
-    "lo": ""
+    "lo": "ຄຳເຕືອນມູນຄ່າສັນຍາປະກັນໄພ:"
   },
   "policy.RenewPolicy.mutationLabel": {
     "en": "Renew Policy {policy}",
-    "lo": ""
+    "lo": "ຕໍ່ອາຍຸສັນຍາປະກັນໄພ {policy}"
   },
   "policy.SuspendPolicy.mutationLabel": {
     "en": "Suspend Policy {policy}",
-    "lo": ""
+    "lo": "ໂຈະສັນຍາປະກັນໄພ {policy}"
   },
   "policy.suspendPolicyDialog.message": {
     "en": "Are you sure you want to suspend policy {label}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການໂຈະສັນຍາປະກັນໄພ {label}?"
   },
   "policy.suspendPolicyDialog.title": {
     "en": "Suspend policy?",
-    "lo": ""
+    "lo": "ໂຈະສັນຍາປະກັນໄພ?"
   },
   "policy.UpdatePolicy.mutationLabel": {
     "en": "Update Policy {policy}",
-    "lo": ""
+    "lo": "ປັບປຸງສັນຍາປະກັນໄພ {policy}"
   },
   "policyHolder.accountancyAccount": {
     "en": "Accountancy Account",
