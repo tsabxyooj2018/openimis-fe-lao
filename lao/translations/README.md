@@ -55,7 +55,7 @@ revisiting every entry that used it.
 |---|---|
 | `*.export.*` (14) | CSV column headers and export filenames — `first_name`, `beneficiaries_export`. Read by spreadsheets and scripts, not by people. |
 | `socialProtection.benefitPlan.jsonExt` | A database column name shown verbatim. |
-| `currency` (`$`) | A currency symbol is a deployment decision. Rendering it as ₭ here would restate every amount in the interface without anything upstream agreeing the amounts are kip. |
+| `currency` | Set to `LAK` in `src/translations/ref.json`, not here. The deployment's currency is kip whatever language the interface is in, so a Lao-only override would imply a French-speaking user in Laos sees different money. |
 | `policyHolder.*Validation.regexMsg.{en,fr}` (10) | Indexed at runtime by `intl.locale`, which `openimis.json` sets to `en-GB` / `fr-FR` / `lo-LA`. `regexMsg["en-GB"]` is already undefined, so these render in no language including English. A Lao value would not appear; fixing them means changing module config, not this file. |
 
 Coverage is therefore complete for everything a user reads.
