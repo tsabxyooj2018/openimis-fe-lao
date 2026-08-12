@@ -217,7 +217,7 @@
   },
   "admin.user.confirmNewPassword": {
     "en": "Confirm Password",
-    "lo": ""
+    "lo": "ຢືນຢັນລະຫັດຜ່ານ"
   },
   "admin.user.createUser.mutationLabel": {
     "en": "Create user",
@@ -317,7 +317,7 @@
   },
   "admin.user.password": {
     "en": "Password",
-    "lo": ""
+    "lo": "ລະຫັດຜ່ານ"
   },
   "admin.user.phone": {
     "en": "Phone",
@@ -449,19 +449,19 @@
   },
   "api_fhir_r4.R4_fhir_subscription_config_fhir_sub_create_perms": {
     "en": "Api Fhir R4 | Subscription Config Fhir Sub Create",
-    "lo": ""
+    "lo": "API FHIR R4 | ສ້າງການຕັ້ງຄ່າການສະໝັກຮັບຂໍ້ມູນ FHIR"
   },
   "api_fhir_r4.R4_fhir_subscription_config_fhir_sub_delete_perms": {
     "en": "Api Fhir R4 | Subscription Config Fhir Sub Delete",
-    "lo": ""
+    "lo": "API FHIR R4 | ລຶບການຕັ້ງຄ່າການສະໝັກຮັບຂໍ້ມູນ FHIR"
   },
   "api_fhir_r4.R4_fhir_subscription_config_fhir_sub_search_perms": {
     "en": "Api Fhir R4 | Subscription Config Fhir Sub Search",
-    "lo": ""
+    "lo": "API FHIR R4 | ຄົ້ນຫາການຕັ້ງຄ່າການສະໝັກຮັບຂໍ້ມູນ FHIR"
   },
   "api_fhir_r4.R4_fhir_subscription_config_fhir_sub_update_perms": {
     "en": "Api Fhir R4 | Subscription Config Fhir Sub Update",
-    "lo": ""
+    "lo": "API FHIR R4 | ປັບປຸງການຕັ້ງຄ່າການສະໝັກຮັບຂໍ້ມູນ FHIR"
   },
   "appName": {
     "en": "ລະບົບປະກັນສຸຂະພາບແຫ່ງຊາດ",
@@ -533,7 +533,7 @@
   },
   "bill.delete.confirm.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
-    "lo": ""
+    "lo": "ການລຶບຂໍ້ມູນບໍ່ໄດ້ໝາຍຄວາມວ່າລຶບອອກຈາກຖານຂໍ້ມູນ openIMIS. ຂໍ້ມູນຈະຖືກປິດການນຳໃຊ້ອອກຈາກລາຍການທີ່ເບິ່ງເຫັນເທົ່ານັ້ນ."
   },
   "bill.delete.confirm.title": {
     "en": "Delete {code}?",
@@ -741,7 +741,7 @@
   },
   "billPayment.delete.confirm.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
-    "lo": ""
+    "lo": "ການລຶບຂໍ້ມູນບໍ່ໄດ້ໝາຍຄວາມວ່າລຶບອອກຈາກຖານຂໍ້ມູນ openIMIS. ຂໍ້ມູນຈະຖືກປິດການນຳໃຊ້ອອກຈາກລາຍການທີ່ເບິ່ງເຫັນເທົ່ານັ້ນ."
   },
   "billPayment.delete.confirm.title": {
     "en": "Delete {billPaymentLabel}?",
@@ -809,11 +809,11 @@
   },
   "calculation.gql_mutation_update_calculation_rule_perms": {
     "en": "Calculation | Mutation Update Calculation Rule",
-    "lo": ""
+    "lo": "ການຄິດໄລ່ | ປັບປຸງກົດການຄິດໄລ່"
   },
   "calculation.gql_query_calculation_rule_perms": {
     "en": "Calculation | Query Calculation Rule",
-    "lo": ""
+    "lo": "ການຄິດໄລ່ | ເບິ່ງກົດການຄິດໄລ່"
   },
   "calculation.validationFailed": {
     "en": "Value validation failed",
@@ -861,7 +861,7 @@
   },
   "claim_batch.account_preview_perms": {
     "en": "Claim Batch | Account Preview",
-    "lo": ""
+    "lo": "ການປະມວນຜົນເປັນຊຸດ | ເບິ່ງຕົວຢ່າງບັນຊີ"
   },
   "claim_batch.AccountPreviewer.title": {
     "en": "Accounts",
@@ -949,15 +949,15 @@
   },
   "claim_batch.claimBatch.page.title": {
     "en": "Batch Runs",
-    "lo": ""
+    "lo": "ການປະມວນຜົນເປັນຊຸດ"
   },
   "claim_batch.gql_mutation_process_batch_perms": {
     "en": "Claim Batch | Mutation Process Batch",
-    "lo": ""
+    "lo": "ການປະມວນຜົນເປັນຊຸດ | ປະມວນຜົນຊຸດ"
   },
   "claim_batch.gql_query_batch_runs_perms": {
     "en": "Claim Batch | Query Batch Runs",
-    "lo": ""
+    "lo": "ການປະມວນຜົນເປັນຊຸດ | ເບິ່ງການປະມວນຜົນເປັນຊຸດ"
   },
   "claim_batch.groupBy": {
     "en": "Group By",
@@ -1005,23 +1005,23 @@
   },
   "claim_batch.reports_capitation_payment_perms": {
     "en": "Claim Batch | Capitation Payment",
-    "lo": ""
+    "lo": "ການປະມວນຜົນເປັນຊຸດ | ການຈ່າຍແບບເໝົາຈ່າຍລາຍຫົວ"
   },
   "claim_sampling.gql_mutation_approve_claim_batch_samplings_perms": {
     "en": "Claim Sampling | Mutation Approve Claim Batch Samplings",
-    "lo": ""
+    "lo": "ການສຸ່ມກວດຄຳຮ້ອງ | ອະນຸມັດການສຸ່ມກວດຄຳຮ້ອງເປັນຊຸດ"
   },
   "claim_sampling.gql_mutation_create_claim_batch_samplings_perms": {
     "en": "Claim Sampling | Mutation Create Claim Batch Samplings",
-    "lo": ""
+    "lo": "ການສຸ່ມກວດຄຳຮ້ອງ | ສ້າງການສຸ່ມກວດຄຳຮ້ອງເປັນຊຸດ"
   },
   "claim_sampling.gql_mutation_update_claim_batch_samplings_perms": {
     "en": "Claim Sampling | Mutation Update Claim Batch Samplings",
-    "lo": ""
+    "lo": "ການສຸ່ມກວດຄຳຮ້ອງ | ປັບປຸງການສຸ່ມກວດຄຳຮ້ອງເປັນຊຸດ"
   },
   "claim_sampling.gql_query_claim_batch_samplings_perms": {
     "en": "Claim Sampling | Query Claim Batch Samplings",
-    "lo": ""
+    "lo": "ການສຸ່ມກວດຄຳຮ້ອງ | ເບິ່ງການສຸ່ມກວດຄຳຮ້ອງເປັນຊຸດ"
   },
   "claim.adjustment": {
     "en": "Adjustment",
@@ -1173,7 +1173,7 @@
   },
   "claim.claim_print_perms": {
     "en": "Claim | Claim Print",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ພິມຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.ClaimAdminPicker.label": {
     "en": "Claim Administrator",
@@ -1253,7 +1253,7 @@
   },
   "claim.claimFeedback.buttonText": {
     "en": "Feedback",
-    "lo": ""
+    "lo": "ຄຳຄິດເຫັນ"
   },
   "claim.ClaimFilter.claimAdmin": {
     "en": "Claim Administrator",
@@ -1933,7 +1933,7 @@
   },
   "claim.Feedback": {
     "en": "Feedback",
-    "lo": ""
+    "lo": "ຄຳຄິດເຫັນ"
   },
   "claim.Feedback.careRendered": {
     "en": "Care Rendered",
@@ -2037,67 +2037,67 @@
   },
   "claim.gql_mutation_bypass_claim_feedback_perms": {
     "en": "Claim | Mutation Bypass Claim Feedback",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ຂ້າມຂັ້ນຕອນຄຳຄິດເຫັນຕໍ່ຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_bypass_claim_review_perms": {
     "en": "Claim | Mutation Bypass Claim Review",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ຂ້າມຂັ້ນຕອນການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_create_claims_perms": {
     "en": "Claim | Mutation Create Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ສ້າງຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_delete_claims_perms": {
     "en": "Claim | Mutation Delete Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ລຶບຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_deliver_claim_feedback_perms": {
     "en": "Claim | Mutation Deliver Claim Feedback",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ສົ່ງຜົນຄຳຄິດເຫັນຕໍ່ຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_deliver_claim_review_perms": {
     "en": "Claim | Mutation Deliver Claim Review",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ສົ່ງຜົນການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_load_claims_perms": {
     "en": "Claim | Mutation Load Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ນຳເຂົ້າຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_process_claims_perms": {
     "en": "Claim | Mutation Process Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ປະມວນຜົນຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_restore_claims_perms": {
     "en": "Claim | Mutation Restore Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ກູ້ຄືນຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_select_claim_feedback_perms": {
     "en": "Claim | Mutation Select Claim Feedback",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ເລືອກຄຳຄິດເຫັນຕໍ່ຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_select_claim_review_perms": {
     "en": "Claim | Mutation Select Claim Review",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ເລືອກການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_skip_claim_feedback_perms": {
     "en": "Claim | Mutation Skip Claim Feedback",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ຍົກເວັ້ນຄຳຄິດເຫັນຕໍ່ຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_skip_claim_review_perms": {
     "en": "Claim | Mutation Skip Claim Review",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ຍົກເວັ້ນການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_submit_claims_perms": {
     "en": "Claim | Mutation Submit Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ສົ່ງຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_mutation_update_claims_perms": {
     "en": "Claim | Mutation Update Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ປັບປຸງຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.gql_query_claims_perms": {
     "en": "Claim | Query Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ | ເບິ່ງຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.guaranteeId": {
     "en": "Guarantee No.",
@@ -2105,7 +2105,7 @@
   },
   "claim.healthFacilityClaims.page.title": {
     "en": "Health Facility Claims",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງຈາກສະຖານບໍລິການ"
   },
   "claim.itemsPricelist.missing": {
     "en": "No items prices list registered for health facility",
@@ -2313,7 +2313,7 @@
   },
   "claim.rejectionReason.18": {
     "en": "N/A",
-    "lo": ""
+    "lo": "ບໍ່ມີ"
   },
   "claim.rejectionReason.19": {
     "en": "Maximum number of antenatal contacts exceeded",
@@ -2369,7 +2369,7 @@
   },
   "claim.reviews.page.title": {
     "en": "Reviews",
-    "lo": ""
+    "lo": "ການກວດສອບ"
   },
   "claim.reviewStatus": {
     "en": "Review Status",
@@ -2881,7 +2881,7 @@
   },
   "contract.contracts.page.title": {
     "en": "Contracts",
-    "lo": ""
+    "lo": "ສັນຍາ"
   },
   "contract.contracts.searcher.results.title": {
     "en": "{contractsTotalCount} Contracts Found",
@@ -3029,11 +3029,11 @@
   },
   "contract.deleteContract.confirm.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
-    "lo": ""
+    "lo": "ການລຶບຂໍ້ມູນບໍ່ໄດ້ໝາຍຄວາມວ່າລຶບອອກຈາກຖານຂໍ້ມູນ openIMIS. ຂໍ້ມູນຈະຖືກປິດການນຳໃຊ້ອອກຈາກລາຍການທີ່ເບິ່ງເຫັນເທົ່ານັ້ນ."
   },
   "contract.deleteContract.confirm.title": {
     "en": "Are you sure you want to delete {label}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບ {label}?"
   },
   "contract.DeleteContract.mutationLabel": {
     "en": "Delete Contract {label}",
@@ -3065,79 +3065,79 @@
   },
   "contract.gql_invoice_create_perms": {
     "en": "Contract | Invoice Create",
-    "lo": ""
+    "lo": "ສັນຍາ | ສ້າງໃບແຈ້ງໜີ້"
   },
   "contract.gql_mutation_amend_contract_perms": {
     "en": "Contract | Mutation Amend Contract",
-    "lo": ""
+    "lo": "ສັນຍາ | ແກ້ໄຂເພີ່ມເຕີມສັນຍາ"
   },
   "contract.gql_mutation_amend_contract_policyholder_portal_perms": {
     "en": "Contract | Mutation Amend Contract Policyholder Portal",
-    "lo": ""
+    "lo": "ສັນຍາ | ແກ້ໄຂເພີ່ມເຕີມສັນຍາໃນລະບົບຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "contract.gql_mutation_approve_ask_for_change_contract_perms": {
     "en": "Contract | Mutation Approve Ask For Change Contract",
-    "lo": ""
+    "lo": "ສັນຍາ | ອະນຸມັດການຂໍປ່ຽນແປງສັນຍາ"
   },
   "contract.gql_mutation_approve_payments_perms": {
     "en": "Contract | Mutation Approve Payments",
-    "lo": ""
+    "lo": "ສັນຍາ | ອະນຸມັດການຊຳລະເງິນ"
   },
   "contract.gql_mutation_create_contract_perms": {
     "en": "Contract | Mutation Create Contract",
-    "lo": ""
+    "lo": "ສັນຍາ | ສ້າງສັນຍາ"
   },
   "contract.gql_mutation_create_contract_policyholder_portal_perms": {
     "en": "Contract | Mutation Create Contract Policyholder Portal",
-    "lo": ""
+    "lo": "ສັນຍາ | ສ້າງສັນຍາໃນລະບົບຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "contract.gql_mutation_create_payments_perms": {
     "en": "Contract | Mutation Create Payments",
-    "lo": ""
+    "lo": "ສັນຍາ | ສ້າງການຊຳລະເງິນ"
   },
   "contract.gql_mutation_delete_contract_perms": {
     "en": "Contract | Mutation Delete Contract",
-    "lo": ""
+    "lo": "ສັນຍາ | ລຶບສັນຍາ"
   },
   "contract.gql_mutation_delete_payments_perms": {
     "en": "Contract | Mutation Delete Payments",
-    "lo": ""
+    "lo": "ສັນຍາ | ລຶບການຊຳລະເງິນ"
   },
   "contract.gql_mutation_renew_contract_perms": {
     "en": "Contract | Mutation Renew Contract",
-    "lo": ""
+    "lo": "ສັນຍາ | ຕໍ່ອາຍຸສັນຍາ"
   },
   "contract.gql_mutation_submit_contract_perms": {
     "en": "Contract | Mutation Submit Contract",
-    "lo": ""
+    "lo": "ສັນຍາ | ສົ່ງສັນຍາ"
   },
   "contract.gql_mutation_submit_contract_policyholder_portal_perms": {
     "en": "Contract | Mutation Submit Contract Policyholder Portal",
-    "lo": ""
+    "lo": "ສັນຍາ | ສົ່ງສັນຍາໃນລະບົບຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "contract.gql_mutation_update_contract_perms": {
     "en": "Contract | Mutation Update Contract",
-    "lo": ""
+    "lo": "ສັນຍາ | ປັບປຸງສັນຍາ"
   },
   "contract.gql_mutation_update_contract_policyholder_portal_perms": {
     "en": "Contract | Mutation Update Contract Policyholder Portal",
-    "lo": ""
+    "lo": "ສັນຍາ | ປັບປຸງສັນຍາໃນລະບົບຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "contract.gql_mutation_update_payments_perms": {
     "en": "Contract | Mutation Update Payments",
-    "lo": ""
+    "lo": "ສັນຍາ | ປັບປຸງການຊຳລະເງິນ"
   },
   "contract.gql_query_contract_perms": {
     "en": "Contract | Query Contract",
-    "lo": ""
+    "lo": "ສັນຍາ | ເບິ່ງສັນຍາ"
   },
   "contract.gql_query_contract_policyholder_portal_perms": {
     "en": "Contract | Query Contract Policyholder Portal",
-    "lo": ""
+    "lo": "ສັນຍາ | ເບິ່ງສັນຍາໃນລະບົບຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "contract.gql_query_payment_perms": {
     "en": "Contract | Query Payment",
-    "lo": ""
+    "lo": "ສັນຍາ | ເບິ່ງການຊຳລະເງິນ"
   },
   "contract.headPanel.title": {
     "en": "General Information",
@@ -3217,63 +3217,63 @@
   },
   "contribution_plan.gql_mutation_create_contributionplan_perms": {
     "en": "Contribution Plan | Mutation Create Contributionplan",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ສ້າງແຜນເງິນສົມທົບ"
   },
   "contribution_plan.gql_mutation_create_contributionplanbundle_perms": {
     "en": "Contribution Plan | Mutation Create Contributionplanbundle",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ສ້າງຊຸດແຜນເງິນສົມທົບ"
   },
   "contribution_plan.gql_mutation_create_paymentplan_perms": {
     "en": "Contribution Plan | Mutation Create Paymentplan",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ສ້າງແຜນການຈ່າຍເງິນ"
   },
   "contribution_plan.gql_mutation_delete_contributionplan_perms": {
     "en": "Contribution Plan | Mutation Delete Contributionplan",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ລຶບແຜນເງິນສົມທົບ"
   },
   "contribution_plan.gql_mutation_delete_contributionplanbundle_perms": {
     "en": "Contribution Plan | Mutation Delete Contributionplanbundle",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ລຶບຊຸດແຜນເງິນສົມທົບ"
   },
   "contribution_plan.gql_mutation_delete_paymentplan_perms": {
     "en": "Contribution Plan | Mutation Delete Paymentplan",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ລຶບແຜນການຈ່າຍເງິນ"
   },
   "contribution_plan.gql_mutation_replace_contributionplan_perms": {
     "en": "Contribution Plan | Mutation Replace Contributionplan",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ທົດແທນແຜນເງິນສົມທົບ"
   },
   "contribution_plan.gql_mutation_replace_contributionplanbundle_perms": {
     "en": "Contribution Plan | Mutation Replace Contributionplanbundle",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ທົດແທນຊຸດແຜນເງິນສົມທົບ"
   },
   "contribution_plan.gql_mutation_replace_paymentplan_perms": {
     "en": "Contribution Plan | Mutation Replace Paymentplan",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ທົດແທນແຜນການຈ່າຍເງິນ"
   },
   "contribution_plan.gql_mutation_update_contributionplan_perms": {
     "en": "Contribution Plan | Mutation Update Contributionplan",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ປັບປຸງແຜນເງິນສົມທົບ"
   },
   "contribution_plan.gql_mutation_update_contributionplanbundle_perms": {
     "en": "Contribution Plan | Mutation Update Contributionplanbundle",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ປັບປຸງຊຸດແຜນເງິນສົມທົບ"
   },
   "contribution_plan.gql_mutation_update_paymentplan_perms": {
     "en": "Contribution Plan | Mutation Update Paymentplan",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ປັບປຸງແຜນການຈ່າຍເງິນ"
   },
   "contribution_plan.gql_query_contributionplan_perms": {
     "en": "Contribution Plan | Query Contributionplan",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ເບິ່ງແຜນເງິນສົມທົບ"
   },
   "contribution_plan.gql_query_contributionplanbundle_perms": {
     "en": "Contribution Plan | Query Contributionplanbundle",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ເບິ່ງຊຸດແຜນເງິນສົມທົບ"
   },
   "contribution_plan.gql_query_paymentplan_perms": {
     "en": "Contribution Plan | Query Paymentplan",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ | ເບິ່ງແຜນການຈ່າຍເງິນ"
   },
   "contribution.addContributionDialog.maxINstallments.message": {
     "en": "You've reached the limit of maximum installments for this plan. You can't add more contributions.",
@@ -3393,19 +3393,19 @@
   },
   "contribution.gql_mutation_create_premiums_perms": {
     "en": "Contribution | Mutation Create Premiums",
-    "lo": ""
+    "lo": "ເງິນສົມທົບ | ສ້າງເງິນສົມທົບ"
   },
   "contribution.gql_mutation_delete_premiums_perms": {
     "en": "Contribution | Mutation Delete Premiums",
-    "lo": ""
+    "lo": "ເງິນສົມທົບ | ລຶບເງິນສົມທົບ"
   },
   "contribution.gql_mutation_update_premiums_perms": {
     "en": "Contribution | Mutation Update Premiums",
-    "lo": ""
+    "lo": "ເງິນສົມທົບ | ປັບປຸງເງິນສົມທົບ"
   },
   "contribution.gql_query_premiums_perms": {
     "en": "Contribution | Query Premiums",
-    "lo": ""
+    "lo": "ເງິນສົມທົບ | ເບິ່ງເງິນສົມທົບ"
   },
   "contribution.menu.contributions": {
     "en": "Contributions",
@@ -3761,7 +3761,7 @@
   },
   "contributionPlan.deleteContributionPlan.confirm.message": {
     "en": "Are you sure you want to delete {label}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບ {label}?"
   },
   "contributionPlan.deleteContributionPlan.confirm.title": {
     "en": "Delete Contribution Plan {label}",
@@ -4141,11 +4141,11 @@
   },
   "core.gql_mutation_duplicate_roles_perms": {
     "en": "Core | Mutation Duplicate Roles",
-    "lo": ""
+    "lo": "ລະບົບຫຼັກ | ເຮັດສຳເນົາບົດບາດ"
   },
   "core.gql_mutation_replace_roles_perms": {
     "en": "Core | Mutation Replace Roles",
-    "lo": ""
+    "lo": "ລະບົບຫຼັກ | ທົດແທນບົດບາດ"
   },
   "core.gql_mutation_update_claim_administrator_perms": {
     "en": "Core | Mutation Update Claim Administrator",
@@ -4165,23 +4165,23 @@
   },
   "core.gql_query_claim_administrator_perms": {
     "en": "Core | Query Claim Administrator",
-    "lo": ""
+    "lo": "ລະບົບຫຼັກ | ເບິ່ງຜູ້ຈັດການຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "core.gql_query_enable_viewing_masked_data_perms": {
     "en": "Core | Query Enable Viewing Masked Data",
-    "lo": ""
+    "lo": "ລະບົບຫຼັກ | ເບິ່ງອະນຸຍາດເບິ່ງຂໍ້ມູນທີ່ຖືກປົກປິດ"
   },
   "core.gql_query_enrolment_officers_perms": {
     "en": "Core | Query Enrolment Officers",
-    "lo": ""
+    "lo": "ລະບົບຫຼັກ | ເບິ່ງເຈົ້າໜ້າທີ່ຮັບສະໝັກ"
   },
   "core.gql_query_roles_perms": {
     "en": "Core | Query Roles",
-    "lo": ""
+    "lo": "ລະບົບຫຼັກ | ເບິ່ງບົດບາດ"
   },
   "core.gql_query_users_perms": {
     "en": "Core | Query Users",
-    "lo": ""
+    "lo": "ລະບົບຫຼັກ | ເບິ່ງຜູ້ໃຊ້ລະບົບ"
   },
   "core.InfoButton.tooltip": {
     "en": "More Information",
@@ -4713,11 +4713,11 @@
   },
   "deduplication.gql_create_deduplication_payment_review_perms": {
     "en": "Deduplication | Create Deduplication Payment Review",
-    "lo": ""
+    "lo": "ການກວດຂໍ້ມູນຊ້ຳ | ສ້າງການກວດສອບການຊຳລະເງິນຊ້ຳ"
   },
   "deduplication.gql_create_deduplication_review_perms": {
     "en": "Deduplication | Create Deduplication Review",
-    "lo": ""
+    "lo": "ການກວດຂໍ້ມູນຊ້ຳ | ສ້າງການກວດສອບຂໍ້ມູນຊ້ຳ"
   },
   "deduplication.tasks.deduplication.title": {
     "en": "Benefit Plan Deduplication Task",
@@ -5225,7 +5225,7 @@
   },
   "groups.pageTitle": {
     "en": "Groups",
-    "lo": ""
+    "lo": "ກຸ່ມ"
   },
   "groups.searcherResultsTitle": {
     "en": "{groupsTotalCount} Groups Found",
@@ -5465,39 +5465,39 @@
   },
   "individual.gql_group_create_perms": {
     "en": "Individual | Group Create",
-    "lo": ""
+    "lo": "ບຸກຄົນ | ສ້າງກຸ່ມ"
   },
   "individual.gql_group_delete_perms": {
     "en": "Individual | Group Delete",
-    "lo": ""
+    "lo": "ບຸກຄົນ | ລຶບກຸ່ມ"
   },
   "individual.gql_group_search_perms": {
     "en": "Individual | Group Search",
-    "lo": ""
+    "lo": "ບຸກຄົນ | ຄົ້ນຫາກຸ່ມ"
   },
   "individual.gql_group_update_perms": {
     "en": "Individual | Group Update",
-    "lo": ""
+    "lo": "ບຸກຄົນ | ປັບປຸງກຸ່ມ"
   },
   "individual.gql_individual_create_perms": {
     "en": "Individual | Individual Create",
-    "lo": ""
+    "lo": "ບຸກຄົນ | ສ້າງບຸກຄົນ"
   },
   "individual.gql_individual_delete_perms": {
     "en": "Individual | Individual Delete",
-    "lo": ""
+    "lo": "ບຸກຄົນ | ລຶບບຸກຄົນ"
   },
   "individual.gql_individual_search_perms": {
     "en": "Individual | Individual Search",
-    "lo": ""
+    "lo": "ບຸກຄົນ | ຄົ້ນຫາບຸກຄົນ"
   },
   "individual.gql_individual_undo_delete_perms": {
     "en": "Individual | Individual Undo Delete",
-    "lo": ""
+    "lo": "ບຸກຄົນ | ກູ້ຄືນບຸກຄົນທີ່ຖືກລຶບ"
   },
   "individual.gql_individual_update_perms": {
     "en": "Individual | Individual Update",
-    "lo": ""
+    "lo": "ບຸກຄົນ | ປັບປຸງບຸກຄົນ"
   },
   "individual.groupChange.confirm.message": {
     "en": "Individual {individualId} moved to Group {groupId}",
@@ -5717,7 +5717,7 @@
   },
   "individuals.pageTitle": {
     "en": "Individuals",
-    "lo": ""
+    "lo": "ບຸກຄົນ"
   },
   "individuals.searcherResultsTitle": {
     "en": "{individualsTotalCount} Individuals Found",
@@ -5905,7 +5905,7 @@
   },
   "insuree.Family.contributions": {
     "en": "Contributions",
-    "lo": ""
+    "lo": "ເງິນສົມທົບ"
   },
   "insuree.Family.FamilyType.null": {
     "en": "None",
@@ -5989,7 +5989,7 @@
   },
   "insuree.Family.policies": {
     "en": "Policies",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ"
   },
   "insuree.Family.poverty": {
     "en": "Poverty Status",
@@ -6221,47 +6221,47 @@
   },
   "insuree.gql_mutation_create_families_perms": {
     "en": "Insuree | Mutation Create Families",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ສ້າງຄອບຄົວ"
   },
   "insuree.gql_mutation_create_insurees_perms": {
     "en": "Insuree | Mutation Create Insurees",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ສ້າງຜູ້ເອົາປະກັນ"
   },
   "insuree.gql_mutation_delete_families_perms": {
     "en": "Insuree | Mutation Delete Families",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ລຶບຄອບຄົວ"
   },
   "insuree.gql_mutation_delete_insurees_perms": {
     "en": "Insuree | Mutation Delete Insurees",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ລຶບຜູ້ເອົາປະກັນ"
   },
   "insuree.gql_mutation_update_families_perms": {
     "en": "Insuree | Mutation Update Families",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ປັບປຸງຄອບຄົວ"
   },
   "insuree.gql_mutation_update_insurees_perms": {
     "en": "Insuree | Mutation Update Insurees",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ປັບປຸງຜູ້ເອົາປະກັນ"
   },
   "insuree.gql_query_families_perms": {
     "en": "Insuree | Query Families",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ເບິ່ງຄອບຄົວ"
   },
   "insuree.gql_query_insuree_perms": {
     "en": "Insuree | Query Insuree",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ເບິ່ງຜູ້ເອົາປະກັນ"
   },
   "insuree.gql_query_insuree_photo_perms": {
     "en": "Insuree | Query Insuree Photo",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ເບິ່ງຮູບພາບຜູ້ເອົາປະກັນ"
   },
   "insuree.gql_query_insuree_policy_perms": {
     "en": "Insuree | Query Insuree Policy",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ເບິ່ງສັນຍາປະກັນໄພຂອງຜູ້ເອົາປະກັນ"
   },
   "insuree.gql_query_insurees_perms": {
     "en": "Insuree | Query Insurees",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ | ເບິ່ງຜູ້ເອົາປະກັນ"
   },
   "insuree.HeadInsureeMasterPanel.title": {
     "en": "Head Insuree Details",
@@ -6625,7 +6625,7 @@
   },
   "insuree.link.profile": {
     "en": "Profile",
-    "lo": ""
+    "lo": "ຂໍ້ມູນສ່ວນຕົວ"
   },
   "insuree.mainMenu": {
     "en": "Insurees and Policies",
@@ -6881,7 +6881,7 @@
   },
   "invoice.delete.confirm.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
-    "lo": ""
+    "lo": "ການລຶບຂໍ້ມູນບໍ່ໄດ້ໝາຍຄວາມວ່າລຶບອອກຈາກຖານຂໍ້ມູນ openIMIS. ຂໍ້ມູນຈະຖືກປິດການນຳໃຊ້ອອກຈາກລາຍການທີ່ເບິ່ງເຫັນເທົ່ານັ້ນ."
   },
   "invoice.delete.confirm.title": {
     "en": "Delete {code}?",
@@ -6893,139 +6893,139 @@
   },
   "invoice.gql_bill_amend_perms": {
     "en": "Invoice | Bill Amend",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ແກ້ໄຂເພີ່ມເຕີມໃບບິນ"
   },
   "invoice.gql_bill_create_perms": {
     "en": "Invoice | Bill Create",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ສ້າງໃບບິນ"
   },
   "invoice.gql_bill_delete_perms": {
     "en": "Invoice | Bill Delete",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ລຶບໃບບິນ"
   },
   "invoice.gql_bill_event_create_message_perms": {
     "en": "Invoice | Bill Event Create Message",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ສ້າງຂໍ້ຄວາມເຫດການໃບບິນ"
   },
   "invoice.gql_bill_event_create_perms": {
     "en": "Invoice | Bill Event Create",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ສ້າງເຫດການໃບບິນ"
   },
   "invoice.gql_bill_event_delete_all_message_perms": {
     "en": "Invoice | Bill Event Delete All Message",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ລຶບຂໍ້ຄວາມເຫດການໃບບິນທັງໝົດ"
   },
   "invoice.gql_bill_event_delete_my_message_perms": {
     "en": "Invoice | Bill Event Delete My Message",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ລຶບຂໍ້ຄວາມເຫດການໃບບິນຂອງຕົນເອງ"
   },
   "invoice.gql_bill_event_delete_perms": {
     "en": "Invoice | Bill Event Delete",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ລຶບເຫດການໃບບິນ"
   },
   "invoice.gql_bill_event_search_perms": {
     "en": "Invoice | Bill Event Search",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ຄົ້ນຫາເຫດການໃບບິນ"
   },
   "invoice.gql_bill_event_update_perms": {
     "en": "Invoice | Bill Event Update",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ປັບປຸງເຫດການໃບບິນ"
   },
   "invoice.gql_bill_payment_create_perms": {
     "en": "Invoice | Bill Payment Create",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ສ້າງການຊຳລະໃບບິນ"
   },
   "invoice.gql_bill_payment_delete_perms": {
     "en": "Invoice | Bill Payment Delete",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ລຶບການຊຳລະໃບບິນ"
   },
   "invoice.gql_bill_payment_refund_perms": {
     "en": "Invoice | Bill Payment Refund",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ຄືນເງິນການຊຳລະໃບບິນ"
   },
   "invoice.gql_bill_payment_search_perms": {
     "en": "Invoice | Bill Payment Search",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ຄົ້ນຫາການຊຳລະໃບບິນ"
   },
   "invoice.gql_bill_payment_update_perms": {
     "en": "Invoice | Bill Payment Update",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ປັບປຸງການຊຳລະໃບບິນ"
   },
   "invoice.gql_bill_search_perms": {
     "en": "Invoice | Bill Search",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ຄົ້ນຫາໃບບິນ"
   },
   "invoice.gql_bill_update_perms": {
     "en": "Invoice | Bill Update",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ປັບປຸງໃບບິນ"
   },
   "invoice.gql_invoice_amend_perms": {
     "en": "Invoice | Invoice Amend",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ແກ້ໄຂເພີ່ມເຕີມໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_create_perms": {
     "en": "Invoice | Invoice Create",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ສ້າງໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_delete_perms": {
     "en": "Invoice | Invoice Delete",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ລຶບໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_event_create_message_perms": {
     "en": "Invoice | Invoice Event Create Message",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ສ້າງຂໍ້ຄວາມເຫດການໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_event_create_perms": {
     "en": "Invoice | Invoice Event Create",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ສ້າງເຫດການໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_event_delete_all_message_perms": {
     "en": "Invoice | Invoice Event Delete All Message",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ລຶບຂໍ້ຄວາມເຫດການໃບແຈ້ງໜີ້ທັງໝົດ"
   },
   "invoice.gql_invoice_event_delete_my_message_perms": {
     "en": "Invoice | Invoice Event Delete My Message",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ລຶບຂໍ້ຄວາມເຫດການໃບແຈ້ງໜີ້ຂອງຕົນເອງ"
   },
   "invoice.gql_invoice_event_delete_perms": {
     "en": "Invoice | Invoice Event Delete",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ລຶບເຫດການໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_event_search_perms": {
     "en": "Invoice | Invoice Event Search",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ຄົ້ນຫາເຫດການໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_event_update_perms": {
     "en": "Invoice | Invoice Event Update",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ປັບປຸງເຫດການໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_payment_create_perms": {
     "en": "Invoice | Invoice Payment Create",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ສ້າງການຊຳລະໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_payment_delete_perms": {
     "en": "Invoice | Invoice Payment Delete",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ລຶບການຊຳລະໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_payment_refund_perms": {
     "en": "Invoice | Invoice Payment Refund",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ຄືນເງິນການຊຳລະໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_payment_search_perms": {
     "en": "Invoice | Invoice Payment Search",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ຄົ້ນຫາການຊຳລະໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_payment_update_perms": {
     "en": "Invoice | Invoice Payment Update",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ປັບປຸງການຊຳລະໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_search_perms": {
     "en": "Invoice | Invoice Search",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ຄົ້ນຫາໃບແຈ້ງໜີ້"
   },
   "invoice.gql_invoice_update_perms": {
     "en": "Invoice | Invoice Update",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ | ປັບປຸງໃບແຈ້ງໜີ້"
   },
   "invoice.headPanelTitle": {
     "en": "General Information",
@@ -7221,7 +7221,7 @@
   },
   "invoicePayment.delete.confirm.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
-    "lo": ""
+    "lo": "ການລຶບຂໍ້ມູນບໍ່ໄດ້ໝາຍຄວາມວ່າລຶບອອກຈາກຖານຂໍ້ມູນ openIMIS. ຂໍ້ມູນຈະຖືກປິດການນຳໃຊ້ອອກຈາກລາຍການທີ່ເບິ່ງເຫັນເທົ່ານັ້ນ."
   },
   "invoicePayment.delete.confirm.title": {
     "en": "Delete {invoicePaymentLabel}?",
@@ -7281,7 +7281,7 @@
   },
   "invoices.pageTitle": {
     "en": "Invoices",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້"
   },
   "invoices.searcherResultsTitle": {
     "en": "{invoicesTotalCount} Invoices Found",
@@ -7409,47 +7409,47 @@
   },
   "location.gql_mutation_create_health_facilities_perms": {
     "en": "Location | Mutation Create Health Facilities",
-    "lo": ""
+    "lo": "ເຂດພື້ນທີ່ | ສ້າງສະຖານບໍລິການສຸຂະພາບ"
   },
   "location.gql_mutation_create_locations_perms": {
     "en": "Location | Mutation Create Locations",
-    "lo": ""
+    "lo": "ເຂດພື້ນທີ່ | ສ້າງເຂດພື້ນທີ່"
   },
   "location.gql_mutation_create_region_locations_perms": {
     "en": "Location | Mutation Create Region Locations",
-    "lo": ""
+    "lo": "ເຂດພື້ນທີ່ | ສ້າງເຂດພື້ນທີ່ລະດັບແຂວງ"
   },
   "location.gql_mutation_delete_health_facilities_perms": {
     "en": "Location | Mutation Delete Health Facilities",
-    "lo": ""
+    "lo": "ເຂດພື້ນທີ່ | ລຶບສະຖານບໍລິການສຸຂະພາບ"
   },
   "location.gql_mutation_delete_locations_perms": {
     "en": "Location | Mutation Delete Locations",
-    "lo": ""
+    "lo": "ເຂດພື້ນທີ່ | ລຶບເຂດພື້ນທີ່"
   },
   "location.gql_mutation_edit_health_facilities_perms": {
     "en": "Location | Mutation Edit Health Facilities",
-    "lo": ""
+    "lo": "ເຂດພື້ນທີ່ | ແກ້ໄຂສະຖານບໍລິການສຸຂະພາບ"
   },
   "location.gql_mutation_edit_locations_perms": {
     "en": "Location | Mutation Edit Locations",
-    "lo": ""
+    "lo": "ເຂດພື້ນທີ່ | ແກ້ໄຂເຂດພື້ນທີ່"
   },
   "location.gql_mutation_move_location_perms": {
     "en": "Location | Mutation Move Location",
-    "lo": ""
+    "lo": "ເຂດພື້ນທີ່ | ຍ້າຍທີ່ຕັ້ງ"
   },
   "location.gql_query_health_facilities_perms": {
     "en": "Location | Query Health Facilities",
-    "lo": ""
+    "lo": "ເຂດພື້ນທີ່ | ເບິ່ງສະຖານບໍລິການສຸຂະພາບ"
   },
   "location.gql_query_locations_perms": {
     "en": "Location | Query Locations",
-    "lo": ""
+    "lo": "ເຂດພື້ນທີ່ | ເບິ່ງເຂດພື້ນທີ່"
   },
   "location.healthFacilities.page.title": {
     "en": "Health Facilities",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
   },
   "location.healthFacility.edit.page.title": {
     "en": "HF {code}",
@@ -7929,43 +7929,43 @@
   },
   "medical_pricelist.gql_mutation_pricelists_medical_items_add_perms": {
     "en": "Medical Pricelist | Mutation Pricelists Medical Items Add",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການແພດ | ເພີ່ມບັນຊີລາຄາລາຍການທາງການແພດ"
   },
   "medical_pricelist.gql_mutation_pricelists_medical_items_delete_perms": {
     "en": "Medical Pricelist | Mutation Pricelists Medical Items Delete",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການແພດ | ລຶບບັນຊີລາຄາລາຍການທາງການແພດ"
   },
   "medical_pricelist.gql_mutation_pricelists_medical_items_duplicate_perms": {
     "en": "Medical Pricelist | Mutation Pricelists Medical Items Duplicate",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການແພດ | ເຮັດສຳເນົາບັນຊີລາຄາລາຍການທາງການແພດ"
   },
   "medical_pricelist.gql_mutation_pricelists_medical_items_update_perms": {
     "en": "Medical Pricelist | Mutation Pricelists Medical Items Update",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການແພດ | ປັບປຸງບັນຊີລາຄາລາຍການທາງການແພດ"
   },
   "medical_pricelist.gql_mutation_pricelists_medical_services_add_perms": {
     "en": "Medical Pricelist | Mutation Pricelists Medical Services Add",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການແພດ | ເພີ່ມບັນຊີລາຄາການບໍລິການທາງການແພດ"
   },
   "medical_pricelist.gql_mutation_pricelists_medical_services_delete_perms": {
     "en": "Medical Pricelist | Mutation Pricelists Medical Services Delete",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການແພດ | ລຶບບັນຊີລາຄາການບໍລິການທາງການແພດ"
   },
   "medical_pricelist.gql_mutation_pricelists_medical_services_duplicate_perms": {
     "en": "Medical Pricelist | Mutation Pricelists Medical Services Duplicate",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການແພດ | ເຮັດສຳເນົາບັນຊີລາຄາການບໍລິການທາງການແພດ"
   },
   "medical_pricelist.gql_mutation_pricelists_medical_services_update_perms": {
     "en": "Medical Pricelist | Mutation Pricelists Medical Services Update",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການແພດ | ປັບປຸງບັນຊີລາຄາການບໍລິການທາງການແພດ"
   },
   "medical_pricelist.gql_query_pricelists_medical_items_perms": {
     "en": "Medical Pricelist | Query Pricelists Medical Items",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການແພດ | ເບິ່ງບັນຊີລາຄາລາຍການທາງການແພດ"
   },
   "medical_pricelist.gql_query_pricelists_medical_services_perms": {
     "en": "Medical Pricelist | Query Pricelists Medical Services",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການແພດ | ເບິ່ງບັນຊີລາຄາການບໍລິການທາງການແພດ"
   },
   "medical_pricelist.itemsPricelist": {
     "en": "Items Pricelist",
@@ -8001,7 +8001,7 @@
   },
   "medical_pricelist.pricelistForm.selectAll": {
     "en": "Select All",
-    "lo": ""
+    "lo": "ເລືອກທັງໝົດ"
   },
   "medical_pricelist.pricelistForm.table.title": {
     "en": "Details",
@@ -8077,7 +8077,7 @@
   },
   "medical_pricelist.table.selectAll": {
     "en": "Select All",
-    "lo": ""
+    "lo": "ເລືອກທັງໝົດ"
   },
   "medical_pricelist.table.type": {
     "en": "Type",
@@ -8161,35 +8161,35 @@
   },
   "medical.gql_mutation_medical_items_add_perms": {
     "en": "Medical | Mutation Medical Items Add",
-    "lo": ""
+    "lo": "ການແພດ | ເພີ່ມລາຍການທາງການແພດ"
   },
   "medical.gql_mutation_medical_items_delete_perms": {
     "en": "Medical | Mutation Medical Items Delete",
-    "lo": ""
+    "lo": "ການແພດ | ລຶບລາຍການທາງການແພດ"
   },
   "medical.gql_mutation_medical_items_update_perms": {
     "en": "Medical | Mutation Medical Items Update",
-    "lo": ""
+    "lo": "ການແພດ | ປັບປຸງລາຍການທາງການແພດ"
   },
   "medical.gql_mutation_medical_services_add_perms": {
     "en": "Medical | Mutation Medical Services Add",
-    "lo": ""
+    "lo": "ການແພດ | ເພີ່ມການບໍລິການທາງການແພດ"
   },
   "medical.gql_mutation_medical_services_delete_perms": {
     "en": "Medical | Mutation Medical Services Delete",
-    "lo": ""
+    "lo": "ການແພດ | ລຶບການບໍລິການທາງການແພດ"
   },
   "medical.gql_mutation_medical_services_update_perms": {
     "en": "Medical | Mutation Medical Services Update",
-    "lo": ""
+    "lo": "ການແພດ | ປັບປຸງການບໍລິການທາງການແພດ"
   },
   "medical.gql_query_medical_items_perms": {
     "en": "Medical | Query Medical Items",
-    "lo": ""
+    "lo": "ການແພດ | ເບິ່ງລາຍການທາງການແພດ"
   },
   "medical.gql_query_medical_services_perms": {
     "en": "Medical | Query Medical Services",
-    "lo": ""
+    "lo": "ການແພດ | ເບິ່ງການບໍລິການທາງການແພດ"
   },
   "medical.Item": {
     "en": "Medical Item",
@@ -8717,11 +8717,11 @@
   },
   "opensearch_reports.gql_opensearch_dashboard_search_perms": {
     "en": "Opensearch Reports | Opensearch Dashboard Search",
-    "lo": ""
+    "lo": "ບົດລາຍງານ OpenSearch | ຄົ້ນຫາແຜງໜ້າປັດ OpenSearch"
   },
   "opensearch_reports.gql_opensearch_dashboard_update_perms": {
     "en": "Opensearch Reports | Opensearch Dashboard Update",
-    "lo": ""
+    "lo": "ບົດລາຍງານ OpenSearch | ປັບປຸງແຜງໜ້າປັດ OpenSearch"
   },
   "openSearchReports.dashboard.edit": {
     "en": "Edit Dashboard",
@@ -8845,19 +8845,19 @@
   },
   "payer.gql_mutation_payer_add_perms": {
     "en": "Payer | Mutation Payer Add",
-    "lo": ""
+    "lo": "ຜູ້ຈ່າຍເງິນ | ເພີ່ມຜູ້ຈ່າຍເງິນ"
   },
   "payer.gql_mutation_payer_delete_perms": {
     "en": "Payer | Mutation Payer Delete",
-    "lo": ""
+    "lo": "ຜູ້ຈ່າຍເງິນ | ລຶບຜູ້ຈ່າຍເງິນ"
   },
   "payer.gql_mutation_payer_update_perms": {
     "en": "Payer | Mutation Payer Update",
-    "lo": ""
+    "lo": "ຜູ້ຈ່າຍເງິນ | ປັບປຸງຜູ້ຈ່າຍເງິນ"
   },
   "payer.gql_query_payers_perms": {
     "en": "Payer | Query Payers",
-    "lo": ""
+    "lo": "ຜູ້ຈ່າຍເງິນ | ເບິ່ງຜູ້ຈ່າຍເງິນ"
   },
   "payer.name": {
     "en": "Name",
@@ -8965,19 +8965,19 @@
   },
   "payment_cycle.gql_create_payment_cycle_perms": {
     "en": "Payment Cycle | Create Payment Cycle",
-    "lo": ""
+    "lo": "ຮອບການຈ່າຍເງິນ | ສ້າງຮອບການຈ່າຍເງິນ"
   },
   "payment_cycle.gql_delete_payment_cycle_perms": {
     "en": "Payment Cycle | Delete Payment Cycle",
-    "lo": ""
+    "lo": "ຮອບການຈ່າຍເງິນ | ລຶບຮອບການຈ່າຍເງິນ"
   },
   "payment_cycle.gql_query_payment_cycle_perms": {
     "en": "Payment Cycle | Query Payment Cycle",
-    "lo": ""
+    "lo": "ຮອບການຈ່າຍເງິນ | ເບິ່ງຮອບການຈ່າຍເງິນ"
   },
   "payment_cycle.gql_update_payment_cycle_perms": {
     "en": "Payment Cycle | Update Payment Cycle",
-    "lo": ""
+    "lo": "ຮອບການຈ່າຍເງິນ | ປັບປຸງຮອບການຈ່າຍເງິນ"
   },
   "payment.addNewPayment.tooltip": {
     "en": "Add new payment",
@@ -9021,19 +9021,19 @@
   },
   "payment.gql_mutation_create_payments_perms": {
     "en": "Payment | Mutation Create Payments",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນ | ສ້າງການຊຳລະເງິນ"
   },
   "payment.gql_mutation_delete_payments_perms": {
     "en": "Payment | Mutation Delete Payments",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນ | ລຶບການຊຳລະເງິນ"
   },
   "payment.gql_mutation_update_payments_perms": {
     "en": "Payment | Mutation Update Payments",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນ | ປັບປຸງການຊຳລະເງິນ"
   },
   "payment.gql_query_payments_perms": {
     "en": "Payment | Query Payments",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນ | ເບິ່ງການຊຳລະເງິນ"
   },
   "payment.menu.payments": {
     "en": "Payments",
@@ -9481,7 +9481,7 @@
   },
   "paymentInvoice.delete.confirm.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
-    "lo": ""
+    "lo": "ການລຶບຂໍ້ມູນບໍ່ໄດ້ໝາຍຄວາມວ່າລຶບອອກຈາກຖານຂໍ້ມູນ openIMIS. ຂໍ້ມູນຈະຖືກປິດການນຳໃຊ້ອອກຈາກລາຍການທີ່ເບິ່ງເຫັນເທົ່ານັ້ນ."
   },
   "paymentInvoice.delete.confirm.title": {
     "en": "Delete {paymentInvoiceLabel}?",
@@ -9653,7 +9653,7 @@
   },
   "paymentPlan.deletePaymentPlan.confirm.message": {
     "en": "Are you sure you want to delete {label}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບ {label}?"
   },
   "paymentPlan.deletePaymentPlan.confirm.title": {
     "en": "Delete Payment Plan {label}",
@@ -9989,39 +9989,39 @@
   },
   "payroll.gql_csv_reconciliation_create_perms": {
     "en": "Payroll | Csv Reconciliation Create",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ | ສ້າງການກະທົບຍອດ CSV"
   },
   "payroll.gql_csv_reconciliation_search_perms": {
     "en": "Payroll | Csv Reconciliation Search",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ | ຄົ້ນຫາການກະທົບຍອດ CSV"
   },
   "payroll.gql_payment_point_create_perms": {
     "en": "Payroll | Payment Point Create",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ | ສ້າງຈຸດຈ່າຍເງິນ"
   },
   "payroll.gql_payment_point_delete_perms": {
     "en": "Payroll | Payment Point Delete",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ | ລຶບຈຸດຈ່າຍເງິນ"
   },
   "payroll.gql_payment_point_search_perms": {
     "en": "Payroll | Payment Point Search",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ | ຄົ້ນຫາຈຸດຈ່າຍເງິນ"
   },
   "payroll.gql_payment_point_update_perms": {
     "en": "Payroll | Payment Point Update",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ | ປັບປຸງຈຸດຈ່າຍເງິນ"
   },
   "payroll.gql_payroll_create_perms": {
     "en": "Payroll | Payroll Create",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ | ສ້າງບັນຊີການຈ່າຍເງິນ"
   },
   "payroll.gql_payroll_delete_perms": {
     "en": "Payroll | Payroll Delete",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ | ລຶບບັນຊີການຈ່າຍເງິນ"
   },
   "payroll.gql_payroll_search_perms": {
     "en": "Payroll | Payroll Search",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ | ຄົ້ນຫາບັນຊີການຈ່າຍເງິນ"
   },
   "payroll.paymentData.upload.label": {
     "en": "Upload Payment Data",
@@ -10457,39 +10457,39 @@
   },
   "policy.gql_mutation_create_policies_perms": {
     "en": "Policy | Mutation Create Policies",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ | ສ້າງສັນຍາປະກັນໄພ"
   },
   "policy.gql_mutation_delete_policies_perms": {
     "en": "Policy | Mutation Delete Policies",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ | ລຶບສັນຍາປະກັນໄພ"
   },
   "policy.gql_mutation_edit_policies_perms": {
     "en": "Policy | Mutation Edit Policies",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ | ແກ້ໄຂສັນຍາປະກັນໄພ"
   },
   "policy.gql_mutation_renew_policies_perms": {
     "en": "Policy | Mutation Renew Policies",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ | ຕໍ່ອາຍຸສັນຍາປະກັນໄພ"
   },
   "policy.gql_mutation_suspend_policies_perms": {
     "en": "Policy | Mutation Suspend Policies",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ | ໂຈະສັນຍາປະກັນໄພ"
   },
   "policy.gql_query_eligibilities_perms": {
     "en": "Policy | Query Eligibilities",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ | ເບິ່ງສິດທິປະໂຫຍດ"
   },
   "policy.gql_query_policies_by_family_perms": {
     "en": "Policy | Query Policies By Family",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ | ເບິ່ງສັນຍາປະກັນໄພຕາມຄອບຄົວ"
   },
   "policy.gql_query_policies_by_insuree_perms": {
     "en": "Policy | Query Policies By Insuree",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ | ເບິ່ງສັນຍາປະກັນໄພຕາມຜູ້ເອົາປະກັນ"
   },
   "policy.gql_query_policies_perms": {
     "en": "Policy | Query Policies",
-    "lo": ""
+    "lo": "ສັນຍາປະກັນໄພ | ເບິ່ງສັນຍາປະກັນໄພ"
   },
   "policy.insureeEligibility.admissionsLeft": {
     "en": "Admissions",
@@ -11113,7 +11113,7 @@
   },
   "policyHolder.dialog.delete.message": {
     "en": "Deleting data does not mean erasing it from openIMIS database. The data will only be deactivated from the viewed list.",
-    "lo": ""
+    "lo": "ການລຶບຂໍ້ມູນບໍ່ໄດ້ໝາຍຄວາມວ່າລຶບອອກຈາກຖານຂໍ້ມູນ openIMIS. ຂໍ້ມູນຈະຖືກປິດການນຳໃຊ້ອອກຈາກລາຍການທີ່ເບິ່ງເຫັນເທົ່ານັ້ນ."
   },
   "policyHolder.dialog.replace": {
     "en": "Add",
@@ -11173,135 +11173,135 @@
   },
   "policyholder.gql_mutation_create_policyholder_perms": {
     "en": "Policyholder | Mutation Create Policyholder",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ສ້າງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_create_policyholdercontributionplan_perms": {
     "en": "Policyholder | Mutation Create Policyholder Contribution Plan",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ສ້າງແຜນເງິນສົມທົບຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_create_policyholderinsuree_perms": {
     "en": "Policyholder | Mutation Create Policyholder Insuree",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ສ້າງຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_create_policyholderinsuree_portal_perms": {
     "en": "Policyholder | Mutation Create Policyholder Insuree Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ສ້າງຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_mutation_create_policyholderuser_perms": {
     "en": "Policyholder | Mutation Create Policyholder User",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ສ້າງຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_create_policyholderuser_portal_perms": {
     "en": "Policyholder | Mutation Create Policyholder User Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ສ້າງຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_mutation_delete_policyholder_perms": {
     "en": "Policyholder | Mutation Delete Policyholder",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ລຶບຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_delete_policyholdercontributionplan_perms": {
     "en": "Policyholder | Mutation Delete Policyholder Contribution Plan",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ລຶບແຜນເງິນສົມທົບຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_delete_policyholderinsuree_perms": {
     "en": "Policyholder | Mutation Delete Policyholder Insuree",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ລຶບຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_delete_policyholderinsuree_portal_perms": {
     "en": "Policyholder | Mutation Delete Policyholder Insuree Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ລຶບຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_mutation_delete_policyholderuser_perms": {
     "en": "Policyholder | Mutation Delete Policyholder User",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ລຶບຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_delete_policyholderuser_portal_perms": {
     "en": "Policyholder | Mutation Delete Policyholder User Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ລຶບຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_mutation_replace_policyholdercontributionplan_perms": {
     "en": "Policyholder | Mutation Replace Policyholder Contribution Plan",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ທົດແທນແຜນເງິນສົມທົບຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_replace_policyholderinsuree_perms": {
     "en": "Policyholder | Mutation Replace Policyholder Insuree",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ທົດແທນຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_replace_policyholderinsuree_portal_perms": {
     "en": "Policyholder | Mutation Replace Policyholder Insuree Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ທົດແທນຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_mutation_replace_policyholderuser_perms": {
     "en": "Policyholder | Mutation Replace Policyholder User",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ທົດແທນຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_replace_policyholderuser_portal_perms": {
     "en": "Policyholder | Mutation Replace Policyholder User Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ທົດແທນຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_mutation_update_policyholder_perms": {
     "en": "Policyholder | Mutation Update Policyholder",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ປັບປຸງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_update_policyholdercontributionplan_perms": {
     "en": "Policyholder | Mutation Update Policyholder Contribution Plan",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ປັບປຸງແຜນເງິນສົມທົບຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_update_policyholderinsuree_perms": {
     "en": "Policyholder | Mutation Update Policyholder Insuree",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ປັບປຸງຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_update_policyholderinsuree_portal_perms": {
     "en": "Policyholder | Mutation Update Policyholder Insuree Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ປັບປຸງຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_mutation_update_policyholderuser_perms": {
     "en": "Policyholder | Mutation Update Policyholder User",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ປັບປຸງຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_mutation_update_policyholderuser_portal_perms": {
     "en": "Policyholder | Mutation Update Policyholder User Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ປັບປຸງຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_query_insuree_policy_portal_perms": {
     "en": "Policyholder | Query Insuree Policy Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ເບິ່ງສັນຍາປະກັນໄພຂອງຜູ້ເອົາປະກັນໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_query_payment_portal_perms": {
     "en": "Policyholder | Query Payment Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ເບິ່ງການຊຳລະເງິນໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_query_policyholder_perms": {
     "en": "Policyholder | Query Policyholder",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ເບິ່ງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_query_policyholder_portal_perms": {
     "en": "Policyholder | Query Policyholder Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ເບິ່ງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_query_policyholdercontributionplanbundle_perms": {
     "en": "Policyholder | Query Policyholder Contribution Plan Bundle",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ເບິ່ງຊຸດແຜນເງິນສົມທົບຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_query_policyholdercontributionplanbundle_portal_perms": {
     "en": "Policyholder | Query Policyholder Contribution Plan Bundle Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ເບິ່ງຊຸດແຜນເງິນສົມທົບຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_query_policyholderinsuree_perms": {
     "en": "Policyholder | Query Policyholder Insuree",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ເບິ່ງຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_query_policyholderinsuree_portal_perms": {
     "en": "Policyholder | Query Policyholder Insuree Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ເບິ່ງຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyholder.gql_query_policyholderuser_perms": {
     "en": "Policyholder | Query Policyholder User",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ເບິ່ງຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyholder.gql_query_policyholderuser_portal_perms": {
     "en": "Policyholder | Query Policyholder User Portal",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ | ເບິ່ງຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພໃນລະບົບພາຍນອກ"
   },
   "policyHolder.insureeCHFID": {
     "en": "Insuree No.",
@@ -11433,7 +11433,7 @@
   },
   "policyHolder.policyHolders.page.title": {
     "en": "Policy Holders",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyHolder.policyHolders.searcher.results.title": {
     "en": "{policyHoldersTotalCount} Policy Holders Found",
@@ -11705,7 +11705,7 @@
   },
   "product.DataGrid.actions": {
     "en": "Actions",
-    "lo": ""
+    "lo": "ການດຳເນີນການ"
   },
   "product.dateFrom": {
     "en": "Date From",
@@ -11857,23 +11857,23 @@
   },
   "product.gql_mutation_products_add_perms": {
     "en": "Product | Mutation Products Add",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນປະກັນໄພ | ເພີ່ມຜະລິດຕະພັນປະກັນໄພ"
   },
   "product.gql_mutation_products_delete_perms": {
     "en": "Product | Mutation Products Delete",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນປະກັນໄພ | ລຶບຜະລິດຕະພັນປະກັນໄພ"
   },
   "product.gql_mutation_products_duplicate_perms": {
     "en": "Product | Mutation Products Duplicate",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນປະກັນໄພ | ເຮັດສຳເນົາຜະລິດຕະພັນປະກັນໄພ"
   },
   "product.gql_mutation_products_edit_perms": {
     "en": "Product | Mutation Products Edit",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນປະກັນໄພ | ແກ້ໄຂຜະລິດຕະພັນປະກັນໄພ"
   },
   "product.gql_query_products_perms": {
     "en": "Product | Query Products",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນປະກັນໄພ | ເບິ່ງຜະລິດຕະພັນປະກັນໄພ"
   },
   "product.gracePeriodEnrolment": {
     "en": "Enrolment Grace Period",
@@ -12261,7 +12261,7 @@
   },
   "profile.ChangePasswordPage.title": {
     "en": "Change Password",
-    "lo": ""
+    "lo": "ປ່ຽນລະຫັດຜ່ານ"
   },
   "profile.districts": {
     "en": "Assigned Districts",
@@ -12293,7 +12293,7 @@
   },
   "profile.MyProfilePage.title": {
     "en": "My Profile",
-    "lo": ""
+    "lo": "ຂໍ້ມູນສ່ວນຕົວຂອງຂ້ອຍ"
   },
   "profile.otherNames": {
     "en": "Other Names",
@@ -12313,7 +12313,7 @@
   },
   "profile.userName": {
     "en": "Username",
-    "lo": ""
+    "lo": "ຊື່ຜູ້ໃຊ້"
   },
   "project.activityPicker.label": {
     "en": "Activity",
@@ -12361,7 +12361,7 @@
   },
   "project.picker.label": {
     "en": "Projects",
-    "lo": "ໂຄງການ"
+    "lo": "ໂຄງການຍ່ອຍ"
   },
   "project.picker.placeholder": {
     "en": "Select projects...",
@@ -12465,111 +12465,111 @@
   },
   "report.gql_mutation_report_add_perms": {
     "en": "Report | Mutation Report Add",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ເພີ່ມບົດລາຍງານ"
   },
   "report.gql_mutation_report_delete_perms": {
     "en": "Report | Mutation Report Delete",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ລຶບບົດລາຍງານ"
   },
   "report.gql_mutation_report_edit_perms": {
     "en": "Report | Mutation Report Edit",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ແກ້ໄຂບົດລາຍງານ"
   },
   "report.gql_query_report_perms": {
     "en": "Report | Query Report",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ເບິ່ງບົດລາຍງານ"
   },
   "report.gql_reports_capitation_payment_perms": {
     "en": "Report | Capitation Payment",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ການຈ່າຍແບບເໝົາຈ່າຍລາຍຫົວ"
   },
   "report.gql_reports_claim_history_report_perms": {
     "en": "Report | Claim History Report",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ປະຫວັດຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "report.gql_reports_claim_overview_report_perms": {
     "en": "Report | Claim Overview Report",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ພາບລວມຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "report.gql_reports_contribution_collection_perms": {
     "en": "Report | Contribution Collection",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ການເກັບເງິນສົມທົບ"
   },
   "report.gql_reports_contribution_distribution_perms": {
     "en": "Report | Contribution Distribution",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ການແບ່ງປັນເງິນສົມທົບ"
   },
   "report.gql_reports_contribution_payment_perms": {
     "en": "Report | Contribution Payment",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ການຊຳລະເງິນສົມທົບ"
   },
   "report.gql_reports_control_number_assignment_perms": {
     "en": "Report | Control Number Assignment",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ການກຳນົດເລກອ້າງອີງການຈ່າຍ"
   },
   "report.gql_reports_derived_operational_indicators_perms": {
     "en": "Report | Derived Operational Indicators",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ຕົວຊີ້ວັດການດຳເນີນງານແບບຄິດໄລ່"
   },
   "report.gql_reports_enrolment_performance_indicators_perms": {
     "en": "Report | Enrolment Performance Indicators",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ຕົວຊີ້ວັດຜົນການຮັບສະໝັກ"
   },
   "report.gql_reports_families_insurees_overview_perms": {
     "en": "Report | Families Insurees Overview",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ພາບລວມຄອບຄົວ ແລະ ຜູ້ເອົາປະກັນ"
   },
   "report.gql_reports_insuree_without_photos_perms": {
     "en": "Report | Insuree Without Photos",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ຜູ້ເອົາປະກັນທີ່ບໍ່ມີຮູບພາບ"
   },
   "report.gql_reports_matching_funds_perms": {
     "en": "Report | Matching Funds",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ທຶນສົມທົບ"
   },
   "report.gql_reports_overview_of_commissions_perms": {
     "en": "Report | Overview Of Commissions",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ພາບລວມຄ່ານາຍໜ້າ"
   },
   "report.gql_reports_payment_category_overview_perms": {
     "en": "Report | Payment Category Overview",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ພາບລວມປະເພດການຊຳລະເງິນ"
   },
   "report.gql_reports_pending_insurees_perms": {
     "en": "Report | Pending Insurees",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ຜູ້ເອົາປະກັນທີ່ລໍຖ້າດຳເນີນການ"
   },
   "report.gql_reports_percentage_referrals_perms": {
     "en": "Report | Percentage Referrals",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ອັດຕາສ່ວນການສົ່ງຕໍ່"
   },
   "report.gql_reports_primary_operational_indicator_policies_perms": {
     "en": "Report | Primary Operational Indicator Policies",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ຕົວຊີ້ວັດການດຳເນີນງານຫຼັກ: ສັນຍາປະກັນໄພ"
   },
   "report.gql_reports_primary_operational_indicators_claims_perms": {
     "en": "Report | Primary Operational Indicators Claims",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ຕົວຊີ້ວັດການດຳເນີນງານຫຼັກ: ຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "report.gql_reports_product_sales_perms": {
     "en": "Report | Product Sales",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ຍອດຂາຍຜະລິດຕະພັນປະກັນໄພ"
   },
   "report.gql_reports_rejected_photo_perms": {
     "en": "Report | Rejected Photo",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ຮູບພາບທີ່ຖືກປະຕິເສດ"
   },
   "report.gql_reports_renewals_perms": {
     "en": "Report | Renewals",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ການຕໍ່ອາຍຸ"
   },
   "report.gql_reports_status_of_register_perms": {
     "en": "Report | Status Of Register",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ສະຖານະຂອງທະບຽນ"
   },
   "report.gql_reports_user_activity_perms": {
     "en": "Report | User Activity",
-    "lo": ""
+    "lo": "ບົດລາຍງານ | ກິດຈະກຳຜູ້ໃຊ້"
   },
   "resetFilters.buttonText": {
     "en": "Reset",
@@ -12641,67 +12641,67 @@
   },
   "social_protection.gql_activity_search_perms": {
     "en": "Social Protection | Activity Search",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ຄົ້ນຫາກິດຈະກຳ"
   },
   "social_protection.gql_beneficiary_create_perms": {
     "en": "Social Protection | Beneficiary Create",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ສ້າງຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "social_protection.gql_beneficiary_delete_perms": {
     "en": "Social Protection | Beneficiary Delete",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ລຶບຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "social_protection.gql_beneficiary_search_perms": {
     "en": "Social Protection | Beneficiary Search",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ຄົ້ນຫາຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "social_protection.gql_beneficiary_update_perms": {
     "en": "Social Protection | Beneficiary Update",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ປັບປຸງຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "social_protection.gql_benefit_plan_close_perms": {
     "en": "Social Protection | Program Close",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ປິດໂຄງການ"
   },
   "social_protection.gql_benefit_plan_create_perms": {
     "en": "Social Protection | Program Create",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ສ້າງໂຄງການ"
   },
   "social_protection.gql_benefit_plan_delete_perms": {
     "en": "Social Protection | Program Delete",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ລຶບໂຄງການ"
   },
   "social_protection.gql_benefit_plan_search_perms": {
     "en": "Social Protection | Program Search",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ຄົ້ນຫາໂຄງການ"
   },
   "social_protection.gql_benefit_plan_update_perms": {
     "en": "Social Protection | Program Update",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ປັບປຸງໂຄງການ"
   },
   "social_protection.gql_project_create_perms": {
     "en": "Social Protection | Project Create",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ສ້າງໂຄງການຍ່ອຍ"
   },
   "social_protection.gql_project_search_perms": {
     "en": "Social Protection | Project Search",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ຄົ້ນຫາໂຄງການຍ່ອຍ"
   },
   "social_protection.gql_schema_create_perms": {
     "en": "Social Protection | Schema Create",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ສ້າງໂຄງສ້າງຂໍ້ມູນ"
   },
   "social_protection.gql_schema_delete_perms": {
     "en": "Social Protection | Schema Delete",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ລຶບໂຄງສ້າງຂໍ້ມູນ"
   },
   "social_protection.gql_schema_search_perms": {
     "en": "Social Protection | Schema Search",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ຄົ້ນຫາໂຄງສ້າງຂໍ້ມູນ"
   },
   "social_protection.gql_schema_update_perms": {
     "en": "Social Protection | Schema Update",
-    "lo": ""
+    "lo": "ການປົກປ້ອງທາງສັງຄົມ | ປັບປຸງໂຄງສ້າງຂໍ້ມູນ"
   },
   "socialProtection.acceptSelected": {
     "en": "Accept Selected",
@@ -12825,7 +12825,7 @@
   },
   "socialProtection.benefitPackage.benefitPackageGrievancesTab.label": {
     "en": "Grievances",
-    "lo": ""
+    "lo": "ລາຍການຄຳຮ້ອງທຸກ"
   },
   "socialProtection.benefitPackage.benefitPackageMembersTab.label": {
     "en": "Members",
@@ -13001,7 +13001,7 @@
   },
   "socialProtection.benefitPlan.BenefitPlanProjects.label": {
     "en": "Projects",
-    "lo": "ໂຄງການ"
+    "lo": "ໂຄງການຍ່ອຍ"
   },
   "socialProtection.benefitPlan.benefitPlanSchema.label": {
     "en": "Program Schema",
@@ -13357,7 +13357,7 @@
   },
   "socialProtection.projects.label": {
     "en": "Projects",
-    "lo": "ໂຄງການ"
+    "lo": "ໂຄງການຍ່ອຍ"
   },
   "socialProtection.projects.searcherAddAction": {
     "en": "Create Project",
@@ -13413,39 +13413,39 @@
   },
   "tasks_management.gql_task_create_perms": {
     "en": "Tasks Management | Task Create",
-    "lo": ""
+    "lo": "ການຈັດການໜ້າວຽກ | ສ້າງໜ້າວຽກ"
   },
   "tasks_management.gql_task_delete_perms": {
     "en": "Tasks Management | Task Delete",
-    "lo": ""
+    "lo": "ການຈັດການໜ້າວຽກ | ລຶບໜ້າວຽກ"
   },
   "tasks_management.gql_task_group_create_perms": {
     "en": "Tasks Management | Task Group Create",
-    "lo": ""
+    "lo": "ການຈັດການໜ້າວຽກ | ສ້າງກຸ່ມໜ້າວຽກ"
   },
   "tasks_management.gql_task_group_delete_perms": {
     "en": "Tasks Management | Task Group Delete",
-    "lo": ""
+    "lo": "ການຈັດການໜ້າວຽກ | ລຶບກຸ່ມໜ້າວຽກ"
   },
   "tasks_management.gql_task_group_search_perms": {
     "en": "Tasks Management | Task Group Search",
-    "lo": ""
+    "lo": "ການຈັດການໜ້າວຽກ | ຄົ້ນຫາກຸ່ມໜ້າວຽກ"
   },
   "tasks_management.gql_task_group_update_perms": {
     "en": "Tasks Management | Task Group Update",
-    "lo": ""
+    "lo": "ການຈັດການໜ້າວຽກ | ປັບປຸງກຸ່ມໜ້າວຽກ"
   },
   "tasks_management.gql_task_search_all_perms": {
     "en": "Tasks Management | Task Search All",
-    "lo": ""
+    "lo": "ການຈັດການໜ້າວຽກ | ຄົ້ນຫາໜ້າວຽກທັງໝົດ"
   },
   "tasks_management.gql_task_search_perms": {
     "en": "Tasks Management | Task Search",
-    "lo": ""
+    "lo": "ການຈັດການໜ້າວຽກ | ຄົ້ນຫາໜ້າວຽກ"
   },
   "tasks_management.gql_task_update_perms": {
     "en": "Tasks Management | Task Update",
-    "lo": ""
+    "lo": "ການຈັດການໜ້າວຽກ | ປັບປຸງໜ້າວຽກ"
   },
   "tasksManagement.createButton.tooltip": {
     "en": "Create",
@@ -13969,7 +13969,7 @@
   },
   "ticket.Table": {
     "en": "Grievances",
-    "lo": ""
+    "lo": "ລາຍການຄຳຮ້ອງທຸກ"
   },
   "ticket.template.attendingStaff": {
     "en": "Attending Staff",
@@ -14377,27 +14377,27 @@
   },
   "tools.registers_diagnoses_perms": {
     "en": "Tools | Diagnoses",
-    "lo": ""
+    "lo": "ເຄື່ອງມື | ການວິນິດໄສ"
   },
   "tools.registers_health_facilities_perms": {
     "en": "Tools | Health Facilities",
-    "lo": ""
+    "lo": "ເຄື່ອງມື | ສະຖານບໍລິການສຸຂະພາບ"
   },
   "tools.registers_items_perms": {
     "en": "Tools | Items",
-    "lo": ""
+    "lo": "ເຄື່ອງມື | ລາຍການທາງການແພດ"
   },
   "tools.registers_locations_perms": {
     "en": "Tools | Locations",
-    "lo": ""
+    "lo": "ເຄື່ອງມື | ເຂດພື້ນທີ່"
   },
   "tools.registers_perms": {
     "en": "Tools | Registers",
-    "lo": ""
+    "lo": "ເຄື່ອງມື | ທະບຽນ"
   },
   "tools.registers_services_perms": {
     "en": "Tools | Services",
-    "lo": ""
+    "lo": "ເຄື່ອງມື | ການບໍລິການທາງການແພດ"
   },
   "tools.RegistersPage.cancelBtn": {
     "en": "Cancel",
@@ -14433,7 +14433,7 @@
   },
   "tools.RegistersPage.healthFacilitiesBlockTitle": {
     "en": "Health Facilities",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ"
   },
   "tools.RegistersPage.insurees.downloadLabel": {
     "en": "Download Insurees",
@@ -14445,7 +14445,7 @@
   },
   "tools.RegistersPage.insureesBlockTitle": {
     "en": "Insurees",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນ"
   },
   "tools.RegistersPage.items.downloadLabel": {
     "en": "Download Medical Items",
@@ -14621,7 +14621,7 @@
   },
   "tools.ReportSearcher.tableTitle": {
     "en": "Reports",
-    "lo": ""
+    "lo": "ບົດລາຍງານ"
   },
   "tools.strategyPicker": {
     "en": "Strategy",
