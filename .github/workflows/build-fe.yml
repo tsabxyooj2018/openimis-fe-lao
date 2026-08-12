@@ -102,13 +102,39 @@ jobs:
             "https://api.github.com/user/packages?package_type=container" \
             | grep -o '"name":"[^"]*"' | head -20 || echo "(listing unavailable with this credential)"
 
+      - name: Is this commit still the tip of the branch?
+        id: tip
+        # The release tag is a MOVING tag, and two builds racing for it is not
+        # hypothetical: on 2026-08-12 a run for ef63a26 sat queued for twelve
+        # minutes, a later push built 41de282 and finished at 01:46:29, then the
+        # older run finished at 01:51:47 and repointed :26.04 at the OLDER
+        # commit. Both runs reported success and the currency change silently
+        # was not in the published image.
+        #
+        # The concurrency block above did not prevent it, so do not rely on it.
+        # Compare against the branch tip at the moment we are about to push
+        # instead: a superseded build still publishes its sha- tag, so nothing
+        # is lost, it just does not get to move the release tag backwards.
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          tip=$(gh api "repos/${{ github.repository }}/commits/${{ github.ref_name }}" --jq .sha)
+          echo "branch tip: $tip"
+          echo "this build: ${{ github.sha }}"
+          if [ "$tip" = "${{ github.sha }}" ]; then
+            echo "is_tip=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "is_tip=false" >> "$GITHUB_OUTPUT"
+            echo "::warning title=Release tag not moved::A newer commit ($tip) is on ${{ github.ref_name }}. Publishing the sha- tag only, leaving ${{ env.RELEASE_TAG }} where it is."
+          fi
+
       - name: Derive tags
         id: meta
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
           tags: |
-            type=raw,value=${{ env.RELEASE_TAG }}
+            type=raw,value=${{ env.RELEASE_TAG }},enable=${{ steps.tip.outputs.is_tip }}
             type=sha,format=short
 
       - name: Free disk space
