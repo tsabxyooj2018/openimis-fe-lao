@@ -7293,15 +7293,15 @@
   },
   "location.AddDialog.title": {
     "en": "New {type}",
-    "lo": ""
+    "lo": "{type}ໃໝ່"
   },
   "location.CreateHealthFacility.mutationLabel": {
     "en": "Create Health Facility {code}",
-    "lo": ""
+    "lo": "ສ້າງສະຖານບໍລິການສຸຂະພາບ {code}"
   },
   "location.CreateLocation.mutationLabel": {
     "en": "Create location {code} - {name}",
-    "lo": ""
+    "lo": "ສ້າງເຂດພື້ນທີ່ {code} - {name}"
   },
   "location.DeleteDialog.cancel": {
     "en": "Cancel",
@@ -7309,11 +7309,11 @@
   },
   "location.DeleteDialog.confirm": {
     "en": "Do you want to:",
-    "lo": ""
+    "lo": "ທ່ານຕ້ອງການ:"
   },
   "location.DeleteDialog.confirmSimple": {
     "en": "Are you sure you want to delete {type} {code} - {name}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບ {type} {code} - {name}?"
   },
   "location.DeleteDialog.delete": {
     "en": "Delete",
@@ -7321,15 +7321,15 @@
   },
   "location.DeleteDialog.drop": {
     "en": "Delete {code} - {name} {type} and all its {children}",
-    "lo": ""
+    "lo": "ລຶບ {code} - {name} {type} ແລະ {children} ທັງໝົດຂອງມັນ"
   },
   "location.DeleteDialog.reassign": {
     "en": "Delete {code} - {name} {type} and move its {directChildren} to",
-    "lo": ""
+    "lo": "ລຶບ {code} - {name} {type} ແລະ ຍ້າຍ {directChildren} ຂອງມັນໄປທີ່"
   },
   "location.DeleteDialog.title": {
     "en": "Delete {code} - {name} {type}",
-    "lo": ""
+    "lo": "ລຶບ {code} - {name} {type}"
   },
   "location.deleteHealthFacility.buttonText": {
     "en": "Delete",
@@ -7337,19 +7337,19 @@
   },
   "location.deleteHealthFacility.confirm.message": {
     "en": "Are you sure you want to delete Health Facility {code} - {name}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບສະຖານບໍລິການສຸຂະພາບ {code} - {name}?"
   },
   "location.deleteHealthFacility.confirm.title": {
     "en": "Delete Health Facility",
-    "lo": ""
+    "lo": "ລຶບສະຖານບໍລິການສຸຂະພາບ"
   },
   "location.DeleteHealthFacility.mutationLabel": {
     "en": "Delete Health Facility {code}",
-    "lo": ""
+    "lo": "ລຶບສະຖານບໍລິການສຸຂະພາບ {code}"
   },
   "location.DeleteLocation.mutationLabel": {
     "en": "Delete location {code} - {name}",
-    "lo": ""
+    "lo": "ລຶບເຂດພື້ນທີ່ {code} - {name}"
   },
   "location.DistrictPicker.label": {
     "en": "District",
@@ -7373,7 +7373,7 @@
   },
   "location.EditDialog.codeTaken": {
     "en": "Location code already taken.",
-    "lo": ""
+    "lo": "ລະຫັດເຂດພື້ນທີ່ນີ້ຖືກໃຊ້ແລ້ວ."
   },
   "location.EditDialog.family": {
     "en": "Family",
@@ -7401,11 +7401,11 @@
   },
   "location.EditDialog.title": {
     "en": "Modify {type}",
-    "lo": ""
+    "lo": "ແກ້ໄຂ{type}"
   },
   "location.EditDialog.title.of": {
     "en": " of {code} - {name}",
-    "lo": ""
+    "lo": " ຂອງ {code} - {name}"
   },
   "location.gql_mutation_create_health_facilities_perms": {
     "en": "Location | Mutation Create Health Facilities",
@@ -7453,11 +7453,11 @@
   },
   "location.healthFacility.edit.page.title": {
     "en": "HF {code}",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການ {code}"
   },
   "location.healthFacility.edit.title": {
     "en": "Health Facility {code}",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການສຸຂະພາບ {code}"
   },
   "location.HealthFacilityFilter.accCode": {
     "en": "Accounting Code",
@@ -7501,7 +7501,7 @@
   },
   "location.HealthFacilityForm.codeTaken": {
     "en": "Code already taken.",
-    "lo": ""
+    "lo": "ລະຫັດນີ້ຖືກໃຊ້ແລ້ວ."
   },
   "location.HealthFacilityForm.email": {
     "en": "Email",
@@ -7529,7 +7529,7 @@
   },
   "location.HealthFacilityForm.status.DE": {
     "en": "Delisted",
-    "lo": ""
+    "lo": "ຖອນອອກຈາກບັນຊີ"
   },
   "location.HealthFacilityForm.status.ID": {
     "en": "Idle",
@@ -7537,7 +7537,7 @@
   },
   "location.HealthFacilityForm.status.IN": {
     "en": "Inactive",
-    "lo": ""
+    "lo": "ບໍ່ເຄື່ອນໄຫວ"
   },
   "location.HealthFacilityForm.status.null": {
     "en": "Any",
@@ -7549,7 +7549,7 @@
   },
   "location.HealthFacilityFullPath.healthFacility": {
     "en": "HF",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການ"
   },
   "location.HealthFacilityFullPath.region": {
     "en": "Region",
@@ -7557,19 +7557,19 @@
   },
   "location.healthFacilityLegalForm": {
     "en": "Health Facility Legal Form",
-    "lo": ""
+    "lo": "ຮູບແບບນິຕິກຳຂອງສະຖານບໍລິການສຸຂະພາບ"
   },
   "location.healthFacilityLegalForm.C": {
     "en": "Charity",
-    "lo": ""
+    "lo": "ອົງການການກຸສົນ"
   },
   "location.healthFacilityLegalForm.D": {
     "en": "District Organization ",
-    "lo": ""
+    "lo": "ອົງກອນລະດັບເມືອງ "
   },
   "location.healthFacilityLegalForm.G": {
     "en": "Government",
-    "lo": ""
+    "lo": "ລັດຖະບານ"
   },
   "location.healthFacilityLegalForm.null": {
     "en": "Any",
@@ -7577,23 +7577,23 @@
   },
   "location.healthFacilityLegalForm.P": {
     "en": "Private Organization",
-    "lo": ""
+    "lo": "ອົງກອນເອກະຊົນ"
   },
   "location.healthFacilityLevel": {
     "en": "Health Facility Level",
-    "lo": ""
+    "lo": "ລະດັບສະຖານບໍລິການສຸຂະພາບ"
   },
   "location.healthFacilityLevel.C": {
     "en": "Health Center",
-    "lo": ""
+    "lo": "ສຸກສາລາ"
   },
   "location.healthFacilityLevel.D": {
     "en": "Dispensary",
-    "lo": ""
+    "lo": "ຫ້ອງຈ່າຍຢາ"
   },
   "location.healthFacilityLevel.H": {
     "en": "Hospital",
-    "lo": ""
+    "lo": "ໂຮງໝໍ"
   },
   "location.healthFacilityLevel.null": {
     "en": "Any",
@@ -7601,7 +7601,7 @@
   },
   "location.HealthFacilityMasterPanel.careType.nullLabel": {
     "en": "Select Care Type",
-    "lo": ""
+    "lo": "ເລືອກປະເພດການປິ່ນປົວ"
   },
   "location.HealthFacilityPicker.label": {
     "en": "Health Facility",
@@ -7613,19 +7613,19 @@
   },
   "location.HealthFacilityPicker.placeholder": {
     "en": "Search a Health Facility...",
-    "lo": ""
+    "lo": "ຄົ້ນຫາສະຖານບໍລິການສຸຂະພາບ..."
   },
   "location.healthFacilitySubLevel": {
     "en": "Health Facility Sub Level",
-    "lo": ""
+    "lo": "ລະດັບຍ່ອຍຂອງສະຖານບໍລິການສຸຂະພາບ"
   },
   "location.healthFacilitySubLevel.I": {
     "en": "Integrated",
-    "lo": ""
+    "lo": "ແບບປະສົມ"
   },
   "location.healthFacilitySubLevel.N": {
     "en": "No Sub Level",
-    "lo": ""
+    "lo": "ບໍ່ມີລະດັບຍ່ອຍ"
   },
   "location.healthFacilitySubLevel.null": {
     "en": "Any",
@@ -7633,7 +7633,7 @@
   },
   "location.healthFacilitySubLevel.R": {
     "en": "Reference",
-    "lo": ""
+    "lo": "ອ້າງອີງ"
   },
   "location.healthFacilitySummaries": {
     "en": "{count} Health Facilities Found",
@@ -7669,7 +7669,7 @@
   },
   "location.healthFacilitySummaries.legalForm": {
     "en": "Legal Form",
-    "lo": ""
+    "lo": "ຮູບແບບນິຕິກຳ"
   },
   "location.healthFacilitySummaries.level": {
     "en": "Level",
@@ -7689,11 +7689,11 @@
   },
   "location.healthFacilitySummaries.validityFrom": {
     "en": "Validity From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່"
   },
   "location.healthFacilitySummaries.validityTo": {
     "en": "Validity To",
-    "lo": ""
+    "lo": "ມີຜົນເຖິງ"
   },
   "location.Location2Picker.label": {
     "en": "Municipality",
@@ -7757,11 +7757,11 @@
   },
   "location.locations.searcher.title.3.catchments": {
     "en": "Village Catchments",
-    "lo": ""
+    "lo": "ເຂດຮັບຜິດຊອບຂອງບ້ານ"
   },
   "location.locationType": {
     "en": "Location type",
-    "lo": ""
+    "lo": "ປະເພດເຂດພື້ນທີ່"
   },
   "location.locationType.0": {
     "en": "Region",
@@ -7769,7 +7769,7 @@
   },
   "location.locationType.0.children": {
     "en": "Districts, Municipalities and Villages",
-    "lo": ""
+    "lo": "ເມືອງ, ກຸ່ມບ້ານ ແລະ ບ້ານ"
   },
   "location.locationType.0.directChildren": {
     "en": "Districts",
@@ -7777,7 +7777,7 @@
   },
   "location.locationType.0.placeholder": {
     "en": "Search for a Region...",
-    "lo": ""
+    "lo": "ຄົ້ນຫາແຂວງ..."
   },
   "location.locationType.1": {
     "en": "District",
@@ -7785,7 +7785,7 @@
   },
   "location.locationType.1.children": {
     "en": "Municipalities and Villages",
-    "lo": ""
+    "lo": "ກຸ່ມບ້ານ ແລະ ບ້ານ"
   },
   "location.locationType.1.directChildren": {
     "en": "Municipalities",
@@ -7793,7 +7793,7 @@
   },
   "location.locationType.1.placeholder": {
     "en": "Search for a District...",
-    "lo": ""
+    "lo": "ຄົ້ນຫາເມືອງ..."
   },
   "location.locationType.2": {
     "en": "Municipality",
@@ -7837,15 +7837,15 @@
   },
   "location.MoveDialog.current": {
     "en": "Current parent",
-    "lo": ""
+    "lo": "ລະດັບເທິງປັດຈຸບັນ"
   },
   "location.MoveDialog.move": {
     "en": "Move",
-    "lo": ""
+    "lo": "ຍ້າຍ"
   },
   "location.MoveDialog.new": {
     "en": "New parent:",
-    "lo": ""
+    "lo": "ລະດັບເທິງໃໝ່:"
   },
   "location.MoveDialog.Parent.None": {
     "en": "None",
@@ -7853,11 +7853,11 @@
   },
   "location.MoveDialog.title": {
     "en": "Move {code} - {name} {type}",
-    "lo": ""
+    "lo": "ຍ້າຍ {code} - {name} {type}"
   },
   "location.MoveLocation.mutationLabel": {
     "en": "Move location {code} - {name} to {newParentCode} - {newParentName}",
-    "lo": ""
+    "lo": "ຍ້າຍເຂດພື້ນທີ່ {code} - {name} ໄປທີ່ {newParentCode} - {newParentName}"
   },
   "location.RegionPicker.label": {
     "en": "Region",
@@ -7873,11 +7873,11 @@
   },
   "location.UpdateHealthFacility.mutationLabel": {
     "en": "Update Health Facilityt { code}",
-    "lo": ""
+    "lo": "ປັບປຸງສະຖານບໍລິການສຸຂະພາບ { code}"
   },
   "location.UpdateLocation.mutationLabel": {
     "en": "Update location {code} - {name}",
-    "lo": ""
+    "lo": "ປັບປຸງເຂດພື້ນທີ່ {code} - {name}"
   },
   "mainMenu": {
     "en": "Legal and Finance",
@@ -7897,15 +7897,15 @@
   },
   "medical_pricelist.addNewPriceListTooltip": {
     "en": "Add a new pricelist",
-    "lo": ""
+    "lo": "ເພີ່ມບັນຊີລາຄາໃໝ່"
   },
   "medical_pricelist.createPricelist.mutationLabel": {
     "en": "Pricelist created - {name}",
-    "lo": ""
+    "lo": "ສ້າງບັນຊີລາຄາແລ້ວ - {name}"
   },
   "medical_pricelist.deletePricelist.mutationLabel": {
     "en": "Pricelist deleted - {name}",
-    "lo": ""
+    "lo": "ລຶບບັນຊີລາຄາແລ້ວ - {name}"
   },
   "medical_pricelist.deletePricelistButton.buttonText": {
     "en": "Delete",
@@ -7913,11 +7913,11 @@
   },
   "medical_pricelist.deletePricelistDialog.message": {
     "en": "Are you sure you want to delete the pricelist {name}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບບັນຊີລາຄາ {name}?"
   },
   "medical_pricelist.deletePricelistDialog.title": {
     "en": "Delete pricelist",
-    "lo": ""
+    "lo": "ລຶບບັນຊີລາຄາ"
   },
   "medical_pricelist.deletePricelistTooltip": {
     "en": "Delete",
@@ -7969,7 +7969,7 @@
   },
   "medical_pricelist.itemsPricelist": {
     "en": "Items Pricelist",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາລາຍການ"
   },
   "medical_pricelist.name": {
     "en": "Name",
@@ -7977,11 +7977,11 @@
   },
   "medical_pricelist.nameTaken": {
     "en": "Name already taken.",
-    "lo": ""
+    "lo": "ຊື່ນີ້ຖືກໃຊ້ແລ້ວ."
   },
   "medical_pricelist.openNewTab": {
     "en": "Open in a new tab",
-    "lo": ""
+    "lo": "ເປີດໃນແທັບໃໝ່"
   },
   "medical_pricelist.openNewTabButton.buttonText": {
     "en": "Open",
@@ -7989,7 +7989,7 @@
   },
   "medical_pricelist.pickerNoOptionsLabel": {
     "en": "No options available(no pricelist has a matching location)",
-    "lo": ""
+    "lo": "ບໍ່ມີຕົວເລືອກ (ບໍ່ມີບັນຊີລາຄາໃດກົງກັບເຂດພື້ນທີ່)"
   },
   "medical_pricelist.pricelist_date": {
     "en": "Date",
@@ -7997,7 +7997,7 @@
   },
   "medical_pricelist.pricelistForm.emptyTitle": {
     "en": "New Pricelist",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາໃໝ່"
   },
   "medical_pricelist.pricelistForm.selectAll": {
     "en": "Select All",
@@ -8009,7 +8009,7 @@
   },
   "medical_pricelist.pricelistForm.title": {
     "en": "Pricelist ({label})",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາ ({label})"
   },
   "medical_pricelist.pricelistsSearcher.table.title": {
     "en": "{count} Pricelists",
@@ -8025,11 +8025,11 @@
   },
   "medical_pricelist.priceOverruleDialog.message": {
     "en": "You can override the price of this element for this pricelist",
-    "lo": ""
+    "lo": "ທ່ານສາມາດກຳນົດລາຄາຂອງລາຍການນີ້ທັບສຳລັບບັນຊີລາຄານີ້ໄດ້"
   },
   "medical_pricelist.priceOverruleDialog.title": {
     "en": "Override Price",
-    "lo": ""
+    "lo": "ກຳນົດລາຄາທັບ"
   },
   "medical_pricelist.priceOverruleDialog.yes.button": {
     "en": "Save",
@@ -8041,7 +8041,7 @@
   },
   "medical_pricelist.servicesPricelist": {
     "en": "Services Pricelist",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການບໍລິການ"
   },
   "medical_pricelist.showHistory": {
     "en": "Show Historical Values",
@@ -8057,11 +8057,11 @@
   },
   "medical_pricelist.table.medicalItemName": {
     "en": "Product Name",
-    "lo": ""
+    "lo": "ຊື່ຜະລິດຕະພັນ"
   },
   "medical_pricelist.table.medicalServiceName": {
     "en": "Service Name",
-    "lo": ""
+    "lo": "ຊື່ການບໍລິການ"
   },
   "medical_pricelist.table.name": {
     "en": "Name",
@@ -8085,23 +8085,23 @@
   },
   "medical_pricelist.table.type.c": {
     "en": "Curative",
-    "lo": ""
+    "lo": "ປິ່ນປົວ"
   },
   "medical_pricelist.table.type.d": {
     "en": "Drug",
-    "lo": ""
+    "lo": "ຢາ"
   },
   "medical_pricelist.table.type.p": {
     "en": "Preventative",
-    "lo": ""
+    "lo": "ປ້ອງກັນ"
   },
   "medical_pricelist.table.unselectAll": {
     "en": "Unselect All",
-    "lo": ""
+    "lo": "ຍົກເລີກການເລືອກທັງໝົດ"
   },
   "medical_pricelist.updatePricelist.mutationLabel": {
     "en": "Pricelist updated - {name}",
-    "lo": ""
+    "lo": "ປັບປຸງບັນຊີລາຄາແລ້ວ - {name}"
   },
   "medical_pricelist.valid_from": {
     "en": "Valid From",
@@ -8113,23 +8113,23 @@
   },
   "medical.addNewMedicalItem.tooltip": {
     "en": "Add a new medical item",
-    "lo": ""
+    "lo": "ເພີ່ມລາຍການທາງການແພດໃໝ່"
   },
   "medical.addNewMedicalService.tooltip": {
     "en": "Add a new medical service",
-    "lo": ""
+    "lo": "ເພີ່ມການບໍລິການທາງການແພດໃໝ່"
   },
   "medical.ageCategory": {
     "en": "Age Categories *",
-    "lo": ""
+    "lo": "ໝວດອາຍຸ *"
   },
   "medical.careType.B": {
     "en": "In & Out - Patient",
-    "lo": ""
+    "lo": "ຜູ້ປ່ວຍໃນ ແລະ ນອກ"
   },
   "medical.careType.I": {
     "en": "In - Patient",
-    "lo": ""
+    "lo": "ຜູ້ປ່ວຍໃນ"
   },
   "medical.careType.null": {
     "en": "Any",
@@ -8137,15 +8137,15 @@
   },
   "medical.careType.O": {
     "en": "Out - Patient",
-    "lo": ""
+    "lo": "ຜູ້ປ່ວຍນອກ"
   },
   "medical.codeTaken": {
     "en": "Code already taken.",
-    "lo": ""
+    "lo": "ລະຫັດນີ້ຖືກໃຊ້ແລ້ວ."
   },
   "medical.Diagnosis": {
     "en": "Diagnosis",
-    "lo": ""
+    "lo": "ການວິນິດໄສ"
   },
   "medical.DiagnosisPicker.null": {
     "en": "Any",
@@ -8153,11 +8153,11 @@
   },
   "medical.DiagnosisPicker.placeholder": {
     "en": "Search Diagnosis…",
-    "lo": ""
+    "lo": "ຄົ້ນຫາການວິນິດໄສ…"
   },
   "medical.genderCategory": {
     "en": "Gender Categories *",
-    "lo": ""
+    "lo": "ໝວດເພດ *"
   },
   "medical.gql_mutation_medical_items_add_perms": {
     "en": "Medical | Mutation Medical Items Add",
@@ -8197,7 +8197,7 @@
   },
   "medical.item.careType": {
     "en": "Care type",
-    "lo": ""
+    "lo": "ປະເພດການປິ່ນປົວ"
   },
   "medical.item.category": {
     "en": "Category",
@@ -8209,15 +8209,15 @@
   },
   "medical.item.createMedicalItem.mutationLabel": {
     "en": "Create Medical Item",
-    "lo": ""
+    "lo": "ສ້າງລາຍການທາງການແພດ"
   },
   "medical.item.deleteDialog.message": {
     "en": "Are you sure you want to delete this item?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບລາຍການນີ້?"
   },
   "medical.item.deleteDialog.title": {
     "en": "Confirm delete",
-    "lo": ""
+    "lo": "ຢືນຢັນການລຶບ"
   },
   "medical.item.deleteDialog.yes.button": {
     "en": "Yes",
@@ -8225,7 +8225,7 @@
   },
   "medical.item.deleteItem.tooltip": {
     "en": "Delete item",
-    "lo": ""
+    "lo": "ລຶບລາຍການ"
   },
   "medical.item.deleteItemButton.buttonText": {
     "en": "Delete",
@@ -8233,11 +8233,11 @@
   },
   "medical.item.deleteItemDialog.message": {
     "en": "Are you sure you want to delete this item?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບລາຍການນີ້?"
   },
   "medical.item.frequency": {
     "en": "Frequency (days)",
-    "lo": ""
+    "lo": "ຄວາມຖີ່ (ມື້)"
   },
   "medical.item.itemsTitle": {
     "en": "Medical Items",
@@ -8249,15 +8249,15 @@
   },
   "medical.item.maximumAmount": {
     "en": "Maximum Amount per Claim",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນສູງສຸດຕໍ່ຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "medical.item.MedicalItemOverview.newTitle": {
     "en": "New Medical Item",
-    "lo": ""
+    "lo": "ລາຍການທາງການແພດໃໝ່"
   },
   "medical.item.MedicalItemOverview.title": {
     "en": "Medical Item details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດລາຍການທາງການແພດ"
   },
   "medical.item.medicalItemSummaries": {
     "en": "{count} medical item(s) found",
@@ -8277,15 +8277,15 @@
   },
   "medical.item.overviewTitle": {
     "en": "Medical Item details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດລາຍການທາງການແພດ"
   },
   "medical.item.package": {
     "en": "Package",
-    "lo": ""
+    "lo": "ຊຸດ"
   },
   "medical.item.patientCategory": {
     "en": "Patient category",
-    "lo": ""
+    "lo": "ປະເພດຜູ້ປ່ວຍ"
   },
   "medical.item.price": {
     "en": "Price",
@@ -8301,7 +8301,7 @@
   },
   "medical.item.updateMedicalItem.mutationLabel": {
     "en": "Update Medical Item",
-    "lo": ""
+    "lo": "ປັບປຸງລາຍການທາງການແພດ"
   },
   "medical.item.validFrom": {
     "en": "Valid From",
@@ -8321,11 +8321,11 @@
   },
   "medical.ItemPicker.placeholder": {
     "en": "Search Item…",
-    "lo": ""
+    "lo": "ຄົ້ນຫາລາຍການ…"
   },
   "medical.itemType": {
     "en": "Item type",
-    "lo": ""
+    "lo": "ປະເພດລາຍການ"
   },
   "medical.itemType.any": {
     "en": "Any",
@@ -8333,11 +8333,11 @@
   },
   "medical.itemType.D": {
     "en": "Drug",
-    "lo": ""
+    "lo": "ຢາ"
   },
   "medical.itemType.M": {
     "en": "Consumable",
-    "lo": ""
+    "lo": "ວັດຖຸສິ້ນເປືອງ"
   },
   "medical.itemType.null": {
     "en": "None",
@@ -8353,11 +8353,11 @@
   },
   "medical.patientCategory.4": {
     "en": "Adult",
-    "lo": ""
+    "lo": "ຜູ້ໃຫຍ່"
   },
   "medical.patientCategory.8": {
     "en": "Minor",
-    "lo": ""
+    "lo": "ເດັກ"
   },
   "medical.Service": {
     "en": "Medical Service",
@@ -8365,7 +8365,7 @@
   },
   "medical.service.careType": {
     "en": "Care type",
-    "lo": ""
+    "lo": "ປະເພດການປິ່ນປົວ"
   },
   "medical.service.category": {
     "en": "Category",
@@ -8377,11 +8377,11 @@
   },
   "medical.service.deleteDialog.message": {
     "en": "Are you sure you want to delete this service?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບການບໍລິການນີ້?"
   },
   "medical.service.deleteDialog.title": {
     "en": "Confirm delete",
-    "lo": ""
+    "lo": "ຢືນຢັນການລຶບ"
   },
   "medical.service.deleteDialog.yes.button": {
     "en": "Yes",
@@ -8389,7 +8389,7 @@
   },
   "medical.service.deleteService.tooltip": {
     "en": "Delete service",
-    "lo": ""
+    "lo": "ລຶບການບໍລິການ"
   },
   "medical.service.deleteServiceButton.buttonText": {
     "en": "Delete",
@@ -8397,11 +8397,11 @@
   },
   "medical.service.deleteServiceDialog.message": {
     "en": "Are you sure you want to delete this service?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບການບໍລິການນີ້?"
   },
   "medical.service.frequency": {
     "en": "Frequency (days)",
-    "lo": ""
+    "lo": "ຄວາມຖີ່ (ມື້)"
   },
   "medical.service.level": {
     "en": "Level",
@@ -8409,15 +8409,15 @@
   },
   "medical.service.maximumAmount": {
     "en": "Maximum Amount per Claim",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນສູງສຸດຕໍ່ຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "medical.service.MedicalServiceOverview.newTitle": {
     "en": "New Medical Service",
-    "lo": ""
+    "lo": "ການບໍລິການທາງການແພດໃໝ່"
   },
   "medical.service.MedicalServiceOverview.title": {
     "en": "Medical Service details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດການບໍລິການທາງການແພດ"
   },
   "medical.service.medicalServiceSummaries": {
     "en": "{count} medical service(s) found",
@@ -8437,7 +8437,7 @@
   },
   "medical.service.overviewTitle": {
     "en": "Medical Service details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດການບໍລິການທາງການແພດ"
   },
   "medical.service.packagetype": {
     "en": "Type",
@@ -8445,7 +8445,7 @@
   },
   "medical.service.patientCategory": {
     "en": "Patient category",
-    "lo": ""
+    "lo": "ປະເພດຜູ້ປ່ວຍ"
   },
   "medical.service.price": {
     "en": "Price",
@@ -8465,7 +8465,7 @@
   },
   "medical.service.update.mutationLabel": {
     "en": "Update Medical Service",
-    "lo": ""
+    "lo": "ປັບປຸງການບໍລິການທາງການແພດ"
   },
   "medical.service.validFrom": {
     "en": "Valid From",
@@ -8477,7 +8477,7 @@
   },
   "medical.serviceCategory": {
     "en": "Service Category",
-    "lo": ""
+    "lo": "ໝວດການບໍລິການ"
   },
   "medical.serviceCategory.A": {
     "en": "Antenatal",
@@ -8485,15 +8485,15 @@
   },
   "medical.serviceCategory.C": {
     "en": "Consultation",
-    "lo": ""
+    "lo": "ການປຶກສາ"
   },
   "medical.serviceCategory.D": {
     "en": "Delivery",
-    "lo": ""
+    "lo": "ການເກີດລູກ"
   },
   "medical.serviceCategory.H": {
     "en": "Hospitalization",
-    "lo": ""
+    "lo": "ການເຂົ້ານອນໂຮງໝໍ"
   },
   "medical.serviceCategory.null": {
     "en": "None",
@@ -8505,23 +8505,23 @@
   },
   "medical.serviceCategory.S": {
     "en": "Surgery",
-    "lo": ""
+    "lo": "ການຜ່າຕັດ"
   },
   "medical.serviceCategory.V": {
     "en": "Visit",
-    "lo": ""
+    "lo": "ການມາຮັບບໍລິການ"
   },
   "medical.serviceLevel": {
     "en": "Service Level",
-    "lo": ""
+    "lo": "ລະດັບການບໍລິການ"
   },
   "medical.serviceLevel.D": {
     "en": "Day of Stay",
-    "lo": ""
+    "lo": "ມື້ນອນໂຮງໝໍ"
   },
   "medical.serviceLevel.H": {
     "en": "Hospital Case",
-    "lo": ""
+    "lo": "ກໍລະນີໂຮງໝໍ"
   },
   "medical.serviceLevel.null": {
     "en": "None",
@@ -8529,11 +8529,11 @@
   },
   "medical.serviceLevel.S": {
     "en": "Simple Service",
-    "lo": ""
+    "lo": "ການບໍລິການແບບງ່າຍ"
   },
   "medical.serviceLevel.V": {
     "en": "Visit",
-    "lo": ""
+    "lo": "ການມາຮັບບໍລິການ"
   },
   "medical.ServicePicker.label": {
     "en": "Service",
@@ -8545,11 +8545,11 @@
   },
   "medical.ServicePicker.placeholder": {
     "en": "Search Service…",
-    "lo": ""
+    "lo": "ຄົ້ນຫາການບໍລິການ…"
   },
   "medical.serviceType": {
     "en": "Service type",
-    "lo": ""
+    "lo": "ປະເພດການບໍລິການ"
   },
   "medical.serviceType.any": {
     "en": "Any",
@@ -8557,7 +8557,7 @@
   },
   "medical.serviceType.C": {
     "en": "Curative",
-    "lo": ""
+    "lo": "ປິ່ນປົວ"
   },
   "medical.serviceType.null": {
     "en": "None",
@@ -8565,7 +8565,7 @@
   },
   "medical.serviceType.P": {
     "en": "Preventative",
-    "lo": ""
+    "lo": "ປ້ອງກັນ"
   },
   "medical.serviceTypePP": {
     "en": "Type",
@@ -8573,7 +8573,7 @@
   },
   "medical.serviceTypePP.F": {
     "en": "Fee-for-service bundle",
-    "lo": ""
+    "lo": "ຊຸດຈ່າຍຕາມການບໍລິການ"
   },
   "medical.serviceTypePP.null": {
     "en": "None",
@@ -8581,19 +8581,19 @@
   },
   "medical.serviceTypePP.P": {
     "en": "Flat fee bundle",
-    "lo": ""
+    "lo": "ຊຸດຈ່າຍແບບເໝົາ"
   },
   "medical.serviceTypePP.S": {
     "en": "Simple/atomic",
-    "lo": ""
+    "lo": "ແບບດ່ຽວ"
   },
   "medical.visitType": {
     "en": "Visit Type",
-    "lo": ""
+    "lo": "ປະເພດການມາຮັບບໍລິການ"
   },
   "medical.visitType.E": {
     "en": "Emergency",
-    "lo": ""
+    "lo": "ສຸກເສີນ"
   },
   "medical.visitType.none": {
     "en": "",
@@ -8609,7 +8609,7 @@
   },
   "medical.visitType.R": {
     "en": "Referral",
-    "lo": ""
+    "lo": "ສົ່ງຕໍ່"
   },
   "menu.add_ticket": {
     "en": "Add Grievance",
@@ -11569,23 +11569,23 @@
   },
   "product.administrationPeriod": {
     "en": "Administration Period (months)",
-    "lo": ""
+    "lo": "ໄລຍະບໍລິຫານ (ເດືອນ)"
   },
   "product.ageMaximal": {
     "en": "Maximum Age",
-    "lo": ""
+    "lo": "ອາຍຸສູງສຸດ"
   },
   "product.ageMinimal": {
     "en": "Minimum Age",
-    "lo": ""
+    "lo": "ອາຍຸຕ່ຳສຸດ"
   },
   "product.alreadyTaken": {
     "en": "Product code already in use",
-    "lo": ""
+    "lo": "ລະຫັດຜະລິດຕະພັນນີ້ຖືກໃຊ້ແລ້ວ"
   },
   "product.CapitationLevelsTable.facilityType": {
     "en": "Facility Type",
-    "lo": ""
+    "lo": "ປະເພດສະຖານບໍລິການ"
   },
   "product.CapitationLevelsTable.level": {
     "en": "Level",
@@ -11593,19 +11593,19 @@
   },
   "product.CapitationLevelsTable.subType": {
     "en": "Sub Type",
-    "lo": ""
+    "lo": "ປະເພດຍ່ອຍ"
   },
   "product.CapitationTabForm.capitationLevelsSectionTitle": {
     "en": "Levels of Capitation",
-    "lo": ""
+    "lo": "ລະດັບການເໝົາຈ່າຍລາຍຫົວ"
   },
   "product.CapitationTabForm.contributionShare": {
     "en": "Share of Contribution",
-    "lo": ""
+    "lo": "ສັດສ່ວນຂອງເງິນສົມທົບ"
   },
   "product.CapitationTabForm.weightsSectionTitle": {
     "en": "Weights Repartition",
-    "lo": ""
+    "lo": "ການແບ່ງນ້ຳໜັກ"
   },
   "product.CapitationTabForm.weightsTable.category": {
     "en": "Category",
@@ -11613,51 +11613,51 @@
   },
   "product.CapitationTabForm.weightsTable.weight": {
     "en": "Weight (%)",
-    "lo": ""
+    "lo": "ນ້ຳໜັກ (%)"
   },
   "product.CapitationTabForm.weightsTable.weightAdjustedAmount": {
     "en": "Adjusted Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ປັບແລ້ວ"
   },
   "product.CapitationTabForm.weightsTable.weightInsuredPopulation": {
     "en": "Insured Population",
-    "lo": ""
+    "lo": "ປະຊາກອນທີ່ມີປະກັນ"
   },
   "product.CapitationTabForm.weightsTable.weightNbFamilies": {
     "en": "Number of Families",
-    "lo": ""
+    "lo": "ຈຳນວນຄອບຄົວ"
   },
   "product.CapitationTabForm.weightsTable.weightNbInsuredFamilies": {
     "en": "Number of Insured Families",
-    "lo": ""
+    "lo": "ຈຳນວນຄອບຄົວທີ່ມີປະກັນ"
   },
   "product.CapitationTabForm.weightsTable.weightNbVisits": {
     "en": "Number of Visits",
-    "lo": ""
+    "lo": "ຈຳນວນການມາຮັບບໍລິການ"
   },
   "product.CapitationTabForm.weightsTable.weightPopulation": {
     "en": "Population",
-    "lo": ""
+    "lo": "ປະຊາກອນ"
   },
   "product.ceilingDiscrimination": {
     "en": "Ceiling Discrimination",
-    "lo": ""
+    "lo": "ການແຍກປະເພດເພດານ"
   },
   "product.ceilingDiscrimination.CLAIM_TYPE": {
     "en": "Based on Claim Type",
-    "lo": ""
+    "lo": "ອີງຕາມປະເພດຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "product.ceilingDiscrimination.HEALTH_FACILITY_TYPE": {
     "en": "Based on Health Facility Type",
-    "lo": ""
+    "lo": "ອີງຕາມປະເພດສະຖານບໍລິການສຸຂະພາບ"
   },
   "product.ceilingDiscrimination.null": {
     "en": "Select a discriminant",
-    "lo": ""
+    "lo": "ເລືອກເກນການແຍກ"
   },
   "product.ceilingType": {
     "en": "Ceiling Type",
-    "lo": ""
+    "lo": "ປະເພດເພດານ"
   },
   "product.ceilingType.INSUREE": {
     "en": "Insuree",
@@ -11677,23 +11677,23 @@
   },
   "product.contributionCode": {
     "en": "Contribution Code",
-    "lo": ""
+    "lo": "ລະຫັດເງິນສົມທົບ"
   },
   "product.ContributionTabForm.discountsSectionTitle": {
     "en": "Discounts",
-    "lo": ""
+    "lo": "ສ່ວນຫຼຸດ"
   },
   "product.ContributionTabForm.graceSectionTitle": {
     "en": "Grace Periods",
-    "lo": ""
+    "lo": "ໄລຍະຜ່ອນຜັນ"
   },
   "product.createMutation.label": {
     "en": "Create product {name}",
-    "lo": ""
+    "lo": "ສ້າງຜະລິດຕະພັນ {name}"
   },
   "product.CycleInput.date": {
     "en": "Day",
-    "lo": ""
+    "lo": "ມື້"
   },
   "product.CycleInput.month": {
     "en": "Month",
@@ -11717,7 +11717,7 @@
   },
   "product.dedInsuree": {
     "en": "Threshold",
-    "lo": ""
+    "lo": "ຂີດເລີ່ມ"
   },
   "product.dedTreatment": {
     "en": "Treatment",
@@ -11725,11 +11725,11 @@
   },
   "product.DeductiblesCeilingsTabForm.all": {
     "en": "All",
-    "lo": ""
+    "lo": "ທັງໝົດ"
   },
   "product.DeductiblesCeilingsTabForm.ceilingDiscriminationExplanation": {
     "en": "Specify whether Hospital and Non-Hospital care should be determined according to the type of level of health facility that provided health care (Hospital/Non-Hospital) or according to the type of health care acquired from the claim (In-patient/Out-Patient).",
-    "lo": ""
+    "lo": "ລະບຸວ່າຈະແຍກການປິ່ນປົວແບບໂຮງໝໍ ແລະ ນອກໂຮງໝໍ ຕາມປະເພດລະດັບຂອງສະຖານບໍລິການສຸຂະພາບທີ່ໃຫ້ການປິ່ນປົວ (ໂຮງໝໍ/ນອກໂຮງໝໍ) ຫຼື ຕາມປະເພດການປິ່ນປົວທີ່ໄດ້ຮັບຈາກຄຳຮ້ອງເບີກຈ່າຍ (ຜູ້ປ່ວຍໃນ/ຜູ້ປ່ວຍນອກ)."
   },
   "product.DeductiblesCeilingsTabForm.DeductiblesTable.ceiling": {
     "en": "Ceiling",
@@ -11737,7 +11737,7 @@
   },
   "product.DeductiblesCeilingsTabForm.DeductiblesTable.deductible": {
     "en": "Deductible",
-    "lo": ""
+    "lo": "ຄ່າຮ່ວມຈ່າຍ"
   },
   "product.DeductiblesCeilingsTabForm.DeductiblesTable.insuree": {
     "en": "Insuree",
@@ -11753,19 +11753,19 @@
   },
   "product.DeductiblesCeilingsTabForm.extraMemberCeiling": {
     "en": "Extra Member Ceiling",
-    "lo": ""
+    "lo": "ເພດານສະມາຊິກເພີ່ມ"
   },
   "product.DeductiblesCeilingsTabForm.hospitals": {
     "en": "Hospitals",
-    "lo": ""
+    "lo": "ໂຮງໝໍ"
   },
   "product.DeductiblesCeilingsTabForm.inPatient": {
     "en": "In-Patient",
-    "lo": ""
+    "lo": "ຜູ້ປ່ວຍໃນ"
   },
   "product.DeductiblesCeilingsTabForm.maximumCeiling": {
     "en": "Maximum Ceiling",
-    "lo": ""
+    "lo": "ເພດານສູງສຸດ"
   },
   "product.DeductiblesCeilingsTabForm.MaxTable.antenatal": {
     "en": "Antenatal",
@@ -11777,51 +11777,51 @@
   },
   "product.DeductiblesCeilingsTabForm.MaxTable.consultations": {
     "en": "Consultations",
-    "lo": ""
+    "lo": "ການປຶກສາ"
   },
   "product.DeductiblesCeilingsTabForm.MaxTable.deliveries": {
     "en": "Deliveries",
-    "lo": ""
+    "lo": "ການເກີດລູກ"
   },
   "product.DeductiblesCeilingsTabForm.MaxTable.hopitalizations": {
     "en": "Hospitalizations",
-    "lo": ""
+    "lo": "ການເຂົ້ານອນໂຮງໝໍ"
   },
   "product.DeductiblesCeilingsTabForm.MaxTable.number": {
     "en": "Number",
-    "lo": ""
+    "lo": "ຈຳນວນ"
   },
   "product.DeductiblesCeilingsTabForm.MaxTable.surgeries": {
     "en": "Surgeries",
-    "lo": ""
+    "lo": "ການຜ່າຕັດ"
   },
   "product.DeductiblesCeilingsTabForm.MaxTable.visits": {
     "en": "Visits",
-    "lo": ""
+    "lo": "ການມາຮັບບໍລິການ"
   },
   "product.DeductiblesCeilingsTabForm.nonHospitals": {
     "en": "Non-Hospitals",
-    "lo": ""
+    "lo": "ນອກໂຮງໝໍ"
   },
   "product.DeductiblesCeilingsTabForm.outPatient": {
     "en": "Out-Patient",
-    "lo": ""
+    "lo": "ຜູ້ປ່ວຍນອກ"
   },
   "product.DeductiblesCeilingsTabForm.splitCeilings": {
     "en": "Split ceilings & deductibles",
-    "lo": ""
+    "lo": "ແຍກເພດານ ແລະ ຄ່າຮ່ວມຈ່າຍ"
   },
   "product.deleteMutation.label": {
     "en": "Delete product {name}",
-    "lo": ""
+    "lo": "ລຶບຜະລິດຕະພັນ {name}"
   },
   "product.deleteProductDialog.message": {
     "en": "Are you sure you want to delete the product {name}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບຜະລິດຕະພັນ {name}?"
   },
   "product.deleteProductDialog.title": {
     "en": "Delete Product",
-    "lo": ""
+    "lo": "ລຶບຜະລິດຕະພັນ"
   },
   "product.district": {
     "en": "District",
@@ -11829,31 +11829,31 @@
   },
   "product.duplicateMutation.label": {
     "en": "Duplicate product {name}",
-    "lo": ""
+    "lo": "ເຮັດສຳເນົາຜະລິດຕະພັນ {name}"
   },
   "product.enrolmentDiscountPerc": {
     "en": "Enrolment Discount Perc.",
-    "lo": ""
+    "lo": "ອັດຕາສ່ວນຫຼຸດການສະໝັກ"
   },
   "product.enrolmentDiscountPeriod": {
     "en": "Enrolment Discount Period",
-    "lo": ""
+    "lo": "ໄລຍະສ່ວນຫຼຸດການສະໝັກ"
   },
   "product.FormMainPanel.accountingSectionTitle": {
     "en": "Accounting",
-    "lo": ""
+    "lo": "ການບັນຊີ"
   },
   "product.FormMainPanel.validitySectionTitle": {
     "en": "Validity",
-    "lo": ""
+    "lo": "ໄລຍະມີຜົນ"
   },
   "product.generalAssemblyFee": {
     "en": "Assembly Fee",
-    "lo": ""
+    "lo": "ຄ່າປະຊຸມໃຫຍ່"
   },
   "product.generalAssemblyLumpSum": {
     "en": "Assembly Lump Sum",
-    "lo": ""
+    "lo": "ເງິນກ້ອນຄ່າປະຊຸມໃຫຍ່"
   },
   "product.gql_mutation_products_add_perms": {
     "en": "Product | Mutation Products Add",
@@ -11877,27 +11877,27 @@
   },
   "product.gracePeriodEnrolment": {
     "en": "Enrolment Grace Period",
-    "lo": ""
+    "lo": "ໄລຍະຜ່ອນຜັນການສະໝັກ"
   },
   "product.gracePeriodPayment": {
     "en": "Payment Grace Period",
-    "lo": ""
+    "lo": "ໄລຍະຜ່ອນຜັນການຊຳລະ"
   },
   "product.gracePeriodRenewal": {
     "en": "Renewal Grace Period",
-    "lo": ""
+    "lo": "ໄລຍະຜ່ອນຜັນການຕໍ່ອາຍຸ"
   },
   "product.insurancePeriod": {
     "en": "Insurance Period (months)",
-    "lo": ""
+    "lo": "ໄລຍະປະກັນໄພ (ເດືອນ)"
   },
   "product.ItemsOrServicesGrid.addItemsButton": {
     "en": "Add items",
-    "lo": ""
+    "lo": "ເພີ່ມລາຍການ"
   },
   "product.ItemsOrServicesGrid.addServicesButton": {
     "en": "Add services",
-    "lo": ""
+    "lo": "ເພີ່ມການບໍລິການ"
   },
   "product.ItemsOrServicesGrid.careType": {
     "en": "Care Type",
@@ -11905,15 +11905,15 @@
   },
   "product.ItemsOrServicesGrid.ceilingExclusion.BOTH": {
     "en": "Both",
-    "lo": ""
+    "lo": "ທັງສອງ"
   },
   "product.ItemsOrServicesGrid.ceilingExclusion.HOSPITAL": {
     "en": "Hospital",
-    "lo": ""
+    "lo": "ໂຮງໝໍ"
   },
   "product.ItemsOrServicesGrid.ceilingExclusion.NON_HOSPITAL": {
     "en": "Non-hospital",
-    "lo": ""
+    "lo": "ນອກໂຮງໝໍ"
   },
   "product.ItemsOrServicesGrid.ceilingExclusion.null": {
     "en": "None",
@@ -11921,11 +11921,11 @@
   },
   "product.ItemsOrServicesGrid.ceilingExclusionAdult": {
     "en": "Ceiling Adult",
-    "lo": ""
+    "lo": "ເພດານຜູ້ໃຫຍ່"
   },
   "product.ItemsOrServicesGrid.ceilingExclusionChild": {
     "en": "Ceiling Child",
-    "lo": ""
+    "lo": "ເພດານເດັກ"
   },
   "product.ItemsOrServicesGrid.code": {
     "en": "Code",
@@ -11933,7 +11933,7 @@
   },
   "product.ItemsOrServicesGrid.dialogTitle": {
     "en": "Add other medical items",
-    "lo": ""
+    "lo": "ເພີ່ມລາຍການທາງການແພດອື່ນ"
   },
   "product.ItemsOrServicesGrid.level": {
     "en": "Level",
@@ -11941,55 +11941,55 @@
   },
   "product.ItemsOrServicesGrid.limitAdult": {
     "en": "Adult O",
-    "lo": ""
+    "lo": "ຜູ້ໃຫຍ່ ທົ່ວໄປ"
   },
   "product.ItemsOrServicesGrid.limitAdultE": {
     "en": "Adult E",
-    "lo": ""
+    "lo": "ຜູ້ໃຫຍ່ ສຸກເສີນ"
   },
   "product.ItemsOrServicesGrid.limitAdultR": {
     "en": "Adult R",
-    "lo": ""
+    "lo": "ຜູ້ໃຫຍ່ ສົ່ງຕໍ່"
   },
   "product.ItemsOrServicesGrid.limitationType": {
     "en": "Limit O",
-    "lo": ""
+    "lo": "ຂີດຈຳກັດທົ່ວໄປ"
   },
   "product.ItemsOrServicesGrid.limitationTypeE": {
     "en": "Limit E",
-    "lo": ""
+    "lo": "ຂີດຈຳກັດສຸກເສີນ"
   },
   "product.ItemsOrServicesGrid.limitationTypeR": {
     "en": "Limit R",
-    "lo": ""
+    "lo": "ຂີດຈຳກັດສົ່ງຕໍ່"
   },
   "product.ItemsOrServicesGrid.limitChild": {
     "en": "Child O",
-    "lo": ""
+    "lo": "ເດັກ ທົ່ວໄປ"
   },
   "product.ItemsOrServicesGrid.limitChildE": {
     "en": "Child E",
-    "lo": ""
+    "lo": "ເດັກ ສຸກເສີນ"
   },
   "product.ItemsOrServicesGrid.limitChildR": {
     "en": "Child R",
-    "lo": ""
+    "lo": "ເດັກ ສົ່ງຕໍ່"
   },
   "product.ItemsOrServicesGrid.limitNoAdult": {
     "en": "No Adult",
-    "lo": ""
+    "lo": "ບໍ່ມີຜູ້ໃຫຍ່"
   },
   "product.ItemsOrServicesGrid.limitNoChild": {
     "en": "No Child",
-    "lo": ""
+    "lo": "ບໍ່ມີເດັກ"
   },
   "product.ItemsOrServicesGrid.limitTypes.CO_INSURANCE": {
     "en": "Co-insurance",
-    "lo": ""
+    "lo": "ຮ່ວມປະກັນ"
   },
   "product.ItemsOrServicesGrid.limitTypes.FIXED_AMOUNT": {
     "en": "Fixed",
-    "lo": ""
+    "lo": "ຄົງທີ່"
   },
   "product.ItemsOrServicesGrid.name": {
     "en": "Name",
@@ -11997,7 +11997,7 @@
   },
   "product.ItemsOrServicesGrid.package": {
     "en": "Package",
-    "lo": ""
+    "lo": "ຊຸດ"
   },
   "product.ItemsOrServicesGrid.price": {
     "en": "Price",
@@ -12005,19 +12005,19 @@
   },
   "product.ItemsOrServicesGrid.priceOrigin": {
     "en": "Price Origin",
-    "lo": ""
+    "lo": "ແຫຼ່ງທີ່ມາຂອງລາຄາ"
   },
   "product.ItemsOrServicesGrid.priceOrigin.PRICELIST": {
     "en": "Schema",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາ"
   },
   "product.ItemsOrServicesGrid.priceOrigin.PROVIDER": {
     "en": "Provider",
-    "lo": ""
+    "lo": "ຜູ້ໃຫ້ບໍລິການ"
   },
   "product.ItemsOrServicesGrid.priceOrigin.RELATIVE": {
     "en": "Relative",
-    "lo": ""
+    "lo": "ລາຄາທຽບ"
   },
   "product.ItemsOrServicesGrid.type": {
     "en": "Type",
@@ -12025,27 +12025,27 @@
   },
   "product.ItemsOrServicesGrid.waitingPeriodAdult": {
     "en": "Waiting Adult",
-    "lo": ""
+    "lo": "ໄລຍະລໍຖ້າຜູ້ໃຫຍ່"
   },
   "product.ItemsOrServicesGrid.waitingPeriodChild": {
     "en": "Waiting Child",
-    "lo": ""
+    "lo": "ໄລຍະລໍຖ້າເດັກ"
   },
   "product.lumpSum": {
     "en": "Lump Sum",
-    "lo": ""
+    "lo": "ເງິນກ້ອນ"
   },
   "product.maxInstallments": {
     "en": "Max Installments",
-    "lo": ""
+    "lo": "ຈຳນວນງວດຈ່າຍສູງສຸດ"
   },
   "product.maxMembers": {
     "en": "Max members",
-    "lo": ""
+    "lo": "ຈຳນວນສະມາຊິກສູງສຸດ"
   },
   "product.memberTreshold": {
     "en": "Threshold",
-    "lo": ""
+    "lo": "ຂີດເລີ່ມ"
   },
   "product.name": {
     "en": "Name",
@@ -12053,15 +12053,15 @@
   },
   "product.PoolingManagementTabForm.startCyclesSectionTitle": {
     "en": "Start Cycles",
-    "lo": ""
+    "lo": "ຮອບເລີ່ມຕົ້ນ"
   },
   "product.premiumAdult": {
     "en": "Adult Contribution",
-    "lo": ""
+    "lo": "ເງິນສົມທົບຜູ້ໃຫຍ່"
   },
   "product.premiumChild": {
     "en": "Child Contribution",
-    "lo": ""
+    "lo": "ເງິນສົມທົບເດັກ"
   },
   "product.Product": {
     "en": "Product",
@@ -12089,11 +12089,11 @@
   },
   "product.ProductForm.emptyTitle": {
     "en": "New Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນໃໝ່"
   },
   "product.ProductForm.title": {
     "en": "Product {label}",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນ {label}"
   },
   "product.ProductItemsDialog.cancel": {
     "en": "Cancel",
@@ -12101,23 +12101,23 @@
   },
   "product.ProductItemsDialog.description": {
     "en": "Search for the items you want to add in this product.",
-    "lo": ""
+    "lo": "ຄົ້ນຫາລາຍການທີ່ທ່ານຕ້ອງການເພີ່ມໃສ່ຜະລິດຕະພັນນີ້."
   },
   "product.ProductItemsDialog.emptySubmit": {
     "en": "Add items",
-    "lo": ""
+    "lo": "ເພີ່ມລາຍການ"
   },
   "product.ProductItemsDialog.submit": {
     "en": "Add {count} items",
-    "lo": ""
+    "lo": "ເພີ່ມ {count} ລາຍການ"
   },
   "product.ProductPicker.aboveLimit": {
     "en": "Over {limit} products found. For specific results, please use the search bar.",
-    "lo": ""
+    "lo": "ພົບຜະລິດຕະພັນຫຼາຍກວ່າ {limit} ລາຍການ. ເພື່ອຜົນລັບທີ່ຈະເພາະ, ກະລຸນາໃຊ້ຊ່ອງຄົ້ນຫາ."
   },
   "product.ProductPicker.placeholder": {
     "en": "Search Product…",
-    "lo": ""
+    "lo": "ຄົ້ນຫາຜະລິດຕະພັນ…"
   },
   "product.ProductSalesReport.dateFrom": {
     "en": "From",
@@ -12141,7 +12141,7 @@
   },
   "product.ProductSearcher.deleteProductTooltip": {
     "en": "Delete product",
-    "lo": ""
+    "lo": "ລຶບຜະລິດຕະພັນ"
   },
   "product.ProductSearcher.duplicateProductButton": {
     "en": "Duplicate",
@@ -12149,7 +12149,7 @@
   },
   "product.ProductSearcher.duplicateProductTooltip": {
     "en": "Duplicate product",
-    "lo": ""
+    "lo": "ເຮັດສຳເນົາຜະລິດຕະພັນ"
   },
   "product.ProductSearcher.openNewTab": {
     "en": "Open in new tab",
@@ -12165,11 +12165,11 @@
   },
   "product.ProductsPage.addNewProduct": {
     "en": "Add new product",
-    "lo": ""
+    "lo": "ເພີ່ມຜະລິດຕະພັນໃໝ່"
   },
   "product.recurrence": {
     "en": "Recurrence",
-    "lo": ""
+    "lo": "ຮອບວຽນ"
   },
   "product.region": {
     "en": "Region",
@@ -12177,43 +12177,43 @@
   },
   "product.registrationFee": {
     "en": "Registration Fee",
-    "lo": ""
+    "lo": "ຄ່າລົງທະບຽນ"
   },
   "product.registrationLumpSum": {
     "en": "Registration Lump Sum",
-    "lo": ""
+    "lo": "ເງິນກ້ອນຄ່າລົງທະບຽນ"
   },
   "product.remunerationCode": {
     "en": "Remuneration Code",
-    "lo": ""
+    "lo": "ລະຫັດການຈ່າຍຄືນ"
   },
   "product.renewalDiscountPerc": {
     "en": "Renewal Discount Perc.",
-    "lo": ""
+    "lo": "ອັດຕາສ່ວນຫຼຸດການຕໍ່ອາຍຸ"
   },
   "product.renewalDiscountPeriod": {
     "en": "Renewal Discount Period",
-    "lo": ""
+    "lo": "ໄລຍະສ່ວນຫຼຸດການຕໍ່ອາຍຸ"
   },
   "product.startCycle1": {
     "en": "Cycle 1",
-    "lo": ""
+    "lo": "ຮອບທີ 1"
   },
   "product.startCycle2": {
     "en": "Cycle 2",
-    "lo": ""
+    "lo": "ຮອບທີ 2"
   },
   "product.startCycle3": {
     "en": "Cycle 3",
-    "lo": ""
+    "lo": "ຮອບທີ 3"
   },
   "product.startCycle4": {
     "en": "Cycle 4",
-    "lo": ""
+    "lo": "ຮອບທີ 4"
   },
   "product.TabsForm.capitation": {
     "en": "Capitation Payment",
-    "lo": ""
+    "lo": "ການຈ່າຍແບບເໝົາຈ່າຍລາຍຫົວ"
   },
   "product.TabsForm.contributionPlan": {
     "en": "Contribution Plan",
@@ -12221,11 +12221,11 @@
   },
   "product.TabsForm.deductibles": {
     "en": "Deductibles & Ceilings",
-    "lo": ""
+    "lo": "ຄ່າຮ່ວມຈ່າຍ ແລະ ເພດານ"
   },
   "product.TabsForm.pooling": {
     "en": "Pooling Management",
-    "lo": ""
+    "lo": "ການຈັດການກອງທຶນລວມ"
   },
   "product.TabsForm.productItems": {
     "en": "Medical Items",
@@ -12237,7 +12237,7 @@
   },
   "product.updateMutation.label": {
     "en": "Update product {name}",
-    "lo": ""
+    "lo": "ປັບປຸງຜະລິດຕະພັນ {name}"
   },
   "profile.ChangePasswordPage.confirmPasswordLabel": {
     "en": "Confirm New Password",
