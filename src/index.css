@@ -831,6 +831,58 @@ main .MuiPaper-root:has(.MuiTable-root) .MuiTable-root {
   min-width: max-content;
 }
 
+/* --- Field labels --------------------------------------------------------
+
+   Lao runs longer than English for the same words -- "Visit Date From" is
+   fifteen characters, ວັນທີເຂົ້າຮັບບໍລິການແຕ່ is twenty-two -- and the searcher
+   grids were laid out around the English. Labels were wrapping onto two and
+   three lines, which left neighbouring fields in a row sitting at different
+   heights and, on the filled selects, dropped the second line straight through
+   the value underneath.
+
+   There is more room than it looks, because of how MUI v4 floats a label. A
+   shrunk label is `transform: scale(0.75)` with `transform-origin: top left`,
+   and a transform does not change the layout box: the browser wraps the text at
+   the FULL font size against the field width, then paints the result at 75%.
+   So every label wraps a third earlier than it needs to, and a third of each
+   one's width is empty.
+
+   Widening the box to 133.33% reclaims exactly that: 133.33% x 0.75 = 100%, so
+   the label wraps where it actually renders and still ends flush with the field.
+   Nothing moves -- the label is absolutely positioned inside a relative
+   FormControl, so it cannot push a neighbour. Most of the wrapped labels become
+   single-line from this alone.
+
+   Only the shrunk state is touched. An unshrunk label sits at scale 1 inside the
+   input, where 100% is already correct and 133% would run past the field.
+
+   Two lines is then the cap. Anything still long enough to need a third is a
+   label that should have been shortened in the dictionary, and clamping keeps
+   one runaway string from opening up the whole row while that is dealt with.
+
+   The input's own 16px top margin is left alone. Reserving room for a second
+   line on every field in the product would add vertical space to every form on
+   every screen to accommodate a handful of labels -- the labels are the thing to
+   fix, not the layout. */
+body:has(header) .MuiFormControl-root .MuiInputLabel-shrink {
+  width: 133.33%;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* MUI sets line-height: 1 on every form label. That is fine for Latin text and
+   wrong for Lao, which stacks tone marks above the consonant and vowel signs
+   below it: at a leading of 1 the marks on a second line touch the line above,
+   and even a single line can clip against a tight container. 1.35 clears them.
+
+   -webkit-line-clamp needs a line height it can multiply, so this also makes the
+   two-line cap above land where it should rather than on a browser default. */
+body:has(header) .MuiFormControl-root .MuiInputLabel-root {
+  line-height: 1.35;
+}
+
 /* Scrollbars: wide enough to grab, quiet enough to ignore.
 
    The Windows default is a few pixels and hard to hit deliberately, so the

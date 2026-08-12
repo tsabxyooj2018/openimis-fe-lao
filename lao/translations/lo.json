@@ -1325,11 +1325,11 @@
   },
   "claim.ClaimFilter.Reviews.value": {
     "en": "Claimed Amount Above",
-    "lo": "ຈຳນວນເງິນທີ່ຮ້ອງເບີກສູງກວ່າ"
+    "lo": "ຮ້ອງເບີກສູງກວ່າ"
   },
   "claim.ClaimFilter.Reviews.variance": {
     "en": "Claimed Amount Above Diagnosis Avg.",
-    "lo": "ຈຳນວນເງິນທີ່ຮ້ອງເບີກສູງກວ່າຄ່າສະເລ່ຍຂອງການວິນິດໄສ"
+    "lo": "ຮ້ອງເບີກສູງກວ່າຄ່າສະເລ່ຍການວິນິດໄສ"
   },
   "claim.ClaimHistoryModal.title": {
     "en": "History of Claim {code}",
@@ -1409,11 +1409,11 @@
   },
   "claim.ClaimMasterPanelExt.InsureeLastVisit.lastClaimAtFrom": {
     "en": "Visit Date From",
-    "lo": "ວັນທີເຂົ້າຮັບບໍລິການແຕ່"
+    "lo": "ວັນທີມາຮັບບໍລິການແຕ່"
   },
   "claim.ClaimMasterPanelExt.InsureeLastVisit.lastClaimAtTo": {
     "en": "Visit Date To",
-    "lo": "ວັນທີເຂົ້າຮັບບໍລິການເຖິງ"
+    "lo": "ວັນທີມາຮັບບໍລິການເຖິງ"
   },
   "claim.ClaimMasterPanelExt.InsureePolicyEligibilitySummary.header": {
     "en": "Policy Information",
@@ -2153,7 +2153,7 @@
   },
   "claim.lastVisitDate": {
     "en": "Last Visit Date",
-    "lo": "ວັນທີເຂົ້າຮັບບໍລິການລ່າສຸດ"
+    "lo": "ວັນທີມາຮັບບໍລິການລ່າສຸດ"
   },
   "claim.mainDiagnosis": {
     "en": "Main Diagnosis",
@@ -2441,7 +2441,7 @@
   },
   "claim.showRestored": {
     "en": "Show Restored",
-    "lo": "ສະແດງລາຍການທີ່ກູ້ຄືນ"
+    "lo": "ສະແດງທີ່ກູ້ຄືນ"
   },
   "claim.SkipClaimFeedback.mutationLabel": {
     "en": "Skip claim {code} feedback",
@@ -2501,11 +2501,11 @@
   },
   "claim.visitDateFrom": {
     "en": "Visit Date From",
-    "lo": "ວັນທີເຂົ້າຮັບບໍລິການແຕ່"
+    "lo": "ວັນທີມາຮັບບໍລິການແຕ່"
   },
   "claim.visitDateTo": {
     "en": "Visit Date To",
-    "lo": "ວັນທີເຂົ້າຮັບບໍລິການເຖິງ"
+    "lo": "ວັນທີມາຮັບບໍລິການເຖິງ"
   },
   "claimAttachments.buttonText": {
     "en": "Attachs",
@@ -2581,7 +2581,7 @@
   },
   "ClaimMasterPanelExt.InsureeInfo.visitDuration": {
     "en": "Duration of the visit",
-    "lo": "ໄລຍະເວລາການເຂົ້າຮັບບໍລິການ"
+    "lo": "ໄລຍະເວລາການມາຮັບບໍລິການ"
   },
   "ClaimMasterPanelExt.InsureeLastVisit.noOtheClaim": {
     "en": "No Other Visit (Claim)",
@@ -2637,7 +2637,7 @@
   },
   "ClaimSampling.Form.ClaimAdmin": {
     "en": "Claim admin assigned",
-    "lo": "ຜູ້ຈັດການຄຳຮ້ອງເບີກຈ່າຍທີ່ມອບໝາຍ"
+    "lo": "ຜູ້ຈັດການທີ່ມອບໝາຍ"
   },
   "ClaimSampling.Form.Create": {
     "en": "Create claim sample",
@@ -3377,7 +3377,7 @@
   },
   "contribution.familySummaries.dob": {
     "en": "Head Birth Date",
-    "lo": "ວັນເດືອນປີເກີດຫົວໜ້າຄອບຄົວ"
+    "lo": "ວັນເກີດຫົວໜ້າຄອບຄົວ"
   },
   "contribution.familySummaries.insuranceNo": {
     "en": "Head Ins. No.",
@@ -4629,7 +4629,7 @@
   },
   "core.UserActivityReport.entity.ServicesPricelistDetail": {
     "en": "Services Pricelist Detail",
-    "lo": "ລາຍລະອຽດບັນຊີລາຄາການບໍລິການ"
+    "lo": "ລາຍລະອຽດບັນຊີລາຄາບໍລິການ"
   },
   "core.UserActivityReport.entity.UserDistrict": {
     "en": "User District",
@@ -5917,7 +5917,7 @@
   },
   "insuree.Family.headInsuree.dob": {
     "en": "Head Birth Date",
-    "lo": "ວັນເດືອນປີເກີດຫົວໜ້າຄອບຄົວ"
+    "lo": "ວັນເກີດຫົວໜ້າຄອບຄົວ"
   },
   "insuree.Family.headInsuree.dobFrom": {
     "en": "Head Birth From",
@@ -6113,7 +6113,7 @@
   },
   "insuree.familySummaries.dob": {
     "en": "Head Birth Date",
-    "lo": "ວັນເດືອນປີເກີດຫົວໜ້າຄອບຄົວ"
+    "lo": "ວັນເກີດຫົວໜ້າຄອບຄົວ"
   },
   "insuree.familySummaries.email": {
     "en": "Head Email",
@@ -6621,7 +6621,7 @@
   },
   "insuree.link.cappedItemService": {
     "en": "Capped Items/Services",
-    "lo": "ລາຍການ/ການບໍລິການທີ່ມີເພດານ"
+    "lo": "ລາຍການ/ບໍລິການທີ່ມີເພດານ"
   },
   "insuree.link.profile": {
     "en": "Profile",
@@ -7557,7 +7557,7 @@
   },
   "location.healthFacilityLegalForm": {
     "en": "Health Facility Legal Form",
-    "lo": "ຮູບແບບນິຕິກຳຂອງສະຖານບໍລິການສຸຂະພາບ"
+    "lo": "ຮູບແບບນິຕິກຳ"
   },
   "location.healthFacilityLegalForm.C": {
     "en": "Charity",
@@ -7581,7 +7581,7 @@
   },
   "location.healthFacilityLevel": {
     "en": "Health Facility Level",
-    "lo": "ລະດັບສະຖານບໍລິການສຸຂະພາບ"
+    "lo": "ລະດັບສະຖານບໍລິການ"
   },
   "location.healthFacilityLevel.C": {
     "en": "Health Center",
@@ -7617,7 +7617,7 @@
   },
   "location.healthFacilitySubLevel": {
     "en": "Health Facility Sub Level",
-    "lo": "ລະດັບຍ່ອຍຂອງສະຖານບໍລິການສຸຂະພາບ"
+    "lo": "ລະດັບຍ່ອຍ"
   },
   "location.healthFacilitySubLevel.I": {
     "en": "Integrated",
@@ -8249,7 +8249,7 @@
   },
   "medical.item.maximumAmount": {
     "en": "Maximum Amount per Claim",
-    "lo": "ຈຳນວນເງິນສູງສຸດຕໍ່ຄຳຮ້ອງເບີກຈ່າຍ"
+    "lo": "ວົງເງິນສູງສຸດຕໍ່ຄຳຮ້ອງ"
   },
   "medical.item.MedicalItemOverview.newTitle": {
     "en": "New Medical Item",
@@ -8409,7 +8409,7 @@
   },
   "medical.service.maximumAmount": {
     "en": "Maximum Amount per Claim",
-    "lo": "ຈຳນວນເງິນສູງສຸດຕໍ່ຄຳຮ້ອງເບີກຈ່າຍ"
+    "lo": "ວົງເງິນສູງສຸດຕໍ່ຄຳຮ້ອງ"
   },
   "medical.service.MedicalServiceOverview.newTitle": {
     "en": "New Medical Service",
@@ -11421,7 +11421,7 @@
   },
   "policyHolder.policyHolderInsuree.label": {
     "en": "Policy Holder Insurees",
-    "lo": "ຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
+    "lo": "ຜູ້ເອົາປະກັນ"
   },
   "policyHolder.policyHolderInsuree.searcher.title": {
     "en": "{policyHolderInsureesTotalCount} Policy Holder Insurees Found",
