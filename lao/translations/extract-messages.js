@@ -31,6 +31,19 @@
  * untranslated, refreshes English wording that changed, and reports keys that
  * disappeared upstream without deleting anyone's work.
  *
+ * One source is not a module at all. src/translations/ref.json is this project's
+ * own catalogue, handed to fe-core's App as the `messages` prop, and fe-core
+ * builds every locale as { ...messages, ...contributedForThisLanguage }. It is
+ * therefore the base layer under all three languages, and a key it defines that
+ * no module redefines renders identically in English, French and Lao.
+ *
+ * Forty-two of them did. "Search Criteria", "Reset filters", "Search", "Rows Per
+ * Page", "Actions" and the twelve month names sit on nearly every screen in the
+ * product, and stayed English in Lao because nothing here ever looked at this
+ * file -- it holds no module prefix, so scanning bundles could not find it.
+ * A Lao value for the same key overrides it for Lao alone, which is what makes
+ * these translatable without touching English or French.
+ *
  * Usage:
  *   node lao/translations/extract-messages.js [modulesDir] [workingFile]
  *
@@ -41,6 +54,7 @@ const path = require("path");
 
 const MODULES_DIR = process.argv[2] || path.join("node_modules", "@openimis");
 const WORKING = process.argv[3] || path.join("lao", "translations", "lo.json");
+const BASE_APP_MESSAGES = path.join("src", "translations", "ref.json");
 const BASE_LANG = "en";
 
 const OPENERS = { "{": "}", "[": "]" };
@@ -175,6 +189,22 @@ bundlesIn(MODULES_DIR).forEach(({ name, file }) => {
     if (!(k in english)) english[k] = v;
   });
 });
+
+/*
+ * Added last, so a module that happens to define the same bare key keeps
+ * priority -- the same order fe-core spreads them in at runtime.
+ */
+if (fs.existsSync(BASE_APP_MESSAGES)) {
+  const base = JSON.parse(fs.readFileSync(BASE_APP_MESSAGES, "utf8"));
+  const fresh = Object.keys(base).filter((k) => !(k in english));
+  console.log(`  ${BASE_APP_MESSAGES}: ${Object.keys(base).length} (${fresh.length} not in any module)`);
+  fresh.forEach((k) => {
+    english[k] = base[k];
+  });
+} else {
+  console.error(`  ${BASE_APP_MESSAGES}: missing -- app-level messages will be skipped`);
+  failures += 1;
+}
 
 if (failures) {
   console.error(`\n${failures} module(s) could not be read -- refusing to rewrite ${WORKING},`);

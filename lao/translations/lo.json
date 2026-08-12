@@ -35,6 +35,10 @@
     "en": "Add individual to this group",
     "lo": ""
   },
+  "addTooltip": {
+    "en": "Create new",
+    "lo": "ສ້າງໃໝ່"
+  },
   "admin.ClaimAdministratorFormPanel.title": {
     "en": "Claim Administrator",
     "lo": "ຜູ້ຄຸ້ມຄອງຄຳຮ້ອງ"
@@ -459,6 +463,10 @@
     "en": "Api Fhir R4 | Subscription Config Fhir Sub Update",
     "lo": ""
   },
+  "appName": {
+    "en": "ລະບົບປະກັນສຸຂະພາບແຫ່ງຊາດ",
+    "lo": "ລະບົບປະກັນສຸຂະພາບແຫ່ງຊາດ"
+  },
   "attachmentStatus": {
     "en": "Attachment",
     "lo": "ເອກະສານແນບ"
@@ -466,6 +474,10 @@
   "attendingStaff": {
     "en": "Attending Staff",
     "lo": "ພະນັກງານຜູ້ໃຫ້ບໍລິການ"
+  },
+  "autosuggest.more": {
+    "en": "... other options matching search, please refine",
+    "lo": "... ຍັງມີຕົວເລືອກອື່ນທີ່ກົງກັບການຄົ້ນຫາ, ກະລຸນາລະບຸໃຫ້ຈະແຈ້ງຂຶ້ນ"
   },
   "bill.amountDiscount": {
     "en": "Discount",
@@ -2671,6 +2683,14 @@
     "en": "Claim Sampling Assignments",
     "lo": ""
   },
+  "clearSelected": {
+    "en": "Clear Selection",
+    "lo": "ລ້າງການເລືອກ"
+  },
+  "close": {
+    "en": "Close",
+    "lo": "ປິດ"
+  },
   "closeInsureeSearchCriteria.buttonText": {
     "en": "Close",
     "lo": "ປິດ"
@@ -4196,11 +4216,11 @@
     "lo": "ຢືນຢັນການປ່ຽນພາສາ"
   },
   "core.LoginPage.authError": {
-    "en": "The password or the username you've entered is incorrect.",
+    "en": "ຊື່ຜູ້ໃຊ້ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ / The username or password you entered is incorrect.",
     "lo": ""
   },
   "core.LoginPage.authErrorGeneral": {
-    "en": "Unknown error.",
+    "en": "ເກີດຄວາມຜິດພາດທີ່ບໍ່ຮູ້ສາເຫດ / Unknown error.",
     "lo": ""
   },
   "core.LoginPage.authErrorHealthFacilityContractInvalid": {
@@ -4212,15 +4232,15 @@
     "lo": "ກັບຄືນ"
   },
   "core.LoginPage.forgotPassword": {
-    "en": "Forgot Password ?",
+    "en": "ລືມລະຫັດຜ່ານ? / Forgot password?",
     "lo": ""
   },
   "core.LoginPage.howToUse": {
-    "en": "User guide",
+    "en": "ຄູ່ມືການໃຊ້ງານ / User guide",
     "lo": ""
   },
   "core.LoginPage.loginBtn": {
-    "en": "Log In",
+    "en": "ເຂົ້າສູ່ລະບົບ / Log in",
     "lo": ""
   },
   "core.LoginPage.loginCaption": {
@@ -4228,15 +4248,15 @@
     "lo": ""
   },
   "core.LoginPage.pageTitle": {
-    "en": "Log In",
+    "en": "ເຂົ້າສູ່ລະບົບ / Log in",
     "lo": ""
   },
   "core.LoginPage.password.label": {
-    "en": "Password",
+    "en": "ລະຫັດຜ່ານ / Password",
     "lo": "ລະຫັດຜ່ານ"
   },
   "core.LoginPage.username.label": {
-    "en": "Username",
+    "en": "ຊື່ຜູ້ໃຊ້ / Username",
     "lo": "ຊື່ຜູ້ໃຊ້"
   },
   "core.NeDateFormatter.dateOutOfRange": {
@@ -4627,6 +4647,10 @@
     "en": "Create groups from column:",
     "lo": ""
   },
+  "currency": {
+    "en": "$",
+    "lo": ""
+  },
   "deduplication.BeneficiaryDuplicatesTable.checkbox.header": {
     "en": "Select all columns",
     "lo": ""
@@ -4799,6 +4823,10 @@
     "en": "Edit",
     "lo": "ແກ້ໄຂ"
   },
+  "empty": {
+    "en": " ",
+    "lo": ""
+  },
   "emptyLabel": {
     "en": " ",
     "lo": ""
@@ -4874,6 +4902,14 @@
   "familySummaries.deleteFamily.buttonText": {
     "en": "Delete",
     "lo": "ລຶບ"
+  },
+  "FatalError.message": {
+    "en": "Requested action can't be executed, please check your internet connection,...",
+    "lo": "ບໍ່ສາມາດດຳເນີນການທີ່ຮ້ອງຂໍໄດ້, ກະລຸນາກວດສອບການເຊື່ອມຕໍ່ອິນເຕີເນັດຂອງທ່ານ,..."
+  },
+  "FatalError.title": {
+    "en": "Fatal Error",
+    "lo": "ຂໍ້ຜິດພາດຮ້າຍແຮງ"
   },
   "FlagPicker.label": {
     "en": "Flag",
@@ -8607,9 +8643,77 @@
     "en": "Invoices",
     "lo": "ໃບແຈ້ງໜີ້"
   },
+  "month": {
+    "en": "Month",
+    "lo": "ເດືອນ"
+  },
+  "month.1": {
+    "en": "January",
+    "lo": "ມັງກອນ"
+  },
+  "month.10": {
+    "en": "October",
+    "lo": "ຕຸລາ"
+  },
+  "month.11": {
+    "en": "November",
+    "lo": "ພະຈິກ"
+  },
+  "month.12": {
+    "en": "December",
+    "lo": "ທັນວາ"
+  },
+  "month.2": {
+    "en": "February",
+    "lo": "ກຸມພາ"
+  },
+  "month.3": {
+    "en": "March",
+    "lo": "ມີນາ"
+  },
+  "month.4": {
+    "en": "April",
+    "lo": "ເມສາ"
+  },
+  "month.5": {
+    "en": "May",
+    "lo": "ພຶດສະພາ"
+  },
+  "month.6": {
+    "en": "June",
+    "lo": "ມິຖຸນາ"
+  },
+  "month.7": {
+    "en": "July",
+    "lo": "ກໍລະກົດ"
+  },
+  "month.8": {
+    "en": "August",
+    "lo": "ສິງຫາ"
+  },
+  "month.9": {
+    "en": "September",
+    "lo": "ກັນຍາ"
+  },
+  "month.null": {
+    "en": "Any",
+    "lo": "ໃດກໍໄດ້"
+  },
   "moveToNewGroup": {
     "en": "New Group",
     "lo": ""
+  },
+  "noRecord": {
+    "en": "No Record To Display",
+    "lo": "ບໍ່ມີຂໍ້ມູນທີ່ຈະສະແດງ"
+  },
+  "ofPages": {
+    "en": "of",
+    "lo": "ຈາກ"
+  },
+  "ok": {
+    "en": "Ok",
+    "lo": "ຕົກລົງ"
   },
   "opensearch_reports.gql_opensearch_dashboard_search_perms": {
     "en": "Opensearch Reports | Opensearch Dashboard Search",
@@ -10274,6 +10378,14 @@
   "payrollPaymentFile.download": {
     "en": "Download",
     "lo": "ດາວໂຫລດ"
+  },
+  "picker.close": {
+    "en": "Close",
+    "lo": "ປິດ"
+  },
+  "picker.select": {
+    "en": "Select",
+    "lo": "ເລືອກ"
   },
   "policy.action.AddPolicy.buttonText": {
     "en": "Add policy",
@@ -12343,6 +12455,10 @@
     "en": "Changelog",
     "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
+  "refreshFilterTooltip": {
+    "en": "Search",
+    "lo": "ຄົ້ນຫາ"
+  },
   "reopenTicket.mutation.label": {
     "en": "Reopen Ticket",
     "lo": ""
@@ -12459,6 +12575,10 @@
     "en": "Reset",
     "lo": "ຕັ້ງຄ່າໃໝ່"
   },
+  "resetFilterTooltip": {
+    "en": "Reset filters",
+    "lo": "ລ້າງຕົວກັ່ນຕອງ"
+  },
   "resolveButtonTooltip": {
     "en": "Resolve grievance with this comment.",
     "lo": ""
@@ -12479,9 +12599,41 @@
     "en": "Edit",
     "lo": "ແກ້ໄຂ"
   },
+  "row.actions": {
+    "en": "Actions",
+    "lo": "ການດຳເນີນການ"
+  },
+  "row.delete": {
+    "en": "Are you sure delete this row?",
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບແຖວນີ້?"
+  },
+  "rowsPerPage": {
+    "en": "Rows Per Page",
+    "lo": "ແຖວຕໍ່ໜ້າ"
+  },
+  "saveTooltip": {
+    "en": "Save changes",
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
+  },
+  "search.apply": {
+    "en": "Apply",
+    "lo": "ນຳໃຊ້"
+  },
+  "search.dialog.title": {
+    "en": "Adapt Search Criteria",
+    "lo": "ປັບເງື່ອນໄຂການຄົ້ນຫາ"
+  },
+  "search.title": {
+    "en": "Search Criteria",
+    "lo": "ເງື່ອນໄຂການຄົ້ນຫາ"
+  },
   "searchInsuree.buttonText": {
     "en": "Search",
     "lo": "ຄົ້ນຫາ"
+  },
+  "selectAll": {
+    "en": "Select All",
+    "lo": "ເລືອກທັງໝົດ"
   },
   "showHistory": {
     "en": "Show History",
@@ -14503,8 +14655,24 @@
     "en": "Import Group Valid Items",
     "lo": ""
   },
+  "validation.maxValue": {
+    "en": "{value} above allowed {max}",
+    "lo": "{value} ສູງກວ່າຄ່າສູງສຸດທີ່ອະນຸຍາດ {max}"
+  },
+  "validation.minValue": {
+    "en": "{value} under allowed {min}",
+    "lo": "{value} ຕ່ຳກວ່າຄ່າຕ່ຳສຸດທີ່ອະນຸຍາດ {min}"
+  },
   "viewDetailsButtonTooltip": {
     "en": "View details",
     "lo": "ເບິ່ງລາຍລະອຽດ"
+  },
+  "year": {
+    "en": "Year",
+    "lo": "ປີ"
+  },
+  "year.null": {
+    "en": "Any",
+    "lo": "ໃດກໍໄດ້"
   }
 }
