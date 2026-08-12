@@ -865,7 +865,7 @@
   },
   "claim_batch.AccountPreviewer.title": {
     "en": "Accounts",
-    "lo": ""
+    "lo": "ບັນຊີ"
   },
   "claim_batch.accountType": {
     "en": "Type",
@@ -873,15 +873,15 @@
   },
   "claim_batch.accountType.1": {
     "en": "Yearly",
-    "lo": ""
+    "lo": "ລາຍປີ"
   },
   "claim_batch.accountType.12": {
     "en": "Monthly",
-    "lo": ""
+    "lo": "ລາຍເດືອນ"
   },
   "claim_batch.accountType.4": {
     "en": "Quarterly",
-    "lo": ""
+    "lo": "ລາຍໄຕມາດ"
   },
   "claim_batch.accountType.null": {
     "en": "Any",
@@ -889,19 +889,19 @@
   },
   "claim_batch.BatchRun": {
     "en": "Batch Run ({location})",
-    "lo": ""
+    "lo": "ການປະມວນຜົນເປັນຊຸດ ({location})"
   },
   "claim_batch.BatchRun.errorDetail": {
     "en": "No data in selected batch run",
-    "lo": ""
+    "lo": "ບໍ່ມີຂໍ້ມູນໃນການປະມວນຜົນເປັນຊຸດທີ່ເລືອກ"
   },
   "claim_batch.BatchRun.errorHeader": {
     "en": "Select data to create PDF",
-    "lo": ""
+    "lo": "ເລືອກຂໍ້ມູນເພື່ອສ້າງ PDF"
   },
   "claim_batch.BatchRunLauncher.title": {
     "en": "Launch Batch Run",
-    "lo": ""
+    "lo": "ເລີ່ມການປະມວນຜົນເປັນຊຸດ"
   },
   "claim_batch.BatchRunPicker.null": {
     "en": "Any",
@@ -909,11 +909,11 @@
   },
   "claim_batch.BatchRunSearcher.title": {
     "en": "Relative Indexes ({totalCount})",
-    "lo": ""
+    "lo": "ດັດຊະນີທຽບ ({totalCount})"
   },
   "claim_batch.batchRunSummaries.calculatedDate": {
     "en": "Calculated Date",
-    "lo": ""
+    "lo": "ວັນທີຄິດໄລ່"
   },
   "claim_batch.batchRunSummaries.careType": {
     "en": "Care Type",
@@ -921,7 +921,7 @@
   },
   "claim_batch.batchRunSummaries.index": {
     "en": "Index",
-    "lo": ""
+    "lo": "ດັດຊະນີ"
   },
   "claim_batch.batchRunSummaries.month": {
     "en": "Month",
@@ -937,7 +937,7 @@
   },
   "claim_batch.BatchRunWithLocationPicker": {
     "en": "Batch Run",
-    "lo": ""
+    "lo": "ການປະມວນຜົນເປັນຊຸດ"
   },
   "claim_batch.BatchRunWithLocationPicker.emptyLabel": {
     "en": " ",
@@ -961,7 +961,7 @@
   },
   "claim_batch.groupBy": {
     "en": "Group By",
-    "lo": ""
+    "lo": "ຈັດກຸ່ມຕາມ"
   },
   "claim_batch.groupBy.H": {
     "en": "Health Facility",
@@ -985,23 +985,23 @@
   },
   "claim_batch.previewer.showClaims": {
     "en": "Show claims",
-    "lo": ""
+    "lo": "ສະແດງຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim_batch.processBatch.confirm.message": {
     "en": "Are you sure you want to process batches for {location}, {month} {year}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການປະມວນຜົນເປັນຊຸດສຳລັບ {location}, {month} {year}?"
   },
   "claim_batch.processBatch.confirm.title": {
     "en": "Launch Batch Processing",
-    "lo": ""
+    "lo": "ເລີ່ມການປະມວນຜົນເປັນຊຸດ"
   },
   "claim_batch.processBatch.mutationLabel": {
     "en": "Batch Process - {location}, {month} {year}",
-    "lo": ""
+    "lo": "ການປະມວນຜົນເປັນຊຸດ - {location}, {month} {year}"
   },
   "claim_batch.regions.country": {
     "en": "National",
-    "lo": ""
+    "lo": "ທົ່ວປະເທດ"
   },
   "claim_batch.reports_capitation_payment_perms": {
     "en": "Claim Batch | Capitation Payment",
@@ -1025,15 +1025,15 @@
   },
   "claim.adjustment": {
     "en": "Adjustment",
-    "lo": ""
+    "lo": "ການປັບປຸງ"
   },
   "claim.approvalStatus": {
     "en": "Approval Status",
-    "lo": ""
+    "lo": "ສະຖານະການອະນຸມັດ"
   },
   "claim.approvalStatus.1": {
     "en": "Passed",
-    "lo": ""
+    "lo": "ຜ່ານ"
   },
   "claim.approvalStatus.2": {
     "en": "Rejected",
@@ -1049,67 +1049,67 @@
   },
   "claim.attachFile": {
     "en": "A referral claim requires an attachment.",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍແບບສົ່ງຕໍ່ຕ້ອງມີເອກະສານແນບ."
   },
   "claim.attachment.defineDocument": {
     "en": "Upload a file or clean the attachment",
-    "lo": ""
+    "lo": "ອັບໂຫຼດໄຟລ໌ ຫຼື ລຶບເອກະສານແນບອອກ"
   },
   "claim.attachment.definePredefinedType": {
     "en": "You must define the the General Type first and then select the Predefined Type or clean the attachment",
-    "lo": ""
+    "lo": "ທ່ານຕ້ອງກຳນົດປະເພດທົ່ວໄປກ່ອນ ແລ້ວຈຶ່ງເລືອກປະເພດທີ່ກຳນົດໄວ້ ຫຼື ລຶບເອກະສານແນບອອກ"
   },
   "claim.attachment.missingDocument": {
     "en": "Missing Document",
-    "lo": ""
+    "lo": "ຂາດເອກະສານ"
   },
   "claim.attachment.missingPredefinedType": {
     "en": "Missing predefined Type",
-    "lo": ""
+    "lo": "ຂາດປະເພດທີ່ກຳນົດໄວ້"
   },
   "claim.attachmentGeneralType": {
     "en": "General Type",
-    "lo": ""
+    "lo": "ປະເພດທົ່ວໄປ"
   },
   "claim.attachmentGeneralType.FILE": {
     "en": "FILE",
-    "lo": ""
+    "lo": "ໄຟລ໌"
   },
   "claim.attachmentGeneralType.null": {
     "en": "Both",
-    "lo": ""
+    "lo": "ທັງສອງ"
   },
   "claim.attachmentGeneralType.URL": {
     "en": "URL",
-    "lo": ""
+    "lo": "URL"
   },
   "claim.attachments.title": {
     "en": "Attachments of claim {code}",
-    "lo": ""
+    "lo": "ເອກະສານແນບຂອງຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.attachmentStatus.1": {
     "en": "With attachment",
-    "lo": ""
+    "lo": "ມີເອກະສານແນບ"
   },
   "claim.attachmentStatus.2": {
     "en": "Without attachment",
-    "lo": ""
+    "lo": "ບໍ່ມີເອກະສານແນບ"
   },
   "claim.attachmentStatus.null": {
     "en": "All",
-    "lo": ""
+    "lo": "ທັງໝົດ"
   },
   "claim.attachmentType.Bill": {
     "en": "Bill",
-    "lo": ""
+    "lo": "ໃບບິນ"
   },
   "claim.attachmentType.Diagnosis": {
     "en": "Diagnosis",
-    "lo": ""
+    "lo": "ການວິນິດໄສ"
   },
   "claim.attachmentType.Medical": {
     "en": "Medical",
-    "lo": ""
+    "lo": "ເອກະສານທາງການແພດ"
   },
   "claim.attachmentType.null": {
     "en": "Any",
@@ -1121,47 +1121,47 @@
   },
   "claim.BypassClaimFeedback.mutationLabel": {
     "en": "Bypass claim {code} feedback",
-    "lo": ""
+    "lo": "ຂ້າມຂັ້ນຕອນຄຳຄິດເຫັນຂອງຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.BypassClaimReview.mutationLabel": {
     "en": "Bypass claim {code} review",
-    "lo": ""
+    "lo": "ຂ້າມຂັ້ນຕອນການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.BypassClaimsFeedback.mutationLabel": {
     "en": "Bypassed {count} claims feedbacks",
-    "lo": ""
+    "lo": "ຂ້າມຂັ້ນຕອນຄຳຄິດເຫັນຂອງຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການ"
   },
   "claim.BypassClaimsReview.mutationLabel": {
     "en": "Bypassed {count} claims review",
-    "lo": ""
+    "lo": "ຂ້າມຂັ້ນຕອນການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການ"
   },
   "claim.calculateAge.util.days": {
     "en": "Day(s)",
-    "lo": ""
+    "lo": "ມື້"
   },
   "claim.calculateAge.util.dobNotProvided": {
     "en": "Date of birth not provided",
-    "lo": ""
+    "lo": "ບໍ່ໄດ້ລະບຸວັນເດືອນປີເກີດ"
   },
   "claim.calculateAge.util.months": {
     "en": "Month(s)",
-    "lo": ""
+    "lo": "ເດືອນ"
   },
   "claim.calculateAge.util.weeks": {
     "en": "Week(s)",
-    "lo": ""
+    "lo": "ອາທິດ"
   },
   "claim.calculateAge.util.years": {
     "en": "Year(s)",
-    "lo": ""
+    "lo": "ປີ"
   },
   "claim.careType": {
     "en": "In/out-patient",
-    "lo": ""
+    "lo": "ຜູ້ປ່ວຍໃນ/ນອກ"
   },
   "claim.careType.IPD": {
     "en": "IPD",
-    "lo": ""
+    "lo": "ຜູ້ປ່ວຍໃນ"
   },
   "claim.careType.null": {
     "en": "Any",
@@ -1169,7 +1169,7 @@
   },
   "claim.careType.OPD": {
     "en": "OPD",
-    "lo": ""
+    "lo": "ຜູ້ປ່ວຍນອກ"
   },
   "claim.claim_print_perms": {
     "en": "Claim | Claim Print",
@@ -1185,7 +1185,7 @@
   },
   "claim.ClaimAdminPicker.placeholder": {
     "en": "Search a Claim Administrator",
-    "lo": ""
+    "lo": "ຄົ້ນຫາຜູ້ຈັດການຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.claimAttachment.action": {
     "en": " ",
@@ -1193,7 +1193,7 @@
   },
   "claim.ClaimAttachment.create.mutationLabel": {
     "en": "Added attachment {file} to claim {code}",
-    "lo": ""
+    "lo": "ເພີ່ມເອກະສານແນບ {file} ໃສ່ຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.claimAttachment.date": {
     "en": "Date",
@@ -1201,7 +1201,7 @@
   },
   "claim.ClaimAttachment.delete.mutationLabel": {
     "en": "Deleted attachment {file} from claim {code}",
-    "lo": ""
+    "lo": "ລຶບເອກະສານແນບ {file} ອອກຈາກຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.claimAttachment.fileName": {
     "en": "Attachment",
@@ -1209,11 +1209,11 @@
   },
   "claim.claimAttachment.generalType": {
     "en": "General Type",
-    "lo": ""
+    "lo": "ປະເພດທົ່ວໄປ"
   },
   "claim.claimAttachment.predefinedType": {
     "en": "Predefined Type",
-    "lo": ""
+    "lo": "ປະເພດທີ່ກຳນົດໄວ້"
   },
   "claim.claimAttachment.title": {
     "en": "Title",
@@ -1225,23 +1225,23 @@
   },
   "claim.ClaimAttachment.update.mutationLabel": {
     "en": "Updated attachment {file} of claim {code}",
-    "lo": ""
+    "lo": "ປັບປຸງເອກະສານແນບ {file} ຂອງຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.ClaimChildPanel.quantity.error": {
     "en": "Quantity has to be greater than 0",
-    "lo": ""
+    "lo": "ຈຳນວນຕ້ອງຫຼາຍກວ່າ 0"
   },
   "claim.ClaimChildPanel.review.approveAll": {
     "en": "Approve all",
-    "lo": ""
+    "lo": "ອະນຸມັດທັງໝົດ"
   },
   "claim.ClaimChildPanel.review.explanationRequired": {
     "en": "Explanation required if provided quantity is greater than {threshold}.",
-    "lo": ""
+    "lo": "ຕ້ອງໃຫ້ຄຳອະທິບາຍ ຖ້າຈຳນວນທີ່ໃຫ້ບໍລິການຫຼາຍກວ່າ {threshold}."
   },
   "claim.ClaimChildPanel.review.rejectAll": {
     "en": "Reject all",
-    "lo": ""
+    "lo": "ປະຕິເສດທັງໝົດ"
   },
   "claim.claimed": {
     "en": "Claimed",
@@ -1249,7 +1249,7 @@
   },
   "claim.claimedDate": {
     "en": "Date Claimed",
-    "lo": ""
+    "lo": "ວັນທີຮ້ອງເບີກ"
   },
   "claim.claimFeedback.buttonText": {
     "en": "Feedback",
@@ -1261,19 +1261,19 @@
   },
   "claim.ClaimFilter.claimedAbove": {
     "en": "Claimed More Than",
-    "lo": ""
+    "lo": "ຮ້ອງເບີກຫຼາຍກວ່າ"
   },
   "claim.ClaimFilter.claimedDateFrom": {
     "en": "Claimed From",
-    "lo": ""
+    "lo": "ຮ້ອງເບີກແຕ່ວັນທີ"
   },
   "claim.ClaimFilter.claimedDateTo": {
     "en": "Claimed To",
-    "lo": ""
+    "lo": "ຮ້ອງເບີກເຖິງວັນທີ"
   },
   "claim.ClaimFilter.claimedUnder": {
     "en": "Claimed Less Than",
-    "lo": ""
+    "lo": "ຮ້ອງເບີກໜ້ອຍກວ່າ"
   },
   "claim.ClaimFilter.claimNo": {
     "en": "Claim No.",
@@ -1293,27 +1293,27 @@
   },
   "claim.ClaimFilter.processedDateFrom": {
     "en": "Processed From",
-    "lo": ""
+    "lo": "ປະມວນຜົນແຕ່ວັນທີ"
   },
   "claim.ClaimFilter.processedDateTo": {
     "en": "Processed To",
-    "lo": ""
+    "lo": "ປະມວນຜົນເຖິງວັນທີ"
   },
   "claim.ClaimFilter.randomFilter.invalidAlert.message": {
     "en": "Random filtering ({random}%) must be 1 or more, and maximum 100",
-    "lo": ""
+    "lo": "ການສຸ່ມຕົວຢ່າງ ({random}%) ຕ້ອງເປັນ 1 ຂຶ້ນໄປ ແລະ ສູງສຸດ 100"
   },
   "claim.ClaimFilter.randomFilter.invalidAlert.title": {
     "en": "Invalid random filtering!",
-    "lo": ""
+    "lo": "ການສຸ່ມຕົວຢ່າງບໍ່ຖືກຕ້ອງ!"
   },
   "claim.ClaimFilter.randomFilter.zeroAlert.message": {
     "en": "Random filtering {random}% of {totalCount} claims would provide an empty result!",
-    "lo": ""
+    "lo": "ການສຸ່ມຕົວຢ່າງ {random}% ຈາກຄຳຮ້ອງເບີກຈ່າຍ {totalCount} ລາຍການຈະບໍ່ໄດ້ຜົນລັບໃດໆ!"
   },
   "claim.ClaimFilter.randomFilter.zeroAlert.title": {
     "en": "Invalid random filtering!",
-    "lo": ""
+    "lo": "ການສຸ່ມຕົວຢ່າງບໍ່ຖືກຕ້ອງ!"
   },
   "claim.ClaimFilter.region": {
     "en": "Region",
@@ -1325,15 +1325,15 @@
   },
   "claim.ClaimFilter.Reviews.value": {
     "en": "Claimed Amount Above",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ຮ້ອງເບີກສູງກວ່າ"
   },
   "claim.ClaimFilter.Reviews.variance": {
     "en": "Claimed Amount Above Diagnosis Avg.",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ຮ້ອງເບີກສູງກວ່າຄ່າສະເລ່ຍຂອງການວິນິດໄສ"
   },
   "claim.ClaimHistoryModal.title": {
     "en": "History of Claim {code}",
-    "lo": ""
+    "lo": "ປະຫວັດຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.ClaimHistoryReport.claimStatus": {
     "en": "Claim Status",
@@ -1393,11 +1393,11 @@
   },
   "claim.ClaimMasterPanel.autogenerate": {
     "en": "Autogenerated",
-    "lo": ""
+    "lo": "ສ້າງອັດຕະໂນມັດ"
   },
   "claim.ClaimMasterPanel.referHFLabel": {
     "en": "Referal HF",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການທີ່ສົ່ງຕໍ່"
   },
   "claim.ClaimMasterPanelExt.InsureeLastVisit.claimCode": {
     "en": "Claim No.",
@@ -1405,31 +1405,31 @@
   },
   "claim.ClaimMasterPanelExt.InsureeLastVisit.header": {
     "en": "Insuree Last Visit",
-    "lo": ""
+    "lo": "ການເຂົ້າຮັບບໍລິການລ່າສຸດຂອງຜູ້ເອົາປະກັນ"
   },
   "claim.ClaimMasterPanelExt.InsureeLastVisit.lastClaimAtFrom": {
     "en": "Visit Date From",
-    "lo": ""
+    "lo": "ວັນທີເຂົ້າຮັບບໍລິການແຕ່"
   },
   "claim.ClaimMasterPanelExt.InsureeLastVisit.lastClaimAtTo": {
     "en": "Visit Date To",
-    "lo": ""
+    "lo": "ວັນທີເຂົ້າຮັບບໍລິການເຖິງ"
   },
   "claim.ClaimMasterPanelExt.InsureePolicyEligibilitySummary.header": {
     "en": "Policy Information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນສັນຍາປະກັນໄພ"
   },
   "claim.ClaimMasterPanelExt.InsureePolicyEligibilitySummaryActive.header": {
     "en": "Policy Information (Active)",
-    "lo": ""
+    "lo": "ຂໍ້ມູນສັນຍາປະກັນໄພ (ໃຊ້ງານຢູ່)"
   },
   "claim.ClaimMasterPanelExt.InsureePolicyEligibilitySummaryInactive.header": {
     "en": "Policy Information (Inactive)",
-    "lo": ""
+    "lo": "ຂໍ້ມູນສັນຍາປະກັນໄພ (ບໍ່ໃຊ້ງານ)"
   },
   "claim.ClaimMasterPanelExt.restore": {
     "en": "Restored from claim:",
-    "lo": ""
+    "lo": "ກູ້ຄືນຈາກຄຳຮ້ອງເບີກຈ່າຍ:"
   },
   "claim.ClaimOfficerPicker.label": {
     "en": "Enrolment Officer",
@@ -1441,7 +1441,7 @@
   },
   "claim.ClaimOfficerPicker.placeholder": {
     "en": "Search an Enrolment Officer",
-    "lo": ""
+    "lo": "ຄົ້ນຫາເຈົ້າໜ້າທີ່ຮັບສະໝັກ"
   },
   "claim.ClaimPercentageReferralsReport.dateEnd": {
     "en": "Date To",
@@ -1461,7 +1461,7 @@
   },
   "claim.claimReview.buttonText": {
     "en": "Review",
-    "lo": ""
+    "lo": "ກວດສອບ"
   },
   "claim.ClaimsOverviewReport.claimStatus": {
     "en": "Claim Status",
@@ -1533,23 +1533,23 @@
   },
   "claim.ClaimsPrimaryOperationalIndicators.quarter": {
     "en": "Quarter",
-    "lo": ""
+    "lo": "ໄຕມາດ"
   },
   "claim.ClaimsPrimaryOperationalIndicators.quarter.1": {
     "en": "Q1",
-    "lo": ""
+    "lo": "ໄຕມາດ 1"
   },
   "claim.ClaimsPrimaryOperationalIndicators.quarter.2": {
     "en": "Q2",
-    "lo": ""
+    "lo": "ໄຕມາດ 2"
   },
   "claim.ClaimsPrimaryOperationalIndicators.quarter.3": {
     "en": "Q3",
-    "lo": ""
+    "lo": "ໄຕມາດ 3"
   },
   "claim.ClaimsPrimaryOperationalIndicators.quarter.4": {
     "en": "Q4",
-    "lo": ""
+    "lo": "ໄຕມາດ 4"
   },
   "claim.ClaimsPrimaryOperationalIndicators.quarter.null": {
     "en": "Any",
@@ -1609,7 +1609,7 @@
   },
   "claim.claimSummaries.claimedDate": {
     "en": "Claimed Date",
-    "lo": ""
+    "lo": "ວັນທີຮ້ອງເບີກ"
   },
   "claim.claimSummaries.claimStatus": {
     "en": "Status",
@@ -1621,7 +1621,7 @@
   },
   "claim.claimSummaries.deleteSelected": {
     "en": "Delete Selected",
-    "lo": ""
+    "lo": "ລຶບລາຍການທີ່ເລືອກ"
   },
   "claim.claimSummaries.feedbackStatus": {
     "en": "Feedback Status",
@@ -1637,31 +1637,31 @@
   },
   "claim.claimSummaries.markBypassedFeedback": {
     "en": "Bypass Feedback",
-    "lo": ""
+    "lo": "ຂ້າມຂັ້ນຕອນຄຳຄິດເຫັນ"
   },
   "claim.claimSummaries.markBypassedReview": {
     "en": "Bypass Review",
-    "lo": ""
+    "lo": "ຂ້າມຂັ້ນຕອນການກວດສອບ"
   },
   "claim.claimSummaries.markDeliveredReview": {
     "en": "Review Delivered",
-    "lo": ""
+    "lo": "ສົ່ງຜົນການກວດສອບແລ້ວ"
   },
   "claim.claimSummaries.markSelectedForFeedback": {
     "en": "Select For Feedback",
-    "lo": ""
+    "lo": "ເລືອກເພື່ອຂໍຄຳຄິດເຫັນ"
   },
   "claim.claimSummaries.markSelectedForReview": {
     "en": "Select For Review",
-    "lo": ""
+    "lo": "ເລືອກເພື່ອກວດສອບ"
   },
   "claim.claimSummaries.markSkippedFeedback": {
     "en": "Skip Feedback",
-    "lo": ""
+    "lo": "ຍົກເວັ້ນຄຳຄິດເຫັນ"
   },
   "claim.claimSummaries.markSkippedReview": {
     "en": "Skip Review",
-    "lo": ""
+    "lo": "ຍົກເວັ້ນການກວດສອບ"
   },
   "claim.claimSummaries.openNewTab": {
     "en": " ",
@@ -1669,15 +1669,15 @@
   },
   "claim.claimSummaries.pre-authorization": {
     "en": "Pre-auth.",
-    "lo": ""
+    "lo": "ອະນຸມັດລ່ວງໜ້າ"
   },
   "claim.claimSummaries.processedDate": {
     "en": "Processed On",
-    "lo": ""
+    "lo": "ປະມວນຜົນເມື່ອ"
   },
   "claim.claimSummaries.processSelected": {
     "en": "Process Selected",
-    "lo": ""
+    "lo": "ປະມວນຜົນລາຍການທີ່ເລືອກ"
   },
   "claim.claimSummaries.reviewStatus": {
     "en": "Review Status",
@@ -1685,23 +1685,23 @@
   },
   "claim.claimSummaries.selection.approved": {
     "en": "Σ {approved}",
-    "lo": ""
+    "lo": "Σ {approved}"
   },
   "claim.claimSummaries.selection.claimed": {
     "en": "Σ {claimed}",
-    "lo": ""
+    "lo": "Σ {claimed}"
   },
   "claim.claimSummaries.selection.count": {
     "en": "Selected {count} claim(s)",
-    "lo": ""
+    "lo": "ເລືອກຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການ"
   },
   "claim.claimSummaries.submitAll": {
     "en": "Submit All",
-    "lo": ""
+    "lo": "ສົ່ງທັງໝົດ"
   },
   "claim.claimSummaries.submitSelected": {
     "en": "Submit Selected",
-    "lo": ""
+    "lo": "ສົ່ງລາຍການທີ່ເລືອກ"
   },
   "claim.code": {
     "en": "Claim No.",
@@ -1709,43 +1709,43 @@
   },
   "claim.codeTaken": {
     "en": "Claim code already exists",
-    "lo": ""
+    "lo": "ລະຫັດຄຳຮ້ອງເບີກຈ່າຍນີ້ມີຢູ່ແລ້ວ"
   },
   "claim.CreateClaim.mutationLabel": {
     "en": "Create Claim - {code}",
-    "lo": ""
+    "lo": "ສ້າງຄຳຮ້ອງເບີກຈ່າຍ - {code}"
   },
   "claim.deleteClaim.confirm.message": {
     "en": "Are you sure you want to delete claim {code}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບຄຳຮ້ອງເບີກຈ່າຍ {code}?"
   },
   "claim.deleteClaim.confirm.title": {
     "en": "Delete Claim",
-    "lo": ""
+    "lo": "ລຶບຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.DeleteClaim.mutationLabel": {
     "en": "Delete claim {code}",
-    "lo": ""
+    "lo": "ລຶບຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.deleteClaimAttachment.confirm.message": {
     "en": "Are you sure you want to delete claim attachment {file}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບເອກະສານແນບ {file}?"
   },
   "claim.deleteClaimAttachment.confirm.title": {
     "en": "Delete Claim Attachment",
-    "lo": ""
+    "lo": "ລຶບເອກະສານແນບຂອງຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.deleteClaims.confirm.message": {
     "en": "Are you sure you want to delete {count} claims?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການ?"
   },
   "claim.deleteClaims.confirm.title": {
     "en": "Delete Claims",
-    "lo": ""
+    "lo": "ລຶບຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.DeleteClaims.mutationLabel": {
     "en": "Deleted {count} claims",
-    "lo": ""
+    "lo": "ລຶບຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການແລ້ວ"
   },
   "claim.deleteHealthFacility.textButton": {
     "en": "Delete",
@@ -1753,15 +1753,15 @@
   },
   "claim.DeliverClaimFeedback.mutationLabel": {
     "en": "Deliver claim {code} feedback",
-    "lo": ""
+    "lo": "ສົ່ງຜົນຄຳຄິດເຫັນຂອງຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.DeliverClaimReview.mutationLabel": {
     "en": "Deliver claim {code} review",
-    "lo": ""
+    "lo": "ສົ່ງຜົນການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.DeliverClaimReviews.mutationLabel": {
     "en": "Delivered {count} claims review",
-    "lo": ""
+    "lo": "ສົ່ງຜົນການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການແລ້ວ"
   },
   "claim.duplicate.buttonText": {
     "en": "Duplicate",
@@ -1769,19 +1769,19 @@
   },
   "claim.edit.claimCodeExists": {
     "en": "Claim code already registered",
-    "lo": ""
+    "lo": "ລະຫັດຄຳຮ້ອງເບີກຈ່າຍນີ້ຖືກລົງທະບຽນແລ້ວ"
   },
   "claim.edit.duplicate": {
     "en": "Duplicate the claim",
-    "lo": ""
+    "lo": "ເຮັດສຳເນົາຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.edit.items.appPrice": {
     "en": "App. Price",
-    "lo": ""
+    "lo": "ລາຄາອະນຸມັດ"
   },
   "claim.edit.items.appQuantity": {
     "en": "App. Quantity",
-    "lo": ""
+    "lo": "ຈຳນວນອະນຸມັດ"
   },
   "claim.edit.items.delete": {
     "en": " ",
@@ -1793,7 +1793,7 @@
   },
   "claim.edit.items.fetchingPricelist": {
     "en": " (fetching prices list…)",
-    "lo": ""
+    "lo": " (ກຳລັງດຶງບັນຊີລາຄາ…)"
   },
   "claim.edit.items.item": {
     "en": "Item",
@@ -1801,7 +1801,7 @@
   },
   "claim.edit.items.justification": {
     "en": "Justification",
-    "lo": ""
+    "lo": "ເຫດຜົນປະກອບ"
   },
   "claim.edit.items.price": {
     "en": "Price",
@@ -1817,11 +1817,11 @@
   },
   "claim.edit.items.rejectall": {
     "en": "Reject All items",
-    "lo": ""
+    "lo": "ປະຕິເສດລາຍການທັງໝົດ"
   },
   "claim.edit.items.rejectionReason": {
     "en": "R",
-    "lo": ""
+    "lo": "R"
   },
   "claim.edit.items.status": {
     "en": "Status",
@@ -1829,35 +1829,35 @@
   },
   "claim.edit.items.title": {
     "en": "Items",
-    "lo": ""
+    "lo": "ລາຍການທາງການແພດ"
   },
   "claim.edit.items.totalApproved": {
     "en": "Total Approved: {totalApproved}",
-    "lo": ""
+    "lo": "ລວມທີ່ອະນຸມັດ: {totalApproved}"
   },
   "claim.edit.items.totalClaimed": {
     "en": "Total Claimed: {totalClaimed}",
-    "lo": ""
+    "lo": "ລວມທີ່ຮ້ອງເບີກ: {totalClaimed}"
   },
   "claim.edit.page.title": {
     "en": "Claim {code}",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.edit.renew": {
     "en": "Add new claim",
-    "lo": ""
+    "lo": "ເພີ່ມຄຳຮ້ອງເບີກຈ່າຍໃໝ່"
   },
   "claim.edit.restore": {
     "en": "Restore the claim",
-    "lo": ""
+    "lo": "ກູ້ຄືນຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "claim.edit.services.appPrice": {
     "en": "App. Price",
-    "lo": ""
+    "lo": "ລາຄາອະນຸມັດ"
   },
   "claim.edit.services.appQuantity": {
     "en": "App. Quantity",
-    "lo": ""
+    "lo": "ຈຳນວນອະນຸມັດ"
   },
   "claim.edit.services.delete": {
     "en": " ",
@@ -1869,15 +1869,15 @@
   },
   "claim.edit.services.fetchingPricelist": {
     "en": " (fetching prices list…)",
-    "lo": ""
+    "lo": " (ກຳລັງດຶງບັນຊີລາຄາ…)"
   },
   "claim.edit.services.justification": {
     "en": "Justification",
-    "lo": ""
+    "lo": "ເຫດຜົນປະກອບ"
   },
   "claim.edit.services.MaxApproved": {
     "en": "Quantity set is more than quantity approved for this element. You will be reimbursed only for {totalApproved} element(s)",
-    "lo": ""
+    "lo": "ຈຳນວນທີ່ກຳນົດຫຼາຍກວ່າຈຳນວນທີ່ອະນຸມັດສຳລັບລາຍການນີ້. ທ່ານຈະໄດ້ຮັບການຊົດເຊີຍພຽງ {totalApproved} ລາຍການເທົ່ານັ້ນ"
   },
   "claim.edit.services.price": {
     "en": "Price",
@@ -1893,11 +1893,11 @@
   },
   "claim.edit.services.rejectall": {
     "en": "Reject all Services",
-    "lo": ""
+    "lo": "ປະຕິເສດການບໍລິການທັງໝົດ"
   },
   "claim.edit.services.rejectionReason": {
     "en": "R",
-    "lo": ""
+    "lo": "R"
   },
   "claim.edit.services.service": {
     "en": "Service",
@@ -1909,19 +1909,19 @@
   },
   "claim.edit.services.title": {
     "en": "Services",
-    "lo": ""
+    "lo": "ການບໍລິການທາງການແພດ"
   },
   "claim.edit.services.totalApproved": {
     "en": "Total Approved: {totalApproved}",
-    "lo": ""
+    "lo": "ລວມທີ່ອະນຸມັດ: {totalApproved}"
   },
   "claim.edit.services.totalClaimed": {
     "en": "Total Claimed: {totalClaimed}",
-    "lo": ""
+    "lo": "ລວມທີ່ຮ້ອງເບີກ: {totalClaimed}"
   },
   "claim.edit.title": {
     "en": "Claim {code}",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.expiryDate": {
     "en": "Expiry Date",
@@ -1937,63 +1937,63 @@
   },
   "claim.Feedback.careRendered": {
     "en": "Care Rendered",
-    "lo": ""
+    "lo": "ໄດ້ຮັບການປິ່ນປົວ"
   },
   "claim.Feedback.date": {
     "en": "Feedback Date",
-    "lo": ""
+    "lo": "ວັນທີໃຫ້ຄຳຄິດເຫັນ"
   },
   "claim.Feedback.drugPrescribed": {
     "en": "Drugs Prescribed",
-    "lo": ""
+    "lo": "ໄດ້ຮັບການສັ່ງຢາ"
   },
   "claim.Feedback.drugReceived": {
     "en": "Drugs Received",
-    "lo": ""
+    "lo": "ໄດ້ຮັບຢາ"
   },
   "claim.Feedback.enrollmentOfficer": {
     "en": "Enrollment Officer",
-    "lo": ""
+    "lo": "ເຈົ້າໜ້າທີ່ຮັບສະໝັກ"
   },
   "claim.Feedback.overallAssesment": {
     "en": "Overall Assessment",
-    "lo": ""
+    "lo": "ການປະເມີນລວມ"
   },
   "claim.Feedback.OverallAssesment.-1": {
     "en": "Unknown",
-    "lo": ""
+    "lo": "ບໍ່ຮູ້"
   },
   "claim.Feedback.OverallAssesment.0": {
     "en": "Very Bad",
-    "lo": ""
+    "lo": "ຮ້າຍແຮງຫຼາຍ"
   },
   "claim.Feedback.OverallAssesment.1": {
     "en": "Bad",
-    "lo": ""
+    "lo": "ບໍ່ດີ"
   },
   "claim.Feedback.OverallAssesment.2": {
     "en": "Not So Bad",
-    "lo": ""
+    "lo": "ພໍໃຊ້ໄດ້"
   },
   "claim.Feedback.OverallAssesment.3": {
     "en": "Not So Good",
-    "lo": ""
+    "lo": "ຄ່ອນຂ້າງດີ"
   },
   "claim.Feedback.OverallAssesment.4": {
     "en": "Good",
-    "lo": ""
+    "lo": "ດີ"
   },
   "claim.Feedback.OverallAssesment.5": {
     "en": "Very Good",
-    "lo": ""
+    "lo": "ດີຫຼາຍ"
   },
   "claim.Feedback.paymentAsked": {
     "en": "Payment Asked",
-    "lo": ""
+    "lo": "ຖືກຮຽກເກັບເງິນ"
   },
   "claim.Feedback.Tristate.-1": {
     "en": "Unknown",
-    "lo": ""
+    "lo": "ບໍ່ຮູ້"
   },
   "claim.Feedback.Tristate.0": {
     "en": "No",
@@ -2005,7 +2005,7 @@
   },
   "claim.feedbackButton.tooltip": {
     "en": "Deliver Feedback",
-    "lo": ""
+    "lo": "ສົ່ງຄຳຄິດເຫັນ"
   },
   "claim.feedbackStatus": {
     "en": "Feedback Status",
@@ -2017,19 +2017,19 @@
   },
   "claim.feedbackStatus.16": {
     "en": "Bypassed",
-    "lo": ""
+    "lo": "ຂ້າມຂັ້ນຕອນແລ້ວ"
   },
   "claim.feedbackStatus.2": {
     "en": "Not Selected",
-    "lo": ""
+    "lo": "ບໍ່ໄດ້ເລືອກ"
   },
   "claim.feedbackStatus.4": {
     "en": "Selected",
-    "lo": ""
+    "lo": "ເລືອກແລ້ວ"
   },
   "claim.feedbackStatus.8": {
     "en": "Delivered",
-    "lo": ""
+    "lo": "ສົ່ງແລ້ວ"
   },
   "claim.feedbackStatus.null": {
     "en": "Any",
@@ -2101,7 +2101,7 @@
   },
   "claim.guaranteeId": {
     "en": "Guarantee No.",
-    "lo": ""
+    "lo": "ເລກທີໜັງສືຄ້ຳປະກັນ"
   },
   "claim.healthFacilityClaims.page.title": {
     "en": "Health Facility Claims",
@@ -2109,43 +2109,43 @@
   },
   "claim.itemsPricelist.missing": {
     "en": "No items prices list registered for health facility",
-    "lo": ""
+    "lo": "ບໍ່ມີບັນຊີລາຄາລາຍການທີ່ລົງທະບຽນໄວ້ສຳລັບສະຖານບໍລິການສຸຂະພາບ"
   },
   "claim.justification": {
     "en": "justification",
-    "lo": ""
+    "lo": "ເຫດຜົນປະກອບ"
   },
   "claim.justification.1": {
     "en": "Included in opd",
-    "lo": ""
+    "lo": "ລວມຢູ່ໃນຜູ້ປ່ວຍນອກ"
   },
   "claim.justification.128": {
     "en": "Major surgery",
-    "lo": ""
+    "lo": "ການຜ່າຕັດໃຫຍ່"
   },
   "claim.justification.16": {
     "en": "Sergical package",
-    "lo": ""
+    "lo": "ຊຸດການຜ່າຕັດ"
   },
   "claim.justification.2": {
     "en": "Er",
-    "lo": ""
+    "lo": "ຫ້ອງສຸກເສີນ"
   },
   "claim.justification.32": {
     "en": "Adjusted for the minor",
-    "lo": ""
+    "lo": "ປັບຕາມເດັກ"
   },
   "claim.justification.4": {
     "en": "Perday",
-    "lo": ""
+    "lo": "ຕໍ່ມື້"
   },
   "claim.justification.64": {
     "en": "Intermediate",
-    "lo": ""
+    "lo": "ຂັ້ນກາງ"
   },
   "claim.justification.8": {
     "en": "Icu",
-    "lo": ""
+    "lo": "ຫ້ອງປິ່ນປົວຜູ້ປ່ວຍໜັກ"
   },
   "claim.justification.null": {
     "en": "Any",
@@ -2153,11 +2153,11 @@
   },
   "claim.lastVisitDate": {
     "en": "Last Visit Date",
-    "lo": ""
+    "lo": "ວັນທີເຂົ້າຮັບບໍລິການລ່າສຸດ"
   },
   "claim.mainDiagnosis": {
     "en": "Main Diagnosis",
-    "lo": ""
+    "lo": "ການວິນິດໄສຫຼັກ"
   },
   "claim.mainMenu": {
     "en": "Claims",
@@ -2181,23 +2181,23 @@
   },
   "claim.missingAttachment": {
     "en": "Missing Attachment",
-    "lo": ""
+    "lo": "ຂາດເອກະສານແນບ"
   },
   "claim.newClaim.adminAndHFRequired": {
     "en": "Please select Health Facility and Claim Administrator first",
-    "lo": ""
+    "lo": "ກະລຸນາເລືອກສະຖານບໍລິການສຸຂະພາບ ແລະ ຜູ້ຈັດການຄຳຮ້ອງເບີກຈ່າຍກ່ອນ"
   },
   "claim.newClaim.tooltip": {
     "en": "Create new claim",
-    "lo": ""
+    "lo": "ສ້າງຄຳຮ້ອງເບີກຈ່າຍໃໝ່"
   },
   "claim.noitem": {
     "en": "No Item To Display",
-    "lo": ""
+    "lo": "ບໍ່ມີລາຍການທີ່ຈະສະແດງ"
   },
   "claim.noservice": {
     "en": "No Service To Display",
-    "lo": ""
+    "lo": "ບໍ່ມີການບໍລິການທີ່ຈະສະແດງ"
   },
   "claim.openNewTab.buttonText": {
     "en": "Open",
@@ -2209,31 +2209,31 @@
   },
   "claim.patientCondition": {
     "en": "Patient's condition at discharge",
-    "lo": ""
+    "lo": "ສະພາບຜູ້ປ່ວຍເມື່ອອອກໂຮງໝໍ"
   },
   "claim.patientCondition.D": {
     "en": "Deceased",
-    "lo": ""
+    "lo": "ເສຍຊີວິດ"
   },
   "claim.patientCondition.E": {
     "en": "Escaped",
-    "lo": ""
+    "lo": "ໜີອອກຈາກໂຮງໝໍ"
   },
   "claim.patientCondition.H": {
     "en": "Healed",
-    "lo": ""
+    "lo": "ຫາຍດີ"
   },
   "claim.patientCondition.null": {
     "en": "Select condition",
-    "lo": ""
+    "lo": "ເລືອກສະພາບ"
   },
   "claim.patientCondition.R": {
     "en": "Referral",
-    "lo": ""
+    "lo": "ສົ່ງຕໍ່"
   },
   "claim.preAuthorization": {
     "en": "Pre-Authorization Required",
-    "lo": ""
+    "lo": "ຕ້ອງໄດ້ຮັບອະນຸມັດລ່ວງໜ້າ"
   },
   "claim.preAuthorization.false": {
     "en": "No",
@@ -2249,27 +2249,27 @@
   },
   "claim.print.buttonText": {
     "en": "Print",
-    "lo": ""
+    "lo": "ພິມ"
   },
   "claim.ProcessClaim.mutationLabel": {
     "en": "Process claim {code}",
-    "lo": ""
+    "lo": "ປະມວນຜົນຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.ProcessClaims.mutationLabel": {
     "en": "Process {count} claims",
-    "lo": ""
+    "lo": "ປະມວນຜົນຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການ"
   },
   "claim.referralCode": {
     "en": "Referral Code",
-    "lo": ""
+    "lo": "ລະຫັດການສົ່ງຕໍ່"
   },
   "claim.rejectionReason": {
     "en": "Rejection Reason",
-    "lo": ""
+    "lo": "ເຫດຜົນການປະຕິເສດ"
   },
   "claim.rejectionReason.-1": {
     "en": "Rejected by a medical officer",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດໂດຍເຈົ້າໜ້າທີ່ການແພດ"
   },
   "claim.rejectionReason.0": {
     "en": "Accepted",
@@ -2277,39 +2277,39 @@
   },
   "claim.rejectionReason.1": {
     "en": "Item/Service not in the registers of medical items/services",
-    "lo": ""
+    "lo": "ລາຍການ/ການບໍລິການບໍ່ຢູ່ໃນທະບຽນລາຍການ/ການບໍລິການທາງການແພດ"
   },
   "claim.rejectionReason.10": {
     "en": "Item/Service doesn’t comply with type of care constraint",
-    "lo": ""
+    "lo": "ລາຍການ/ການບໍລິການບໍ່ສອດຄ່ອງກັບຂໍ້ຈຳກັດປະເພດການປິ່ນປົວ"
   },
   "claim.rejectionReason.11": {
     "en": "Maximum number of in-patient admissions exceeded",
-    "lo": ""
+    "lo": "ເກີນຈຳນວນການເຂົ້ານອນໂຮງໝໍສູງສຸດ"
   },
   "claim.rejectionReason.12": {
     "en": "Maximum number of out-patient visits exceeded",
-    "lo": ""
+    "lo": "ເກີນຈຳນວນການມາຮັບບໍລິການຜູ້ປ່ວຍນອກສູງສຸດ"
   },
   "claim.rejectionReason.13": {
     "en": "Maximum number of consultations exceeded",
-    "lo": ""
+    "lo": "ເກີນຈຳນວນການປຶກສາສູງສຸດ"
   },
   "claim.rejectionReason.14": {
     "en": "Maximum number of surgeries exceeded",
-    "lo": ""
+    "lo": "ເກີນຈຳນວນການຜ່າຕັດສູງສຸດ"
   },
   "claim.rejectionReason.15": {
     "en": "Maximum number of deliveries exceeded",
-    "lo": ""
+    "lo": "ເກີນຈຳນວນການເກີດລູກສູງສຸດ"
   },
   "claim.rejectionReason.16": {
     "en": "Maximum number of provisions of item/service exceeded",
-    "lo": ""
+    "lo": "ເກີນຈຳນວນການໃຫ້ລາຍການ/ການບໍລິການສູງສຸດ"
   },
   "claim.rejectionReason.17": {
     "en": "Item/service cannot be covered within waiting period",
-    "lo": ""
+    "lo": "ລາຍການ/ການບໍລິການບໍ່ສາມາດຄຸ້ມຄອງໄດ້ໃນລະຫວ່າງໄລຍະລໍຖ້າ"
   },
   "claim.rejectionReason.18": {
     "en": "N/A",
@@ -2317,39 +2317,39 @@
   },
   "claim.rejectionReason.19": {
     "en": "Maximum number of antenatal contacts exceeded",
-    "lo": ""
+    "lo": "ເກີນຈຳນວນການກວດຄັນທ້ອງສູງສຸດ"
   },
   "claim.rejectionReason.2": {
     "en": "Item/Service not in the pricelists associated with the health facility",
-    "lo": ""
+    "lo": "ລາຍການ/ການບໍລິການບໍ່ຢູ່ໃນບັນຊີລາຄາຂອງສະຖານບໍລິການສຸຂະພາບ"
   },
   "claim.rejectionReason.3": {
     "en": "Item/Service is not covered by an active policy of the patient",
-    "lo": ""
+    "lo": "ລາຍການ/ການບໍລິການບໍ່ໄດ້ຮັບການຄຸ້ມຄອງໂດຍສັນຍາປະກັນໄພທີ່ໃຊ້ງານຢູ່ຂອງຜູ້ປ່ວຍ"
   },
   "claim.rejectionReason.4": {
     "en": "Item/Service doesn’t comply with limitations on patients (men/women, adults/children)",
-    "lo": ""
+    "lo": "ລາຍການ/ການບໍລິການບໍ່ສອດຄ່ອງກັບຂໍ້ຈຳກັດຂອງຜູ້ປ່ວຍ (ຊາຍ/ຍິງ, ຜູ້ໃຫຍ່/ເດັກ)"
   },
   "claim.rejectionReason.5": {
     "en": "Item/Service doesn’t comply with frequency constraint",
-    "lo": ""
+    "lo": "ລາຍການ/ການບໍລິການບໍ່ສອດຄ່ອງກັບຂໍ້ຈຳກັດດ້ານຄວາມຖີ່"
   },
   "claim.rejectionReason.6": {
     "en": "Item/Service duplicated",
-    "lo": ""
+    "lo": "ລາຍການ/ການບໍລິການຊ້ຳກັນ"
   },
   "claim.rejectionReason.7": {
     "en": "Not valid insurance number",
-    "lo": ""
+    "lo": "ເລກປະກັນໄພບໍ່ຖືກຕ້ອງ"
   },
   "claim.rejectionReason.8": {
     "en": "Diagnosis code not in the current list of diagnoses",
-    "lo": ""
+    "lo": "ລະຫັດການວິນິດໄສບໍ່ຢູ່ໃນບັນຊີການວິນິດໄສປັດຈຸບັນ"
   },
   "claim.rejectionReason.9": {
     "en": "Target date of provision of health care invalid",
-    "lo": ""
+    "lo": "ວັນທີໃຫ້ບໍລິການສຸຂະພາບບໍ່ຖືກຕ້ອງ"
   },
   "claim.rejectionReason.null": {
     "en": " ",
@@ -2357,15 +2357,15 @@
   },
   "claim.restore.buttonText": {
     "en": "Restore",
-    "lo": ""
+    "lo": "ກູ້ຄືນ"
   },
   "claim.Review.deliverReview.fab.tooltip": {
     "en": "Deliver review",
-    "lo": ""
+    "lo": "ສົ່ງຜົນການກວດສອບ"
   },
   "claim.reviewButton.tooltip": {
     "en": "Deliver Review",
-    "lo": ""
+    "lo": "ສົ່ງຜົນການກວດສອບ"
   },
   "claim.reviews.page.title": {
     "en": "Reviews",
@@ -2381,19 +2381,19 @@
   },
   "claim.reviewStatus.16": {
     "en": "Bypassed",
-    "lo": ""
+    "lo": "ຂ້າມຂັ້ນຕອນແລ້ວ"
   },
   "claim.reviewStatus.2": {
     "en": "Not Selected",
-    "lo": ""
+    "lo": "ບໍ່ໄດ້ເລືອກ"
   },
   "claim.reviewStatus.4": {
     "en": "Selected",
-    "lo": ""
+    "lo": "ເລືອກແລ້ວ"
   },
   "claim.reviewStatus.8": {
     "en": "Delivered",
-    "lo": ""
+    "lo": "ສົ່ງແລ້ວ"
   },
   "claim.reviewStatus.null": {
     "en": "Any",
@@ -2401,111 +2401,111 @@
   },
   "claim.SaveClaimReview.mutationLabel": {
     "en": "Save claim {code} review",
-    "lo": ""
+    "lo": "ບັນທຶກການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.secDiagnosis1": {
     "en": "Sec Dg1",
-    "lo": ""
+    "lo": "ວິນິດໄສຮອງ 1"
   },
   "claim.secDiagnosis2": {
     "en": "Sec Dg2",
-    "lo": ""
+    "lo": "ວິນິດໄສຮອງ 2"
   },
   "claim.secDiagnosis3": {
     "en": "Sec Dg3",
-    "lo": ""
+    "lo": "ວິນິດໄສຮອງ 3"
   },
   "claim.secDiagnosis4": {
     "en": "Sec Dg4",
-    "lo": ""
+    "lo": "ວິນິດໄສຮອງ 4"
   },
   "claim.SelectClaimForFeedback.mutationLabel": {
     "en": "Select claim {code} for feedback",
-    "lo": ""
+    "lo": "ເລືອກຄຳຮ້ອງເບີກຈ່າຍ {code} ເພື່ອຂໍຄຳຄິດເຫັນ"
   },
   "claim.SelectClaimForReview.mutationLabel": {
     "en": "Select claim {code} for review",
-    "lo": ""
+    "lo": "ເລືອກຄຳຮ້ອງເບີກຈ່າຍ {code} ເພື່ອກວດສອບ"
   },
   "claim.SelectClaimsForFeedback.mutationLabel": {
     "en": "Selected {count} claims for feedback",
-    "lo": ""
+    "lo": "ເລືອກຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການເພື່ອຂໍຄຳຄິດເຫັນ"
   },
   "claim.SelectClaimsForReview.mutationLabel": {
     "en": "Selected {count} claims for review",
-    "lo": ""
+    "lo": "ເລືອກຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການເພື່ອກວດສອບ"
   },
   "claim.servicesPricelist.missing": {
     "en": "No services prices list registered for health facility",
-    "lo": ""
+    "lo": "ບໍ່ມີບັນຊີລາຄາການບໍລິການທີ່ລົງທະບຽນໄວ້ສຳລັບສະຖານບໍລິການສຸຂະພາບ"
   },
   "claim.showRestored": {
     "en": "Show Restored",
-    "lo": ""
+    "lo": "ສະແດງລາຍການທີ່ກູ້ຄືນ"
   },
   "claim.SkipClaimFeedback.mutationLabel": {
     "en": "Skip claim {code} feedback",
-    "lo": ""
+    "lo": "ຍົກເວັ້ນຄຳຄິດເຫັນຂອງຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.SkipClaimReview.mutationLabel": {
     "en": "Skip claim {code} review",
-    "lo": ""
+    "lo": "ຍົກເວັ້ນການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.SkipClaimsFeedback.mutationLabel": {
     "en": "Skipped {count} claims feedbacks",
-    "lo": ""
+    "lo": "ຍົກເວັ້ນຄຳຄິດເຫັນຂອງຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການ"
   },
   "claim.SkipClaimsReview.mutationLabel": {
     "en": "Skipped {count} claims review",
-    "lo": ""
+    "lo": "ຍົກເວັ້ນການກວດສອບຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການ"
   },
   "claim.sn": {
     "en": "SN",
-    "lo": ""
+    "lo": "ລຳດັບ"
   },
   "claim.SubmitAllClaims.mutationLabel": {
     "en": "Submitted {claims} claims",
-    "lo": ""
+    "lo": "ສົ່ງຄຳຮ້ອງເບີກຈ່າຍ {claims} ລາຍການແລ້ວ"
   },
   "claim.SubmitClaim.mutationLabel": {
     "en": "Submit claim {code}",
-    "lo": ""
+    "lo": "ສົ່ງຄຳຮ້ອງເບີກຈ່າຍ {code}"
   },
   "claim.SubmitClaims.mutationLabel": {
     "en": "Submitted {count} claims",
-    "lo": ""
+    "lo": "ສົ່ງຄຳຮ້ອງເບີກຈ່າຍ {count} ລາຍການແລ້ວ"
   },
   "claim.UpdateClaim.mutationLabel": {
     "en": "Update Claim - {code}",
-    "lo": ""
+    "lo": "ປັບປຸງຄຳຮ້ອງເບີກຈ່າຍ - {code}"
   },
   "claim.url.validation.error": {
     "en": "URL Validation Error",
-    "lo": ""
+    "lo": "ຂໍ້ຜິດພາດໃນການກວດສອບ URL"
   },
   "claim.url.validation.generalError": {
     "en": "Something when wrong when validating URL...",
-    "lo": ""
+    "lo": "ມີບາງຢ່າງຜິດພາດໃນລະຫວ່າງການກວດສອບ URL..."
   },
   "claim.url.validation.invalidURL": {
     "en": "Invalid URL format.",
-    "lo": ""
+    "lo": "ຮູບແບບ URL ບໍ່ຖືກຕ້ອງ."
   },
   "claim.url.validation.notAllowed": {
     "en": "Entered URL's domain is not allowed.",
-    "lo": ""
+    "lo": "ບໍ່ອະນຸຍາດໃຫ້ໃຊ້ໂດເມນຂອງ URL ທີ່ປ້ອນເຂົ້າ."
   },
   "claim.valuated": {
     "en": "Adjusted",
-    "lo": ""
+    "lo": "ປັບປຸງແລ້ວ"
   },
   "claim.visitDateFrom": {
     "en": "Visit Date From",
-    "lo": ""
+    "lo": "ວັນທີເຂົ້າຮັບບໍລິການແຕ່"
   },
   "claim.visitDateTo": {
     "en": "Visit Date To",
-    "lo": ""
+    "lo": "ວັນທີເຂົ້າຮັບບໍລິການເຖິງ"
   },
   "claimAttachments.buttonText": {
     "en": "Attachs",
@@ -2553,63 +2553,63 @@
   },
   "ClaimMasterPanelExt.InsureeInfo.FSP": {
     "en": "FSP",
-    "lo": ""
+    "lo": "ສະຖານບໍລິການທີ່ຂຶ້ນທະບຽນ"
   },
   "ClaimMasterPanelExt.InsureeInfo.goToClaim.Button": {
     "en": "Go to claim",
-    "lo": ""
+    "lo": "ໄປທີ່ຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "ClaimMasterPanelExt.InsureeInfo.Header": {
     "en": "Insuree information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນຜູ້ເອົາປະກັນ"
   },
   "ClaimMasterPanelExt.InsureeInfo.insureeAge": {
     "en": "Insuree age",
-    "lo": ""
+    "lo": "ອາຍຸຜູ້ເອົາປະກັນ"
   },
   "ClaimMasterPanelExt.InsureeInfo.lastClaim": {
     "en": "Last Claim",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍລ່າສຸດ"
   },
   "ClaimMasterPanelExt.InsureeInfo.lastClaimSameDiagnosis": {
     "en": "Last Claim with the same Diagnosis",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍລ່າສຸດທີ່ມີການວິນິດໄສດຽວກັນ"
   },
   "ClaimMasterPanelExt.InsureeInfo.lastClaimSameDiagnosis.Header": {
     "en": "Same diagnosis claim",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍທີ່ມີການວິນິດໄສດຽວກັນ"
   },
   "ClaimMasterPanelExt.InsureeInfo.visitDuration": {
     "en": "Duration of the visit",
-    "lo": ""
+    "lo": "ໄລຍະເວລາການເຂົ້າຮັບບໍລິການ"
   },
   "ClaimMasterPanelExt.InsureeLastVisit.noOtheClaim": {
     "en": "No Other Visit (Claim)",
-    "lo": ""
+    "lo": "ບໍ່ມີການເຂົ້າຮັບບໍລິການອື່ນ (ຄຳຮ້ອງເບີກຈ່າຍ)"
   },
   "ClaimMasterPanelExt.InsureeLastVisit.thisClaimIsFirstVisit": {
     "en": "This is the first visit (Claim)",
-    "lo": ""
+    "lo": "ນີ້ແມ່ນການເຂົ້າຮັບບໍລິການຄັ້ງທຳອິດ (ຄຳຮ້ອງເບີກຈ່າຍ)"
   },
   "ClaimMasterPanelExt.sameDiagnosisClaim.noClaim": {
     "en": "Claim with the same diagnosis not found.",
-    "lo": ""
+    "lo": "ບໍ່ພົບຄຳຮ້ອງເບີກຈ່າຍທີ່ມີການວິນິດໄສດຽວກັນ."
   },
   "ClaimMasterPanelExt.sameDiagnosisClaim.onlyThis": {
     "en": "This is the only claim with such a diagnosis.",
-    "lo": ""
+    "lo": "ນີ້ແມ່ນຄຳຮ້ອງເບີກຈ່າຍດຽວທີ່ມີການວິນິດໄສດັ່ງກ່າວ."
   },
   "ClaimSampling.approveSampling": {
     "en": "Approve Sample For Review",
-    "lo": ""
+    "lo": "ອະນຸມັດຕົວຢ່າງເພື່ອກວດສອບ"
   },
   "ClaimSampling.claimSamplingButton": {
     "en": "Claim Sample",
-    "lo": ""
+    "lo": "ຕົວຢ່າງຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "ClaimSampling.create.mutationLabel": {
     "en": "Create Claim Sampling Batch",
-    "lo": ""
+    "lo": "ສ້າງຊຸດການສຸ່ມກວດຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "ClaimSampling.dialogActions.confirm": {
     "en": "Confirm",
@@ -2617,11 +2617,11 @@
   },
   "ClaimSampling.dialogActions.confirmationContent": {
     "en": "New task for claim sampling was created.",
-    "lo": ""
+    "lo": "ໄດ້ສ້າງໜ້າວຽກໃໝ່ສຳລັບການສຸ່ມກວດຄຳຮ້ອງເບີກຈ່າຍແລ້ວ."
   },
   "ClaimSampling.dialogActions.confirmationTitle": {
     "en": "Confirmaiton",
-    "lo": ""
+    "lo": "ການຢືນຢັນ"
   },
   "ClaimSampling.dialogActions.continue": {
     "en": "Continue",
@@ -2629,7 +2629,7 @@
   },
   "ClaimSampling.dialogActions.goBack": {
     "en": "Go Back",
-    "lo": ""
+    "lo": "ຍ້ອນກັບ"
   },
   "ClaimSampling.Form.Cancel": {
     "en": "Cancel",
@@ -2637,51 +2637,51 @@
   },
   "ClaimSampling.Form.ClaimAdmin": {
     "en": "Claim admin assigned",
-    "lo": ""
+    "lo": "ຜູ້ຈັດການຄຳຮ້ອງເບີກຈ່າຍທີ່ມອບໝາຍ"
   },
   "ClaimSampling.Form.Create": {
     "en": "Create claim sample",
-    "lo": ""
+    "lo": "ສ້າງຕົວຢ່າງຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "ClaimSampling.Form.Description": {
     "en": "Pick parameters of new claim sample",
-    "lo": ""
+    "lo": "ເລືອກເງື່ອນໄຂຂອງຕົວຢ່າງຄຳຮ້ອງເບີກຈ່າຍໃໝ່"
   },
   "ClaimSampling.Form.Percentage": {
     "en": "Percent of claims to be reviewed manually",
-    "lo": ""
+    "lo": "ອັດຕາສ່ວນຄຳຮ້ອງເບີກຈ່າຍທີ່ຈະກວດສອບດ້ວຍມື"
   },
   "ClaimSampling.Form.Title": {
     "en": "Claim sample",
-    "lo": ""
+    "lo": "ຕົວຢ່າງຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "ClaimSampling.rejectSampling": {
     "en": "Reject Sample For Review",
-    "lo": ""
+    "lo": "ປະຕິເສດຕົວຢ່າງເພື່ອກວດສອບ"
   },
   "ClaimSampling.samplingSummaryTemplate.deductibles": {
     "en": "Deductibles: {deductiblePercentage}%",
-    "lo": ""
+    "lo": "ຄ່າຮ່ວມຈ່າຍ: {deductiblePercentage}%"
   },
   "ClaimSampling.samplingSummaryTemplate.reviewed": {
     "en": "Reviewed: {reviewedPercentage}%",
-    "lo": ""
+    "lo": "ກວດສອບແລ້ວ: {reviewedPercentage}%"
   },
   "ClaimSampling.samplingSummaryTemplate.summary": {
     "en": "Summary:",
-    "lo": ""
+    "lo": "ສະຫຼຸບ:"
   },
   "ClaimSampling.samplingSummaryTemplate.total": {
     "en": "Total: {totalClaimsInBatch}",
-    "lo": ""
+    "lo": "ລວມ: {totalClaimsInBatch}"
   },
   "ClaimSampling.taskConfirmation.title": {
     "en": "Confirm Claim Sampling Action",
-    "lo": ""
+    "lo": "ຢືນຢັນການສຸ່ມກວດຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "ClaimSampling.tasks.title": {
     "en": "Claim Sampling Assignments",
-    "lo": ""
+    "lo": "ການມອບໝາຍການສຸ່ມກວດຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "clearSelected": {
     "en": "Clear Selection",
