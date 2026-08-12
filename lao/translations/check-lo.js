@@ -41,6 +41,10 @@ const ALLOWED_HOMOGRAPHS = {
   Number:
     "ລຳດັບ as core's ordinal column heading, ຈຳນວນ in the product ceilings table " +
     "where it is a maximum count rather than a position in a sequence.",
+  State:
+    "ສະຖານະ for a contract's position in its lifecycle, ລັດ for the government as " +
+    "the authority confirming a family (insuree.ConfirmationType.C, which sits " +
+    "beside 'Local council'). Two unrelated senses of the same English word.",
 };
 
 const source = JSON.parse(fs.readFileSync(SRC, "utf8"));

@@ -501,7 +501,7 @@
   },
   "bill.codeTp": {
     "en": "Code Sender",
-    "lo": ""
+    "lo": "ລະຫັດຜູ້ສົ່ງ"
   },
   "bill.currencyCode": {
     "en": "Currency",
@@ -509,7 +509,7 @@
   },
   "bill.currencyTpCode": {
     "en": "Currency Thirdparty",
-    "lo": ""
+    "lo": "ສະກຸນເງິນຄູ່ສັນຍາ"
   },
   "bill.dateBill": {
     "en": "Date Bill",
@@ -541,7 +541,7 @@
   },
   "bill.delete.mutationLabel": {
     "en": "Delete Bill {code}",
-    "lo": ""
+    "lo": "ລຶບໃບບິນ {code}"
   },
   "bill.headPanelTitle": {
     "en": "General Information",
@@ -553,7 +553,7 @@
   },
   "bill.pageTitle": {
     "en": "Bill {label}",
-    "lo": ""
+    "lo": "ໃບບິນ {label}"
   },
   "bill.paymentReference": {
     "en": "Payment Reference",
@@ -561,7 +561,7 @@
   },
   "bill.selection.count": {
     "en": "Selected {count} bill(s)",
-    "lo": ""
+    "lo": "ເລືອກໃບບິນ {count} ໃບ"
   },
   "bill.status.CANCELLED": {
     "en": "Cancelled",
@@ -709,7 +709,7 @@
   },
   "billPayment.amountPayed": {
     "en": "Amount Payed",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ຊຳລະ"
   },
   "billPayment.amountReceived": {
     "en": "Amount Received",
@@ -733,7 +733,7 @@
   },
   "billPayment.create.mutationLabel": {
     "en": "Create Bill Payment {billPaymentLabel} for {billCode}",
-    "lo": ""
+    "lo": "ສ້າງການຊຳລະໃບບິນ {billPaymentLabel} ສຳລັບ {billCode}"
   },
   "billPayment.datePayment": {
     "en": "Payment Date",
@@ -745,11 +745,11 @@
   },
   "billPayment.delete.confirm.title": {
     "en": "Delete {billPaymentLabel}?",
-    "lo": ""
+    "lo": "ລຶບ {billPaymentLabel}?"
   },
   "billPayment.delete.mutationLabel": {
     "en": "Delete Bill Payment {billPaymentLabel} of {billCode}",
-    "lo": ""
+    "lo": "ລຶບການຊຳລະໃບບິນ {billPaymentLabel} ຂອງ {billCode}"
   },
   "billPayment.fees": {
     "en": "Fees",
@@ -789,7 +789,7 @@
   },
   "billPayment.update.mutationLabel": {
     "en": "Update Bill Payment {billPaymentLabel} of {billCode}",
-    "lo": ""
+    "lo": "ປັບປຸງການຊຳລະໃບບິນ {billPaymentLabel} ຂອງ {billCode}"
   },
   "billPayments.label": {
     "en": "Payments",
@@ -2713,23 +2713,23 @@
   },
   "contract.amendButton.tooltip": {
     "en": "Amend",
-    "lo": ""
+    "lo": "ແກ້ໄຂເພີ່ມເຕີມ"
   },
   "contract.amendContract.confirm.message": {
     "en": "Are you sure you want to amend Contract {label}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການແກ້ໄຂເພີ່ມເຕີມສັນຍາ {label}?"
   },
   "contract.amendContract.confirm.title": {
     "en": "Amend Contract?",
-    "lo": ""
+    "lo": "ແກ້ໄຂເພີ່ມເຕີມສັນຍາ?"
   },
   "contract.amendContract.mutationLabel": {
     "en": "Amendment n°{amendment} of {contract}",
-    "lo": ""
+    "lo": "ພາກຜະໜວກທີ {amendment} ຂອງ {contract}"
   },
   "contract.amendment": {
     "en": "Amendment",
-    "lo": ""
+    "lo": "ພາກຜະໜວກ"
   },
   "contract.amount": {
     "en": "Amount",
@@ -2737,23 +2737,23 @@
   },
   "contract.amountDue": {
     "en": "Amount Due",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ຕ້ອງຊຳລະ"
   },
   "contract.amountFrom": {
     "en": "Amount from",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນແຕ່"
   },
   "contract.amountNotified": {
     "en": "Amount Notified",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ແຈ້ງ"
   },
   "contract.amountRectified": {
     "en": "Amount Rectified",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ແກ້ໄຂແລ້ວ"
   },
   "contract.amountTo": {
     "en": "Amount to",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນເຖິງ"
   },
   "contract.any": {
     "en": "Any",
@@ -2761,63 +2761,63 @@
   },
   "contract.approveAll": {
     "en": "Approve all negotiable contracts",
-    "lo": ""
+    "lo": "ອະນຸມັດສັນຍາທີ່ຕໍ່ລອງໄດ້ທັງໝົດ"
   },
   "contract.approveButton.tooltip": {
     "en": "Approve",
-    "lo": ""
+    "lo": "ອະນຸມັດ"
   },
   "contract.approveContract.confirm.message": {
     "en": "Are you sure you want to approve Contract {label}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອະນຸມັດສັນຍາ {label}?"
   },
   "contract.approveContract.confirm.title": {
     "en": "Approve Contract?",
-    "lo": ""
+    "lo": "ອະນຸມັດສັນຍາ?"
   },
   "contract.approveContract.mutationLabel": {
     "en": "Approve Contract {label}",
-    "lo": ""
+    "lo": "ອະນຸມັດສັນຍາ {label}"
   },
   "contract.approveContractAll.confirm.message": {
     "en": "Are you sure you want to approve all negotiable Contracts?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອະນຸມັດສັນຍາທີ່ຕໍ່ລອງໄດ້ທັງໝົດ?"
   },
   "contract.approveContractAll.confirm.title": {
     "en": "Approve all negotiable Contracts?",
-    "lo": ""
+    "lo": "ອະນຸມັດສັນຍາທີ່ຕໍ່ລອງໄດ້ທັງໝົດ?"
   },
   "contract.approveContractAll.mutationLabel": {
     "en": "Approve all Contracts",
-    "lo": ""
+    "lo": "ອະນຸມັດສັນຍາທັງໝົດ"
   },
   "contract.approveContractBulk.confirm.message.unapprovableEmpty": {
     "en": "Are you sure you want to approve {contracts} Contract(s)?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອະນຸມັດສັນຍາ {contracts} ສະບັບ?"
   },
   "contract.approveContractBulk.confirm.message.unapprovableNotEmpty": {
     "en": "Only {approvableContracts} out of {contracts} Contracts are negotiable and can be approved. Are you sure you want to continue?",
-    "lo": ""
+    "lo": "ມີພຽງ {approvableContracts} ໃນ {contracts} ສັນຍາທີ່ຕໍ່ລອງໄດ້ ແລະ ສາມາດອະນຸມັດໄດ້. ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການດຳເນີນຕໍ່?"
   },
   "contract.approveContractBulk.confirm.title": {
     "en": "Approve selected Contract(s)?",
-    "lo": ""
+    "lo": "ອະນຸມັດສັນຍາທີ່ເລືອກ?"
   },
   "contract.approveContractBulk.mutationLabel": {
     "en": "Approve {count} Contract(s)",
-    "lo": ""
+    "lo": "ອະນຸມັດສັນຍາ {count} ສະບັບ"
   },
   "contract.approveSelected": {
     "en": "Approve selected",
-    "lo": ""
+    "lo": "ອະນຸມັດລາຍການທີ່ເລືອກ"
   },
   "contract.benefitPlan": {
     "en": "Insurance Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນປະກັນໄພ"
   },
   "contract.calculation": {
     "en": "Calculation Parameter",
-    "lo": ""
+    "lo": "ພາລາມິເຕີການຄິດໄລ່"
   },
   "contract.code": {
     "en": "Code",
@@ -2825,15 +2825,15 @@
   },
   "contract.codeTaken": {
     "en": "Contract code already exists",
-    "lo": ""
+    "lo": "ລະຫັດສັນຍານີ້ມີຢູ່ແລ້ວ"
   },
   "contract.contract": {
     "en": "Contract",
-    "lo": ""
+    "lo": "ສັນຍາ"
   },
   "contract.contractContributionDetails.label": {
     "en": "Contract Contribution Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດເງິນສົມທົບຂອງສັນຍາ"
   },
   "contract.contractContributionDetails.searcher.title": {
     "en": "{contractContributionDetailsTotalCount} Contract Contribution Details Found",
@@ -2841,35 +2841,35 @@
   },
   "contract.contractDetails.createContractDetails": {
     "en": "Create new Contract Details",
-    "lo": ""
+    "lo": "ສ້າງລາຍລະອຽດສັນຍາໃໝ່"
   },
   "contract.contractDetails.createContractDetails.confirm.message": {
     "en": "Are you sure you want to create new Contract Details?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການສ້າງລາຍລະອຽດສັນຍາໃໝ່?"
   },
   "contract.contractDetails.createContractDetails.confirm.title": {
     "en": "Create new Contract Details?",
-    "lo": ""
+    "lo": "ສ້າງລາຍລະອຽດສັນຍາໃໝ່?"
   },
   "contract.contractDetails.deleteContractDetails.confirm.message": {
     "en": "Are you sure you want to delete {insuree} - {contributionPlanBundle}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບ {insuree} - {contributionPlanBundle}?"
   },
   "contract.contractDetails.editContractDetails": {
     "en": "Edit Contract Details",
-    "lo": ""
+    "lo": "ແກ້ໄຂລາຍລະອຽດສັນຍາ"
   },
   "contract.contractDetails.editContractDetails.confirm.message": {
     "en": "Are you sure you want to save changes for {insuree} - {contributionPlanBundle}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການບັນທຶກການປ່ຽນແປງສຳລັບ {insuree} - {contributionPlanBundle}?"
   },
   "contract.contractDetails.editContractDetails.confirm.title": {
     "en": "Save changes in Contract Details?",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງໃນລາຍລະອຽດສັນຍາ?"
   },
   "contract.contractDetails.label": {
     "en": "Contract Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດສັນຍາ"
   },
   "contract.contractDetails.searcher.title": {
     "en": "{contractDetailsTotalCount} Contract Details Found",
@@ -2877,7 +2877,7 @@
   },
   "contract.contractDetails.tabDisabledError": {
     "en": "To start creating new Contract Details, you need to fill in General Information fields and click Save.",
-    "lo": ""
+    "lo": "ເພື່ອເລີ່ມສ້າງລາຍລະອຽດສັນຍາໃໝ່, ທ່ານຕ້ອງຕື່ມຂໍ້ມູນທົ່ວໄປ ແລ້ວກົດບັນທຶກ."
   },
   "contract.contracts.page.title": {
     "en": "Contracts",
@@ -2893,15 +2893,15 @@
   },
   "contract.ContractStatePicker.addendum": {
     "en": "Addendum",
-    "lo": ""
+    "lo": "ພາກຜະໜວກ"
   },
   "contract.ContractStatePicker.counter": {
     "en": "Counter",
-    "lo": ""
+    "lo": "ຕໍ່ລອງກັບຄືນ"
   },
   "contract.ContractStatePicker.disputed": {
     "en": "Disputed",
-    "lo": ""
+    "lo": "ມີຂໍ້ຂັດແຍ້ງ"
   },
   "contract.ContractStatePicker.draft": {
     "en": "Draft",
@@ -2909,31 +2909,31 @@
   },
   "contract.ContractStatePicker.effective": {
     "en": "Effective",
-    "lo": ""
+    "lo": "ມີຜົນ"
   },
   "contract.ContractStatePicker.executable": {
     "en": "Executable",
-    "lo": ""
+    "lo": "ພ້ອມປະຕິບັດ"
   },
   "contract.ContractStatePicker.executed": {
     "en": "Executed",
-    "lo": ""
+    "lo": "ປະຕິບັດແລ້ວ"
   },
   "contract.ContractStatePicker.negotiable": {
     "en": "Negotiable",
-    "lo": ""
+    "lo": "ຕໍ່ລອງໄດ້"
   },
   "contract.ContractStatePicker.offer": {
     "en": "Offer",
-    "lo": ""
+    "lo": "ຂໍ້ສະເໜີ"
   },
   "contract.ContractStatePicker.requestForInformation": {
     "en": "Request for information",
-    "lo": ""
+    "lo": "ຂໍຂໍ້ມູນ"
   },
   "contract.ContractStatePicker.terminated": {
     "en": "Terminated",
-    "lo": ""
+    "lo": "ຢຸດຕິແລ້ວ"
   },
   "contract.contributionPlan": {
     "en": "Contribution Plan",
@@ -2945,75 +2945,75 @@
   },
   "contract.counterAll": {
     "en": "Counter all negotiable contracts",
-    "lo": ""
+    "lo": "ຕໍ່ລອງກັບຄືນສັນຍາທີ່ຕໍ່ລອງໄດ້ທັງໝົດ"
   },
   "contract.counterButton.tooltip": {
     "en": "Counter",
-    "lo": ""
+    "lo": "ຕໍ່ລອງກັບຄືນ"
   },
   "contract.counterContract.confirm.message": {
     "en": "Are you sure you want to counter Contract {label}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຕໍ່ລອງກັບຄືນສັນຍາ {label}?"
   },
   "contract.counterContract.confirm.title": {
     "en": "Counter Contract?",
-    "lo": ""
+    "lo": "ຕໍ່ລອງກັບຄືນສັນຍາ?"
   },
   "contract.counterContract.mutationLabel": {
     "en": "Counter Contract {label}",
-    "lo": ""
+    "lo": "ຕໍ່ລອງກັບຄືນສັນຍາ {label}"
   },
   "contract.counterContractAll.confirm.message": {
     "en": "Are you sure you want to counter all negotiable Contracts?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຕໍ່ລອງກັບຄືນສັນຍາທີ່ຕໍ່ລອງໄດ້ທັງໝົດ?"
   },
   "contract.counterContractAll.confirm.title": {
     "en": "Counter all negotiable Contracts?",
-    "lo": ""
+    "lo": "ຕໍ່ລອງກັບຄືນສັນຍາທີ່ຕໍ່ລອງໄດ້ທັງໝົດ?"
   },
   "contract.counterContractAll.mutationLabel": {
     "en": "Counter all Contracts",
-    "lo": ""
+    "lo": "ຕໍ່ລອງກັບຄືນສັນຍາທັງໝົດ"
   },
   "contract.counterContractBulk.confirm.message.unapprovableEmpty": {
     "en": "Are you sure you want to counter {contracts} Contract(s)?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຕໍ່ລອງກັບຄືນສັນຍາ {contracts} ສະບັບ?"
   },
   "contract.counterContractBulk.confirm.message.unapprovableNotEmpty": {
     "en": "Only {approvableContracts} out of {contracts} Contracts are negotiable and can be countered. Are you sure you want to continue?",
-    "lo": ""
+    "lo": "ມີພຽງ {approvableContracts} ໃນ {contracts} ສັນຍາທີ່ຕໍ່ລອງໄດ້ ແລະ ສາມາດຕໍ່ລອງກັບຄືນໄດ້. ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການດຳເນີນຕໍ່?"
   },
   "contract.counterContractBulk.confirm.title": {
     "en": "Counter selected Contract(s)?",
-    "lo": ""
+    "lo": "ຕໍ່ລອງກັບຄືນສັນຍາທີ່ເລືອກ?"
   },
   "contract.counterContractBulk.mutationLabel": {
     "en": "Counter {count} Contract(s)",
-    "lo": ""
+    "lo": "ຕໍ່ລອງກັບຄືນສັນຍາ {count} ສະບັບ"
   },
   "contract.counterSelected": {
     "en": "Counter selected",
-    "lo": ""
+    "lo": "ຕໍ່ລອງກັບຄືນລາຍການທີ່ເລືອກ"
   },
   "contract.createButton.tooltip": {
     "en": "Create new Contract",
-    "lo": ""
+    "lo": "ສ້າງສັນຍາໃໝ່"
   },
   "contract.CreateContract.mutationLabel": {
     "en": "Create Contract {label}",
-    "lo": ""
+    "lo": "ສ້າງສັນຍາ {label}"
   },
   "contract.CreateContractDetails.mutationLabel": {
     "en": "Create Contract Detail {insuree} - {contributionPlanBundle} for {contract}",
-    "lo": ""
+    "lo": "ສ້າງລາຍລະອຽດສັນຍາ {insuree} - {contributionPlanBundle} ສຳລັບ {contract}"
   },
   "contract.dateApproved": {
     "en": "Date Approved",
-    "lo": ""
+    "lo": "ວັນທີອະນຸມັດ"
   },
   "contract.datePaymentDue": {
     "en": "Payment Due Date",
-    "lo": ""
+    "lo": "ວັນທີຄົບກຳນົດຊຳລະ"
   },
   "contract.dateValidFrom": {
     "en": "Valid from",
@@ -3037,11 +3037,11 @@
   },
   "contract.DeleteContract.mutationLabel": {
     "en": "Delete Contract {label}",
-    "lo": ""
+    "lo": "ລຶບສັນຍາ {label}"
   },
   "contract.DeleteContractDetails.mutationLabel": {
     "en": "Delete Contract Detail {insuree} - {contributionPlanBundle} for {contract}",
-    "lo": ""
+    "lo": "ລຶບລາຍລະອຽດສັນຍາ {insuree} - {contributionPlanBundle} ສຳລັບ {contract}"
   },
   "contract.dialog.cancel": {
     "en": "Cancel",
@@ -3153,7 +3153,7 @@
   },
   "contract.insureePolicy.label": {
     "en": "Persons Covered",
-    "lo": ""
+    "lo": "ຜູ້ທີ່ໄດ້ຮັບການຄຸ້ມຄອງ"
   },
   "contract.insureePolicy.searcher.title": {
     "en": "{insureePoliciesTotalCount} Persons Covered Found",
@@ -3173,7 +3173,7 @@
   },
   "contract.page.title": {
     "en": "Contract {label}",
-    "lo": ""
+    "lo": "ສັນຍາ {label}"
   },
   "contract.paymentReference": {
     "en": "Payment Reference",
@@ -3181,7 +3181,7 @@
   },
   "contract.saveButton.tooltip.disabled": {
     "en": "Please fill General Information fields first",
-    "lo": ""
+    "lo": "ກະລຸນາຕື່ມຂໍ້ມູນທົ່ວໄປກ່ອນ"
   },
   "contract.saveButton.tooltip.enabled": {
     "en": "Save changes",
@@ -3189,7 +3189,7 @@
   },
   "contract.state": {
     "en": "State",
-    "lo": ""
+    "lo": "ສະຖານະ"
   },
   "contract.submitButton.tooltip": {
     "en": "Submit",
@@ -3197,23 +3197,23 @@
   },
   "contract.submitContract.confirm.message": {
     "en": "Are you sure you want to submit Contract {label}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການສົ່ງສັນຍາ {label}?"
   },
   "contract.submitContract.confirm.title": {
     "en": "Submit Contract?",
-    "lo": ""
+    "lo": "ສົ່ງສັນຍາ?"
   },
   "contract.submitContract.mutationLabel": {
     "en": "Submit Contract {label}",
-    "lo": ""
+    "lo": "ສົ່ງສັນຍາ {label}"
   },
   "contract.UpdateContract.mutationLabel": {
     "en": "Update Contract {label}",
-    "lo": ""
+    "lo": "ປັບປຸງສັນຍາ {label}"
   },
   "contract.UpdateContractDetails.mutationLabel": {
     "en": "Update Contract Detail {insuree} - {contributionPlanBundle} for {contract}",
-    "lo": ""
+    "lo": "ປັບປຸງລາຍລະອຽດສັນຍາ {insuree} - {contributionPlanBundle} ສຳລັບ {contract}"
   },
   "contribution_plan.gql_mutation_create_contributionplan_perms": {
     "en": "Contribution Plan | Mutation Create Contributionplan",
@@ -3625,23 +3625,23 @@
   },
   "contributionPlan.benefitPlan": {
     "en": "Insurance Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນປະກັນໄພ"
   },
   "contributionPlan.bundleCodeTaken": {
     "en": "Contribution plan bundle code already exists",
-    "lo": ""
+    "lo": "ລະຫັດຊຸດແຜນເງິນສົມທົບນີ້ມີຢູ່ແລ້ວ"
   },
   "contributionPlan.calculation": {
     "en": "Calculation Rule",
-    "lo": ""
+    "lo": "ກົດການຄິດໄລ່"
   },
   "contributionPlan.calculationParams": {
     "en": "Additional parameters",
-    "lo": ""
+    "lo": "ພາລາມິເຕີເພີ່ມເຕີມ"
   },
   "contributionPlan.calculationParamsBFType": {
     "en": "Parameters",
-    "lo": ""
+    "lo": "ພາລາມິເຕີ"
   },
   "contributionPlan.code": {
     "en": "Code",
@@ -3649,11 +3649,11 @@
   },
   "contributionPlan.codeTaken": {
     "en": "Contribution plan code already exists",
-    "lo": ""
+    "lo": "ລະຫັດແຜນເງິນສົມທົບນີ້ມີຢູ່ແລ້ວ"
   },
   "contributionPlan.contributionPlan.createButton.tooltip": {
     "en": "Create new Contribution Plan",
-    "lo": ""
+    "lo": "ສ້າງແຜນເງິນສົມທົບໃໝ່"
   },
   "contributionPlan.contributionPlan.headPanel.title": {
     "en": "General Information",
@@ -3665,11 +3665,11 @@
   },
   "contributionPlan.contributionPlan.page.title": {
     "en": "Contribution Plan {label}",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ {label}"
   },
   "contributionPlan.contributionPlanBundle.contributionPlansAttachedPanel.createContributionPlan": {
     "en": "Attach new contribution plan",
-    "lo": ""
+    "lo": "ຕິດຄັດແຜນເງິນສົມທົບໃໝ່"
   },
   "contributionPlan.contributionPlanBundle.contributionPlansAttachedPanel.dialog.cancel": {
     "en": "Cancel",
@@ -3689,15 +3689,15 @@
   },
   "contributionPlan.contributionPlanBundle.contributionPlansAttachedPanel.editContributionPlan": {
     "en": "Edit Contribution Plan",
-    "lo": ""
+    "lo": "ແກ້ໄຂແຜນເງິນສົມທົບ"
   },
   "contributionPlan.contributionPlanBundle.contributionPlansAttachedPanel.error": {
     "en": "To start creating new Contribution Plan, you need to fill in General Information fields and click Save.",
-    "lo": ""
+    "lo": "ເພື່ອເລີ່ມສ້າງແຜນເງິນສົມທົບໃໝ່, ທ່ານຕ້ອງຕື່ມຂໍ້ມູນທົ່ວໄປ ແລ້ວກົດບັນທຶກ."
   },
   "contributionPlan.contributionPlanBundle.contributionPlansAttachedPanel.replaceContributionPlan": {
     "en": "Add New Version of Contribution Plan",
-    "lo": ""
+    "lo": "ເພີ່ມສະບັບໃໝ່ຂອງແຜນເງິນສົມທົບ"
   },
   "contributionPlan.contributionPlanBundle.contributionPlansAttachedPanel.title": {
     "en": "{count} Contribution Plans Attached",
@@ -3705,7 +3705,7 @@
   },
   "contributionPlan.contributionPlanBundle.createButton.tooltip": {
     "en": "Create new Contribution Plan Bundle",
-    "lo": ""
+    "lo": "ສ້າງຊຸດແຜນເງິນສົມທົບໃໝ່"
   },
   "contributionPlan.contributionPlanBundle.label": {
     "en": "Contribution Plan Bundle",
@@ -3713,15 +3713,15 @@
   },
   "contributionPlan.contributionPlanBundle.page.title": {
     "en": "Contribution Plan Bundle {label}",
-    "lo": ""
+    "lo": "ຊຸດແຜນເງິນສົມທົບ {label}"
   },
   "contributionPlan.contributionPlanBundle.replacePage.title": {
     "en": "Add New Version of Contribution Plan Bundle {label}",
-    "lo": ""
+    "lo": "ເພີ່ມສະບັບໃໝ່ຂອງຊຸດແຜນເງິນສົມທົບ {label}"
   },
   "contributionPlan.contributionPlanBundles.page.title": {
     "en": "Contribution Plan Bundles",
-    "lo": ""
+    "lo": "ຊຸດແຜນເງິນສົມທົບ"
   },
   "contributionPlan.contributionPlanBundles.searcher.results.title": {
     "en": "{contributionPlanBundlesTotalCount} Contribution Plan Bundles Found",
@@ -3729,7 +3729,7 @@
   },
   "contributionPlan.contributionPlans.page.title": {
     "en": "Contribution Plans",
-    "lo": ""
+    "lo": "ແຜນເງິນສົມທົບ"
   },
   "contributionPlan.contributionPlans.searcher.results.title": {
     "en": "{contributionPlansTotalCount} Contribution Plans Found",
@@ -3737,15 +3737,15 @@
   },
   "contributionPlan.CreateContributionPlan.mutationLabel": {
     "en": "Create Contribution Plan - {label}",
-    "lo": ""
+    "lo": "ສ້າງແຜນເງິນສົມທົບ - {label}"
   },
   "contributionPlan.CreateContributionPlanBundle.mutationLabel": {
     "en": "Create Contribution Plan Bundle - {label}",
-    "lo": ""
+    "lo": "ສ້າງຊຸດແຜນເງິນສົມທົບ - {label}"
   },
   "contributionPlan.CreateContributionPlanBundleDetails.mutationLabel": {
     "en": "Attach new Contribution Plan to {contributionPlanBundle}",
-    "lo": ""
+    "lo": "ຕິດຄັດແຜນເງິນສົມທົບໃໝ່ໃສ່ {contributionPlanBundle}"
   },
   "contributionPlan.dateValidFrom": {
     "en": "Valid from",
@@ -3765,23 +3765,23 @@
   },
   "contributionPlan.deleteContributionPlan.confirm.title": {
     "en": "Delete Contribution Plan {label}",
-    "lo": ""
+    "lo": "ລຶບແຜນເງິນສົມທົບ {label}"
   },
   "contributionPlan.DeleteContributionPlan.mutationLabel": {
     "en": "Delete Contribution Plan - {label}",
-    "lo": ""
+    "lo": "ລຶບແຜນເງິນສົມທົບ - {label}"
   },
   "contributionPlan.deleteContributionPlanBundle.confirm.title": {
     "en": "Delete Contribution Plan Bundle {label}?",
-    "lo": ""
+    "lo": "ລຶບຊຸດແຜນເງິນສົມທົບ {label}?"
   },
   "contributionPlan.DeleteContributionPlanBundle.mutationLabel": {
     "en": "Delete Contribution Plan Bundle - {label}",
-    "lo": ""
+    "lo": "ລຶບຊຸດແຜນເງິນສົມທົບ - {label}"
   },
   "contributionPlan.DeleteContributionPlanBundleDetails.mutationLabel": {
     "en": "Delete {contributionPlan} from {contributionPlanBundle}",
-    "lo": ""
+    "lo": "ລຶບ {contributionPlan} ອອກຈາກ {contributionPlanBundle}"
   },
   "contributionPlan.editButton.tooltip": {
     "en": "Edit",
@@ -3813,23 +3813,23 @@
   },
   "contributionPlan.periodicity": {
     "en": "Periodicity (no of months)",
-    "lo": ""
+    "lo": "ຄາບເວລາ (ຈຳນວນເດືອນ)"
   },
   "contributionPlan.replaceButton.tooltip": {
     "en": "Add New Version",
-    "lo": ""
+    "lo": "ເພີ່ມສະບັບໃໝ່"
   },
   "contributionPlan.ReplaceContributionPlanBundle.mutationLabel": {
     "en": "Replace Contribution Plan Bundle - {label}",
-    "lo": ""
+    "lo": "ທົດແທນຊຸດແຜນເງິນສົມທົບ - {label}"
   },
   "contributionPlan.ReplaceContributionPlanBundleDetails.mutationLabel": {
     "en": "Replace {contributionPlan} of {contributionPlanBundle}",
-    "lo": ""
+    "lo": "ທົດແທນ {contributionPlan} ຂອງ {contributionPlanBundle}"
   },
   "contributionPlan.saveButton.tooltip.disabled": {
     "en": "Fill out all required fields. Saving form without any changes not possible.",
-    "lo": ""
+    "lo": "ຕື່ມຂໍ້ມູນທີ່ຈຳເປັນທັງໝົດ. ບໍ່ສາມາດບັນທຶກແບບຟອມທີ່ບໍ່ມີການປ່ຽນແປງໄດ້."
   },
   "contributionPlan.saveButton.tooltip.enabled": {
     "en": "Save changes",
@@ -3841,15 +3841,15 @@
   },
   "contributionPlan.UpdateContributionPlan.mutationLabel": {
     "en": "Update Contribution Plan - {label}",
-    "lo": ""
+    "lo": "ປັບປຸງແຜນເງິນສົມທົບ - {label}"
   },
   "contributionPlan.UpdateContributionPlanBundle.mutationLabel": {
     "en": "Update Contribution Plan Bundle - {label}",
-    "lo": ""
+    "lo": "ປັບປຸງຊຸດແຜນເງິນສົມທົບ - {label}"
   },
   "contributionPlan.UpdateContributionPlanBundleDetails.mutationLabel": {
     "en": "Update {contributionPlan} of {contributionPlanBundle}",
-    "lo": ""
+    "lo": "ປັບປຸງ {contributionPlan} ຂອງ {contributionPlanBundle}"
   },
   "core.advancedFilters": {
     "en": "Advanced Filters",
@@ -6849,7 +6849,7 @@
   },
   "invoice.codeTp": {
     "en": "Code Recipient",
-    "lo": ""
+    "lo": "ລະຫັດຜູ້ຮັບ"
   },
   "invoice.currencyCode": {
     "en": "Currency",
@@ -6857,7 +6857,7 @@
   },
   "invoice.currencyTpCode": {
     "en": "Currency Recipient",
-    "lo": ""
+    "lo": "ສະກຸນເງິນຜູ້ຮັບ"
   },
   "invoice.dateDue": {
     "en": "Date Due",
@@ -6865,7 +6865,7 @@
   },
   "invoice.dateInvoice": {
     "en": "Date Invoice",
-    "lo": ""
+    "lo": "ວັນທີໃບແຈ້ງໜີ້"
   },
   "invoice.datePayed": {
     "en": "Date Payed",
@@ -6889,7 +6889,7 @@
   },
   "invoice.delete.mutationLabel": {
     "en": "Delete Invoice {code}",
-    "lo": ""
+    "lo": "ລຶບໃບແຈ້ງໜີ້ {code}"
   },
   "invoice.gql_bill_amend_perms": {
     "en": "Invoice | Bill Amend",
@@ -7037,7 +7037,7 @@
   },
   "invoice.pageTitle": {
     "en": "Invoice {label}",
-    "lo": ""
+    "lo": "ໃບແຈ້ງໜີ້ {label}"
   },
   "invoice.paymentReference": {
     "en": "Payment Reference",
@@ -7093,7 +7093,7 @@
   },
   "invoice.thirdparty": {
     "en": "Recipient",
-    "lo": ""
+    "lo": "ຜູ້ຮັບ"
   },
   "invoiceEvent.eventType.label": {
     "en": "Type",
@@ -7189,7 +7189,7 @@
   },
   "invoicePayment.amountPayed": {
     "en": "Amount Payed",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ຊຳລະ"
   },
   "invoicePayment.amountReceived": {
     "en": "Amount Received",
@@ -7213,7 +7213,7 @@
   },
   "invoicePayment.create.mutationLabel": {
     "en": "Create Invoice Payment {invoicePaymentLabel} for {invoiceCode}",
-    "lo": ""
+    "lo": "ສ້າງການຊຳລະໃບແຈ້ງໜີ້ {invoicePaymentLabel} ສຳລັບ {invoiceCode}"
   },
   "invoicePayment.datePayment": {
     "en": "Payment Date",
@@ -7225,11 +7225,11 @@
   },
   "invoicePayment.delete.confirm.title": {
     "en": "Delete {invoicePaymentLabel}?",
-    "lo": ""
+    "lo": "ລຶບ {invoicePaymentLabel}?"
   },
   "invoicePayment.delete.mutationLabel": {
     "en": "Delete Invoice Payment {invoicePaymentLabel} of {invoiceCode}",
-    "lo": ""
+    "lo": "ລຶບການຊຳລະໃບແຈ້ງໜີ້ {invoicePaymentLabel} ຂອງ {invoiceCode}"
   },
   "invoicePayment.fees": {
     "en": "Fees",
@@ -7269,7 +7269,7 @@
   },
   "invoicePayment.update.mutationLabel": {
     "en": "Update Invoice Payment {invoicePaymentLabel} of {invoiceCode}",
-    "lo": ""
+    "lo": "ປັບປຸງການຊຳລະໃບແຈ້ງໜີ້ {invoicePaymentLabel} ຂອງ {invoiceCode}"
   },
   "invoicePayments.label": {
     "en": "Payments",
@@ -8801,7 +8801,7 @@
   },
   "payer.AddFundingDialog.title": {
     "en": "Add Funding",
-    "lo": ""
+    "lo": "ເພີ່ມແຫຼ່ງທຶນ"
   },
   "payer.address": {
     "en": "Address",
@@ -8817,11 +8817,11 @@
   },
   "payer.createMutation.label": {
     "en": "Create payer {name}",
-    "lo": ""
+    "lo": "ສ້າງຜູ້ຈ່າຍເງິນ {name}"
   },
   "payer.deleteMutation.label": {
     "en": "Delete payer {name}",
-    "lo": ""
+    "lo": "ລຶບຜູ້ຈ່າຍເງິນ {name}"
   },
   "payer.district": {
     "en": "District",
@@ -8837,11 +8837,11 @@
   },
   "payer.FundingPanel.table.addFunding": {
     "en": "Add Funding",
-    "lo": ""
+    "lo": "ເພີ່ມແຫຼ່ງທຶນ"
   },
   "payer.FundingPanel.table.title": {
     "en": "Fundings",
-    "lo": ""
+    "lo": "ແຫຼ່ງທຶນ"
   },
   "payer.gql_mutation_payer_add_perms": {
     "en": "Payer | Mutation Payer Add",
@@ -8865,15 +8865,15 @@
   },
   "payer.payDate": {
     "en": "Pay date",
-    "lo": ""
+    "lo": "ວັນທີຈ່າຍ"
   },
   "payer.PayerForm.emptyTitle": {
     "en": "New Payer",
-    "lo": ""
+    "lo": "ຜູ້ຈ່າຍເງິນໃໝ່"
   },
   "payer.PayerForm.title": {
     "en": "Payer {label}",
-    "lo": ""
+    "lo": "ຜູ້ຈ່າຍເງິນ {label}"
   },
   "payer.PayerPicker.label": {
     "en": "Payer",
@@ -8905,23 +8905,23 @@
   },
   "payer.type.C": {
     "en": "Co-operative",
-    "lo": ""
+    "lo": "ສະຫະກອນ"
   },
   "payer.type.D": {
     "en": "Donor",
-    "lo": ""
+    "lo": "ຜູ້ໃຫ້ທຶນ"
   },
   "payer.type.G": {
     "en": "Government",
-    "lo": ""
+    "lo": "ລັດຖະບານ"
   },
   "payer.type.L": {
     "en": "Local Authority",
-    "lo": ""
+    "lo": "ອຳນາດການປົກຄອງທ້ອງຖິ່ນ"
   },
   "payer.type.null": {
     "en": "Select a type",
-    "lo": ""
+    "lo": "ເລືອກປະເພດ"
   },
   "payer.type.O": {
     "en": "Other",
@@ -8929,19 +8929,19 @@
   },
   "payer.type.P": {
     "en": "Private Organization",
-    "lo": ""
+    "lo": "ອົງກອນເອກະຊົນ"
   },
   "payer.updateMutation.label": {
     "en": "Update payer {name}",
-    "lo": ""
+    "lo": "ປັບປຸງຜູ້ຈ່າຍເງິນ {name}"
   },
   "payer.validityFrom": {
     "en": "Validity From",
-    "lo": ""
+    "lo": "ມີຜົນແຕ່"
   },
   "payer.validityTo": {
     "en": "Validity To",
-    "lo": ""
+    "lo": "ມີຜົນເຖິງ"
   },
   "PayerFilters.showHistory": {
     "en": "Show Historical Values",
@@ -8981,31 +8981,31 @@
   },
   "payment.addNewPayment.tooltip": {
     "en": "Add new payment",
-    "lo": ""
+    "lo": "ເພີ່ມການຊຳລະເງິນໃໝ່"
   },
   "payment.addNewPayment.tooltip.selectPremium": {
     "en": "Please select a contribution to add a payment",
-    "lo": ""
+    "lo": "ກະລຸນາເລືອກເງິນສົມທົບເພື່ອເພີ່ມການຊຳລະເງິນ"
   },
   "payment.addNewPaymentTooltip": {
     "en": "Add new payment",
-    "lo": ""
+    "lo": "ເພີ່ມການຊຳລະເງິນໃໝ່"
   },
   "payment.CreatePayment.mutationLabel": {
     "en": "Create payment",
-    "lo": ""
+    "lo": "ສ້າງການຊຳລະເງິນ"
   },
   "payment.deletePayment.tooltip": {
     "en": "Delete payment",
-    "lo": ""
+    "lo": "ລຶບການຊຳລະເງິນ"
   },
   "payment.deletePaymentDialog.message": {
     "en": "Are you sure you want to delete this payment?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບການຊຳລະເງິນນີ້?"
   },
   "payment.deletePaymentDialog.title": {
     "en": "Delete payment",
-    "lo": ""
+    "lo": "ລຶບການຊຳລະເງິນ"
   },
   "payment.deletePaymentDialog.yes.button": {
     "en": "Yes",
@@ -9013,11 +9013,11 @@
   },
   "payment.expectedAmount_Gte": {
     "en": "Expected amount above",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ຄາດໄວ້ສູງກວ່າ"
   },
   "payment.expectedAmount_Lte": {
     "en": "Expected amount under",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ຄາດໄວ້ຕ່ຳກວ່າ"
   },
   "payment.gql_mutation_create_payments_perms": {
     "en": "Payment | Mutation Create Payments",
@@ -9049,15 +9049,15 @@
   },
   "payment.payment.dateLastSms": {
     "en": "Date last SMS",
-    "lo": ""
+    "lo": "ວັນທີສົ່ງ SMS ຄັ້ງລ່າສຸດ"
   },
   "payment.payment.expectedAmount": {
     "en": "Expected Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ຄາດໄວ້"
   },
   "payment.payment.matchedDate": {
     "en": "Matched date",
-    "lo": ""
+    "lo": "ວັນທີຈັບຄູ່"
   },
   "payment.payment.officer": {
     "en": "Officer",
@@ -9065,47 +9065,47 @@
   },
   "payment.payment.officerCode": {
     "en": "Officer code",
-    "lo": ""
+    "lo": "ລະຫັດເຈົ້າໜ້າທີ່"
   },
   "payment.payment.origin": {
     "en": "Origin",
-    "lo": ""
+    "lo": "ແຫຼ່ງທີ່ມາ"
   },
   "payment.payment.receiptNo": {
     "en": "Receipt No",
-    "lo": ""
+    "lo": "ເລກທີໃບຮັບເງິນ"
   },
   "payment.payment.receivedAmount": {
     "en": "Received Amount",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ໄດ້ຮັບ"
   },
   "payment.payment.receivedDate": {
     "en": "Received Date",
-    "lo": ""
+    "lo": "ວັນທີໄດ້ຮັບ"
   },
   "payment.payment.receivedDateFrom": {
     "en": "Received date from",
-    "lo": ""
+    "lo": "ວັນທີໄດ້ຮັບແຕ່"
   },
   "payment.payment.receivedDateTo": {
     "en": "Received date to",
-    "lo": ""
+    "lo": "ວັນທີໄດ້ຮັບເຖິງ"
   },
   "payment.payment.rejectedReason": {
     "en": "Rejected reason",
-    "lo": ""
+    "lo": "ເຫດຜົນການປະຕິເສດ"
   },
   "payment.payment.requestDate": {
     "en": "Request Date",
-    "lo": ""
+    "lo": "ວັນທີຮ້ອງຂໍ"
   },
   "payment.payment.requestDateFrom": {
     "en": "Request date from",
-    "lo": ""
+    "lo": "ວັນທີຮ້ອງຂໍແຕ່"
   },
   "payment.payment.requestDateTo": {
     "en": "Request date to",
-    "lo": ""
+    "lo": "ວັນທີຮ້ອງຂໍເຖິງ"
   },
   "payment.payment.status": {
     "en": "Status",
@@ -9113,23 +9113,23 @@
   },
   "payment.payment.status.-1": {
     "en": "Failed to Create Payment",
-    "lo": ""
+    "lo": "ສ້າງການຊຳລະເງິນບໍ່ສຳເລັດ"
   },
   "payment.payment.status.-2": {
     "en": "Failed to Request Control Number",
-    "lo": ""
+    "lo": "ຮ້ອງຂໍເລກອ້າງອີງການຈ່າຍບໍ່ສຳເລັດ"
   },
   "payment.payment.status.-3": {
     "en": "Failed to Receive Control Number",
-    "lo": ""
+    "lo": "ຮັບເລກອ້າງອີງການຈ່າຍບໍ່ສຳເລັດ"
   },
   "payment.payment.status.-4": {
     "en": "Failed to Receive Payment",
-    "lo": ""
+    "lo": "ຮັບການຊຳລະເງິນບໍ່ສຳເລັດ"
   },
   "payment.payment.status.-5": {
     "en": "Failed to Match",
-    "lo": ""
+    "lo": "ຈັບຄູ່ບໍ່ສຳເລັດ"
   },
   "payment.payment.status.0": {
     "en": "Cancelled",
@@ -9137,23 +9137,23 @@
   },
   "payment.payment.status.1": {
     "en": "Payment Created",
-    "lo": ""
+    "lo": "ສ້າງການຊຳລະເງິນແລ້ວ"
   },
   "payment.payment.status.2": {
     "en": "Control Number Requested",
-    "lo": ""
+    "lo": "ຮ້ອງຂໍເລກອ້າງອີງການຈ່າຍແລ້ວ"
   },
   "payment.payment.status.3": {
     "en": "Control Number Received",
-    "lo": ""
+    "lo": "ໄດ້ຮັບເລກອ້າງອີງການຈ່າຍແລ້ວ"
   },
   "payment.payment.status.4": {
     "en": "Payment Received",
-    "lo": ""
+    "lo": "ໄດ້ຮັບການຊຳລະເງິນແລ້ວ"
   },
   "payment.payment.status.5": {
     "en": "Matched",
-    "lo": ""
+    "lo": "ຈັບຄູ່ແລ້ວ"
   },
   "payment.payment.status.none": {
     "en": " ",
@@ -9165,11 +9165,11 @@
   },
   "payment.payment.transferFee": {
     "en": "Transfer fee",
-    "lo": ""
+    "lo": "ຄ່າທຳນຽມການໂອນ"
   },
   "payment.payment.typeOfPayment": {
     "en": "Type Of Payment",
-    "lo": ""
+    "lo": "ປະເພດການຊຳລະເງິນ"
   },
   "payment.PaymentFilter.status": {
     "en": "Status",
@@ -9181,11 +9181,11 @@
   },
   "payment.PaymentOverview.newTitle": {
     "en": "New payment",
-    "lo": ""
+    "lo": "ການຊຳລະເງິນໃໝ່"
   },
   "payment.PaymentOverview.title": {
     "en": "Payment Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດການຊຳລະເງິນ"
   },
   "payment.paymentSummaries": {
     "en": "{count} payment(s) found",
@@ -9201,11 +9201,11 @@
   },
   "payment.receivedAmount_Gte": {
     "en": "Received amount above",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ໄດ້ຮັບສູງກວ່າ"
   },
   "payment.receivedAmount_Lte": {
     "en": "Received amount under",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນທີ່ໄດ້ຮັບຕ່ຳກວ່າ"
   },
   "payment.showHistory": {
     "en": "Show historical values",
@@ -9213,11 +9213,11 @@
   },
   "payment.showReconciledOnly": {
     "en": "Show reconciled only",
-    "lo": ""
+    "lo": "ສະແດງສະເພາະທີ່ກະທົບຍອດແລ້ວ"
   },
   "payment.UpdatePayment.mutationLabel": {
     "en": "Update payment",
-    "lo": ""
+    "lo": "ປັບປຸງການຊຳລະເງິນ"
   },
   "PaymentCycle": {
     "en": "Payment Cycle",
@@ -9261,7 +9261,7 @@
   },
   "paymentCycle.bills.status.PAYED": {
     "en": "Payed",
-    "lo": ""
+    "lo": "ຊຳລະແລ້ວ"
   },
   "paymentCycle.bills.status.SUSPENDED": {
     "en": "Suspended",
@@ -9281,11 +9281,11 @@
   },
   "paymentCycle.button.showDuplicateSummary": {
     "en": "Show Duplicate Summary",
-    "lo": ""
+    "lo": "ສະແດງສະຫຼຸບຂໍ້ມູນຊ້ຳ"
   },
   "paymentCycle.create.mutationLabel": {
     "en": "Payment Cycle {code} has been created.",
-    "lo": ""
+    "lo": "ສ້າງຮອບການຈ່າຍເງິນ {code} ແລ້ວ."
   },
   "paymentCycle.createButton.tooltip": {
     "en": "Create",
@@ -9293,7 +9293,7 @@
   },
   "paymentCycle.deduplicate": {
     "en": "Deduplicate",
-    "lo": ""
+    "lo": "ກວດຂໍ້ມູນຊ້ຳ"
   },
   "paymentCycle.deduplicate.button.cancel": {
     "en": "Cancel",
@@ -9301,15 +9301,15 @@
   },
   "paymentCycle.deduplicate.fields": {
     "en": "Duplicate Detection Field Selection",
-    "lo": ""
+    "lo": "ເລືອກຊ່ອງຂໍ້ມູນສຳລັບກວດຫາຂໍ້ມູນຊ້ຳ"
   },
   "paymentCycle.deduplicate.fields.placeholder": {
     "en": "Duplicate Detection Field Selection",
-    "lo": ""
+    "lo": "ເລືອກຊ່ອງຂໍ້ມູນສຳລັບກວດຫາຂໍ້ມູນຊ້ຳ"
   },
   "paymentCycle.deduplicate.title": {
     "en": "Payments Deduplication",
-    "lo": ""
+    "lo": "ການກວດການຊຳລະເງິນຊ້ຳ"
   },
   "paymentCycle.label.code": {
     "en": "Code",
@@ -9329,11 +9329,11 @@
   },
   "paymentCycle.paymentCycle.endDate": {
     "en": "End Date",
-    "lo": ""
+    "lo": "ວັນທີສິ້ນສຸດ"
   },
   "paymentCycle.paymentCycle.page.title": {
     "en": "Generate Payment Cycle",
-    "lo": ""
+    "lo": "ສ້າງຮອບການຈ່າຍເງິນ"
   },
   "paymentCycle.paymentCycle.startDate": {
     "en": "Start Date",
@@ -9353,7 +9353,7 @@
   },
   "paymentCycle.PaymentCycleHeadPanel.label.endDate": {
     "en": "End Date",
-    "lo": ""
+    "lo": "ວັນທີສິ້ນສຸດ"
   },
   "paymentCycle.PaymentCycleHeadPanel.label.startDate": {
     "en": "Start Date",
@@ -9369,7 +9369,7 @@
   },
   "paymentCycle.PaymentCyclePage.title": {
     "en": "Payment Cycle {code} ",
-    "lo": ""
+    "lo": "ຮອບການຈ່າຍເງິນ {code} "
   },
   "paymentCycle.paymentCycles.page.title": {
     "en": "Payment Cycles",
@@ -9377,11 +9377,11 @@
   },
   "paymentCycle.paymentCycleStatusPicker": {
     "en": "Payment Cycle Status",
-    "lo": ""
+    "lo": "ສະຖານະຮອບການຈ່າຍເງິນ"
   },
   "paymentCycle.paymentCycleStatusPicker.ACTIVE": {
     "en": "ACTIVE",
-    "lo": ""
+    "lo": "ເຄື່ອນໄຫວ"
   },
   "paymentCycle.paymentCycleStatusPicker.null": {
     "en": "ANY",
@@ -9389,15 +9389,15 @@
   },
   "paymentCycle.paymentCycleStatusPicker.PENDING": {
     "en": "PENDING",
-    "lo": ""
+    "lo": "ລໍຖ້າ"
   },
   "paymentCycle.paymentCycleStatusPicker.SUSPENDED": {
     "en": "SUSPENDED",
-    "lo": ""
+    "lo": "ໂຈະ"
   },
   "paymentCycle.PaymentDuplicatesTable.merge.header": {
     "en": "Remove payment",
-    "lo": ""
+    "lo": "ເອົາການຊຳລະເງິນອອກ"
   },
   "paymentCycle.saveButton.tooltip": {
     "en": "Save changes",
@@ -9409,11 +9409,11 @@
   },
   "paymentCycle.tasks.deduplication.title": {
     "en": "Payment Deduplication Task",
-    "lo": ""
+    "lo": "ໜ້າວຽກກວດການຊຳລະເງິນຊ້ຳ"
   },
   "paymentCycle.tasks.update.title": {
     "en": "Payment Cycle Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກຮອບການຈ່າຍເງິນ"
   },
   "paymentCycle.tooltip.any": {
     "en": "Any",
@@ -9425,7 +9425,7 @@
   },
   "paymentCycle.update.mutationLabel": {
     "en": "Payment Cycle {code} has been updated.",
-    "lo": ""
+    "lo": "ປັບປຸງຮອບການຈ່າຍເງິນ {code} ແລ້ວ."
   },
   "paymentCycle.viewDetailsButton.tooltip": {
     "en": "Details",
@@ -9473,7 +9473,7 @@
   },
   "paymentInvoice.create.mutationLabel": {
     "en": "Create Payment {paymentInvoiceLabel} for {code}",
-    "lo": ""
+    "lo": "ສ້າງການຊຳລະເງິນ {paymentInvoiceLabel} ສຳລັບ {code}"
   },
   "paymentInvoice.datePayment": {
     "en": "Payment Date",
@@ -9485,11 +9485,11 @@
   },
   "paymentInvoice.delete.confirm.title": {
     "en": "Delete {paymentInvoiceLabel}?",
-    "lo": ""
+    "lo": "ລຶບ {paymentInvoiceLabel}?"
   },
   "paymentInvoice.delete.mutationLabel": {
     "en": "Delete Payment {paymentInvoiceLabel} of {code}",
-    "lo": ""
+    "lo": "ລຶບການຊຳລະເງິນ {paymentInvoiceLabel} ຂອງ {code}"
   },
   "paymentInvoice.fees": {
     "en": "Fees",
@@ -9501,11 +9501,11 @@
   },
   "paymentInvoice.payerName": {
     "en": "Payer Name",
-    "lo": ""
+    "lo": "ຊື່ຜູ້ຈ່າຍເງິນ"
   },
   "paymentInvoice.payerRef": {
     "en": "Payer Reference",
-    "lo": ""
+    "lo": "ເລກອ້າງອີງຜູ້ຈ່າຍເງິນ"
   },
   "paymentInvoice.paymentOrigin": {
     "en": "Payment Origin",
@@ -9517,11 +9517,11 @@
   },
   "paymentInvoice.reconciliationStatus.label": {
     "en": "Reconciliation Status",
-    "lo": ""
+    "lo": "ສະຖານະການກະທົບຍອດ"
   },
   "paymentInvoice.reconciliationStatus.NOT_RECONCILIATED": {
     "en": "Not reconciliated",
-    "lo": ""
+    "lo": "ຍັງບໍ່ໄດ້ກະທົບຍອດ"
   },
   "paymentInvoice.reconciliationStatus.RECONCILIATED": {
     "en": "Reconciliated",
@@ -9557,7 +9557,7 @@
   },
   "paymentInvoice.update.mutationLabel": {
     "en": "Update Payment {paymentInvoiceLabel} of {code}",
-    "lo": ""
+    "lo": "ປັບປຸງການຊຳລະເງິນ {paymentInvoiceLabel} ຂອງ {code}"
   },
   "paymentInvoices.label": {
     "en": "Payments",
@@ -9577,7 +9577,7 @@
   },
   "paymentPlan.advancedCriteria.button.addFilters": {
     "en": "Add criterion",
-    "lo": ""
+    "lo": "ເພີ່ມເງື່ອນໄຂ"
   },
   "paymentPlan.advancedCriteria.button.AdvancedCriteria": {
     "en": "Advanced Criteria",
@@ -9589,11 +9589,11 @@
   },
   "paymentPlan.advancedCriteria.button.clearAllFilters": {
     "en": "Clear All Criteria",
-    "lo": ""
+    "lo": "ລ້າງເງື່ອນໄຂທັງໝົດ"
   },
   "paymentPlan.advancedCriteria.button.filter": {
     "en": "Confirm Criteria",
-    "lo": ""
+    "lo": "ຢືນຢັນເງື່ອນໄຂ"
   },
   "paymentPlan.advancedCriteria.field": {
     "en": "Field",
@@ -9605,7 +9605,7 @@
   },
   "paymentPlan.advancedCriteria.tip": {
     "en": "Please click the 'Confirm Criteria' button to apply your chosen criteria.",
-    "lo": ""
+    "lo": "ກະລຸນາກົດປຸ່ມ 'ຢືນຢັນເງື່ອນໄຂ' ເພື່ອນຳໃຊ້ເງື່ອນໄຂທີ່ທ່ານເລືອກ."
   },
   "paymentPlan.advancedCriteria.value": {
     "en": "Value",
@@ -9617,11 +9617,11 @@
   },
   "paymentPlan.benefitPlan": {
     "en": "Benefit Product",
-    "lo": ""
+    "lo": "ຜະລິດຕະພັນສະຫວັດດີການ"
   },
   "paymentPlan.calculation": {
     "en": "Calculation Rule",
-    "lo": ""
+    "lo": "ກົດການຄິດໄລ່"
   },
   "paymentPlan.code": {
     "en": "Code",
@@ -9629,11 +9629,11 @@
   },
   "paymentPlan.codeTaken": {
     "en": "Payment plan code already exists",
-    "lo": ""
+    "lo": "ລະຫັດແຜນການຈ່າຍເງິນນີ້ມີຢູ່ແລ້ວ"
   },
   "paymentPlan.CreatePaymentPlan.mutationLabel": {
     "en": "Create Payment Plan - {label}",
-    "lo": ""
+    "lo": "ສ້າງແຜນການຈ່າຍເງິນ - {label}"
   },
   "paymentPlan.dateValidFrom": {
     "en": "Valid from",
@@ -9645,7 +9645,7 @@
   },
   "paymentPlan.deactivatePaymentPlan": {
     "en": "Deactivate Payment Plan",
-    "lo": ""
+    "lo": "ປິດການນຳໃຊ້ແຜນການຈ່າຍເງິນ"
   },
   "paymentPlan.deleteButton.tooltip": {
     "en": "Delete",
@@ -9657,15 +9657,15 @@
   },
   "paymentPlan.deletePaymentPlan.confirm.title": {
     "en": "Delete Payment Plan {label}",
-    "lo": ""
+    "lo": "ລຶບແຜນການຈ່າຍເງິນ {label}"
   },
   "paymentPlan.deletePaymentPlan.mutationLabel": {
     "en": "Delete Payment Plan - {label}",
-    "lo": ""
+    "lo": "ລຶບແຜນການຈ່າຍເງິນ - {label}"
   },
   "paymentPlan.DeletePaymentPlan.mutationLabel": {
     "en": "Delete Payment Plan - {label}",
-    "lo": ""
+    "lo": "ລຶບແຜນການຈ່າຍເງິນ - {label}"
   },
   "paymentPlan.editButton.tooltip": {
     "en": "Edit",
@@ -9693,11 +9693,11 @@
   },
   "paymentPlan.paymentPlan.createButton.tooltip": {
     "en": "Create new Payment Plan",
-    "lo": ""
+    "lo": "ສ້າງແຜນການຈ່າຍເງິນໃໝ່"
   },
   "paymentPlan.paymentPlan.page.title": {
     "en": "Payment Plan {label}",
-    "lo": ""
+    "lo": "ແຜນການຈ່າຍເງິນ {label}"
   },
   "paymentPlan.paymentPlans.page.title": {
     "en": "Payment Plans",
@@ -9705,19 +9705,19 @@
   },
   "paymentPlan.periodicity": {
     "en": "Periodicity (no of months)",
-    "lo": ""
+    "lo": "ຄາບເວລາ (ຈຳນວນເດືອນ)"
   },
   "paymentPlan.replaceButton.tooltip": {
     "en": "Add New Version",
-    "lo": ""
+    "lo": "ເພີ່ມສະບັບໃໝ່"
   },
   "paymentPlan.ReplacePaymentPlan.mutationLabel": {
     "en": "Replace Payment Plan - {label}",
-    "lo": ""
+    "lo": "ທົດແທນແຜນການຈ່າຍເງິນ - {label}"
   },
   "paymentPlan.saveButton.tooltip.disabled": {
     "en": "Please fill General Information fields first",
-    "lo": ""
+    "lo": "ກະລຸນາຕື່ມຂໍ້ມູນທົ່ວໄປກ່ອນ"
   },
   "paymentPlan.saveButton.tooltip.enabled": {
     "en": "Save changes",
@@ -9737,7 +9737,7 @@
   },
   "paymentPlan.UpdatePaymentPlan.mutationLabel": {
     "en": "Update Payment Plan - {label}",
-    "lo": ""
+    "lo": "ປັບປຸງແຜນການຈ່າຍເງິນ - {label}"
   },
   "paymentPlanPicker.label": {
     "en": "Payment Plan",
@@ -10997,7 +10997,7 @@
   },
   "policyHolder.accountancyAccount": {
     "en": "Accountancy Account",
-    "lo": ""
+    "lo": "ບັນຊີການບັນຊີ"
   },
   "policyHolder.accountancyAccountValidation.regexMsg.en": {
     "en": "Invalid accountancy account",
@@ -11009,7 +11009,7 @@
   },
   "policyHolder.activityCode": {
     "en": "Activity Code",
-    "lo": ""
+    "lo": "ລະຫັດກິດຈະກຳ"
   },
   "policyHolder.address": {
     "en": "Address",
@@ -11021,11 +11021,11 @@
   },
   "policyHolder.bankAccount": {
     "en": "Bank Account",
-    "lo": ""
+    "lo": "ບັນຊີທະນາຄານ"
   },
   "policyHolder.calculation": {
     "en": "Calculation Parameter",
-    "lo": ""
+    "lo": "ພາລາມິເຕີການຄິດໄລ່"
   },
   "policyHolder.code": {
     "en": "Code",
@@ -11033,11 +11033,11 @@
   },
   "policyHolder.codeTaken": {
     "en": "Policy holder code already exists",
-    "lo": ""
+    "lo": "ລະຫັດຜູ້ຖືສັນຍາປະກັນໄພນີ້ມີຢູ່ແລ້ວ"
   },
   "policyHolder.contactName": {
     "en": "Contact Name",
-    "lo": ""
+    "lo": "ຊື່ຜູ້ຕິດຕໍ່"
   },
   "policyHolder.contributionPlanBundle": {
     "en": "Contribution Plan Bundle",
@@ -11045,23 +11045,23 @@
   },
   "policyHolder.contributionPlanBundle.label": {
     "en": "Contribution Plan Bundles",
-    "lo": ""
+    "lo": "ຊຸດແຜນເງິນສົມທົບ"
   },
   "policyHolder.createButton.tooltip": {
     "en": "Create new Policy Holder",
-    "lo": ""
+    "lo": "ສ້າງຜູ້ຖືສັນຍາປະກັນໄພໃໝ່"
   },
   "policyHolder.CreatePolicyHolder.mutationLabel": {
     "en": "Create Policy Holder - {label}",
-    "lo": ""
+    "lo": "ສ້າງຜູ້ຖືສັນຍາປະກັນໄພ - {label}"
   },
   "policyHolder.CreatePolicyHolderContributionPlanBundle.mutationLabel": {
     "en": "Create Contribution Plan Bundle for {code} - {tradeName}",
-    "lo": ""
+    "lo": "ສ້າງຊຸດແຜນເງິນສົມທົບສຳລັບ {code} - {tradeName}"
   },
   "policyHolder.CreatePolicyHolderInsuree.mutationLabel": {
     "en": "Create Policy Holder Insuree for {code} - {tradeName}",
-    "lo": ""
+    "lo": "ສ້າງຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພສຳລັບ {code} - {tradeName}"
   },
   "policyHolder.CreatePolicyHolderUser.mutationLabel": {
     "en": "{user} is added on {policyHolder}",
@@ -11069,11 +11069,11 @@
   },
   "policyHolder.dateValidFrom": {
     "en": "Date Valid From",
-    "lo": ""
+    "lo": "ວັນທີເລີ່ມມີຜົນ"
   },
   "policyHolder.dateValidTo": {
     "en": "Date Valid To",
-    "lo": ""
+    "lo": "ວັນທີສິ້ນສຸດຜົນ"
   },
   "policyHolder.deleteButton.tooltip": {
     "en": "Delete",
@@ -11081,23 +11081,23 @@
   },
   "policyHolder.deletePolicyHolder.confirm.message": {
     "en": "Are you sure you want to delete {code} - {tradeName}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບ {code} - {tradeName}?"
   },
   "policyHolder.deletePolicyHolder.confirm.title": {
     "en": "Delete {code} - {tradeName}?",
-    "lo": ""
+    "lo": "ລຶບ {code} - {tradeName}?"
   },
   "policyHolder.DeletePolicyHolder.mutationLabel": {
     "en": "Delete Policy Holder - {code} - {tradeName}",
-    "lo": ""
+    "lo": "ລຶບຜູ້ຖືສັນຍາປະກັນໄພ - {code} - {tradeName}"
   },
   "policyHolder.DeletePolicyHolderContributionPlanBundle.mutationLabel": {
     "en": "Delete Contribution Plan Bundle from {code} - {tradeName}",
-    "lo": ""
+    "lo": "ລຶບຊຸດແຜນເງິນສົມທົບອອກຈາກ {code} - {tradeName}"
   },
   "policyHolder.DeletePolicyHolderInsuree.mutationLabel": {
     "en": "Delete Policy Holder Insuree from {code} - {tradeName}",
-    "lo": ""
+    "lo": "ລຶບຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພອອກຈາກ {code} - {tradeName}"
   },
   "policyHolder.DeletePolicyHolderUser.mutationLabel": {
     "en": "{user} is removed from {policyHolder}",
@@ -11125,15 +11125,15 @@
   },
   "policyHolder.displayName": {
     "en": "Display name",
-    "lo": ""
+    "lo": "ຊື່ທີ່ສະແດງ"
   },
   "policyHolder.EconomicUnitChangeButton.label": {
     "en": "Change Company",
-    "lo": ""
+    "lo": "ປ່ຽນບໍລິສັດ"
   },
   "policyHolder.EconomicUnitPicker.label": {
     "en": "Selected company",
-    "lo": ""
+    "lo": "ບໍລິສັດທີ່ເລືອກ"
   },
   "policyHolder.editButton.tooltip": {
     "en": "Edit",
@@ -11309,11 +11309,11 @@
   },
   "policyHolder.isDeleted": {
     "en": "Show deleted",
-    "lo": ""
+    "lo": "ສະແດງລາຍການທີ່ລຶບແລ້ວ"
   },
   "policyHolder.legalForm": {
     "en": "Legal Form",
-    "lo": ""
+    "lo": "ຮູບແບບນິຕິກຳ"
   },
   "policyHolder.location": {
     "en": "Location",
@@ -11321,7 +11321,7 @@
   },
   "policyHolder.mandatoryField.error": {
     "en": "This field is mandatory",
-    "lo": ""
+    "lo": "ຊ່ອງນີ້ຈຳເປັນຕ້ອງຕື່ມ"
   },
   "policyHolder.mandatoryFieldsEmptyError": {
     "en": "* These fields are required",
@@ -11365,11 +11365,11 @@
   },
   "policyHolder.policyHolder": {
     "en": "Policy Holder",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyHolder.policyHolder.page.title": {
     "en": "Policy Holder {label}",
-    "lo": ""
+    "lo": "ຜູ້ຖືສັນຍາປະກັນໄພ {label}"
   },
   "policyHolder.policyHolderContributionPlanBundle.any": {
     "en": "Any",
@@ -11377,23 +11377,23 @@
   },
   "policyHolder.policyHolderContributionPlanBundle.createPolicyHolderContributionPlanBundle": {
     "en": "Add new Contribution Plan Bundle",
-    "lo": ""
+    "lo": "ເພີ່ມຊຸດແຜນເງິນສົມທົບໃໝ່"
   },
   "policyHolder.policyHolderContributionPlanBundle.dialog.delete.title": {
     "en": "Are you sure you want to delete {code} - {name}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບ {code} - {name}?"
   },
   "policyHolder.policyHolderContributionPlanBundle.dialog.edit.title": {
     "en": "Edit Contribution Plan Bundle",
-    "lo": ""
+    "lo": "ແກ້ໄຂຊຸດແຜນເງິນສົມທົບ"
   },
   "policyHolder.policyHolderContributionPlanBundle.dialog.replace.title": {
     "en": "Add new version of Contribution Plan Bundle",
-    "lo": ""
+    "lo": "ເພີ່ມສະບັບໃໝ່ຂອງຊຸດແຜນເງິນສົມທົບ"
   },
   "policyHolder.policyHolderContributionPlanBundle.isDeleted": {
     "en": "Show Deleted Contribution Plan Bundles",
-    "lo": ""
+    "lo": "ສະແດງຊຸດແຜນເງິນສົມທົບທີ່ລຶບແລ້ວ"
   },
   "policyHolder.policyHolderContributionPlanBundle.searcher.title": {
     "en": "{policyHolderContributionPlanBundlesTotalCount} Contribution Plan Bundles Found",
@@ -11401,27 +11401,27 @@
   },
   "policyHolder.policyHolderInsuree.createPolicyHolderInsuree": {
     "en": "Add new Policy Holder Insuree",
-    "lo": ""
+    "lo": "ເພີ່ມຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພໃໝ່"
   },
   "policyHolder.policyHolderInsuree.dialog.delete.title": {
     "en": "Are you sure you want to delete {otherNames} {lastName}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບ {otherNames} {lastName}?"
   },
   "policyHolder.policyHolderInsuree.dialog.edit.title": {
     "en": "Edit Policy Holder Insuree",
-    "lo": ""
+    "lo": "ແກ້ໄຂຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyHolder.policyHolderInsuree.dialog.replace.title": {
     "en": "Add new version of Policy Holder Insuree",
-    "lo": ""
+    "lo": "ເພີ່ມສະບັບໃໝ່ຂອງຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyHolder.policyHolderInsuree.isDeleted": {
     "en": "Show Deleted Insurees",
-    "lo": ""
+    "lo": "ສະແດງຜູ້ເອົາປະກັນທີ່ລຶບແລ້ວ"
   },
   "policyHolder.policyHolderInsuree.label": {
     "en": "Policy Holder Insurees",
-    "lo": ""
+    "lo": "ຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyHolder.policyHolderInsuree.searcher.title": {
     "en": "{policyHolderInsureesTotalCount} Policy Holder Insurees Found",
@@ -11429,7 +11429,7 @@
   },
   "policyHolder.policyHolderInsuree.tabDisabledError": {
     "en": "To start creating new Policy Holder Insuree, you need to fill in General Information fields and click Save.",
-    "lo": ""
+    "lo": "ເພື່ອເລີ່ມສ້າງຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພໃໝ່, ທ່ານຕ້ອງຕື່ມຂໍ້ມູນທົ່ວໄປ ແລ້ວກົດບັນທຶກ."
   },
   "policyHolder.policyHolders.page.title": {
     "en": "Policy Holders",
@@ -11441,31 +11441,31 @@
   },
   "policyHolder.policyHolderUser.createPolicyHolderUser": {
     "en": "Add new Policy Holder User",
-    "lo": ""
+    "lo": "ເພີ່ມຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພໃໝ່"
   },
   "policyHolder.policyHolderUser.dateValidFrom": {
     "en": "Date Valid From",
-    "lo": ""
+    "lo": "ວັນທີເລີ່ມມີຜົນ"
   },
   "policyHolder.policyHolderUser.dateValidTo": {
     "en": "Date Valid To",
-    "lo": ""
+    "lo": "ວັນທີສິ້ນສຸດຜົນ"
   },
   "policyHolder.policyHolderUser.dialog.delete.title": {
     "en": "Are you sure you want to delete {user}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບ {user}?"
   },
   "policyHolder.policyHolderUser.dialog.replace.title": {
     "en": "Add new version of Policy Holder User",
-    "lo": ""
+    "lo": "ເພີ່ມສະບັບໃໝ່ຂອງຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyHolder.policyHolderUser.dialog.update.title": {
     "en": "Edit Policy Holder User",
-    "lo": ""
+    "lo": "ແກ້ໄຂຜູ້ໃຊ້ຂອງຜູ້ຖືສັນຍາປະກັນໄພ"
   },
   "policyHolder.policyHolderUser.isDeleted": {
     "en": "Show Deleted Users",
-    "lo": ""
+    "lo": "ສະແດງຜູ້ໃຊ້ທີ່ລຶບແລ້ວ"
   },
   "policyHolder.policyHolderUser.searcher.results.title": {
     "en": "{policyHolderUsersTotalCount} Policy Holder Users Found",
@@ -11473,19 +11473,19 @@
   },
   "policyHolder.policyHolderUser.userName": {
     "en": "User Name",
-    "lo": ""
+    "lo": "ຊື່ຜູ້ໃຊ້"
   },
   "policyHolder.replaceButton.tooltip": {
     "en": "Replace",
-    "lo": ""
+    "lo": "ທົດແທນ"
   },
   "policyHolder.ReplacePolicyHolderContributionPlanBundle.mutationLabel": {
     "en": "Replace Contribution Plan Bundle of {code} - {tradeName}",
-    "lo": ""
+    "lo": "ທົດແທນຊຸດແຜນເງິນສົມທົບຂອງ {code} - {tradeName}"
   },
   "policyHolder.ReplacePolicyHolderInsuree.mutationLabel": {
     "en": "Replace Policy Holder Insuree of {code} - {tradeName}",
-    "lo": ""
+    "lo": "ທົດແທນຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພຂອງ {code} - {tradeName}"
   },
   "policyHolder.ReplacePolicyHolderUser.mutationLabel": {
     "en": "{newUser} is replacing {oldUser} on {policyHolder}",
@@ -11493,7 +11493,7 @@
   },
   "policyHolder.savePolicyHolderButton.tooltip.disabled": {
     "en": "Fill out all required fields. Saving form without any changes not possible.",
-    "lo": ""
+    "lo": "ຕື່ມຂໍ້ມູນທີ່ຈຳເປັນທັງໝົດ. ບໍ່ສາມາດບັນທຶກແບບຟອມທີ່ບໍ່ມີການປ່ຽນແປງໄດ້."
   },
   "policyHolder.savePolicyHolderButton.tooltip.enabled": {
     "en": "Save changes",
@@ -11505,35 +11505,35 @@
   },
   "policyHolder.selectEconomicUnit.description": {
     "en": "By confirming the company, you accept the {link} and agree to the processing of your personal data.",
-    "lo": ""
+    "lo": "ໂດຍການຢືນຢັນບໍລິສັດ, ທ່ານຍອມຮັບ {link} ແລະ ຕົກລົງໃຫ້ມີການປະມວນຜົນຂໍ້ມູນສ່ວນຕົວຂອງທ່ານ."
   },
   "policyHolder.selectEconomicUnit.gdpr": {
     "en": "GDPR Declaration",
-    "lo": ""
+    "lo": "ຄຳຖະແຫຼງ GDPR"
   },
   "policyHolder.selectEconomicUnit.logout": {
     "en": "Logout",
-    "lo": ""
+    "lo": "ອອກຈາກລະບົບ"
   },
   "policyHolder.selectEconomicUnit.title": {
     "en": "Select the company",
-    "lo": ""
+    "lo": "ເລືອກບໍລິສັດ"
   },
   "policyHolder.tradeName": {
     "en": "Trade Name",
-    "lo": ""
+    "lo": "ຊື່ທາງການຄ້າ"
   },
   "policyHolder.UpdatePolicyHolder.mutationLabel": {
     "en": "Update Policy Holder - {label}",
-    "lo": ""
+    "lo": "ປັບປຸງຜູ້ຖືສັນຍາປະກັນໄພ - {label}"
   },
   "policyHolder.UpdatePolicyHolderContributionPlanBundle.mutationLabel": {
     "en": "Update Contribution Plan Bundle of {code} - {tradeName}",
-    "lo": ""
+    "lo": "ປັບປຸງຊຸດແຜນເງິນສົມທົບຂອງ {code} - {tradeName}"
   },
   "policyHolder.UpdatePolicyHolderInsuree.mutationLabel": {
     "en": "Update Policy Holder Insuree of {code} - {tradeName}",
-    "lo": ""
+    "lo": "ປັບປຸງຜູ້ເອົາປະກັນຂອງຜູ້ຖືສັນຍາປະກັນໄພຂອງ {code} - {tradeName}"
   },
   "policyHolder.UpdatePolicyHolderUser.mutationLabel": {
     "en": "{user} - {policyHolder} is updated",
