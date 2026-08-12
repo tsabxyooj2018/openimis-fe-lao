@@ -1,15 +1,15 @@
 {
   " Ticket.ComplainantInformation": {
     "en": "REPORTER INFORMATION",
-    "lo": ""
+    "lo": "ຂໍ້ມູນຜູ້ຮ້ອງທຸກ"
   },
   " Ticket.DescriptionOfEvents": {
     "en": "DETAILS OF EVENT LEADING TO GRIEVANCE (Provide a detailed account of the occurrence)",
-    "lo": ""
+    "lo": "ລາຍລະອຽດຂອງເຫດການທີ່ນຳໄປສູ່ຄຳຮ້ອງທຸກ (ກະລຸນາອະທິບາຍເຫດການຢ່າງລະອຽດ)"
   },
   " Ticket.Resolution": {
     "en": "RESOLUTION (time to resolution in form of CRON timedelta: {days},{hours} where days are values between <0, 99) and hours are between 0 and 24.)",
-    "lo": ""
+    "lo": "ການແກ້ໄຂ (ເວລາທີ່ໃຊ້ໃນການແກ້ໄຂໃນຮູບແບບ CRON timedelta: {days},{hours} ໂດຍ days ມີຄ່າລະຫວ່າງ <0, 99) ແລະ hours ຢູ່ລະຫວ່າງ 0 ຫາ 24.)"
   },
   "action.AddTicket.tooltip": {
     "en": "Add Grievance",
@@ -21,7 +21,7 @@
   },
   "addNewPremium.buttonText": {
     "en": "New contribution",
-    "lo": ""
+    "lo": "ເງິນສົມທົບໃໝ່"
   },
   "addNewticketTooltip": {
     "en": "Add Grievance",
@@ -29,11 +29,11 @@
   },
   "addNewTicketTooltip": {
     "en": "Add New Bank",
-    "lo": ""
+    "lo": "ເພີ່ມຄຳຮ້ອງທຸກໃໝ່"
   },
   "addToNewGroup": {
     "en": "Add individual to this group",
-    "lo": ""
+    "lo": "ເພີ່ມບຸກຄົນເຂົ້າກຸ່ມນີ້"
   },
   "addTooltip": {
     "en": "Create new",
@@ -45,7 +45,7 @@
   },
   "admin.EnrolmentOfficerFormPanel.substitutionOfficer": {
     "en": "Substitution Officer",
-    "lo": ""
+    "lo": "ເຈົ້າໜ້າທີ່ແທນ"
   },
   "admin.EnrolmentOfficerFormPanel.substitutionOfficer.placeholder": {
     "en": "Search for an Officer...",
@@ -65,7 +65,7 @@
   },
   "admin.EnrolmentOfficerPicker.label": {
     "en": "Select an Officer",
-    "lo": ""
+    "lo": "ເລືອກເຈົ້າໜ້າທີ່"
   },
   "admin.EnrolmentOfficerPicker.loadingText": {
     "en": "Loading...",
@@ -93,7 +93,7 @@
   },
   "admin.InteractiveUserFormPanel.title": {
     "en": "Interactive User",
-    "lo": ""
+    "lo": "ຜູ້ໃຊ້ລະບົບ"
   },
   "admin.mainMenu": {
     "en": "Administration",
@@ -153,11 +153,11 @@
   },
   "admin.password.medium": {
     "en": "Medium",
-    "lo": ""
+    "lo": "ປານກາງ"
   },
   "admin.password.minLength": {
     "en": "at least {count} characters",
-    "lo": ""
+    "lo": "ຢ່າງໜ້ອຍ {count} ຕົວອັກສອນ"
   },
   "admin.password.numbers": {
     "en": "{count, plural, one {# number} other {# numbers}}",
@@ -165,7 +165,7 @@
   },
   "admin.password.requirements": {
     "en": "Password must include: {requirements}.",
-    "lo": ""
+    "lo": "ລະຫັດຜ່ານຕ້ອງມີ: {requirements}."
   },
   "admin.password.specialCharacters": {
     "en": "{count, plural, one {# special character} other {# special characters}}",
@@ -173,11 +173,11 @@
   },
   "admin.password.strong": {
     "en": "Password is strong.",
-    "lo": ""
+    "lo": "ລະຫັດຜ່ານແຂງແຮງ."
   },
   "admin.password.unknownScore": {
     "en": "Unknown score.",
-    "lo": ""
+    "lo": "ບໍ່ຮູ້ລະດັບຄວາມແຂງແຮງ."
   },
   "admin.password.upperCase": {
     "en": "{count, plural, one {# uppercase letter} other {# uppercase letters}}",
@@ -185,11 +185,11 @@
   },
   "admin.password.veryStrong": {
     "en": "Password is very strong.",
-    "lo": ""
+    "lo": "ລະຫັດຜ່ານແຂງແຮງຫຼາຍ."
   },
   "admin.password.weak": {
     "en": "Weak",
-    "lo": ""
+    "lo": "ອ່ອນ"
   },
   "admin.PaymentPointManagerPicker.label": {
     "en": "Payment Point Manager",
@@ -197,7 +197,7 @@
   },
   "admin.PaymentPointManagerPicker.placeholder": {
     "en": "Search for an PPM...",
-    "lo": ""
+    "lo": "ຄົ້ນຫາຜູ້ຄຸ້ມຄອງຈຸດຈ່າຍເງິນ..."
   },
   "admin.showHistory": {
     "en": "Show historical values",
@@ -229,7 +229,7 @@
   },
   "admin.user.deleteDialog.message": {
     "en": "Are you sure you want to delete this user?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບຜູ້ໃຊ້ນີ້?"
   },
   "admin.user.deleteDialog.title": {
     "en": "Delete user",
@@ -249,7 +249,7 @@
   },
   "admin.user.deleteUserDialog.message": {
     "en": "Are you sure you want to delete this user?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບຜູ້ໃຊ້ນີ້?"
   },
   "admin.user.districts": {
     "en": "Districts",
@@ -257,15 +257,15 @@
   },
   "admin.user.dob": {
     "en": "Birth date",
-    "lo": ""
+    "lo": "ວັນເດືອນປີເກີດ"
   },
   "admin.user.dobFrom": {
     "en": "Birth date from",
-    "lo": ""
+    "lo": "ວັນເດືອນປີເກີດແຕ່"
   },
   "admin.user.dobTo": {
     "en": "Birth date to",
-    "lo": ""
+    "lo": "ວັນເດືອນປີເກີດເຖິງ"
   },
   "admin.user.email": {
     "en": "Email",
@@ -273,11 +273,11 @@
   },
   "admin.user.emailAlreadyTaken": {
     "en": "User email already in use",
-    "lo": ""
+    "lo": "ອີເມວນີ້ຖືກໃຊ້ແລ້ວ"
   },
   "admin.user.emailFormatInvalid": {
     "en": "Invalid email format",
-    "lo": ""
+    "lo": "ຮູບແບບອີເມວບໍ່ຖືກຕ້ອງ"
   },
   "admin.user.generatePassword": {
     "en": "Generate Password",
@@ -285,7 +285,7 @@
   },
   "admin.user.givenNames": {
     "en": "Given names",
-    "lo": ""
+    "lo": "ຊື່ຕົວ"
   },
   "admin.user.language": {
     "en": "Interface Language",
@@ -313,7 +313,7 @@
   },
   "admin.user.otherNames": {
     "en": "Other names",
-    "lo": ""
+    "lo": "ຊື່ອື່ນ"
   },
   "admin.user.password": {
     "en": "Password",
@@ -329,31 +329,31 @@
   },
   "admin.user.updateUser.mutationLabel": {
     "en": "Update user",
-    "lo": ""
+    "lo": "ປັບປຸງຜູ້ໃຊ້"
   },
   "admin.user.username": {
     "en": "User name",
-    "lo": ""
+    "lo": "ຊື່ຜູ້ໃຊ້"
   },
   "admin.user.usernameAlreadyTaken": {
     "en": "Username already in use",
-    "lo": ""
+    "lo": "ຊື່ຜູ້ໃຊ້ນີ້ຖືກໃຊ້ແລ້ວ"
   },
   "admin.user.UserOverview.newTitle": {
     "en": "New User",
-    "lo": ""
+    "lo": "ຜູ້ໃຊ້ໃໝ່"
   },
   "admin.user.UserOverview.title": {
     "en": "User Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດຜູ້ໃຊ້"
   },
   "admin.user.userRoles": {
     "en": "User role(s)",
-    "lo": ""
+    "lo": "ບົດບາດຜູ້ໃຊ້"
   },
   "admin.user.userRoles.placeholder": {
     "en": "Select User Role(s)",
-    "lo": ""
+    "lo": "ເລືອກບົດບາດຜູ້ໃຊ້"
   },
   "admin.user.userSummaries": {
     "en": "{count} user(s) found",
@@ -361,15 +361,15 @@
   },
   "admin.user.userTypes": {
     "en": "User type(s)",
-    "lo": ""
+    "lo": "ປະເພດຜູ້ໃຊ້"
   },
   "admin.user.userTypes.CLAIM_ADMIN": {
     "en": "Claim admin",
-    "lo": ""
+    "lo": "ຜູ້ຈັດການຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "admin.user.userTypes.INTERACTIVE": {
     "en": "Interactive",
-    "lo": ""
+    "lo": "ຜູ້ໃຊ້ລະບົບ"
   },
   "admin.user.userTypes.none": {
     "en": " ",
@@ -377,7 +377,7 @@
   },
   "admin.user.userTypes.noOptions": {
     "en": "No user type found",
-    "lo": ""
+    "lo": "ບໍ່ພົບປະເພດຜູ້ໃຊ້"
   },
   "admin.user.userTypes.null": {
     "en": "Any",
@@ -389,7 +389,7 @@
   },
   "admin.user.worksTo": {
     "en": "Works to",
-    "lo": ""
+    "lo": "ເຮັດວຽກເຖິງ"
   },
   "admin.UserFilter.showDeleted": {
     "en": "Show Deleted",
@@ -401,11 +401,11 @@
   },
   "admin.UserMasterPanel.language.null": {
     "en": "Select a language",
-    "lo": ""
+    "lo": "ເລືອກພາສາ"
   },
   "admin.UserMasterPanel.loginDetailsTitle": {
     "en": "Login Details",
-    "lo": ""
+    "lo": "ຂໍ້ມູນການເຂົ້າສູ່ລະບົບ"
   },
   "admin.UserPicker.clearText": {
     "en": "Clear",
@@ -649,7 +649,7 @@
   },
   "billEventMessage.create.mutationLabel": {
     "en": "Create Bill Event Message for {billCode}",
-    "lo": ""
+    "lo": "ສ້າງຂໍ້ຄວາມເຫດການໃບບິນສຳລັບ {billCode}"
   },
   "billEvents.label": {
     "en": "Events",
@@ -661,11 +661,11 @@
   },
   "billItem.amountNet": {
     "en": "Amount Net",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນສຸດທິ"
   },
   "billItem.amountNetTooltip": {
     "en": "Tax: {value}",
-    "lo": ""
+    "lo": "ພາສີ: {value}"
   },
   "billItem.amountTotal": {
     "en": "Amount Total",
@@ -689,7 +689,7 @@
   },
   "billItem.ledgerAccount": {
     "en": "Ledger Account",
-    "lo": ""
+    "lo": "ບັນຊີແຍກປະເພດ"
   },
   "billItem.quantity": {
     "en": "Quantity",
@@ -697,11 +697,11 @@
   },
   "billItem.unitPrice": {
     "en": "Unit Price",
-    "lo": ""
+    "lo": "ລາຄາຕໍ່ໜ່ວຍ"
   },
   "billItems.label": {
     "en": "Line Items",
-    "lo": ""
+    "lo": "ລາຍການໃນບິນ"
   },
   "billItems.searcher.resultsTitle": {
     "en": "{billLineItemsTotalCount} Line Items Found",
@@ -817,7 +817,7 @@
   },
   "calculation.validationFailed": {
     "en": "Value validation failed",
-    "lo": ""
+    "lo": "ການກວດສອບຄ່າບໍ່ຜ່ານ"
   },
   "cancel": {
     "en": "Cancel",
@@ -825,7 +825,7 @@
   },
   "category.categoryTitle": {
     "en": "Category Name",
-    "lo": ""
+    "lo": "ຊື່ໝວດໝູ່"
   },
   "category.label": {
     "en": "Category",
@@ -837,7 +837,7 @@
   },
   "category.slug": {
     "en": "Category Slug",
-    "lo": ""
+    "lo": "ຊື່ຫຍໍ້ຂອງໝວດໝູ່"
   },
   "CategoryPicker.label": {
     "en": "Category",
@@ -849,7 +849,7 @@
   },
   "changeGroupButtonTooltip": {
     "en": "Move to another group.",
-    "lo": ""
+    "lo": "ຍ້າຍໄປກຸ່ມອື່ນ."
   },
   "ChannelPicker.label": {
     "en": "Channel",
@@ -2509,11 +2509,11 @@
   },
   "claimAttachments.buttonText": {
     "en": "Attachs",
-    "lo": ""
+    "lo": "ເອກະສານແນບ"
   },
   "ClaimChildPanel.itemOrService.tooltip": {
     "en": "Type if you dont find the item or service in the list",
-    "lo": ""
+    "lo": "ພິມເອງ ຖ້າບໍ່ພົບລາຍການ ຫຼື ການບໍລິການໃນບັນຊີ"
   },
   "claimHistory.approved": {
     "en": "Approved",
@@ -2529,11 +2529,11 @@
   },
   "claimHistory.dateClaimed": {
     "en": "Date Claimed",
-    "lo": ""
+    "lo": "ວັນທີຮ້ອງເບີກ"
   },
   "claimHistory.dateProcessed": {
     "en": "Date Processed",
-    "lo": ""
+    "lo": "ວັນທີປະມວນຜົນ"
   },
   "claimHistory.feedbackStatus": {
     "en": "Feedback Status",
@@ -2541,7 +2541,7 @@
   },
   "claimHistory.restoreId": {
     "en": "Restore ID",
-    "lo": ""
+    "lo": "ລະຫັດການກູ້ຄືນ"
   },
   "claimHistory.reviewStatus": {
     "en": "Review Status",
@@ -3857,11 +3857,11 @@
   },
   "core.advancedFilters.able_bodied": {
     "en": "Able bodied",
-    "lo": ""
+    "lo": "ຮ່າງກາຍແຂງແຮງ"
   },
   "core.advancedFilters.beneficiary_data_source": {
     "en": " Beneficiary data source",
-    "lo": ""
+    "lo": " ແຫຼ່ງຂໍ້ມູນຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "core.advancedFilters.button.addFilters": {
     "en": "Add filter",
@@ -3885,11 +3885,11 @@
   },
   "core.advancedFilters.chronic_illness": {
     "en": "Chronic illness",
-    "lo": ""
+    "lo": "ພະຍາດຊຳເຮື້ອ"
   },
   "core.advancedFilters.educated_level": {
     "en": "Educated level",
-    "lo": ""
+    "lo": "ລະດັບການສຶກສາ"
   },
   "core.advancedFilters.email": {
     "en": "Email",
@@ -3897,7 +3897,7 @@
   },
   "core.advancedFilters.exact": {
     "en": "Exact",
-    "lo": ""
+    "lo": "ຕົງກັນແທ້"
   },
   "core.advancedFilters.field": {
     "en": "Field",
@@ -3909,31 +3909,31 @@
   },
   "core.advancedFilters.gt": {
     "en": "Greater than",
-    "lo": ""
+    "lo": "ຫຼາຍກວ່າ"
   },
   "core.advancedFilters.gte": {
     "en": "Greater than or equal to",
-    "lo": ""
+    "lo": "ຫຼາຍກວ່າ ຫຼື ເທົ່າກັບ"
   },
   "core.advancedFilters.icontains": {
     "en": "Contains",
-    "lo": ""
+    "lo": "ມີຄຳວ່າ"
   },
   "core.advancedFilters.iexact": {
     "en": "Exact",
-    "lo": ""
+    "lo": "ຕົງກັນແທ້"
   },
   "core.advancedFilters.istartswith": {
     "en": "Starts with",
-    "lo": ""
+    "lo": "ຂຶ້ນຕົ້ນດ້ວຍ"
   },
   "core.advancedFilters.lt": {
     "en": "Less than",
-    "lo": ""
+    "lo": "ໜ້ອຍກວ່າ"
   },
   "core.advancedFilters.lte": {
     "en": "Less than or equal to",
-    "lo": ""
+    "lo": "ໜ້ອຍກວ່າ ຫຼື ເທົ່າກັບ"
   },
   "core.advancedFilters.national_id": {
     "en": "National ID",
@@ -3941,15 +3941,15 @@
   },
   "core.advancedFilters.national_id_type": {
     "en": "National ID type",
-    "lo": ""
+    "lo": "ປະເພດບັດປະຈຳຕົວ"
   },
   "core.advancedFilters.number_of_children": {
     "en": "Number of children",
-    "lo": ""
+    "lo": "ຈຳນວນເດັກ"
   },
   "core.advancedFilters.number_of_elderly": {
     "en": "Number of elderly",
-    "lo": ""
+    "lo": "ຈຳນວນຜູ້ສູງອາຍຸ"
   },
   "core.advancedFilters.value": {
     "en": "Value",
@@ -4001,7 +4001,7 @@
   },
   "core.calendarSwitcher": {
     "en": "BS/AD",
-    "lo": ""
+    "lo": "BS/AD"
   },
   "core.cancel.buttonText": {
     "en": "Cancel",
@@ -4065,7 +4065,7 @@
   },
   "core.FatalError.RateLimitExceeded.description": {
     "en": "You have exceeded the number of allowed requests. Please try again later.",
-    "lo": ""
+    "lo": "ທ່ານໄດ້ສົ່ງຄຳຮ້ອງຂໍເກີນຈຳນວນທີ່ອະນຸຍາດ. ກະລຸນາລອງໃໝ່ໃນພາຍຫຼັງ."
   },
   "core.FatalError.RateLimitExceeded.title": {
     "en": "Rate Limit Exceeded",
@@ -4073,7 +4073,7 @@
   },
   "core.ForbiddenPage.description": {
     "en": "Sorry, you are not authorized to access this page.",
-    "lo": ""
+    "lo": "ຂໍອະໄພ, ທ່ານບໍ່ມີສິດເຂົ້າເຖິງໜ້ານີ້."
   },
   "core.ForbiddenPage.title": {
     "en": "Access Denied",
@@ -4081,23 +4081,23 @@
   },
   "core.ForgotPasswordPage.contactAdministrator": {
     "en": "If you do not receive an e-mail, please check with your administrator.",
-    "lo": ""
+    "lo": "ຖ້າທ່ານບໍ່ໄດ້ຮັບອີເມວ, ກະລຸນາຕິດຕໍ່ຜູ້ຄຸ້ມຄອງລະບົບ."
   },
   "core.ForgotPasswordPage.done": {
     "en": "Done ! Check your inbox and click on the verification link to reset your password.",
-    "lo": ""
+    "lo": "ສຳເລັດ! ກະລຸນາກວດອີເມວຂອງທ່ານ ແລະ ກົດລິ້ງຢືນຢັນເພື່ອຕັ້ງລະຫັດຜ່ານໃໝ່."
   },
   "core.ForgotPasswordPage.explanationMessage": {
     "en": "Enter your username to be able to recover your account. En e-mail with the instructions will be sent to your e-mail address.",
-    "lo": ""
+    "lo": "ປ້ອນຊື່ຜູ້ໃຊ້ຂອງທ່ານເພື່ອກູ້ຄືນບັນຊີ. ລະບົບຈະສົ່ງອີເມວພ້ອມຄຳແນະນຳໄປຫາທີ່ຢູ່ອີເມວຂອງທ່ານ."
   },
   "core.ForgotPasswordPage.pageTitle": {
     "en": "Forgot Password ?",
-    "lo": ""
+    "lo": "ລືມລະຫັດຜ່ານ?"
   },
   "core.ForgotPasswordPage.recoverTitle": {
     "en": "Recover your account",
-    "lo": ""
+    "lo": "ກູ້ຄືນບັນຊີຂອງທ່ານ"
   },
   "core.ForgotPasswordPage.submitBtn": {
     "en": "Submit",
@@ -4189,7 +4189,7 @@
   },
   "core.InternalServerErrorPage.description": {
     "en": "The server encountered an internal error or misconfiguration and was unable to complete your request.",
-    "lo": ""
+    "lo": "ເຊີບເວີພົບຂໍ້ຜິດພາດພາຍໃນ ຫຼື ການຕັ້ງຄ່າບໍ່ຖືກຕ້ອງ ແລະ ບໍ່ສາມາດດຳເນີນການຕາມຄຳຮ້ອງຂໍຂອງທ່ານໄດ້."
   },
   "core.InternalServerErrorPage.title": {
     "en": "Internal Server Error",
@@ -4209,7 +4209,7 @@
   },
   "core.LanguageQuickPicker.dialog.message": {
     "en": "You are about to change the language to {language}. Do you want to proceed?",
-    "lo": ""
+    "lo": "ທ່ານກຳລັງຈະປ່ຽນພາສາເປັນ {language}. ທ່ານຕ້ອງການດຳເນີນຕໍ່ບໍ່?"
   },
   "core.LanguageQuickPicker.dialog.title": {
     "en": "Confirm Language",
@@ -4217,15 +4217,15 @@
   },
   "core.LoginPage.authError": {
     "en": "ຊື່ຜູ້ໃຊ້ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ / The username or password you entered is incorrect.",
-    "lo": ""
+    "lo": "ຊື່ຜູ້ໃຊ້ ຫຼື ລະຫັດຜ່ານບໍ່ຖືກຕ້ອງ"
   },
   "core.LoginPage.authErrorGeneral": {
     "en": "ເກີດຄວາມຜິດພາດທີ່ບໍ່ຮູ້ສາເຫດ / Unknown error.",
-    "lo": ""
+    "lo": "ເກີດຄວາມຜິດພາດທີ່ບໍ່ຮູ້ສາເຫດ"
   },
   "core.LoginPage.authErrorHealthFacilityContractInvalid": {
     "en": "Your contract has expired.",
-    "lo": ""
+    "lo": "ສັນຍາຂອງທ່ານໝົດອາຍຸແລ້ວ."
   },
   "core.LoginPage.backButton": {
     "en": "Back",
@@ -4233,23 +4233,23 @@
   },
   "core.LoginPage.forgotPassword": {
     "en": "ລືມລະຫັດຜ່ານ? / Forgot password?",
-    "lo": ""
+    "lo": "ລືມລະຫັດຜ່ານ?"
   },
   "core.LoginPage.howToUse": {
     "en": "ຄູ່ມືການໃຊ້ງານ / User guide",
-    "lo": ""
+    "lo": "ຄູ່ມືການໃຊ້ງານ"
   },
   "core.LoginPage.loginBtn": {
     "en": "ເຂົ້າສູ່ລະບົບ / Log in",
-    "lo": ""
+    "lo": "ເຂົ້າສູ່ລະບົບ"
   },
   "core.LoginPage.loginCaption": {
     "en": "Authentication by",
-    "lo": ""
+    "lo": "ຢືນຢັນຕົວຕົນໂດຍ"
   },
   "core.LoginPage.pageTitle": {
     "en": "ເຂົ້າສູ່ລະບົບ / Log in",
-    "lo": ""
+    "lo": "ເຂົ້າສູ່ລະບົບ"
   },
   "core.LoginPage.password.label": {
     "en": "ລະຫັດຜ່ານ / Password",
@@ -4293,7 +4293,7 @@
   },
   "core.roleManagement.altLanguage": {
     "en": "Alternative Language",
-    "lo": ""
+    "lo": "ພາສາສຳຮອງ"
   },
   "core.roleManagement.createButton.tooltip": {
     "en": "Create new Role",
@@ -4333,7 +4333,7 @@
   },
   "core.roleManagement.DuplicateRole.mutationLabel": {
     "en": "Duplicate Role {label}",
-    "lo": ""
+    "lo": "ເຮັດສຳເນົາບົດບາດ {label}"
   },
   "core.roleManagement.editButton.tooltip": {
     "en": "Edit",
@@ -4345,15 +4345,15 @@
   },
   "core.roleManagement.false": {
     "en": "False",
-    "lo": ""
+    "lo": "ບໍ່ແມ່ນ"
   },
   "core.roleManagement.isBlocked": {
     "en": "Blocked",
-    "lo": ""
+    "lo": "ຖືກບລັອກ"
   },
   "core.roleManagement.isSystem": {
     "en": "System",
-    "lo": ""
+    "lo": "ຂອງລະບົບ"
   },
   "core.roleManagement.label": {
     "en": "Roles Management",
@@ -4373,11 +4373,11 @@
   },
   "core.roleManagement.role.availableRights": {
     "en": "Available permissions",
-    "lo": ""
+    "lo": "ສິດທີ່ມີໃຫ້ເລືອກ"
   },
   "core.roleManagement.role.chosenRights": {
     "en": "Chosen permissions",
-    "lo": ""
+    "lo": "ສິດທີ່ເລືອກແລ້ວ"
   },
   "core.roleManagement.role.page.title": {
     "en": "Role Details {label}",
@@ -4385,7 +4385,7 @@
   },
   "core.roleManagement.role.removeAllPerms": {
     "en": "Remove all filtered permissions",
-    "lo": ""
+    "lo": "ເອົາສິດທີ່ກັ່ນຕອງໄວ້ອອກທັງໝົດ"
   },
   "core.roleManagement.role.rightsFilter": {
     "en": "Filter",
@@ -4409,11 +4409,11 @@
   },
   "core.roleManagement.showHistory": {
     "en": "Show Historical",
-    "lo": ""
+    "lo": "ສະແດງປະຫວັດ"
   },
   "core.roleManagement.true": {
     "en": "True",
-    "lo": ""
+    "lo": "ແມ່ນ"
   },
   "core.roleManagement.updateRole.confirm.message": {
     "en": "Are you sure you want to save changes in {label}?",
@@ -4433,7 +4433,7 @@
   },
   "core.SetPasswordPage.clearPassword": {
     "en": "Clear Password",
-    "lo": ""
+    "lo": "ລ້າງລະຫັດຜ່ານ"
   },
   "core.SetPasswordPage.confirmPassword.label": {
     "en": "Confirm Password",
@@ -4441,7 +4441,7 @@
   },
   "core.SetPasswordPage.error": {
     "en": "Unknown error",
-    "lo": ""
+    "lo": "ເກີດຄວາມຜິດພາດທີ່ບໍ່ຮູ້ສາເຫດ"
   },
   "core.SetPasswordPage.generatePassword": {
     "en": "Generate Password",
@@ -4449,11 +4449,11 @@
   },
   "core.SetPasswordPage.hidePassword": {
     "en": "Show Passowrd",
-    "lo": ""
+    "lo": "ເຊື່ອງລະຫັດຜ່ານ"
   },
   "core.SetPasswordPage.pageTitle": {
     "en": "Set a new Password",
-    "lo": ""
+    "lo": "ຕັ້ງລະຫັດຜ່ານໃໝ່"
   },
   "core.SetPasswordPage.password.label": {
     "en": "Password",
@@ -4461,7 +4461,7 @@
   },
   "core.SetPasswordPage.showPassword": {
     "en": "Show Passowrd",
-    "lo": ""
+    "lo": "ສະແດງລະຫັດຜ່ານ"
   },
   "core.SetPasswordPage.submitBtn": {
     "en": "Submit",
@@ -4497,7 +4497,7 @@
   },
   "core.UserActivityReport.action": {
     "en": "Action",
-    "lo": ""
+    "lo": "ການດຳເນີນການ"
   },
   "core.UserActivityReport.action.D": {
     "en": "Delete",
@@ -4505,11 +4505,11 @@
   },
   "core.UserActivityReport.action.I": {
     "en": "Insert",
-    "lo": ""
+    "lo": "ເພີ່ມ"
   },
   "core.UserActivityReport.action.null": {
     "en": "All actions",
-    "lo": ""
+    "lo": "ທຸກການດຳເນີນການ"
   },
   "core.UserActivityReport.action.U": {
     "en": "Update",
@@ -4525,23 +4525,23 @@
   },
   "core.UserActivityReport.entity": {
     "en": "Entity",
-    "lo": ""
+    "lo": "ລາຍການຂໍ້ມູນ"
   },
   "core.UserActivityReport.entity.BatchRun": {
     "en": "Batch Run",
-    "lo": ""
+    "lo": "ການປະມວນຜົນເປັນຊຸດ"
   },
   "core.UserActivityReport.entity.Claim": {
     "en": "Claim",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "core.UserActivityReport.entity.ClaimAdmin": {
     "en": "Claim Admin",
-    "lo": ""
+    "lo": "ຜູ້ຈັດການຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "core.UserActivityReport.entity.Extract": {
     "en": "Extract",
-    "lo": ""
+    "lo": "ຊຸດຂໍ້ມູນສົ່ງອອກ"
   },
   "core.UserActivityReport.entity.Family": {
     "en": "Family",
@@ -4561,7 +4561,7 @@
   },
   "core.UserActivityReport.entity.InsureePhoto": {
     "en": "Insuree Photo",
-    "lo": ""
+    "lo": "ຮູບພາບຜູ້ເອົາປະກັນ"
   },
   "core.UserActivityReport.entity.InteractiveUser": {
     "en": "User",
@@ -4573,11 +4573,11 @@
   },
   "core.UserActivityReport.entity.ItemsPricelist": {
     "en": "Items Pricelist",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາລາຍການ"
   },
   "core.UserActivityReport.entity.ItemsPricelistDetail": {
     "en": "Items Pricelist Detail",
-    "lo": ""
+    "lo": "ລາຍລະອຽດບັນຊີລາຄາລາຍການ"
   },
   "core.UserActivityReport.entity.Location": {
     "en": "Location",
@@ -4585,7 +4585,7 @@
   },
   "core.UserActivityReport.entity.null": {
     "en": "All entities",
-    "lo": ""
+    "lo": "ທຸກລາຍການຂໍ້ມູນ"
   },
   "core.UserActivityReport.entity.Officer": {
     "en": "Officer",
@@ -4601,7 +4601,7 @@
   },
   "core.UserActivityReport.entity.Premium": {
     "en": "Premium",
-    "lo": ""
+    "lo": "ເງິນສົມທົບ"
   },
   "core.UserActivityReport.entity.Product": {
     "en": "Product",
@@ -4609,15 +4609,15 @@
   },
   "core.UserActivityReport.entity.ProductItem": {
     "en": "Product Item",
-    "lo": ""
+    "lo": "ລາຍການຂອງຜະລິດຕະພັນ"
   },
   "core.UserActivityReport.entity.ProductService": {
     "en": "Product Service",
-    "lo": ""
+    "lo": "ການບໍລິການຂອງຜະລິດຕະພັນ"
   },
   "core.UserActivityReport.entity.RelativeDistribution": {
     "en": "Relative Distribution",
-    "lo": ""
+    "lo": "ການແບ່ງປັນແບບທຽບ"
   },
   "core.UserActivityReport.entity.Service": {
     "en": "Service",
@@ -4625,15 +4625,15 @@
   },
   "core.UserActivityReport.entity.ServicesPricelist": {
     "en": "Services Pricelist",
-    "lo": ""
+    "lo": "ບັນຊີລາຄາການບໍລິການ"
   },
   "core.UserActivityReport.entity.ServicesPricelistDetail": {
     "en": "Services Pricelist Detail",
-    "lo": ""
+    "lo": "ລາຍລະອຽດບັນຊີລາຄາການບໍລິການ"
   },
   "core.UserActivityReport.entity.UserDistrict": {
     "en": "User District",
-    "lo": ""
+    "lo": "ເມືອງຂອງຜູ້ໃຊ້"
   },
   "core.UserActivityReport.user": {
     "en": "User",
@@ -4641,11 +4641,11 @@
   },
   "core.UserActivityReport.user.null": {
     "en": "All users",
-    "lo": ""
+    "lo": "ຜູ້ໃຊ້ທັງໝົດ"
   },
   "createGroupFromColumns": {
     "en": "Create groups from column:",
-    "lo": ""
+    "lo": "ສ້າງກຸ່ມຈາກຖັນ:"
   },
   "currency": {
     "en": "$",
@@ -4653,23 +4653,23 @@
   },
   "deduplication.BeneficiaryDuplicatesTable.checkbox.header": {
     "en": "Select all columns",
-    "lo": ""
+    "lo": "ເລືອກທຸກຖັນ"
   },
   "deduplication.BeneficiaryDuplicatesTable.merge.header": {
     "en": "Don't merge",
-    "lo": ""
+    "lo": "ບໍ່ລວມ"
   },
   "deduplication.BeneficiaryDuplicatesTable.oldest": {
     "en": "Oldest",
-    "lo": ""
+    "lo": "ເກົ່າສຸດ"
   },
   "deduplication.BeneficiaryDuplicatesTable.output": {
     "en": "OUTPUT:",
-    "lo": ""
+    "lo": "ຜົນລັບ:"
   },
   "deduplication.deduplicate": {
     "en": "Deduplicate",
-    "lo": ""
+    "lo": "ກວດຂໍ້ມູນຊ້ຳ"
   },
   "deduplication.deduplicate.button.cancel": {
     "en": "Cancel",
@@ -4677,39 +4677,39 @@
   },
   "deduplication.deduplicate.button.createDeduplicationReviewTask": {
     "en": "Create Deduplication Review Tasks",
-    "lo": ""
+    "lo": "ສ້າງໜ້າວຽກກວດສອບຂໍ້ມູນຊ້ຳ"
   },
   "deduplication.deduplicate.button.showDuplicateSummary": {
     "en": "Show Duplicate Summary",
-    "lo": ""
+    "lo": "ສະແດງສະຫຼຸບຂໍ້ມູນຊ້ຳ"
   },
   "deduplication.deduplicate.fields": {
     "en": "Duplicate Detection Field Selection",
-    "lo": ""
+    "lo": "ເລືອກຊ່ອງຂໍ້ມູນສຳລັບກວດຫາຂໍ້ມູນຊ້ຳ"
   },
   "deduplication.deduplicate.fields.placeholder": {
     "en": "Duplicate Detection Field Selection",
-    "lo": ""
+    "lo": "ເລືອກຊ່ອງຂໍ້ມູນສຳລັບກວດຫາຂໍ້ມູນຊ້ຳ"
   },
   "deduplication.deduplicate.mutation.createTasks": {
     "en": "Deduplication tasks have been created.",
-    "lo": ""
+    "lo": "ສ້າງໜ້າວຽກກວດຂໍ້ມູນຊ້ຳແລ້ວ."
   },
   "deduplication.deduplicate.summary.title": {
     "en": "Deduplication Summary",
-    "lo": ""
+    "lo": "ສະຫຼຸບການກວດຂໍ້ມູນຊ້ຳ"
   },
   "deduplication.deduplicate.title": {
     "en": "Deduplication - {benefitPlanName}",
-    "lo": ""
+    "lo": "ການກວດຂໍ້ມູນຊ້ຳ - {benefitPlanName}"
   },
   "deduplication.deduplicationSummaryTable.duplicates": {
     "en": "Duplicates",
-    "lo": ""
+    "lo": "ຂໍ້ມູນຊ້ຳ"
   },
   "deduplication.deduplicationSummaryTable.group": {
     "en": "Group",
-    "lo": ""
+    "lo": "ກຸ່ມ"
   },
   "deduplication.gql_create_deduplication_payment_review_perms": {
     "en": "Deduplication | Create Deduplication Payment Review",
@@ -4721,7 +4721,7 @@
   },
   "deduplication.tasks.deduplication.title": {
     "en": "Benefit Plan Deduplication Task",
-    "lo": ""
+    "lo": "ໜ້າວຽກກວດຂໍ້ມູນຊ້ຳຂອງໂຄງການ"
   },
   "deleteButton.buttonText": {
     "en": "Delete",
@@ -4737,11 +4737,11 @@
   },
   "deletePayerDialog.message": {
     "en": "Are you sure to delete the payer {name}?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບຜູ້ຈ່າຍເງິນ {name}?"
   },
   "deletePayerDialog.title": {
     "en": "Delete Payer",
-    "lo": ""
+    "lo": "ລຶບຜູ້ຈ່າຍເງິນ"
   },
   "deleteTicketDialog.message": {
     "en": "Delete Grievance",
@@ -4761,11 +4761,11 @@
   },
   "detailPaymentInvoice.reconciliationDate": {
     "en": "Reconciliation Date",
-    "lo": ""
+    "lo": "ວັນທີກະທົບຍອດ"
   },
   "detailPaymentInvoice.reconciliationId": {
     "en": "Reconciliation Id",
-    "lo": ""
+    "lo": "ລະຫັດການກະທົບຍອດ"
   },
   "detailPaymentInvoice.status.ACCEPTED": {
     "en": "Accepted",
@@ -4869,35 +4869,35 @@
   },
   "familyAddExistingInsuree.buttonText": {
     "en": "Add existing",
-    "lo": ""
+    "lo": "ເພີ່ມທີ່ມີຢູ່ແລ້ວ"
   },
   "familyAddExistingInsuree.tooltip": {
     "en": "Add existing Insuree",
-    "lo": ""
+    "lo": "ເພີ່ມຜູ້ເອົາປະກັນທີ່ມີຢູ່ແລ້ວ"
   },
   "familyAddNewInsuree.buttonText": {
     "en": "Add new",
-    "lo": ""
+    "lo": "ເພີ່ມໃໝ່"
   },
   "familyAddNewInsuree.dialogTitle": {
     "en": "Add new Insuree",
-    "lo": ""
+    "lo": "ເພີ່ມຜູ້ເອົາປະກັນໃໝ່"
   },
   "familyAddNewInsuree.tooltip": {
     "en": "Add new Insuree",
-    "lo": ""
+    "lo": "ເພີ່ມຜູ້ເອົາປະກັນໃໝ່"
   },
   "familyRemoveInsuree.buttonText": {
     "en": "Remove",
-    "lo": ""
+    "lo": "ເອົາອອກ"
   },
   "familySelectExistingInsureeAsHead.buttonText": {
     "en": "Select existing",
-    "lo": ""
+    "lo": "ເລືອກທີ່ມີຢູ່ແລ້ວ"
   },
   "familySetHEadInsuree.buttonText": {
     "en": "sethead",
-    "lo": ""
+    "lo": "ຕັ້ງເປັນຫົວໜ້າ"
   },
   "familySummaries.deleteFamily.buttonText": {
     "en": "Delete",
@@ -4913,11 +4913,11 @@
   },
   "FlagPicker.label": {
     "en": "Flag",
-    "lo": ""
+    "lo": "ເຄື່ອງໝາຍ"
   },
   "FlagPicker.placeholder": {
     "en": "Flag",
-    "lo": ""
+    "lo": "ເຄື່ອງໝາຍ"
   },
   "grievance.ticket": {
     "en": "Grievance",
@@ -4925,19 +4925,19 @@
   },
   "grievanceSocialProtection.dialogs.GrievanceConfigurationDialog.dialogBody": {
     "en": "Go to django admin panel and set up missing values: {configString}",
-    "lo": ""
+    "lo": "ໄປທີ່ແຜງຄຸ້ມຄອງ Django ແລ້ວຕັ້ງຄ່າທີ່ຂາດ: {configString}"
   },
   "grievanceSocialProtection.dialogs.GrievanceConfigurationDialog.dialogHeader": {
     "en": "Please fill the config.",
-    "lo": ""
+    "lo": "ກະລຸນາຕື່ມການຕັ້ງຄ່າ."
   },
   "grievantType": {
     "en": "Reporter Type",
-    "lo": ""
+    "lo": "ປະເພດຜູ້ຮ້ອງທຸກ"
   },
   "grievantType.beneficiary": {
     "en": "Beneficiary",
-    "lo": ""
+    "lo": "ຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "grievantType.individual": {
     "en": "Individual",
@@ -4957,23 +4957,23 @@
   },
   "group.create.mutationLabel": {
     "en": "Created Group {id}",
-    "lo": ""
+    "lo": "ສ້າງກຸ່ມ {id} ແລ້ວ"
   },
   "group.createGroupAndMoveIndividual.mutationLabel": {
     "en": "Create group and move individual.",
-    "lo": ""
+    "lo": "ສ້າງກຸ່ມ ແລະ ຍ້າຍບຸກຄົນ."
   },
   "group.delete.confirm.message": {
     "en": "Deleting data does not mean erasing it from OpenIMIS database. The data will only be deactivated from the viewed list.",
-    "lo": ""
+    "lo": "ການລຶບຂໍ້ມູນບໍ່ໄດ້ໝາຍຄວາມວ່າລຶບອອກຈາກຖານຂໍ້ມູນ OpenIMIS. ຂໍ້ມູນຈະຖືກປິດການນຳໃຊ້ອອກຈາກລາຍການທີ່ເບິ່ງເຫັນເທົ່ານັ້ນ."
   },
   "group.delete.confirm.title": {
     "en": "Delete {id}?",
-    "lo": ""
+    "lo": "ລຶບ {id}?"
   },
   "group.delete.mutationLabel": {
     "en": "Delete Group {id}",
-    "lo": ""
+    "lo": "ລຶບກຸ່ມ {id}"
   },
   "group.head": {
     "en": "Head",
@@ -4981,7 +4981,7 @@
   },
   "group.headPanelTitle": {
     "en": "General information",
-    "lo": ""
+    "lo": "ຂໍ້ມູນທົ່ວໄປ"
   },
   "group.id": {
     "en": "ID",
@@ -5005,27 +5005,27 @@
   },
   "group.noHeadSpecified": {
     "en": "head not specified",
-    "lo": ""
+    "lo": "ບໍ່ໄດ້ລະບຸຫົວໜ້າກຸ່ມ"
   },
   "group.pageTitle": {
     "en": "Group {id}",
-    "lo": ""
+    "lo": "ກຸ່ມ {id}"
   },
   "group.tasks.create.title": {
     "en": "Group Create Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກສ້າງກຸ່ມ"
   },
   "groupAggregationInfo": {
     "en": "To specify recipients include header 'recipient_info' with possible values: '1' - head, '0' or empty - recipient.",
-    "lo": ""
+    "lo": "ເພື່ອລະບຸຜູ້ຮັບ ໃຫ້ໃສ່ຫົວຖັນ 'recipient_info' ດ້ວຍຄ່າທີ່ເປັນໄປໄດ້: '1' - ຫົວໜ້າ, '0' ຫຼື ວ່າງ - ຜູ້ຮັບ."
   },
   "groupChangeDialog.confirmTitle": {
     "en": "Move {firstName} {lastName} to a different group.",
-    "lo": ""
+    "lo": "ຍ້າຍ {firstName} {lastName} ໄປກຸ່ມອື່ນ."
   },
   "groupChangelog.label": {
     "en": "Change Log",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "groupHistory.any": {
     "en": "ANY",
@@ -5037,11 +5037,11 @@
   },
   "groupHistory.dateUpdated_Gte": {
     "en": "Date updated after",
-    "lo": ""
+    "lo": "ປັບປຸງຫຼັງວັນທີ"
   },
   "groupHistory.dateUpdated_Lte": {
     "en": "Date updated before",
-    "lo": ""
+    "lo": "ປັບປຸງກ່ອນວັນທີ"
   },
   "groupHistory.head": {
     "en": "Head",
@@ -5057,7 +5057,7 @@
   },
   "groupHistory.jsonExt": {
     "en": "Additional fields",
-    "lo": ""
+    "lo": "ຂໍ້ມູນເພີ່ມເຕີມ"
   },
   "groupHistory.location": {
     "en": "Location",
@@ -5073,19 +5073,19 @@
   },
   "groupHistory.pageTitle": {
     "en": "Group {id}",
-    "lo": ""
+    "lo": "ກຸ່ມ {id}"
   },
   "groupHistory.primaryRecipient": {
     "en": "Primary Recipient",
-    "lo": ""
+    "lo": "ຜູ້ຮັບຫຼັກ"
   },
   "groupHistory.secondaryRecipient": {
     "en": "Secondary Recipient",
-    "lo": ""
+    "lo": "ຜູ້ຮັບຮອງ"
   },
   "groupHistory.userUpdated": {
     "en": "Changed by",
-    "lo": ""
+    "lo": "ຜູ້ປັບປຸງ"
   },
   "groupHistory.version": {
     "en": "Version",
@@ -5093,7 +5093,7 @@
   },
   "groupHistoryList.pageTitle": {
     "en": "Groups History",
-    "lo": ""
+    "lo": "ປະຫວັດກຸ່ມ"
   },
   "groupHistoryList.searcherResultsTitle": {
     "en": "{groupHistoryTotalCount} Historical Records Found",
@@ -5101,7 +5101,7 @@
   },
   "groupIndividual.dateJoined": {
     "en": "Joining Date",
-    "lo": ""
+    "lo": "ວັນທີເຂົ້າຮ່ວມ"
   },
   "groupIndividual.groupIndividualRecipientTypePicker.null": {
     "en": " ",
@@ -5109,11 +5109,11 @@
   },
   "groupIndividual.groupIndividualRecipientTypePicker.PRIMARY": {
     "en": "PRIMARY",
-    "lo": ""
+    "lo": "ຜູ້ຮັບຫຼັກ"
   },
   "groupIndividual.groupIndividualRecipientTypePicker.SECONDARY": {
     "en": "SECONDARY",
-    "lo": ""
+    "lo": "ຜູ້ຮັບຮອງ"
   },
   "groupIndividual.groupIndividualRolePicker": {
     "en": "Role",
@@ -5121,27 +5121,27 @@
   },
   "groupIndividual.groupIndividualRolePicker.DAUGHTER": {
     "en": "DAUGHTER",
-    "lo": ""
+    "lo": "ລູກສາວ"
   },
   "groupIndividual.groupIndividualRolePicker.FATHER": {
     "en": "FATHER",
-    "lo": ""
+    "lo": "ພໍ່"
   },
   "groupIndividual.groupIndividualRolePicker.GRANDFATHER": {
     "en": "GRANDFATHER",
-    "lo": ""
+    "lo": "ພໍ່ຕູ້"
   },
   "groupIndividual.groupIndividualRolePicker.GRANDMOTHER": {
     "en": "GRANDMOTHER",
-    "lo": ""
+    "lo": "ແມ່ຕູ້"
   },
   "groupIndividual.groupIndividualRolePicker.HEAD": {
     "en": "HEAD",
-    "lo": ""
+    "lo": "ຫົວໜ້າ"
   },
   "groupIndividual.groupIndividualRolePicker.MOTHER": {
     "en": "MOTHER",
-    "lo": ""
+    "lo": "ແມ່"
   },
   "groupIndividual.groupIndividualRolePicker.null": {
     "en": " ",
@@ -5149,23 +5149,23 @@
   },
   "groupIndividual.groupIndividualRolePicker.SON": {
     "en": "SON",
-    "lo": ""
+    "lo": "ລູກຊາຍ"
   },
   "groupIndividual.groupIndividualRolePicker.SPOUSE": {
     "en": "SPOUSE",
-    "lo": ""
+    "lo": "ຄູ່ສົມລົດ"
   },
   "groupIndividual.individual.groupId": {
     "en": "Group ID",
-    "lo": ""
+    "lo": "ລະຫັດກຸ່ມ"
   },
   "groupIndividual.individual.individualId": {
     "en": "Individual ID",
-    "lo": ""
+    "lo": "ລະຫັດບຸກຄົນ"
   },
   "groupIndividual.individual.recipientType": {
     "en": "Recipient Type",
-    "lo": ""
+    "lo": "ປະເພດຜູ້ຮັບ"
   },
   "groupIndividual.individual.role": {
     "en": "Role",
@@ -5173,19 +5173,19 @@
   },
   "groupIndividual.statusOfMembership": {
     "en": "Status Of Membership",
-    "lo": ""
+    "lo": "ສະຖານະການເປັນສະມາຊິກ"
   },
   "groupIndividual.tasks.update.title": {
     "en": "Group Update Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກປັບປຸງກຸ່ມ"
   },
   "groupIndividual.update.label": {
     "en": "Update Individual",
-    "lo": ""
+    "lo": "ປັບປຸງບຸກຄົນ"
   },
   "groupIndividual.update.mutationLabel": {
     "en": "Update Individual {id}",
-    "lo": ""
+    "lo": "ປັບປຸງບຸກຄົນ {id}"
   },
   "groupIndividualHistory.groupIndividualRolePicker": {
     "en": "Role",
@@ -5193,19 +5193,19 @@
   },
   "groupIndividualHistory.groupIndividualRolePicker.HEAD": {
     "en": "HEAD",
-    "lo": ""
+    "lo": "ຫົວໜ້າ"
   },
   "groupIndividualHistory.groupIndividualRolePicker.RECIPIENT": {
     "en": "RECIPIENT",
-    "lo": ""
+    "lo": "ຜູ້ຮັບ"
   },
   "groupIndividualHistory.individual.groupId": {
     "en": "Group ID",
-    "lo": ""
+    "lo": "ລະຫັດກຸ່ມ"
   },
   "groupIndividualHistory.individual.individualId": {
     "en": "Individual ID",
-    "lo": ""
+    "lo": "ລະຫັດບຸກຄົນ"
   },
   "groupIndividualHistory.individual.role": {
     "en": "Role",
@@ -5213,7 +5213,7 @@
   },
   "groupIndividualHistory.label": {
     "en": "Group History",
-    "lo": ""
+    "lo": "ປະຫວັດກຸ່ມ"
   },
   "groupIndividualHistoryList.searcherResultsTitle": {
     "en": "{groupIndividualHistoryTotalCount} Historical Records Found",
@@ -5221,7 +5221,7 @@
   },
   "groupPicker.label": {
     "en": "Select a group.",
-    "lo": ""
+    "lo": "ເລືອກກຸ່ມ."
   },
   "groups.pageTitle": {
     "en": "Groups",
@@ -5233,7 +5233,7 @@
   },
   "groupTaskConfirmation.title": {
     "en": "Group Upload Confirmation",
-    "lo": ""
+    "lo": "ຢືນຢັນການອັບໂຫຼດກຸ່ມ"
   },
   "groupTasks.label": {
     "en": "Tasks",
@@ -5241,27 +5241,27 @@
   },
   "HealthFacilityForm.contractEndDate": {
     "en": "Contract End Date",
-    "lo": ""
+    "lo": "ວັນທີສິ້ນສຸດສັນຍາ"
   },
   "HealthFacilityForm.contractStartDate": {
     "en": "Contract Start Date",
-    "lo": ""
+    "lo": "ວັນທີເລີ່ມສັນຍາ"
   },
   "home.HomePageContainer.healthFacilityStatus": {
     "en": "Your Hospital Contract is expiring on {date}: (Remaining days: {days})",
-    "lo": ""
+    "lo": "ສັນຍາໂຮງໝໍຂອງທ່ານຈະໝົດອາຍຸໃນວັນທີ {date}: (ຍັງເຫຼືອ {days} ມື້)"
   },
   "home.HomePageContainer.messageTitle": {
     "en": "Notice",
-    "lo": ""
+    "lo": "ແຈ້ງການ"
   },
   "home.HomePageContainer.noHealthFacilityAssigned": {
     "en": "User has no Health Facility assigned and there is no information on when the contract will expire.",
-    "lo": ""
+    "lo": "ຜູ້ໃຊ້ຍັງບໍ່ໄດ້ຮັບມອບໝາຍສະຖານບໍລິການສຸຂະພາບ ແລະ ບໍ່ມີຂໍ້ມູນວ່າສັນຍາຈະໝົດອາຍຸເມື່ອໃດ."
   },
   "home.HomePageContainer.welcomeMessage": {
     "en": "Welcome {otherNames} {lastName}!",
-    "lo": ""
+    "lo": "ຍິນດີຕ້ອນຮັບ {otherNames} {lastName}!"
   },
   "ImportPageAPI.apiSelection": {
     "en": "Selected API",
@@ -5301,7 +5301,7 @@
   },
   "individual.addButtonTooltip": {
     "en": "Add Individual to Group",
-    "lo": ""
+    "lo": "ເພີ່ມບຸກຄົນເຂົ້າກຸ່ມ"
   },
   "individual.additonalFields.close": {
     "en": "Close",
@@ -5309,11 +5309,11 @@
   },
   "individual.additonalFields.label": {
     "en": "Additional Fields",
-    "lo": ""
+    "lo": "ຂໍ້ມູນເພີ່ມເຕີມ"
   },
   "individual.additonalFields.showAdditionalFields": {
     "en": "Show Additional Fields",
-    "lo": ""
+    "lo": "ສະແດງຂໍ້ມູນເພີ່ມເຕີມ"
   },
   "individual.any": {
     "en": "ANY",
@@ -5325,15 +5325,15 @@
   },
   "individual.delete.confirm.message": {
     "en": "Deleting data does not mean erasing it from OpenIMIS database. The data will only be deactivated from the viewed list.",
-    "lo": ""
+    "lo": "ການລຶບຂໍ້ມູນບໍ່ໄດ້ໝາຍຄວາມວ່າລຶບອອກຈາກຖານຂໍ້ມູນ OpenIMIS. ຂໍ້ມູນຈະຖືກປິດການນຳໃຊ້ອອກຈາກລາຍການທີ່ເບິ່ງເຫັນເທົ່ານັ້ນ."
   },
   "individual.delete.confirm.title": {
     "en": "Delete {firstName} {lastName}?",
-    "lo": ""
+    "lo": "ລຶບ {firstName} {lastName}?"
   },
   "individual.delete.mutationLabel": {
     "en": "Delete Individual {id}",
-    "lo": ""
+    "lo": "ລຶບບຸກຄົນ {id}"
   },
   "individual.dob": {
     "en": "Day of birth",
@@ -5361,103 +5361,103 @@
   },
   "individual.enrollment.confirmEnrollment": {
     "en": "Confirm Enrollment Process",
-    "lo": ""
+    "lo": "ຢືນຢັນຂັ້ນຕອນການລົງທະບຽນ"
   },
   "individual.enrollment.confirmGroupMessageDialog": {
     "en": "Are you sure you want to confirm the enrollment of the selected groups into the {benefitPlanName} Program?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຢືນຢັນການລົງທະບຽນກຸ່ມທີ່ເລືອກເຂົ້າໂຄງການ {benefitPlanName}?"
   },
   "individual.enrollment.confirmMessageDialog": {
     "en": "Are you sure you want to confirm the enrollment of the selected individuals into the {benefitPlanName} Program?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການຢືນຢັນການລົງທະບຽນບຸກຄົນທີ່ເລືອກເຂົ້າໂຄງການ {benefitPlanName}?"
   },
   "individual.enrollment.confirmTitle": {
     "en": "Confirm Enrollment Process",
-    "lo": ""
+    "lo": "ຢືນຢັນຂັ້ນຕອນການລົງທະບຽນ"
   },
   "individual.enrollment.criteria": {
     "en": "Enrollment Criteria",
-    "lo": ""
+    "lo": "ເງື່ອນໄຂການລົງທະບຽນ"
   },
   "individual.enrollment.label": {
     "en": "Enroll Individuals to the program",
-    "lo": ""
+    "lo": "ລົງທະບຽນບຸກຄົນເຂົ້າໂຄງການ"
   },
   "individual.enrollment.mutationLabel": {
     "en": "Enrollment has been confirmed",
-    "lo": ""
+    "lo": "ຢືນຢັນການລົງທະບຽນແລ້ວ"
   },
   "individual.enrollment.numberOfGroupsAssignedToProgramme": {
     "en": "Number Of Groups Assigned to Program",
-    "lo": ""
+    "lo": "ຈຳນວນກຸ່ມທີ່ຖືກມອບໝາຍໃຫ້ໂຄງການ"
   },
   "individual.enrollment.numberOfGroupsAssignedToSelectedProgramme": {
     "en": "Number of Groups Assigned to Selected Program",
-    "lo": ""
+    "lo": "ຈຳນວນກຸ່ມທີ່ຖືກມອບໝາຍໃຫ້ໂຄງການທີ່ເລືອກ"
   },
   "individual.enrollment.numberOfGroupsNotAssignedToProgramme": {
     "en": "Number Of Groups not Assigned To Program",
-    "lo": ""
+    "lo": "ຈຳນວນກຸ່ມທີ່ຍັງບໍ່ຖືກມອບໝາຍໃຫ້ໂຄງການ"
   },
   "individual.enrollment.numberOfGroupsToUpload": {
     "en": "Number of Groups to Upload",
-    "lo": ""
+    "lo": "ຈຳນວນກຸ່ມທີ່ຈະອັບໂຫຼດ"
   },
   "individual.enrollment.numberOfIndividualsAssignedToProgramme": {
     "en": "Number of Individuals Already Assigned To Any Program",
-    "lo": ""
+    "lo": "ຈຳນວນບຸກຄົນທີ່ຖືກມອບໝາຍໃຫ້ໂຄງການໃດໜຶ່ງແລ້ວ"
   },
   "individual.enrollment.numberOfIndividualsAssignedToSelectedProgramme": {
     "en": "Number Of Individuals Already Assigned to Selected Program",
-    "lo": ""
+    "lo": "ຈຳນວນບຸກຄົນທີ່ຖືກມອບໝາຍໃຫ້ໂຄງການທີ່ເລືອກແລ້ວ"
   },
   "individual.enrollment.numberOfIndividualsNotAssignedToProgramme": {
     "en": "Number of Individuals Without Assignment to Program",
-    "lo": ""
+    "lo": "ຈຳນວນບຸກຄົນທີ່ຍັງບໍ່ຖືກມອບໝາຍໃຫ້ໂຄງການ"
   },
   "individual.enrollment.numberOfIndividualsToBeUploaded": {
     "en": "Number Of Individuals to be Uploaded",
-    "lo": ""
+    "lo": "ຈຳນວນບຸກຄົນທີ່ຈະອັບໂຫຼດ"
   },
   "individual.enrollment.numberOfSelectedGroups": {
     "en": "Number Of Selected Groups",
-    "lo": ""
+    "lo": "ຈຳນວນກຸ່ມທີ່ເລືອກ"
   },
   "individual.enrollment.numberOfSelectedIndividuals": {
     "en": "Total Number Of Selected Individuals",
-    "lo": ""
+    "lo": "ຈຳນວນບຸກຄົນທີ່ເລືອກທັງໝົດ"
   },
   "individual.enrollment.previewEnrollment": {
     "en": "Preview Enrollment Process",
-    "lo": ""
+    "lo": "ເບິ່ງຕົວຢ່າງຂັ້ນຕອນການລົງທະບຽນ"
   },
   "individual.enrollment.previewGroups": {
     "en": "Preview Groups",
-    "lo": ""
+    "lo": "ເບິ່ງຕົວຢ່າງກຸ່ມ"
   },
   "individual.enrollment.previewIndividuals": {
     "en": "Preview Individuals",
-    "lo": ""
+    "lo": "ເບິ່ງຕົວຢ່າງບຸກຄົນ"
   },
   "individual.enrollment.summary": {
     "en": "Preview Summary of Enrollment",
-    "lo": ""
+    "lo": "ເບິ່ງຕົວຢ່າງສະຫຼຸບການລົງທະບຽນ"
   },
   "individual.enrollment.title": {
     "en": "Enrollment of Individuals to the Program",
-    "lo": ""
+    "lo": "ການລົງທະບຽນບຸກຄົນເຂົ້າໂຄງການ"
   },
   "individual.enrollment.titleGroup": {
     "en": "Enrollment of Groups to the Program",
-    "lo": ""
+    "lo": "ການລົງທະບຽນກຸ່ມເຂົ້າໂຄງການ"
   },
   "individual.enrollment.totalNumberOfGroups": {
     "en": "Total Number of Groups",
-    "lo": ""
+    "lo": "ຈຳນວນກຸ່ມທັງໝົດ"
   },
   "individual.enrollment.totalNumberOfIndividuals": {
     "en": "Total Number of Individuals",
-    "lo": ""
+    "lo": "ຈຳນວນບຸກຄົນທັງໝົດ"
   },
   "individual.firstName": {
     "en": "First Name",
@@ -5501,7 +5501,7 @@
   },
   "individual.groupChange.confirm.message": {
     "en": "Individual {individualId} moved to Group {groupId}",
-    "lo": ""
+    "lo": "ຍ້າຍບຸກຄົນ {individualId} ໄປກຸ່ມ {groupId} ແລ້ວ"
   },
   "individual.hasNoLocation": {
     "en": "Missing Location",
@@ -5513,11 +5513,11 @@
   },
   "individual.individualChangelog.label": {
     "en": "Change Log",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງ"
   },
   "individual.individualsList.label": {
     "en": "MEMBERS",
-    "lo": ""
+    "lo": "ສະມາຊິກ"
   },
   "individual.individualTasks.label": {
     "en": "Tasks",
@@ -5537,7 +5537,7 @@
   },
   "individual.locationEditDisabledTitle": {
     "en": "Individual belongs to a group; Please edit location on their group",
-    "lo": ""
+    "lo": "ບຸກຄົນນີ້ຢູ່ໃນກຸ່ມ; ກະລຸນາແກ້ໄຂເຂດພື້ນທີ່ໃນກຸ່ມຂອງເຂົາເຈົ້າ"
   },
   "individual.mandatoryFieldsEmptyError": {
     "en": "* These fields are required",
@@ -5549,11 +5549,11 @@
   },
   "individual.pageTitle": {
     "en": "Individual {firstName} {lastName}",
-    "lo": ""
+    "lo": "ບຸກຄົນ {firstName} {lastName}"
   },
   "individual.saveButton.tooltip.disabled": {
     "en": "Please fill General Information fields first",
-    "lo": ""
+    "lo": "ກະລຸນາຕື່ມຂໍ້ມູນທົ່ວໄປກ່ອນ"
   },
   "individual.saveButton.tooltip.enabled": {
     "en": "Save changes",
@@ -5561,43 +5561,43 @@
   },
   "individual.tasks.title": {
     "en": "Individual Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກບຸກຄົນ"
   },
   "individual.undo.confirm.message": {
     "en": "Undoing deletion of individual.",
-    "lo": ""
+    "lo": "ກຳລັງຍົກເລີກການລຶບບຸກຄົນ."
   },
   "individual.undo.confirm.title": {
     "en": "Undo delete {firstName} {lastName}?",
-    "lo": ""
+    "lo": "ຍົກເລີກການລຶບ {firstName} {lastName}?"
   },
   "individual.undo.mutationLabel": {
     "en": "Undo delete Individual {id}",
-    "lo": ""
+    "lo": "ຍົກເລີກການລຶບບຸກຄົນ {id}"
   },
   "individual.update.label": {
     "en": "Update Individual",
-    "lo": ""
+    "lo": "ປັບປຸງບຸກຄົນ"
   },
   "individual.update.mutationLabel": {
     "en": "Update Individual {id}",
-    "lo": ""
+    "lo": "ປັບປຸງບຸກຄົນ {id}"
   },
   "individual.upload.alert.header": {
     "en": "Error during file upload.",
-    "lo": ""
+    "lo": "ເກີດຂໍ້ຜິດພາດໃນລະຫວ່າງການອັບໂຫຼດໄຟລ໌."
   },
   "individual.upload.alert.header.invalid_format": {
     "en": "Invalid file format!",
-    "lo": ""
+    "lo": "ຮູບແບບໄຟລ໌ບໍ່ຖືກຕ້ອງ!"
   },
   "individual.upload.alert.message.invalid_format": {
     "en": "Please upload a valid CSV or Excel file!",
-    "lo": ""
+    "lo": "ກະລຸນາອັບໂຫຼດໄຟລ໌ CSV ຫຼື Excel ທີ່ຖືກຕ້ອງ!"
   },
   "individual.upload.alert.sameFileName": {
     "en": "Filename exists for given Program. Please change the filename.",
-    "lo": ""
+    "lo": "ຊື່ໄຟລ໌ນີ້ມີຢູ່ແລ້ວສຳລັບໂຄງການທີ່ເລືອກ. ກະລຸນາປ່ຽນຊື່ໄຟລ໌."
   },
   "individual.upload.buttonLabel": {
     "en": "UPLOAD",
@@ -5609,11 +5609,11 @@
   },
   "individual.upload.label": {
     "en": "Upload Individuals",
-    "lo": ""
+    "lo": "ອັບໂຫຼດບຸກຄົນ"
   },
   "individual.upload.template": {
     "en": "Template",
-    "lo": ""
+    "lo": "ແບບຟອມຕົວຢ່າງ"
   },
   "individual.upload.uploadHistoryTable.buttonLabel": {
     "en": "UPLOAD HISTORY",
@@ -5625,27 +5625,27 @@
   },
   "individual.upload.uploadHistoryTable.downloadInvalidItems": {
     "en": "Download Invalid Items",
-    "lo": ""
+    "lo": "ດາວໂຫຼດລາຍການທີ່ບໍ່ຖືກຕ້ອງ"
   },
   "individual.upload.uploadHistoryTable.downloadUploadFile": {
     "en": "Download Upload File",
-    "lo": ""
+    "lo": "ດາວໂຫຼດໄຟລ໌ທີ່ອັບໂຫຼດ"
   },
   "individual.upload.uploadHistoryTable.error": {
     "en": "Workflow Errors",
-    "lo": ""
+    "lo": "ຂໍ້ຜິດພາດຂອງຂັ້ນຕອນການເຮັດວຽກ"
   },
   "individual.upload.uploadHistoryTable.label": {
     "en": "Upload History Table",
-    "lo": ""
+    "lo": "ຕາຕະລາງປະຫວັດການອັບໂຫຼດ"
   },
   "individual.upload.uploadHistoryTable.sourceName": {
     "en": "Source Name",
-    "lo": ""
+    "lo": "ຊື່ແຫຼ່ງທີ່ມາ"
   },
   "individual.upload.uploadHistoryTable.sourceType": {
     "en": "Source Type",
-    "lo": ""
+    "lo": "ປະເພດແຫຼ່ງທີ່ມາ"
   },
   "individual.upload.uploadHistoryTable.status": {
     "en": "Status",
@@ -5653,7 +5653,7 @@
   },
   "individual.upload.uploadHistoryTable.userCreated": {
     "en": "User Created",
-    "lo": ""
+    "lo": "ຜູ້ສ້າງ"
   },
   "individual.upload.uploadHistoryTable.workflow": {
     "en": "Workflow",
@@ -5673,11 +5673,11 @@
   },
   "individualHistory.dateUpdated_Gte": {
     "en": "Date updated after",
-    "lo": ""
+    "lo": "ປັບປຸງຫຼັງວັນທີ"
   },
   "individualHistory.dateUpdated_Lte": {
     "en": "Date updated before",
-    "lo": ""
+    "lo": "ປັບປຸງກ່ອນວັນທີ"
   },
   "individualHistory.headPanelTitle": {
     "en": "General Information",
@@ -5685,11 +5685,11 @@
   },
   "individualHistory.individualsList.label": {
     "en": "MEMBERS",
-    "lo": ""
+    "lo": "ສະມາຊິກ"
   },
   "individualHistory.jsonExt": {
     "en": "Additional fields",
-    "lo": ""
+    "lo": "ຂໍ້ມູນເພີ່ມເຕີມ"
   },
   "individualHistory.ok": {
     "en": "ok",
@@ -5697,11 +5697,11 @@
   },
   "individualHistory.pageTitle": {
     "en": "Individual {firstName} {lastName}",
-    "lo": ""
+    "lo": "ບຸກຄົນ {firstName} {lastName}"
   },
   "individualHistory.userUpdated": {
     "en": "Changed by",
-    "lo": ""
+    "lo": "ຜູ້ປັບປຸງ"
   },
   "individualHistory.version": {
     "en": "Version",
@@ -5709,7 +5709,7 @@
   },
   "individualHistoryList.pageTitle": {
     "en": "Individuals History",
-    "lo": ""
+    "lo": "ປະຫວັດບຸກຄົນ"
   },
   "individualHistoryList.searcherResultsTitle": {
     "en": "{individualHistoryTotalCount} Historical Records Found",
@@ -6821,7 +6821,7 @@
   },
   "insureeSummaries.openInsureeButton.buttonText": {
     "en": "Overview",
-    "lo": ""
+    "lo": "ພາບລວມ"
   },
   "insureeSummaries.openNewTabButton.buttonText": {
     "en": "Open",
@@ -7129,7 +7129,7 @@
   },
   "invoiceEventMessage.create.mutationLabel": {
     "en": "Create Invoice Event Message for {invoiceCode}",
-    "lo": ""
+    "lo": "ສ້າງຂໍ້ຄວາມເຫດການໃບແຈ້ງໜີ້ສຳລັບ {invoiceCode}"
   },
   "invoiceEvents.label": {
     "en": "Events",
@@ -7141,11 +7141,11 @@
   },
   "invoiceLineItem.amountNet": {
     "en": "Amount Net",
-    "lo": ""
+    "lo": "ຈຳນວນເງິນສຸດທິ"
   },
   "invoiceLineItem.amountNetTooltip": {
     "en": "Tax: {value}",
-    "lo": ""
+    "lo": "ພາສີ: {value}"
   },
   "invoiceLineItem.amountTotal": {
     "en": "Amount Total",
@@ -7169,7 +7169,7 @@
   },
   "invoiceLineItem.ledgerAccount": {
     "en": "Ledger Account",
-    "lo": ""
+    "lo": "ບັນຊີແຍກປະເພດ"
   },
   "invoiceLineItem.quantity": {
     "en": "Quantity",
@@ -7177,11 +7177,11 @@
   },
   "invoiceLineItem.unitPrice": {
     "en": "Unit Price",
-    "lo": ""
+    "lo": "ລາຄາຕໍ່ໜ່ວຍ"
   },
   "invoiceLineItems.label": {
     "en": "Line Items",
-    "lo": ""
+    "lo": "ລາຍການໃນບິນ"
   },
   "invoiceLineItems.searcherResultsTitle": {
     "en": "{invoiceLineItemsTotalCount} Line Items Found",
@@ -7289,7 +7289,7 @@
   },
   "LanguagePicker.label": {
     "en": "Language",
-    "lo": ""
+    "lo": "ພາສາ"
   },
   "location.AddDialog.title": {
     "en": "New {type}",
@@ -7893,7 +7893,7 @@
   },
   "manualPrice": {
     "en": "Manual",
-    "lo": ""
+    "lo": "ກຳນົດເອງ"
   },
   "medical_pricelist.addNewPriceListTooltip": {
     "en": "Add a new pricelist",
@@ -8701,7 +8701,7 @@
   },
   "moveToNewGroup": {
     "en": "New Group",
-    "lo": ""
+    "lo": "ກຸ່ມໃໝ່"
   },
   "noRecord": {
     "en": "No Record To Display",
@@ -8949,7 +8949,7 @@
   },
   "PayerSearcher.deletePayerTooltip": {
     "en": "Delete Payer",
-    "lo": ""
+    "lo": "ລຶບຜູ້ຈ່າຍເງິນ"
   },
   "PayerSearcher.openNewTab": {
     "en": "Open in new tab",
@@ -8961,7 +8961,7 @@
   },
   "PayersPage.addNewPayer": {
     "en": "Add new payer",
-    "lo": ""
+    "lo": "ເພີ່ມຜູ້ຈ່າຍເງິນໃໝ່"
   },
   "payment_cycle.gql_create_payment_cycle_perms": {
     "en": "Payment Cycle | Create Payment Cycle",
@@ -9221,7 +9221,7 @@
   },
   "PaymentCycle": {
     "en": "Payment Cycle",
-    "lo": ""
+    "lo": "ຮອບການຈ່າຍເງິນ"
   },
   "paymentCycle.bills.amountTotal": {
     "en": "Amount Total",
@@ -9437,15 +9437,15 @@
   },
   "PaymentCyclePage.taskCreated.body": {
     "en": "Payment Cycle will be created after approval.",
-    "lo": ""
+    "lo": "ຮອບການຈ່າຍເງິນຈະຖືກສ້າງຫຼັງຈາກໄດ້ຮັບການອະນຸມັດ."
   },
   "PaymentCyclePage.taskCreated.header": {
     "en": "A task has been created.",
-    "lo": ""
+    "lo": "ສ້າງໜ້າວຽກແລ້ວ."
   },
   "PaymentCyclePicker.placeholder": {
     "en": "Payment Cycle",
-    "lo": ""
+    "lo": "ຮອບການຈ່າຍເງິນ"
   },
   "PaymentCycleTaskTab.label": {
     "en": "Tasks",
@@ -9741,7 +9741,7 @@
   },
   "paymentPlanPicker.label": {
     "en": "Payment Plan",
-    "lo": ""
+    "lo": "ແຜນການຈ່າຍເງິນ"
   },
   "payroll.additonalFields.close": {
     "en": "Close",
@@ -9749,19 +9749,19 @@
   },
   "payroll.additonalFields.label": {
     "en": "Additional Fields",
-    "lo": ""
+    "lo": "ຂໍ້ມູນເພີ່ມເຕີມ"
   },
   "payroll.additonalFields.showAdditionalFields": {
     "en": "Show Additional Fields",
-    "lo": ""
+    "lo": "ສະແດງຂໍ້ມູນເພີ່ມເຕີມ"
   },
   "payroll.advancedCriteria.none": {
     "en": "No additional filters applied.",
-    "lo": ""
+    "lo": "ບໍ່ໄດ້ນຳໃຊ້ຕົວກັ່ນຕອງເພີ່ມເຕີມ."
   },
   "payroll.advancedCriteria.tip": {
     "en": "Add additional filters to further narrow down beneficiaries. Beneficiaries must meet all conditions to be included.",
-    "lo": ""
+    "lo": "ເພີ່ມຕົວກັ່ນຕອງເພື່ອຈຳກັດຜູ້ໄດ້ຮັບຜົນປະໂຫຍດໃຫ້ແຄບລົງ. ຜູ້ໄດ້ຮັບຜົນປະໂຫຍດຕ້ອງຜ່ານທຸກເງື່ອນໄຂຈຶ່ງຈະຖືກລວມເຂົ້າ."
   },
   "payroll.advancedFilters": {
     "en": "Advanced Filters",
@@ -9773,7 +9773,7 @@
   },
   "payroll.advancedFilters.button.addFilters": {
     "en": "Add Criterion",
-    "lo": ""
+    "lo": "ເພີ່ມເງື່ອນໄຂ"
   },
   "payroll.advancedFilters.button.advancedFilters": {
     "en": "Advanced Criteria",
@@ -9785,11 +9785,11 @@
   },
   "payroll.advancedFilters.button.clearAllFilters": {
     "en": "Clear All Criteria",
-    "lo": ""
+    "lo": "ລ້າງເງື່ອນໄຂທັງໝົດ"
   },
   "payroll.advancedFilters.button.filter": {
     "en": "Confirm Criteria",
-    "lo": ""
+    "lo": "ຢືນຢັນເງື່ອນໄຂ"
   },
   "payroll.advancedFilters.field": {
     "en": "Field",
@@ -9829,11 +9829,11 @@
   },
   "payroll.benefitConsumption.delete.confirm.message": {
     "en": "Are you sure you want to delete the Benefit Consumption? Once you click confirm, additional approval on the task level is required to permanently delete it.",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບການໃຊ້ສະຫວັດດີການ? ເມື່ອກົດຢືນຢັນແລ້ວ ຍັງຕ້ອງໄດ້ຮັບການອະນຸມັດໃນລະດັບໜ້າວຽກອີກ ຈຶ່ງຈະລຶບຖາວອນໄດ້."
   },
   "payroll.benefitConsumption.delete.confirm.title": {
     "en": "Delete Benefit Consumption",
-    "lo": ""
+    "lo": "ລຶບການໃຊ້ສະຫວັດດີການ"
   },
   "payroll.benefitConsumption.individual": {
     "en": "Individual",
@@ -9849,11 +9849,11 @@
   },
   "payroll.benefitConsumption.pageTitle": {
     "en": "Benefit Consumptions",
-    "lo": ""
+    "lo": "ການໃຊ້ສະຫວັດດີການ"
   },
   "payroll.benefitConsumption.payedOnTime": {
     "en": "Payed On Time",
-    "lo": ""
+    "lo": "ຊຳລະຕາມກຳນົດ"
   },
   "payroll.benefitConsumption.paymentDate": {
     "en": "Payment Date",
@@ -9869,19 +9869,19 @@
   },
   "payroll.benefitConsumption.payroll.endDate": {
     "en": "Accounting End Date",
-    "lo": ""
+    "lo": "ວັນທີສິ້ນສຸດທາງບັນຊີ"
   },
   "payroll.benefitConsumption.payroll.name": {
     "en": "Payroll Name",
-    "lo": ""
+    "lo": "ຊື່ບັນຊີການຈ່າຍເງິນ"
   },
   "payroll.benefitConsumption.payroll.startDate": {
     "en": "Accounting Start Date",
-    "lo": ""
+    "lo": "ວັນທີເລີ່ມຕົ້ນທາງບັນຊີ"
   },
   "payroll.benefitConsumption.photo": {
     "en": "Photo",
-    "lo": ""
+    "lo": "ຮູບພາບ"
   },
   "payroll.benefitConsumption.receipt": {
     "en": "Receipt",
@@ -9909,7 +9909,7 @@
   },
   "payroll.benefitConsumption.status.PAYED": {
     "en": "Payed",
-    "lo": ""
+    "lo": "ຊຳລະແລ້ວ"
   },
   "payroll.benefitConsumption.status.SUSPENDED": {
     "en": "Suspended",
@@ -9929,27 +9929,27 @@
   },
   "payroll.benefitConsumptionStatusPicker.ACCEPTED": {
     "en": "ACCEPTED",
-    "lo": ""
+    "lo": "ຮັບຮອງແລ້ວ"
   },
   "payroll.benefitConsumptionStatusPicker.APPROVE_FOR_PAYMENT": {
     "en": "APPROVE FOR PAYMENT",
-    "lo": ""
+    "lo": "ອະນຸມັດໃຫ້ຈ່າຍ"
   },
   "payroll.benefitConsumptionStatusPicker.CREATED": {
     "en": "CREATED",
-    "lo": ""
+    "lo": "ສ້າງແລ້ວ"
   },
   "payroll.benefitConsumptionStatusPicker.DUPLICATE": {
     "en": "DUPLICATE",
-    "lo": ""
+    "lo": "ຊ້ຳກັນ"
   },
   "payroll.benefitConsumptionStatusPicker.RECONCILED": {
     "en": "RECONCILED",
-    "lo": ""
+    "lo": "ກະທົບຍອດແລ້ວ"
   },
   "payroll.benefitConsumptionStatusPicker.REJECTED": {
     "en": "REJECTED",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດ"
   },
   "payroll.createButton.tooltip": {
     "en": "Create",
@@ -9961,15 +9961,15 @@
   },
   "payroll.errorSummary.outputGateway": {
     "en": "Output from payment gateway",
-    "lo": ""
+    "lo": "ຜົນລັບຈາກລະບົບຊຳລະເງິນ"
   },
   "payroll.errorSummary.outputGateway.noInfo": {
     "en": " There is no information from payment gateway why invoice is not reconciled. Please contact to administrator for further investigation!",
-    "lo": ""
+    "lo": " ບໍ່ມີຂໍ້ມູນຈາກລະບົບຊຳລະເງິນວ່າເປັນຫຍັງໃບແຈ້ງໜີ້ຈຶ່ງບໍ່ໄດ້ກະທົບຍອດ. ກະລຸນາຕິດຕໍ່ຜູ້ຄຸ້ມຄອງລະບົບເພື່ອກວດສອບເພີ່ມເຕີມ!"
   },
   "payroll.errorSummary.title": {
     "en": "Error summary",
-    "lo": ""
+    "lo": "ສະຫຼຸບຂໍ້ຜິດພາດ"
   },
   "payroll.filterCriteria": {
     "en": "Filter Criteria",
@@ -9981,11 +9981,11 @@
   },
   "payroll.filterCriteria.readonly": {
     "en": "Only beneficiaries that belong to the selected projects and locations are included in the payroll.",
-    "lo": ""
+    "lo": "ສະເພາະຜູ້ໄດ້ຮັບຜົນປະໂຫຍດທີ່ຢູ່ໃນໂຄງການຍ່ອຍ ແລະ ເຂດພື້ນທີ່ທີ່ເລືອກເທົ່ານັ້ນທີ່ຖືກລວມເຂົ້າໃນບັນຊີການຈ່າຍເງິນ."
   },
   "payroll.filterCriteria.tip": {
     "en": "Select projects and locations to filter beneficiaries. Only beneficiaries that belong to the selected projects and locations will be included in the payroll.",
-    "lo": ""
+    "lo": "ເລືອກໂຄງການຍ່ອຍ ແລະ ເຂດພື້ນທີ່ເພື່ອກັ່ນຕອງຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ. ສະເພາະຜູ້ໄດ້ຮັບຜົນປະໂຫຍດທີ່ຢູ່ໃນໂຄງການຍ່ອຍ ແລະ ເຂດພື້ນທີ່ທີ່ເລືອກເທົ່ານັ້ນທີ່ຈະຖືກລວມເຂົ້າໃນບັນຊີການຈ່າຍເງິນ."
   },
   "payroll.gql_csv_reconciliation_create_perms": {
     "en": "Payroll | Csv Reconciliation Create",
@@ -10025,19 +10025,19 @@
   },
   "payroll.paymentData.upload.label": {
     "en": "Upload Payment Data",
-    "lo": ""
+    "lo": "ອັບໂຫຼດຂໍ້ມູນການຈ່າຍເງິນ"
   },
   "payroll.paymentMethod": {
     "en": "Payment Method",
-    "lo": ""
+    "lo": "ວິທີການຊຳລະເງິນ"
   },
   "payroll.paymentPoint.delete.confirm.message": {
     "en": "Are you sure you want to delete the Payment Point? This will result in permanent, irreversible changes.",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບຈຸດຈ່າຍເງິນ? ການດຳເນີນການນີ້ຈະເປັນການປ່ຽນແປງຖາວອນທີ່ບໍ່ສາມາດຍ້ອນກັບໄດ້."
   },
   "payroll.paymentPoint.delete.confirm.title": {
     "en": "Delete Payment Point {name}",
-    "lo": ""
+    "lo": "ລຶບຈຸດຈ່າຍເງິນ {name}"
   },
   "payroll.paymentPoint.label": {
     "en": "Payment Point",
@@ -10049,15 +10049,15 @@
   },
   "payroll.paymentPoint.mutation.createLabel": {
     "en": "Create Payment Point {id}",
-    "lo": ""
+    "lo": "ສ້າງຈຸດຈ່າຍເງິນ {id}"
   },
   "payroll.paymentPoint.mutation.deleteLabel": {
     "en": "Delete Payment Point {id}",
-    "lo": ""
+    "lo": "ລຶບຈຸດຈ່າຍເງິນ {id}"
   },
   "payroll.paymentPoint.mutation.updateLabel": {
     "en": "Update Payment Point {id}",
-    "lo": ""
+    "lo": "ປັບປຸງຈຸດຈ່າຍເງິນ {id}"
   },
   "payroll.paymentPoint.name": {
     "en": "Name",
@@ -10077,7 +10077,7 @@
   },
   "payroll.PaymentPointPage.title": {
     "en": "Payment Point {name}",
-    "lo": ""
+    "lo": "ຈຸດຈ່າຍເງິນ {name}"
   },
   "payroll.paymentPointPicker.label": {
     "en": "Payment Point",
@@ -10109,23 +10109,23 @@
   },
   "payroll.payroll.delete.confirm.message": {
     "en": "Are you sure you want to delete the Payroll? This will result in permanent, irreversible changes.",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບບັນຊີການຈ່າຍເງິນ? ການດຳເນີນການນີ້ຈະເປັນການປ່ຽນແປງຖາວອນທີ່ບໍ່ສາມາດຍ້ອນກັບໄດ້."
   },
   "payroll.payroll.delete.confirm.title": {
     "en": "Delete Payroll {name}",
-    "lo": ""
+    "lo": "ລຶບບັນຊີການຈ່າຍເງິນ {name}"
   },
   "payroll.payroll.includedUnpaid": {
     "en": "Included unpaid",
-    "lo": ""
+    "lo": "ລວມລາຍການທີ່ຍັງບໍ່ໄດ້ຈ່າຍ"
   },
   "payroll.payroll.mutation.create": {
     "en": "Create Payroll {id}",
-    "lo": ""
+    "lo": "ສ້າງບັນຊີການຈ່າຍເງິນ {id}"
   },
   "payroll.payroll.mutation.deleteLabel": {
     "en": "Delete Payroll {id}",
-    "lo": ""
+    "lo": "ລຶບບັນຊີການຈ່າຍເງິນ {id}"
   },
   "payroll.payroll.name": {
     "en": "Name",
@@ -10137,7 +10137,7 @@
   },
   "payroll.payroll.paymentPlan": {
     "en": "Payment Plan",
-    "lo": ""
+    "lo": "ແຜນການຈ່າຍເງິນ"
   },
   "payroll.payroll.paymentPoint": {
     "en": "Payment Point",
@@ -10145,7 +10145,7 @@
   },
   "payroll.payroll.paymentStrategy": {
     "en": "Payment Strategy",
-    "lo": ""
+    "lo": "ຍຸດທະສາດການຈ່າຍເງິນ"
   },
   "payroll.payroll.payrollStatusPicker": {
     "en": "Status",
@@ -10153,11 +10153,11 @@
   },
   "payroll.payroll.payrollStatusPicker.APPROVE_FOR_PAYMENT": {
     "en": "APPROVE FOR PAYMENT",
-    "lo": ""
+    "lo": "ອະນຸມັດໃຫ້ຈ່າຍ"
   },
   "payroll.payroll.payrollStatusPicker.PENDING_APPROVAL": {
     "en": "PENDING APPROVAL",
-    "lo": ""
+    "lo": "ລໍຖ້າອະນຸມັດ"
   },
   "payroll.payroll.payrollStatusPicker.placeholder": {
     "en": "Status",
@@ -10165,11 +10165,11 @@
   },
   "payroll.payroll.payrollStatusPicker.RECONCILED": {
     "en": "RECONCILED",
-    "lo": ""
+    "lo": "ກະທົບຍອດແລ້ວ"
   },
   "payroll.payroll.payrollStatusPicker.REJECTED": {
     "en": "REJECTED",
-    "lo": ""
+    "lo": "ຖືກປະຕິເສດ"
   },
   "payroll.payroll.route": {
     "en": "Payrolls",
@@ -10185,11 +10185,11 @@
   },
   "payroll.PayrollBenefitConsumptionTab.label": {
     "en": "Benefit Consumptions",
-    "lo": ""
+    "lo": "ການໃຊ້ສະຫວັດດີການ"
   },
   "payroll.payrollPage.title": {
     "en": "Payroll",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ"
   },
   "payroll.payrollPaymentFile.error": {
     "en": "Error",
@@ -10197,7 +10197,7 @@
   },
   "payroll.payrollPaymentFile.fileName": {
     "en": "Filename",
-    "lo": ""
+    "lo": "ຊື່ໄຟລ໌"
   },
   "payroll.payrollPaymentFile.status": {
     "en": "Status",
@@ -10209,7 +10209,7 @@
   },
   "payroll.PayrollPaymentFilesTab.label": {
     "en": "Payment Files",
-    "lo": ""
+    "lo": "ໄຟລ໌ການຈ່າຍເງິນ"
   },
   "payroll.payrollSearcher.results": {
     "en": "{totalCount} Payrolls Found",
@@ -10221,7 +10221,7 @@
   },
   "payroll.reconciliationSummary": {
     "en": "View Reconciliation Summary: {payrollName}",
-    "lo": ""
+    "lo": "ເບິ່ງສະຫຼຸບການກະທົບຍອດ: {payrollName}"
   },
   "payroll.route.payrollsApproved": {
     "en": "Approved Payrolls",
@@ -10241,7 +10241,7 @@
   },
   "payroll.summary.approveAndClose": {
     "en": "Approve and Close",
-    "lo": ""
+    "lo": "ອະນຸມັດ ແລະ ປິດ"
   },
   "payroll.summary.beneficiariesCount": {
     "en": "{selectedBeneficiaries} of {totalBeneficiaries}",
@@ -10265,11 +10265,11 @@
   },
   "payroll.summary.createPaymentForFailedInvoice": {
     "en": "Create Payment For Failed Invoice",
-    "lo": ""
+    "lo": "ສ້າງການຊຳລະສຳລັບໃບແຈ້ງໜີ້ທີ່ລົ້ມເຫຼວ"
   },
   "payroll.summary.deliveredReconciliation": {
     "en": "Total Delivered Per Reconciliation",
-    "lo": ""
+    "lo": "ລວມທີ່ຈ່າຍແລ້ວຕໍ່ການກະທົບຍອດ"
   },
   "payroll.summary.download": {
     "en": "Download",
@@ -10277,7 +10277,7 @@
   },
   "payroll.summary.makePayment": {
     "en": "Make Payment",
-    "lo": ""
+    "lo": "ດຳເນີນການຈ່າຍເງິນ"
   },
   "payroll.summary.name": {
     "en": "Name",
@@ -10285,7 +10285,7 @@
   },
   "payroll.summary.payedOnTime": {
     "en": "Payed On Time",
-    "lo": ""
+    "lo": "ຊຳລະຕາມກຳນົດ"
   },
   "payroll.summary.receipt": {
     "en": "Receipt",
@@ -10293,47 +10293,47 @@
   },
   "payroll.summary.reject": {
     "en": "Reject",
-    "lo": ""
+    "lo": "ປະຕິເສດ"
   },
   "payroll.summary.selectedBeneficiaries": {
     "en": "Selected beneficiaries",
-    "lo": ""
+    "lo": "ຜູ້ໄດ້ຮັບຜົນປະໂຫຍດທີ່ເລືອກ"
   },
   "payroll.summary.totalAmountDue": {
     "en": "Total Amount Due",
-    "lo": ""
+    "lo": "ລວມຈຳນວນເງິນທີ່ຕ້ອງຈ່າຍ"
   },
   "payroll.summary.totalAmountForInvoice": {
     "en": "Total Amount for Invoice",
-    "lo": ""
+    "lo": "ລວມຈຳນວນເງິນຂອງໃບແຈ້ງໜີ້"
   },
   "payroll.summary.totalAmountReceived": {
     "en": "Total Amount Received",
-    "lo": ""
+    "lo": "ລວມຈຳນວນເງິນທີ່ໄດ້ຮັບ"
   },
   "payroll.summary.totalNumberOfBenefits": {
     "en": "Total Number Of Benefits",
-    "lo": ""
+    "lo": "ລວມຈຳນວນສະຫວັດດີການ"
   },
   "payroll.summaryUpload": {
     "en": "Summary Upload",
-    "lo": ""
+    "lo": "ສະຫຼຸບການອັບໂຫຼດ"
   },
   "payroll.tasks.delete.title": {
     "en": "Delete Payroll Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກລຶບບັນຊີການຈ່າຍເງິນ"
   },
   "payroll.tasks.reconciliation.title": {
     "en": "Payroll Reconciliation Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກກະທົບຍອດບັນຊີການຈ່າຍເງິນ"
   },
   "payroll.tasks.rejected.title": {
     "en": "Rejected Payrolls",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນທີ່ຖືກປະຕິເສດ"
   },
   "payroll.tasks.update.title": {
     "en": "Approve Payroll Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກອະນຸມັດບັນຊີການຈ່າຍເງິນ"
   },
   "payroll.tooltip.any": {
     "en": "Any",
@@ -10369,11 +10369,11 @@
   },
   "payroll.viewReconciliationFiles": {
     "en": "View Reconciliation Files",
-    "lo": ""
+    "lo": "ເບິ່ງໄຟລ໌ການກະທົບຍອດ"
   },
   "payroll.viewReconciliationSummary": {
     "en": "View Reconciliation Summary",
-    "lo": ""
+    "lo": "ເບິ່ງສະຫຼຸບການກະທົບຍອດ"
   },
   "payrollPaymentFile.download": {
     "en": "Download",
@@ -11541,7 +11541,7 @@
   },
   "policySummaries.DeleteButton.tooltip": {
     "en": "Delete policy",
-    "lo": ""
+    "lo": "ລຶບສັນຍາປະກັນໄພ"
   },
   "policySummaries.openFamilyButton.buttonText": {
     "en": "Family",
@@ -11549,7 +11549,7 @@
   },
   "policySummaries.openFamilyButton.tooltip": {
     "en": "Open family",
-    "lo": ""
+    "lo": "ເປີດຄອບຄົວ"
   },
   "policySummaries.openNewTabButton.buttonText": {
     "en": "Open",
@@ -11561,7 +11561,7 @@
   },
   "policySummaries.renewButton.tooltip": {
     "en": "Renew policy",
-    "lo": ""
+    "lo": "ຕໍ່ອາຍຸສັນຍາປະກັນໄພ"
   },
   "policySummaries.SuspendButton.tooltip": {
     "en": "Suspend policy",
@@ -12241,7 +12241,7 @@
   },
   "profile.ChangePasswordPage.confirmPasswordLabel": {
     "en": "Confirm New Password",
-    "lo": ""
+    "lo": "ຢືນຢັນລະຫັດຜ່ານໃໝ່"
   },
   "profile.ChangePasswordPage.newPasswordLabel": {
     "en": "New Password",
@@ -12249,11 +12249,11 @@
   },
   "profile.ChangePasswordPage.notEqualError": {
     "en": "The passwords are not the same",
-    "lo": ""
+    "lo": "ລະຫັດຜ່ານບໍ່ຕົງກັນ"
   },
   "profile.ChangePasswordPage.oldPasswordLabel": {
     "en": "Current Password",
-    "lo": ""
+    "lo": "ລະຫັດຜ່ານປັດຈຸບັນ"
   },
   "profile.ChangePasswordPage.submitButton": {
     "en": "Submit",
@@ -12265,7 +12265,7 @@
   },
   "profile.districts": {
     "en": "Assigned Districts",
-    "lo": ""
+    "lo": "ເມືອງທີ່ໄດ້ຮັບມອບໝາຍ"
   },
   "profile.email": {
     "en": "Email",
@@ -12297,19 +12297,19 @@
   },
   "profile.otherNames": {
     "en": "Other Names",
-    "lo": ""
+    "lo": "ຊື່ອື່ນ"
   },
   "profile.phone": {
     "en": "Phone Number",
-    "lo": ""
+    "lo": "ເບີໂທລະສັບ"
   },
   "profile.regions": {
     "en": "Assigned Regions",
-    "lo": ""
+    "lo": "ແຂວງທີ່ໄດ້ຮັບມອບໝາຍ"
   },
   "profile.roles": {
     "en": "Assigned Roles",
-    "lo": ""
+    "lo": "ບົດບາດທີ່ໄດ້ຮັບມອບໝາຍ"
   },
   "profile.userName": {
     "en": "Username",
@@ -12317,7 +12317,7 @@
   },
   "project.activityPicker.label": {
     "en": "Activity",
-    "lo": ""
+    "lo": "ກິດຈະກຳ"
   },
   "project.activityPicker.null": {
     "en": "",
@@ -12325,11 +12325,11 @@
   },
   "project.allowsMultipleEnrollments": {
     "en": "Allow beneficiaries to enroll in multiple projects",
-    "lo": ""
+    "lo": "ອະນຸຍາດໃຫ້ຜູ້ໄດ້ຮັບຜົນປະໂຫຍດລົງທະບຽນຫຼາຍໂຄງການຍ່ອຍ"
   },
   "project.create.mutationLabel": {
     "en": "Create project {name}",
-    "lo": ""
+    "lo": "ສ້າງໂຄງການຍ່ອຍ {name}"
   },
   "project.dateUpdated": {
     "en": "Date Updated",
@@ -12337,23 +12337,23 @@
   },
   "project.day": {
     "en": "Work Day",
-    "lo": ""
+    "lo": "ວັນເຮັດວຽກ"
   },
   "project.delete.confirm.message": {
     "en": "Deleting a project does not mean erasing it from OpenIMIS database. The project will only be deactivated and hidden in the default list view.",
-    "lo": ""
+    "lo": "ການລຶບໂຄງການຍ່ອຍບໍ່ໄດ້ໝາຍຄວາມວ່າລຶບອອກຈາກຖານຂໍ້ມູນ OpenIMIS. ໂຄງການຍ່ອຍຈະຖືກປິດການນຳໃຊ້ ແລະ ເຊື່ອງໄວ້ຈາກລາຍການທີ່ສະແດງເປັນຄ່າເລີ່ມຕົ້ນເທົ່ານັ້ນ."
   },
   "project.delete.confirm.title": {
     "en": "Delete project {name}?",
-    "lo": ""
+    "lo": "ລຶບໂຄງການຍ່ອຍ {name}?"
   },
   "project.delete.mutationLabel": {
     "en": "Delete project {name}",
-    "lo": ""
+    "lo": "ລຶບໂຄງການຍ່ອຍ {name}"
   },
   "project.enroll.mutationLabel": {
     "en": "Enrolled {n} beneficiaries in project {name}",
-    "lo": ""
+    "lo": "ລົງທະບຽນຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ {n} ຄົນໃນໂຄງການຍ່ອຍ {name}"
   },
   "project.isDeleted": {
     "en": "Show Deleted",
@@ -12365,7 +12365,7 @@
   },
   "project.picker.placeholder": {
     "en": "Select projects...",
-    "lo": ""
+    "lo": "ເລືອກໂຄງການຍ່ອຍ..."
   },
   "project.searcherResultsTitleHistory": {
     "en": "{projectsHistoryTotalCount} Historical Records Found",
@@ -12373,23 +12373,23 @@
   },
   "project.undo.confirm.message": {
     "en": "This will undo the deletion and make the project active again. Do you want to continue?",
-    "lo": ""
+    "lo": "ການດຳເນີນການນີ້ຈະຍົກເລີກການລຶບ ແລະ ເຮັດໃຫ້ໂຄງການຍ່ອຍກັບມາໃຊ້ງານໄດ້ອີກ. ທ່ານຕ້ອງການດຳເນີນຕໍ່ບໍ່?"
   },
   "project.undo.confirm.title": {
     "en": "Restore project {name}?",
-    "lo": ""
+    "lo": "ກູ້ຄືນໂຄງການຍ່ອຍ {name}?"
   },
   "project.undo.mutationLabel": {
     "en": "Restore project {name}",
-    "lo": ""
+    "lo": "ກູ້ຄືນໂຄງການຍ່ອຍ {name}"
   },
   "project.update.mutationLabel": {
     "en": "Update project {name}",
-    "lo": ""
+    "lo": "ປັບປຸງໂຄງການຍ່ອຍ {name}"
   },
   "project.userUpdated": {
     "en": "User Updated",
-    "lo": ""
+    "lo": "ຜູ້ປັບປຸງ"
   },
   "project.version": {
     "en": "Version",
@@ -12405,15 +12405,15 @@
   },
   "projectBeneficiaries.dialogSubtitle": {
     "en": "Select active beneficiaries to assign to the project",
-    "lo": ""
+    "lo": "ເລືອກຜູ້ໄດ້ຮັບຜົນປະໂຫຍດທີ່ເຄື່ອນໄຫວເພື່ອມອບໝາຍໃຫ້ໂຄງການຍ່ອຍ"
   },
   "projectBeneficiaries.dialogTitle": {
     "en": "Assign Active Beneficiaries",
-    "lo": ""
+    "lo": "ມອບໝາຍຜູ້ໄດ້ຮັບຜົນປະໂຫຍດທີ່ເຄື່ອນໄຫວ"
   },
   "projectBeneficiaries.enroll": {
     "en": "Assign Beneficiaries",
-    "lo": ""
+    "lo": "ມອບໝາຍຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "projectBeneficiaries.enrolled": {
     "en": "{n} Beneficiaries Assigned",
@@ -12421,7 +12421,7 @@
   },
   "projectBeneficiaries.enterTime": {
     "en": "Enter time",
-    "lo": ""
+    "lo": "ປ້ອນເວລາ"
   },
   "projectBeneficiaries.filterPlaceholder": {
     "en": "Filter...",
@@ -12441,15 +12441,15 @@
   },
   "projectBeneficiaries.timeEntry.mutationLabel": {
     "en": "Saved {n} time entries for project {name}",
-    "lo": ""
+    "lo": "ບັນທຶກລາຍການເວລາ {n} ລາຍການສຳລັບໂຄງການຍ່ອຍ {name}"
   },
   "projectBeneficiaries.timeEntry.validation.message": {
     "en": "Percentage values must be between 0 and 100. Please correct the highlighted fields before saving.",
-    "lo": ""
+    "lo": "ຄ່າອັດຕາສ່ວນຕ້ອງຢູ່ລະຫວ່າງ 0 ຫາ 100. ກະລຸນາແກ້ໄຂຊ່ອງທີ່ໝາຍໄວ້ກ່ອນບັນທຶກ."
   },
   "projectBeneficiaries.timeEntry.validation.title": {
     "en": "Invalid Time Entry",
-    "lo": ""
+    "lo": "ການປ້ອນເວລາບໍ່ຖືກຕ້ອງ"
   },
   "projectChangelog.label": {
     "en": "Changelog",
@@ -12461,7 +12461,7 @@
   },
   "reopenTicket.mutation.label": {
     "en": "Reopen Ticket",
-    "lo": ""
+    "lo": "ເປີດຄຳຮ້ອງທຸກຄືນໃໝ່"
   },
   "report.gql_mutation_report_add_perms": {
     "en": "Report | Mutation Report Add",
@@ -12581,11 +12581,11 @@
   },
   "resolveButtonTooltip": {
     "en": "Resolve grievance with this comment.",
-    "lo": ""
+    "lo": "ແກ້ໄຂຄຳຮ້ອງທຸກດ້ວຍຄຳເຫັນນີ້."
   },
   "resolveGrievanceByComment.mutation.label": {
     "en": "Resolve Ticket using comment",
-    "lo": ""
+    "lo": "ແກ້ໄຂຄຳຮ້ອງທຸກໂດຍໃຊ້ຄຳເຫັນ"
   },
   "roleManagement.deleteButton.buttonText": {
     "en": "Delete",
@@ -12705,7 +12705,7 @@
   },
   "socialProtection.acceptSelected": {
     "en": "Accept Selected",
-    "lo": ""
+    "lo": "ຮັບຮອງລາຍການທີ່ເລືອກ"
   },
   "socialProtection.advancedFilters": {
     "en": "Advanced Filters",
@@ -12717,11 +12717,11 @@
   },
   "socialProtection.approveAll": {
     "en": "Accept  All",
-    "lo": ""
+    "lo": "ຮັບຮອງທັງໝົດ"
   },
   "socialProtection.atomicApprove": {
     "en": "Do you want to approve this task for {count} records?",
-    "lo": ""
+    "lo": "ທ່ານຕ້ອງການອະນຸມັດໜ້າວຽກນີ້ສຳລັບ {count} ລາຍການບໍ່?"
   },
   "socialProtection.beneficiaries.grievances.searcherResultsTitle": {
     "en": "{beneficiariesTotalCount} Grievances Found",
@@ -12745,7 +12745,7 @@
   },
   "socialProtection.beneficiary.beneficiaryStatusPicker.ACTIVE": {
     "en": "ACTIVE",
-    "lo": ""
+    "lo": "ເຄື່ອນໄຫວ"
   },
   "socialProtection.beneficiary.beneficiaryStatusPicker.GRADUATED": {
     "en": "GRADUATED",
@@ -12757,7 +12757,7 @@
   },
   "socialProtection.beneficiary.beneficiaryStatusPicker.SUSPENDED": {
     "en": "SUSPENDED",
-    "lo": ""
+    "lo": "ໂຈະ"
   },
   "socialProtection.beneficiary.benefitPlanTypePicker": {
     "en": "Type",
@@ -12765,11 +12765,11 @@
   },
   "socialProtection.beneficiary.benefitPlanTypePicker.GROUP": {
     "en": "GROUP",
-    "lo": ""
+    "lo": "ກຸ່ມ"
   },
   "socialProtection.beneficiary.benefitPlanTypePicker.INDIVIDUAL": {
     "en": "INDIVIDUAL",
-    "lo": ""
+    "lo": "ບຸກຄົນ"
   },
   "socialProtection.beneficiary.code": {
     "en": "Code",
@@ -12777,15 +12777,15 @@
   },
   "socialProtection.beneficiary.dob": {
     "en": "Date of birth",
-    "lo": ""
+    "lo": "ວັນເດືອນປີເກີດ"
   },
   "socialProtection.beneficiary.firstName": {
     "en": "First name",
-    "lo": ""
+    "lo": "ຊື່"
   },
   "socialProtection.beneficiary.isEligible": {
     "en": "Meets Criteria",
-    "lo": ""
+    "lo": "ຜ່ານເງື່ອນໄຂ"
   },
   "socialProtection.beneficiary.isEligible.false": {
     "en": "No",
@@ -12813,11 +12813,11 @@
   },
   "socialProtection.beneficiary.tasks.title": {
     "en": "Beneficiary Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "socialProtection.beneficiary.update.mutationLabel": {
     "en": "Update beneficiary {id}",
-    "lo": ""
+    "lo": "ປັບປຸງຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ {id}"
   },
   "socialProtection.benefitPackage.benefitPackageBenefitsTab.label": {
     "en": "Benefits",
@@ -12837,23 +12837,23 @@
   },
   "socialProtection.benefitPackage.BenefitPlanDetailPanel.title": {
     "en": "Program Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດໂຄງການ"
   },
   "socialProtection.benefitPackage.BenefitPlanDetailPanel.tooltip": {
     "en": "Show Program",
-    "lo": ""
+    "lo": "ສະແດງໂຄງການ"
   },
   "socialProtection.benefitPackage.GroupDetailPanel.title": {
     "en": "Group Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດກຸ່ມ"
   },
   "socialProtection.benefitPackage.GroupDetailPanel.tooltip": {
     "en": "Show Group",
-    "lo": ""
+    "lo": "ສະແດງກຸ່ມ"
   },
   "socialProtection.benefitPackage.GroupPanel.title": {
     "en": "Group",
-    "lo": ""
+    "lo": "ກຸ່ມ"
   },
   "socialProtection.benefitPackage.Individual.pageTitle": {
     "en": "{firstName} {lastName}",
@@ -12861,27 +12861,27 @@
   },
   "socialProtection.benefitPackage.IndividualDetailPanel.title": {
     "en": "Individual Details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດບຸກຄົນ"
   },
   "socialProtection.benefitPackage.IndividualDetailPanel.tooltip": {
     "en": "Show Individual",
-    "lo": ""
+    "lo": "ສະແດງບຸກຄົນ"
   },
   "socialProtection.benefitPackage.members.tooltip.grievanceHistory": {
     "en": "Grievance History",
-    "lo": ""
+    "lo": "ປະຫວັດຄຳຮ້ອງທຸກ"
   },
   "socialProtection.benefitPackage.members.tooltip.paymentHistory": {
     "en": "Payment History",
-    "lo": ""
+    "lo": "ປະຫວັດການຊຳລະເງິນ"
   },
   "socialProtection.benefitPackage.members.tooltip.viewDetails": {
     "en": "View individual details",
-    "lo": ""
+    "lo": "ເບິ່ງລາຍລະອຽດບຸກຄົນ"
   },
   "socialProtection.benefitPackage.overviewButtonTooltip": {
     "en": "Show Benefit Package",
-    "lo": ""
+    "lo": "ສະແດງຊຸດສະຫວັດດີການ"
   },
   "socialProtection.BenefitPlan": {
     "en": "Program",
@@ -12893,15 +12893,15 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.alert.header": {
     "en": "Error during file upload.",
-    "lo": ""
+    "lo": "ເກີດຂໍ້ຜິດພາດໃນລະຫວ່າງການອັບໂຫຼດໄຟລ໌."
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.alert.sameFileName": {
     "en": "Filename exists for given Program. Please change the filename.",
-    "lo": ""
+    "lo": "ຊື່ໄຟລ໌ນີ້ມີຢູ່ແລ້ວສຳລັບໂຄງການທີ່ເລືອກ. ກະລຸນາປ່ຽນຊື່ໄຟລ໌."
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.template": {
     "en": "Template",
-    "lo": ""
+    "lo": "ແບບຟອມຕົວຢ່າງ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.upload": {
     "en": "Upload",
@@ -12909,15 +12909,15 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.upload.alert.header.invalid_format": {
     "en": "Invalid file format!",
-    "lo": ""
+    "lo": "ຮູບແບບໄຟລ໌ບໍ່ຖືກຕ້ອງ!"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.upload.alert.message.invalid_format": {
     "en": "Please upload a valid CSV or Excel file!",
-    "lo": ""
+    "lo": "ກະລຸນາອັບໂຫຼດໄຟລ໌ CSV ຫຼື Excel ທີ່ຖືກຕ້ອງ!"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.upload.label": {
     "en": "Upload Beneficiaries",
-    "lo": ""
+    "lo": "ອັບໂຫຼດຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistory": {
     "en": "Upload History",
@@ -12929,15 +12929,15 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.downloadInvalidItems": {
     "en": "Download Invalid Items",
-    "lo": ""
+    "lo": "ດາວໂຫຼດລາຍການທີ່ບໍ່ຖືກຕ້ອງ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.downloadUploadFile": {
     "en": "Download Upload File",
-    "lo": ""
+    "lo": "ດາວໂຫຼດໄຟລ໌ທີ່ອັບໂຫຼດ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.error": {
     "en": "Errors",
-    "lo": ""
+    "lo": "ຂໍ້ຜິດພາດ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.errorNone": {
     "en": "None",
@@ -12945,11 +12945,11 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.sourceName": {
     "en": "Upload Source",
-    "lo": ""
+    "lo": "ແຫຼ່ງທີ່ອັບໂຫຼດ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.sourceType": {
     "en": "Upload Type",
-    "lo": ""
+    "lo": "ປະເພດການອັບໂຫຼດ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.status": {
     "en": "Status",
@@ -12957,11 +12957,11 @@
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.user": {
     "en": "User Uploaded",
-    "lo": ""
+    "lo": "ຜູ້ອັບໂຫຼດ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.validationErrors": {
     "en": "Validation Errors",
-    "lo": ""
+    "lo": "ຂໍ້ຜິດພາດການກວດສອບ"
   },
   "socialProtection.benefitPlan.benefitPlanBeneficiaries.uploadHistoryTable.workflow": {
     "en": "Workflow",
@@ -13005,7 +13005,7 @@
   },
   "socialProtection.benefitPlan.benefitPlanSchema.label": {
     "en": "Program Schema",
-    "lo": ""
+    "lo": "ໂຄງສ້າງຂໍ້ມູນຂອງໂຄງການ"
   },
   "socialProtection.benefitPlan.benefitPlanTabPanel.createPayroll": {
     "en": "CREATE PAYROLL",
@@ -13013,7 +13013,7 @@
   },
   "socialProtection.benefitPlan.benefitPlanTabPanel.createPayroll.tooltip": {
     "en": "Create Payment Plan first.",
-    "lo": ""
+    "lo": "ສ້າງແຜນການຈ່າຍເງິນກ່ອນ."
   },
   "socialProtection.benefitPlan.code": {
     "en": "Code",
@@ -13021,11 +13021,11 @@
   },
   "socialProtection.benefitPlan.code.alreadyTaken": {
     "en": "The code is already taken",
-    "lo": ""
+    "lo": "ລະຫັດນີ້ຖືກໃຊ້ແລ້ວ"
   },
   "socialProtection.benefitPlan.create.mutationLabel": {
     "en": "Create program {name}",
-    "lo": ""
+    "lo": "ສ້າງໂຄງການ {name}"
   },
   "socialProtection.benefitPlan.dateUpdated": {
     "en": "Date Updated",
@@ -13041,15 +13041,15 @@
   },
   "socialProtection.benefitPlan.delete.confirm.message": {
     "en": "Are you sure you want to delete the program?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບໂຄງການນີ້?"
   },
   "socialProtection.benefitPlan.delete.confirm.title": {
     "en": "Delete program {code} {name}",
-    "lo": ""
+    "lo": "ລຶບໂຄງການ {code} {name}"
   },
   "socialProtection.benefitPlan.delete.mutationLabel": {
     "en": "Delete program {name}",
-    "lo": ""
+    "lo": "ລຶບໂຄງການ {name}"
   },
   "socialProtection.benefitPlan.deleteButtonTooltip": {
     "en": "Delete",
@@ -13085,11 +13085,11 @@
   },
   "socialProtection.benefitPlan.name.alreadyTaken": {
     "en": "The name is already taken",
-    "lo": ""
+    "lo": "ຊື່ນີ້ຖືກໃຊ້ແລ້ວ"
   },
   "socialProtection.benefitPlan.pageTitle": {
     "en": "Program {code} {name}",
-    "lo": ""
+    "lo": "ໂຄງການ {code} {name}"
   },
   "socialProtection.benefitPlan.saveButton.tooltip.disabled": {
     "en": "Save changes",
@@ -13105,7 +13105,7 @@
   },
   "socialProtection.benefitPlan.schema.showSchema": {
     "en": "Show Schema",
-    "lo": ""
+    "lo": "ສະແດງໂຄງສ້າງຂໍ້ມູນ"
   },
   "socialProtection.benefitPlan.searcherResultsTitle": {
     "en": "{benefitPlansTotalCount} Programs",
@@ -13121,11 +13121,11 @@
   },
   "socialProtection.benefitPlan.suspend.confirm.message": {
     "en": "Are you sure you want to suspend the program?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການໂຈະໂຄງການນີ້?"
   },
   "socialProtection.benefitPlan.suspend.confirm.title": {
     "en": "Suspend program {code} {name}",
-    "lo": ""
+    "lo": "ໂຈະໂຄງການ {code} {name}"
   },
   "socialProtection.benefitPlan.tasks.searcherResultsTitle": {
     "en": "{benefitPlanTasksTotalCount} Tasks",
@@ -13133,7 +13133,7 @@
   },
   "socialProtection.benefitPlan.tasks.update.title": {
     "en": "Program Update Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກປັບປຸງໂຄງການ"
   },
   "socialProtection.benefitPlan.type": {
     "en": "Type",
@@ -13141,23 +13141,23 @@
   },
   "socialProtection.benefitPlan.undo.confirm.message": {
     "en": "This will undo the deletion and make the program active again. Do you want to continue?",
-    "lo": ""
+    "lo": "ການດຳເນີນການນີ້ຈະຍົກເລີກການລຶບ ແລະ ເຮັດໃຫ້ໂຄງການກັບມາໃຊ້ງານໄດ້ອີກ. ທ່ານຕ້ອງການດຳເນີນຕໍ່ບໍ່?"
   },
   "socialProtection.benefitPlan.undo.confirm.title": {
     "en": "Restore program {code} {name}?",
-    "lo": ""
+    "lo": "ກູ້ຄືນໂຄງການ {code} {name}?"
   },
   "socialProtection.benefitPlan.undo.mutationLabel": {
     "en": "Restore program {name}",
-    "lo": ""
+    "lo": "ກູ້ຄືນໂຄງການ {name}"
   },
   "socialProtection.benefitPlan.update.mutationLabel": {
     "en": "Update program {name}",
-    "lo": ""
+    "lo": "ປັບປຸງໂຄງການ {name}"
   },
   "socialProtection.benefitPlan.userUpdated": {
     "en": "User Updated",
-    "lo": ""
+    "lo": "ຜູ້ປັບປຸງ"
   },
   "socialProtection.benefitPlan.version": {
     "en": "Version",
@@ -13173,11 +13173,11 @@
   },
   "socialProtection.BenefitPlanPicker.placeholder": {
     "en": "Please select a Program",
-    "lo": ""
+    "lo": "ກະລຸນາເລືອກໂຄງການ"
   },
   "socialProtection.benefitPlansList.label": {
     "en": "PROGRAMS",
-    "lo": ""
+    "lo": "ໂຄງການ"
   },
   "socialProtection.benefitPlanTasks.label": {
     "en": "Tasks",
@@ -13185,15 +13185,15 @@
   },
   "socialProtection.benefitUploadRecord.benefitPlanCode": {
     "en": "Program code",
-    "lo": ""
+    "lo": "ລະຫັດໂຄງການ"
   },
   "socialProtection.benefitUploadRecord.percentageOfInvalidItems": {
     "en": "Percentage of invalid items",
-    "lo": ""
+    "lo": "ອັດຕາສ່ວນລາຍການທີ່ບໍ່ຖືກຕ້ອງ"
   },
   "socialProtection.benefitUploadRecord.sourceName": {
     "en": "Filename",
-    "lo": ""
+    "lo": "ຊື່ໄຟລ໌"
   },
   "socialProtection.benefitUploadRecord.workflow": {
     "en": "Workflow",
@@ -13201,11 +13201,11 @@
   },
   "socialProtection.bulkApprove": {
     "en": "Do you want to approve this task for all records?",
-    "lo": ""
+    "lo": "ທ່ານຕ້ອງການອະນຸມັດໜ້າວຽກນີ້ສຳລັບທຸກລາຍການບໍ່?"
   },
   "socialProtection.calculation.tasks.title": {
     "en": "Payment Verification Tasks",
-    "lo": ""
+    "lo": "ໜ້າວຽກກວດສອບການຊຳລະເງິນ"
   },
   "socialProtection.createButton.tooltip": {
     "en": "Create",
@@ -13221,7 +13221,7 @@
   },
   "socialProtection.dialogActions.goBack": {
     "en": "Go back",
-    "lo": ""
+    "lo": "ຍ້ອນກັບ"
   },
   "socialProtection.download": {
     "en": "Download",
@@ -13229,7 +13229,7 @@
   },
   "socialProtection.downloadBeneficiaries.mutationLabel": {
     "en": "Download beneficiaries",
-    "lo": ""
+    "lo": "ດາວໂຫຼດຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "socialProtection.emptyString": {
     "en": "",
@@ -13289,7 +13289,7 @@
   },
   "socialProtection.groupBeneficiary.update.mutationLabel": {
     "en": "Update group beneficiary {id}",
-    "lo": ""
+    "lo": "ປັບປຸງກຸ່ມຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ {id}"
   },
   "socialProtection.mainMenuSocialProtection": {
     "en": "Social Protection",
@@ -13301,7 +13301,7 @@
   },
   "socialProtection.project.activity": {
     "en": "Activity",
-    "lo": ""
+    "lo": "ກິດຈະກຳ"
   },
   "socialProtection.project.benefitPlan": {
     "en": "Program",
@@ -13317,11 +13317,11 @@
   },
   "socialProtection.project.name.alreadyTaken": {
     "en": "The name is already taken",
-    "lo": ""
+    "lo": "ຊື່ນີ້ຖືກໃຊ້ແລ້ວ"
   },
   "socialProtection.project.pageTitle": {
     "en": "Project details",
-    "lo": ""
+    "lo": "ລາຍລະອຽດໂຄງການຍ່ອຍ"
   },
   "socialProtection.project.saveButton.tooltip": {
     "en": "Save",
@@ -13337,7 +13337,7 @@
   },
   "socialProtection.project.statusPicker.COMPLETED": {
     "en": "Completed",
-    "lo": ""
+    "lo": "ສຳເລັດແລ້ວ"
   },
   "socialProtection.project.statusPicker.IN_PROGRESS": {
     "en": "In Progress",
@@ -13345,15 +13345,15 @@
   },
   "socialProtection.project.statusPicker.PREPARATION": {
     "en": "Preparation",
-    "lo": ""
+    "lo": "ກຳລັງກະກຽມ"
   },
   "socialProtection.project.targetBeneficiaries": {
     "en": "Target Beneficiaries",
-    "lo": ""
+    "lo": "ຜູ້ໄດ້ຮັບຜົນປະໂຫຍດເປົ້າໝາຍ"
   },
   "socialProtection.project.workingDays": {
     "en": "Working Days",
-    "lo": ""
+    "lo": "ວັນເຮັດວຽກ"
   },
   "socialProtection.projects.label": {
     "en": "Projects",
@@ -13361,7 +13361,7 @@
   },
   "socialProtection.projects.searcherAddAction": {
     "en": "Create Project",
-    "lo": ""
+    "lo": "ສ້າງໂຄງການຍ່ອຍ"
   },
   "socialProtection.projects.searcherResultsTitle": {
     "en": "{projectsTotalCount} Projects",
@@ -13369,19 +13369,19 @@
   },
   "socialProtection.rejectAll": {
     "en": "Reject All",
-    "lo": ""
+    "lo": "ປະຕິເສດທັງໝົດ"
   },
   "socialProtection.rejectSelected": {
     "en": "Beneficiary Tasks",
-    "lo": ""
+    "lo": "ປະຕິເສດລາຍການທີ່ເລືອກ"
   },
   "socialProtection.resolveAllRemainingTasks": {
     "en": "Bulk Task Resolve",
-    "lo": ""
+    "lo": "ແກ້ໄຂໜ້າວຽກເປັນຊຸດ"
   },
   "socialProtection.resolveSelectedTasks": {
     "en": "Resolve Selected Tasks",
-    "lo": ""
+    "lo": "ແກ້ໄຂໜ້າວຽກທີ່ເລືອກ"
   },
   "socialProtection.stopButtonTooltip": {
     "en": "Suspend",
@@ -13389,19 +13389,19 @@
   },
   "socialProtection.taskConfirmation.title": {
     "en": "Beneficiary Upload Confirmation",
-    "lo": ""
+    "lo": "ຢືນຢັນການອັບໂຫຼດຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "socialProtection.undoButtonTooltip": {
     "en": "Undo Delete",
-    "lo": ""
+    "lo": "ຍົກເລີກການລຶບ"
   },
   "socialProtection.validation_import_valid_items.tasks.title": {
     "en": "Import Valid Items Task",
-    "lo": ""
+    "lo": "ໜ້າວຽກນຳເຂົ້າລາຍການທີ່ຖືກຕ້ອງ"
   },
   "socialProtection.validation.benefitPlan.invalidSchema": {
     "en": "Invalid schema",
-    "lo": ""
+    "lo": "ໂຄງສ້າງຂໍ້ມູນບໍ່ຖືກຕ້ອງ"
   },
   "socialProtection.viewDetailsButton.tooltip": {
     "en": "Details",
@@ -13469,7 +13469,7 @@
   },
   "tasksManagement.groupsManagement.groupHelmet": {
     "en": "Task Group",
-    "lo": ""
+    "lo": "ກຸ່ມໜ້າວຽກ"
   },
   "tasksManagement.menu.taskExecutionerGroups": {
     "en": "Task Executioner Groups",
@@ -13481,7 +13481,7 @@
   },
   "tasksManagement.saveButton.tooltip.disabled": {
     "en": "Disabled",
-    "lo": ""
+    "lo": "ປິດການນຳໃຊ້"
   },
   "tasksManagement.saveButton.tooltip.enabled": {
     "en": "Save changes",
@@ -13489,11 +13489,11 @@
   },
   "tasksManagement.task.assignee": {
     "en": "Task Group",
-    "lo": ""
+    "lo": "ກຸ່ມໜ້າວຽກ"
   },
   "tasksManagement.task.businessStatus": {
     "en": "Business Status",
-    "lo": ""
+    "lo": "ສະຖານະທາງທຸລະກິດ"
   },
   "tasksManagement.task.dateCreated": {
     "en": "Date Created",
@@ -13501,11 +13501,11 @@
   },
   "tasksManagement.task.dateCreated.after": {
     "en": "Date Created From",
-    "lo": ""
+    "lo": "ສ້າງແຕ່ວັນທີ"
   },
   "tasksManagement.task.dateCreated.before": {
     "en": "Date Created To",
-    "lo": ""
+    "lo": "ສ້າງເຖິງວັນທີ"
   },
   "tasksManagement.task.dateUpdated": {
     "en": "Date Updated",
@@ -13517,31 +13517,31 @@
   },
   "tasksManagement.task.detailsPage.triage.preview": {
     "en": "Preview",
-    "lo": ""
+    "lo": "ເບິ່ງຕົວຢ່າງ"
   },
   "tasksManagement.task.detailsPage.triage.title": {
     "en": "Task",
-    "lo": ""
+    "lo": "ໜ້າວຽກ"
   },
   "tasksManagement.task.entity": {
     "en": "Entity",
-    "lo": ""
+    "lo": "ລາຍການຂໍ້ມູນ"
   },
   "tasksManagement.task.resolve.confirm.approve.message": {
     "en": "Are you sure you want to approve this task?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອະນຸມັດໜ້າວຽກນີ້?"
   },
   "tasksManagement.task.resolve.confirm.fail.message": {
     "en": "Are you sure you want to fail this task?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການໃຫ້ໜ້າວຽກນີ້ລົ້ມເຫຼວ?"
   },
   "tasksManagement.task.resolve.confirm.title": {
     "en": "Resolve task",
-    "lo": ""
+    "lo": "ແກ້ໄຂໜ້າວຽກ"
   },
   "tasksManagement.task.resolve.mutationLabel": {
     "en": "Resolving task",
-    "lo": ""
+    "lo": "ກຳລັງແກ້ໄຂໜ້າວຽກ"
   },
   "tasksManagement.task.searcherResultsTitle": {
     "en": "{tasksTotalCount} Tasks Found",
@@ -13549,59 +13549,59 @@
   },
   "tasksManagement.task.source": {
     "en": "Source",
-    "lo": ""
+    "lo": "ແຫຼ່ງທີ່ມາ"
   },
   "tasksManagement.task.source.BeneficiaryService": {
     "en": "Beneficiary Service",
-    "lo": ""
+    "lo": "ບໍລິການຜູ້ໄດ້ຮັບຜົນປະໂຫຍດ"
   },
   "tasksManagement.task.source.BenefitPlanService": {
     "en": "Program Service",
-    "lo": ""
+    "lo": "ບໍລິການໂຄງການ"
   },
   "tasksManagement.task.source.calcrule_social_protection": {
     "en": "Calculation Rule: Social Protection",
-    "lo": ""
+    "lo": "ກົດການຄິດໄລ່: ການປົກປ້ອງທາງສັງຄົມ"
   },
   "tasksManagement.task.source.CreateDeduplicationReviewTasksService": {
     "en": "Create Deduplication Review Tasks Service",
-    "lo": ""
+    "lo": "ບໍລິການສ້າງໜ້າວຽກກວດສອບຂໍ້ມູນຊ້ຳ"
   },
   "tasksManagement.task.source.CreateGroupAndMoveIndividualService": {
     "en": "Create Group And Move Individual Service",
-    "lo": ""
+    "lo": "ບໍລິການສ້າງກຸ່ມ ແລະ ຍ້າຍບຸກຄົນ"
   },
   "tasksManagement.task.source.GroupIndividualService": {
     "en": "Group Individual Service",
-    "lo": ""
+    "lo": "ບໍລິການບຸກຄົນໃນກຸ່ມ"
   },
   "tasksManagement.task.source.import_valid_items": {
     "en": "Import Valid Items",
-    "lo": ""
+    "lo": "ນຳເຂົ້າລາຍການທີ່ຖືກຕ້ອງ"
   },
   "tasksManagement.task.source.IndividualService": {
     "en": "Individual Service",
-    "lo": ""
+    "lo": "ບໍລິການບຸກຄົນ"
   },
   "tasksManagement.task.source.mutationLabel": {
     "en": "Resolving task",
-    "lo": ""
+    "lo": "ກຳລັງແກ້ໄຂໜ້າວຽກ"
   },
   "tasksManagement.task.source.payroll": {
     "en": "Payroll",
-    "lo": ""
+    "lo": "ບັນຊີການຈ່າຍເງິນ"
   },
   "tasksManagement.task.source.payroll_delete": {
     "en": "Delete Payroll",
-    "lo": ""
+    "lo": "ລຶບບັນຊີການຈ່າຍເງິນ"
   },
   "tasksManagement.task.source.payroll_reconciliation": {
     "en": "Payroll Reconciliation",
-    "lo": ""
+    "lo": "ການກະທົບຍອດບັນຊີການຈ່າຍເງິນ"
   },
   "tasksManagement.task.source.payroll_reject": {
     "en": "Reject Payroll",
-    "lo": ""
+    "lo": "ປະຕິເສດບັນຊີການຈ່າຍເງິນ"
   },
   "tasksManagement.task.status": {
     "en": "Status",
@@ -13609,19 +13609,19 @@
   },
   "tasksManagement.task.status.ACCEPTED": {
     "en": "ACCEPTED",
-    "lo": ""
+    "lo": "ຮັບຮອງແລ້ວ"
   },
   "tasksManagement.task.status.COMPLETED": {
     "en": "COMPLETED",
-    "lo": ""
+    "lo": "ສຳເລັດແລ້ວ"
   },
   "tasksManagement.task.status.FAILED": {
     "en": "FAILED",
-    "lo": ""
+    "lo": "ລົ້ມເຫຼວ"
   },
   "tasksManagement.task.status.RECEIVED": {
     "en": "RECEIVED",
-    "lo": ""
+    "lo": "ໄດ້ຮັບແລ້ວ"
   },
   "tasksManagement.task.type": {
     "en": "Type",
@@ -13629,11 +13629,11 @@
   },
   "tasksManagement.task.type.accept_payroll": {
     "en": "Accept Payroll",
-    "lo": ""
+    "lo": "ຮັບຮອງບັນຊີການຈ່າຍເງິນ"
   },
   "tasksManagement.task.type.calculate": {
     "en": "Calculate",
-    "lo": ""
+    "lo": "ຄິດໄລ່"
   },
   "tasksManagement.task.type.create": {
     "en": "Create",
@@ -13641,19 +13641,19 @@
   },
   "tasksManagement.task.type.import_valid_items": {
     "en": "Import Valid Items",
-    "lo": ""
+    "lo": "ນຳເຂົ້າລາຍການທີ່ຖືກຕ້ອງ"
   },
   "tasksManagement.task.type.payroll_delete": {
     "en": "Delete Payroll",
-    "lo": ""
+    "lo": "ລຶບບັນຊີການຈ່າຍເງິນ"
   },
   "tasksManagement.task.type.payroll_reconciliation": {
     "en": "Payroll Reconciliation",
-    "lo": ""
+    "lo": "ການກະທົບຍອດບັນຊີການຈ່າຍເງິນ"
   },
   "tasksManagement.task.type.payroll_reject": {
     "en": "Reject Payroll",
-    "lo": ""
+    "lo": "ປະຕິເສດບັນຊີການຈ່າຍເງິນ"
   },
   "tasksManagement.task.type.update": {
     "en": "Update",
@@ -13665,11 +13665,11 @@
   },
   "tasksManagement.TaskExecutorsPicker.label": {
     "en": "Task Executors",
-    "lo": ""
+    "lo": "ຜູ້ປະຕິບັດໜ້າວຽກ"
   },
   "tasksManagement.TaskExecutorsPicker.placeholder": {
     "en": "Search for Task Executor...",
-    "lo": ""
+    "lo": "ຄົ້ນຫາຜູ້ປະຕິບັດໜ້າວຽກ..."
   },
   "tasksManagement.taskGroup.code": {
     "en": "Code",
@@ -13677,11 +13677,11 @@
   },
   "tasksManagement.taskGroup.completionPolicy": {
     "en": "Policy Status",
-    "lo": ""
+    "lo": "ນະໂຍບາຍການສຳເລັດ"
   },
   "tasksManagement.taskGroup.completionPolicy.ALL": {
     "en": "ALL",
-    "lo": ""
+    "lo": "ທັງໝົດ"
   },
   "tasksManagement.taskGroup.completionPolicy.ANY": {
     "en": "ANY",
@@ -13689,23 +13689,23 @@
   },
   "tasksManagement.taskGroup.completionPolicy.N": {
     "en": "N",
-    "lo": ""
+    "lo": "ຈຳນວນໜຶ່ງ"
   },
   "tasksManagement.taskGroup.create.mutationLabel": {
     "en": "Create task group {id}",
-    "lo": ""
+    "lo": "ສ້າງກຸ່ມໜ້າວຽກ {id}"
   },
   "tasksManagement.taskGroup.delete.confirm.message": {
     "en": "Are you sure you want to delete the task group?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການລຶບກຸ່ມໜ້າວຽກນີ້?"
   },
   "tasksManagement.taskGroup.delete.confirm.title": {
     "en": "Delete task group {code}",
-    "lo": ""
+    "lo": "ລຶບກຸ່ມໜ້າວຽກ {code}"
   },
   "tasksManagement.taskGroup.delete.mutationLabel": {
     "en": "Delete task group {id}",
-    "lo": ""
+    "lo": "ລຶບກຸ່ມໜ້າວຽກ {id}"
   },
   "tasksManagement.taskGroup.description": {
     "en": "Description",
@@ -13717,15 +13717,15 @@
   },
   "tasksManagement.taskGroup.detailsPage.title": {
     "en": "Task Group {code}",
-    "lo": ""
+    "lo": "ກຸ່ມໜ້າວຽກ {code}"
   },
   "tasksManagement.taskGroup.numberOfMembers": {
     "en": "Number of Members",
-    "lo": ""
+    "lo": "ຈຳນວນສະມາຊິກ"
   },
   "tasksManagement.taskGroup.placeholder": {
     "en": "Not assigned",
-    "lo": ""
+    "lo": "ຍັງບໍ່ໄດ້ມອບໝາຍ"
   },
   "tasksManagement.taskGroup.searcherResultsTitle": {
     "en": "{taskGroupsTotalCount} Task Groups Found",
@@ -13733,7 +13733,7 @@
   },
   "tasksManagement.taskGroup.update.mutationLabel": {
     "en": "Update task group {id}",
-    "lo": ""
+    "lo": "ປັບປຸງກຸ່ມໜ້າວຽກ {id}"
   },
   "tasksManagement.taskHistory.searcherResultsTitle": {
     "en": "{taskHistoryTotalCount} Historical Tasks Found",
@@ -13745,11 +13745,11 @@
   },
   "tasksManagement.TaskPreviewTable.rowsPerPage": {
     "en": "Rows per page",
-    "lo": ""
+    "lo": "ແຖວຕໍ່ໜ້າ"
   },
   "tasksManagement.tasks.changelog": {
     "en": "Task Changelog",
-    "lo": ""
+    "lo": "ບັນທຶກການປ່ຽນແປງໜ້າວຽກ"
   },
   "tasksManagement.tasks.changelog.close": {
     "en": "Close",
@@ -13757,7 +13757,7 @@
   },
   "tasksManagement.tasks.changelog.showChangelog": {
     "en": "Show Changelog",
-    "lo": ""
+    "lo": "ສະແດງບັນທຶກການປ່ຽນແປງ"
   },
   "tasksManagement.tasksMainMenu": {
     "en": "Tasks Management",
@@ -13765,11 +13765,11 @@
   },
   "tasksManagement.TaskSourcePicker.label": {
     "en": "Task Sources",
-    "lo": ""
+    "lo": "ແຫຼ່ງທີ່ມາຂອງໜ້າວຽກ"
   },
   "tasksManagement.TaskSourcePicker.placeholder": {
     "en": "Search for task sources...",
-    "lo": ""
+    "lo": "ຄົ້ນຫາແຫຼ່ງທີ່ມາຂອງໜ້າວຽກ..."
   },
   "tasksManagement.viewDetailsButton.tooltip": {
     "en": "View details",
@@ -13781,19 +13781,19 @@
   },
   "Ticket Priority.Critical": {
     "en": "Critical",
-    "lo": ""
+    "lo": "ວິກິດ"
   },
   "Ticket Priority.High": {
     "en": "High",
-    "lo": ""
+    "lo": "ສູງ"
   },
   "Ticket Priority.Low": {
     "en": "Low",
-    "lo": ""
+    "lo": "ຕ່ຳ"
   },
   "Ticket Priority.Normal": {
     "en": "Normal",
-    "lo": ""
+    "lo": "ປົກກະຕິ"
   },
   "Ticket Priority.null": {
     "en": "None",
@@ -13809,7 +13809,7 @@
   },
   "Ticket Status.Done": {
     "en": "Done",
-    "lo": ""
+    "lo": "ສຳເລັດ"
   },
   "Ticket Status.IN_PROGRESS": {
     "en": "In Progress",
@@ -13817,7 +13817,7 @@
   },
   "Ticket Status.Inprogress": {
     "en": "Inprogress",
-    "lo": ""
+    "lo": "ກຳລັງດຳເນີນການ"
   },
   "Ticket Status.null": {
     "en": "None",
@@ -13829,23 +13829,23 @@
   },
   "Ticket Status.RECEIVED": {
     "en": "Received",
-    "lo": ""
+    "lo": "ໄດ້ຮັບແລ້ວ"
   },
   "Ticket Status.RESOLVED": {
     "en": "Resolved",
-    "lo": ""
+    "lo": "ແກ້ໄຂແລ້ວ"
   },
   "Ticket Status.Review": {
     "en": "Review",
-    "lo": ""
+    "lo": "ກວດສອບ"
   },
   "Ticket Status.Todo": {
     "en": "Todo",
-    "lo": ""
+    "lo": "ຍັງບໍ່ໄດ້ເລີ່ມ"
   },
   "Ticket Status.Waiting": {
     "en": "Waiting",
-    "lo": ""
+    "lo": "ລໍຖ້າ"
   },
   "ticket.anonymousUser": {
     "en": "Anonymous User",
@@ -13853,7 +13853,7 @@
   },
   "ticket.attachments.table": {
     "en": "Attachments",
-    "lo": ""
+    "lo": "ເອກະສານແນບ"
   },
   "ticket.attachments.table.date": {
     "en": "Date",
@@ -13861,11 +13861,11 @@
   },
   "ticket.attachments.table.file": {
     "en": "File",
-    "lo": ""
+    "lo": "ໄຟລ໌"
   },
   "ticket.attachments.table.filename": {
     "en": "File Name",
-    "lo": ""
+    "lo": "ຊື່ໄຟລ໌"
   },
   "ticket.attendingStaff": {
     "en": "Attending Staff",
@@ -13873,11 +13873,11 @@
   },
   "ticket.comment": {
     "en": "Comment",
-    "lo": ""
+    "lo": "ຄຳເຫັນ"
   },
   "ticket.commenter": {
     "en": "Commenter",
-    "lo": ""
+    "lo": "ຜູ້ໃຫ້ຄຳເຫັນ"
   },
   "ticket.currentVillage": {
     "en": "Village",
@@ -13889,7 +13889,7 @@
   },
   "ticket.dateOfIncident": {
     "en": "Date of Incident",
-    "lo": ""
+    "lo": "ວັນທີເກີດເຫດ"
   },
   "ticket.description": {
     "en": "Description",
@@ -13897,11 +13897,11 @@
   },
   "Ticket.description": {
     "en": " Grievance Description",
-    "lo": ""
+    "lo": " ລາຍລະອຽດຄຳຮ້ອງທຸກ"
   },
   "ticket.editButtonTooltip": {
     "en": "Edit Grievance",
-    "lo": ""
+    "lo": "ແກ້ໄຂຄຳຮ້ອງທຸກ"
   },
   "ticket.email": {
     "en": "Email",
@@ -13909,11 +13909,11 @@
   },
   "ticket.eventDate": {
     "en": "Date of Event",
-    "lo": ""
+    "lo": "ວັນທີເກີດເຫດການ"
   },
   "ticket.eventLocation": {
     "en": "Location of Event",
-    "lo": ""
+    "lo": "ສະຖານທີ່ເກີດເຫດການ"
   },
   "ticket.insureeLocation": {
     "en": "Location",
@@ -13925,11 +13925,11 @@
   },
   "ticket.markAsResolved": {
     "en": "Resolve Using Comment",
-    "lo": ""
+    "lo": "ແກ້ໄຂໂດຍໃຊ້ຄຳເຫັນ"
   },
   "ticket.menu.my_entities": {
     "en": "MY Grievance",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງທຸກຂອງຂ້ອຍ"
   },
   "ticket.name": {
     "en": "Name",
@@ -13945,27 +13945,27 @@
   },
   "ticket.resolution": {
     "en": "RESOLUTION",
-    "lo": ""
+    "lo": "ການແກ້ໄຂ"
   },
   "Ticket.status.DONE": {
     "en": "DONE",
-    "lo": ""
+    "lo": "ສຳເລັດ"
   },
   "Ticket.status.INPROGRESS": {
     "en": "INPROGRESS",
-    "lo": ""
+    "lo": "ກຳລັງດຳເນີນການ"
   },
   "Ticket.status.REVIEW": {
     "en": "REVIEW",
-    "lo": ""
+    "lo": "ກວດສອບ"
   },
   "Ticket.status.TODO": {
     "en": "TODO",
-    "lo": ""
+    "lo": "ຍັງບໍ່ໄດ້ເລີ່ມ"
   },
   "Ticket.status.WAITING": {
     "en": "WAITING",
-    "lo": ""
+    "lo": "ລໍຖ້າ"
   },
   "ticket.Table": {
     "en": "Grievances",
@@ -13993,7 +13993,7 @@
   },
   "ticket.template.dateOfIncident": {
     "en": "Date of Incident",
-    "lo": ""
+    "lo": "ວັນທີເກີດເຫດ"
   },
   "ticket.template.description": {
     "en": "Description",
@@ -14001,11 +14001,11 @@
   },
   "ticket.template.flags": {
     "en": "Flags",
-    "lo": ""
+    "lo": "ເຄື່ອງໝາຍ"
   },
   "ticket.template.noComments": {
     "en": "No Comments yet",
-    "lo": ""
+    "lo": "ຍັງບໍ່ມີຄຳເຫັນ"
   },
   "ticket.template.priority": {
     "en": "Priority",
@@ -14033,7 +14033,7 @@
   },
   "Ticket.Ticket.Table": {
     "en": "Grievance ({count})",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງທຸກ ({count})"
   },
   "ticket.ticketCode": {
     "en": "Code",
@@ -14041,7 +14041,7 @@
   },
   "ticket.ticketDescription": {
     "en": "DETAILS OF EVENT LEADING TO GRIEVANCE (Provide a detailed account of the occurrence)",
-    "lo": ""
+    "lo": "ລາຍລະອຽດຂອງເຫດການທີ່ນຳໄປສູ່ຄຳຮ້ອງທຸກ (ກະລຸນາອະທິບາຍເຫດການຢ່າງລະອຽດ)"
   },
   "ticket.ticketGrievanct": {
     "en": "Reporter",
@@ -14053,19 +14053,19 @@
   },
   "ticket.ticketPriority.Critical": {
     "en": "Critical",
-    "lo": ""
+    "lo": "ວິກິດ"
   },
   "ticket.ticketPriority.High": {
     "en": "High",
-    "lo": ""
+    "lo": "ສູງ"
   },
   "ticket.ticketPriority.Low": {
     "en": "Low",
-    "lo": ""
+    "lo": "ຕ່ຳ"
   },
   "ticket.ticketPriority.Normal": {
     "en": "Normal",
-    "lo": ""
+    "lo": "ປົກກະຕິ"
   },
   "ticket.ticketPriority.null": {
     "en": "None",
@@ -14093,11 +14093,11 @@
   },
   "ticket.ticketStatus.RECEIVED": {
     "en": "Received",
-    "lo": ""
+    "lo": "ໄດ້ຮັບແລ້ວ"
   },
   "ticket.ticketStatus.RESOLVED": {
     "en": "Resolved",
-    "lo": ""
+    "lo": "ແກ້ໄຂແລ້ວ"
   },
   "ticket.ticketSummaries.delete": {
     "en": " ",
@@ -14109,11 +14109,11 @@
   },
   "ticket.title": {
     "en": "Grievance Title",
-    "lo": ""
+    "lo": "ຫົວຂໍ້ຄຳຮ້ອງທຸກ"
   },
   "Ticket.title": {
     "en": " Grievance Title",
-    "lo": ""
+    "lo": " ຫົວຂໍ້ຄຳຮ້ອງທຸກ"
   },
   "ticket.title.bar": {
     "en": "Grievance",
@@ -14121,7 +14121,7 @@
   },
   "ticket.witness": {
     "en": "Witness (if applicable)",
-    "lo": ""
+    "lo": "ພະຍານ (ຖ້າມີ)"
   },
   "TicketCommentsPanel.table.header": {
     "en": "Comments",
@@ -14137,7 +14137,7 @@
   },
   "tickets.beneficaryCode": {
     "en": "Insurance Number",
-    "lo": ""
+    "lo": "ເລກປະກັນໄພ"
   },
   "tickets.category": {
     "en": "Category",
@@ -14149,7 +14149,7 @@
   },
   "tickets.dueDate": {
     "en": "Due Date",
-    "lo": ""
+    "lo": "ວັນທີຄົບກຳນົດ"
   },
   "tickets.priority": {
     "en": "Priority",
@@ -14177,7 +14177,7 @@
   },
   "ticketSummaries": {
     "en": "({count}) Grievance(s)",
-    "lo": ""
+    "lo": "ຄຳຮ້ອງທຸກ ({count})"
   },
   "ticketSummaries.deleteTicket.tooltip": {
     "en": "Delete Grievance",
@@ -14193,11 +14193,11 @@
   },
   "tools.ExtractsPage.ClaimsUploadBlock.ResultDialog.title": {
     "en": "Claims Upload Done",
-    "lo": ""
+    "lo": "ອັບໂຫຼດຄຳຮ້ອງເບີກຈ່າຍສຳເລັດ"
   },
   "tools.ExtractsPage.ClaimsUploadBlock.title": {
     "en": "Upload Claims",
-    "lo": ""
+    "lo": "ອັບໂຫຼດຄຳຮ້ອງເບີກຈ່າຍ"
   },
   "tools.ExtractsPage.ClaimsUploadBlock.uploadBtn": {
     "en": "Upload",
@@ -14209,7 +14209,7 @@
   },
   "tools.ExtractsPage.DownloadMasterData.title": {
     "en": "Download Master Data",
-    "lo": ""
+    "lo": "ດາວໂຫຼດຂໍ້ມູນຫຼັກ"
   },
   "tools.ExtractsPage.EnrollmentsUploadBlock.ResultDialog.okBtn": {
     "en": "OK",
@@ -14221,11 +14221,11 @@
   },
   "tools.ExtractsPage.EnrollmentsUploadBlock.ResultDialog.title": {
     "en": "Enrolments Upload Done",
-    "lo": ""
+    "lo": "ອັບໂຫຼດການສະໝັກສຳເລັດ"
   },
   "tools.ExtractsPage.EnrollmentsUploadBlock.title": {
     "en": "Upload Enrolments",
-    "lo": ""
+    "lo": "ອັບໂຫຼດການສະໝັກ"
   },
   "tools.ExtractsPage.EnrollmentsUploadBlock.uploadBtn": {
     "en": "Upload",
@@ -14241,11 +14241,11 @@
   },
   "tools.ExtractsPage.FeedbacksUploadBlock.ResultDialog.title": {
     "en": "Feedbacks Upload Done",
-    "lo": ""
+    "lo": "ອັບໂຫຼດຄຳຄິດເຫັນສຳເລັດ"
   },
   "tools.ExtractsPage.FeedbacksUploadBlock.title": {
     "en": "Upload Feedbacks",
-    "lo": ""
+    "lo": "ອັບໂຫຼດຄຳຄິດເຫັນ"
   },
   "tools.ExtractsPage.FeedbacksUploadBlock.uploadBtn": {
     "en": "Upload",
@@ -14253,19 +14253,19 @@
   },
   "tools.ExtractsPage.OfficerDownloadBlock.downloadFeedbacksBtn": {
     "en": "Download Feedbacks",
-    "lo": ""
+    "lo": "ດາວໂຫຼດຄຳຄິດເຫັນ"
   },
   "tools.ExtractsPage.OfficerDownloadBlock.downloadRenewalsBtn": {
     "en": "Download Renewals",
-    "lo": ""
+    "lo": "ດາວໂຫຼດການຕໍ່ອາຍຸ"
   },
   "tools.ExtractsPage.OfficerDownloadBlock.officerLabel": {
     "en": "Select Officer",
-    "lo": ""
+    "lo": "ເລືອກເຈົ້າໜ້າທີ່"
   },
   "tools.ExtractsPage.OfficerDownloadBlock.title": {
     "en": "Download Data for Officer",
-    "lo": ""
+    "lo": "ດາວໂຫຼດຂໍ້ມູນສຳລັບເຈົ້າໜ້າທີ່"
   },
   "tools.ExtractsPage.RenewalsUploadBlock.ResultDialog.okBtn": {
     "en": "OK",
@@ -14277,11 +14277,11 @@
   },
   "tools.ExtractsPage.RenewalsUploadBlock.ResultDialog.title": {
     "en": "Renewals Upload Done",
-    "lo": ""
+    "lo": "ອັບໂຫຼດການຕໍ່ອາຍຸສຳເລັດ"
   },
   "tools.ExtractsPage.RenewalsUploadBlock.title": {
     "en": "Upload Renewals",
-    "lo": ""
+    "lo": "ອັບໂຫຼດການຕໍ່ອາຍຸ"
   },
   "tools.ExtractsPage.RenewalsUploadBlock.uploadBtn": {
     "en": "Upload",
@@ -14293,31 +14293,31 @@
   },
   "tools.formatPicker": {
     "en": "Format",
-    "lo": ""
+    "lo": "ຮູບແບບ"
   },
   "tools.formatPicker.csv": {
     "en": "CSV",
-    "lo": ""
+    "lo": "CSV"
   },
   "tools.formatPicker.json": {
     "en": "JSON",
-    "lo": ""
+    "lo": "JSON"
   },
   "tools.formatPicker.null": {
     "en": "Select a format",
-    "lo": ""
+    "lo": "ເລືອກຮູບແບບ"
   },
   "tools.formatPicker.xls": {
     "en": "XLS",
-    "lo": ""
+    "lo": "XLS"
   },
   "tools.formatPicker.xlsx": {
     "en": "XLSX",
-    "lo": ""
+    "lo": "XLSX"
   },
   "tools.formatPicker.xml": {
     "en": "XML",
-    "lo": ""
+    "lo": "XML"
   },
   "tools.GenerateReportPicker.cancelBtn": {
     "en": "Cancel",
@@ -14325,19 +14325,19 @@
   },
   "tools.GenerateReportPicker.formatLabel": {
     "en": "Output Format",
-    "lo": ""
+    "lo": "ຮູບແບບຜົນລັບ"
   },
   "tools.GenerateReportPicker.generateBtn": {
     "en": "Generate",
-    "lo": ""
+    "lo": "ສ້າງ"
   },
   "tools.GenerateReportPicker.title": {
     "en": "Configure Report Generation",
-    "lo": ""
+    "lo": "ຕັ້ງຄ່າການສ້າງບົດລາຍງານ"
   },
   "tools.GenerateReportPicker.triggerBtn": {
     "en": "Generate Report",
-    "lo": ""
+    "lo": "ສ້າງບົດລາຍງານ"
   },
   "tools.mainMenu": {
     "en": "Tools",
@@ -14405,15 +14405,15 @@
   },
   "tools.RegistersPage.diagnoses.downloadLabel": {
     "en": "Download Diagnoses",
-    "lo": ""
+    "lo": "ດາວໂຫຼດການວິນິດໄສ"
   },
   "tools.RegistersPage.diagnoses.uploadLabel": {
     "en": "Upload Diagnoses",
-    "lo": ""
+    "lo": "ອັບໂຫຼດການວິນິດໄສ"
   },
   "tools.RegistersPage.diagnosesBlockTitle": {
     "en": "Diagnoses",
-    "lo": ""
+    "lo": "ການວິນິດໄສ"
   },
   "tools.RegistersPage.downloadBtn": {
     "en": "Download",
@@ -14421,15 +14421,15 @@
   },
   "tools.RegistersPage.dryRunLabel": {
     "en": "Dry run",
-    "lo": ""
+    "lo": "ທົດລອງແລ່ນ"
   },
   "tools.RegistersPage.healthFacilities.downloadLabel": {
     "en": "Download Health Facilities",
-    "lo": ""
+    "lo": "ດາວໂຫຼດສະຖານບໍລິການສຸຂະພາບ"
   },
   "tools.RegistersPage.healthFacilities.uploadLabel": {
     "en": "Upload Health Facilities",
-    "lo": ""
+    "lo": "ອັບໂຫຼດສະຖານບໍລິການສຸຂະພາບ"
   },
   "tools.RegistersPage.healthFacilitiesBlockTitle": {
     "en": "Health Facilities",
@@ -14437,11 +14437,11 @@
   },
   "tools.RegistersPage.insurees.downloadLabel": {
     "en": "Download Insurees",
-    "lo": ""
+    "lo": "ດາວໂຫຼດຜູ້ເອົາປະກັນ"
   },
   "tools.RegistersPage.insurees.uploadLabel": {
     "en": "Upload Insurees",
-    "lo": ""
+    "lo": "ອັບໂຫຼດຜູ້ເອົາປະກັນ"
   },
   "tools.RegistersPage.insureesBlockTitle": {
     "en": "Insurees",
@@ -14449,11 +14449,11 @@
   },
   "tools.RegistersPage.items.downloadLabel": {
     "en": "Download Medical Items",
-    "lo": ""
+    "lo": "ດາວໂຫຼດລາຍການທາງການແພດ"
   },
   "tools.RegistersPage.items.uploadLabel": {
     "en": "Upload Medical Items",
-    "lo": ""
+    "lo": "ອັບໂຫຼດລາຍການທາງການແພດ"
   },
   "tools.RegistersPage.itemsBlockTitle": {
     "en": "Medical Items",
@@ -14461,15 +14461,15 @@
   },
   "tools.RegistersPage.legacyView": {
     "en": "Legacy",
-    "lo": ""
+    "lo": "ແບບເດີມ"
   },
   "tools.RegistersPage.locations.downloadLabel": {
     "en": "Download Locations",
-    "lo": ""
+    "lo": "ດາວໂຫຼດເຂດພື້ນທີ່"
   },
   "tools.RegistersPage.locations.uploadLabel": {
     "en": "Upload Locations",
-    "lo": ""
+    "lo": "ອັບໂຫຼດເຂດພື້ນທີ່"
   },
   "tools.RegistersPage.locationsBlockTitle": {
     "en": "Locations",
@@ -14477,15 +14477,15 @@
   },
   "tools.RegistersPage.modernView": {
     "en": "Modern",
-    "lo": ""
+    "lo": "ແບບໃໝ່"
   },
   "tools.RegistersPage.services.downloadLabel": {
     "en": "Download Medical Services",
-    "lo": ""
+    "lo": "ດາວໂຫຼດການບໍລິການທາງການແພດ"
   },
   "tools.RegistersPage.services.uploadLabel": {
     "en": "Upload Medical Services",
-    "lo": ""
+    "lo": "ອັບໂຫຼດການບໍລິການທາງການແພດ"
   },
   "tools.RegistersPage.servicesBlockTitle": {
     "en": "Medical Services",
@@ -14497,59 +14497,59 @@
   },
   "tools.RegistersPage.UploadDialog.confirmDiagnoses": {
     "en": "Are you sure you want to upload a new list of diagnoses?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອັບໂຫຼດບັນຊີການວິນິດໄສໃໝ່?"
   },
   "tools.RegistersPage.UploadDialog.confirmHF": {
     "en": "Are you sure you want to upload a new list of Health Facilities?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອັບໂຫຼດບັນຊີສະຖານບໍລິການສຸຂະພາບໃໝ່?"
   },
   "tools.RegistersPage.UploadDialog.confirmInsurees": {
     "en": "Are you sure you want to upload a new list of insurees?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອັບໂຫຼດບັນຊີຜູ້ເອົາປະກັນໃໝ່?"
   },
   "tools.RegistersPage.UploadDialog.confirmItems": {
     "en": "Are you sure you want to upload a new list of medical items?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອັບໂຫຼດບັນຊີລາຍການທາງການແພດໃໝ່?"
   },
   "tools.RegistersPage.UploadDialog.confirmLocations": {
     "en": "Are you sure you want to upload a new list of locations?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອັບໂຫຼດບັນຊີເຂດພື້ນທີ່ໃໝ່?"
   },
   "tools.RegistersPage.UploadDialog.confirmServices": {
     "en": "Are you sure you want to upload a new list of medical services?",
-    "lo": ""
+    "lo": "ທ່ານແນ່ໃຈບໍ່ວ່າຕ້ອງການອັບໂຫຼດບັນຊີການບໍລິການທາງການແພດໃໝ່?"
   },
   "tools.RegistersPage.UploadDialog.created": {
     "en": "Created:",
-    "lo": ""
+    "lo": "ສ້າງໃໝ່:"
   },
   "tools.RegistersPage.UploadDialog.deleted": {
     "en": "Deleted:",
-    "lo": ""
+    "lo": "ລຶບ:"
   },
   "tools.RegistersPage.UploadDialog.details": {
     "en": "Details:",
-    "lo": ""
+    "lo": "ລາຍລະອຽດ:"
   },
   "tools.RegistersPage.UploadDialog.errors": {
     "en": "Errors:",
-    "lo": ""
+    "lo": "ຂໍ້ຜິດພາດ:"
   },
   "tools.RegistersPage.UploadDialog.failed": {
     "en": "Failed:",
-    "lo": ""
+    "lo": "ລົ້ມເຫຼວ:"
   },
   "tools.RegistersPage.UploadDialog.failure": {
     "en": "Failure",
-    "lo": ""
+    "lo": "ລົ້ມເຫຼວ"
   },
   "tools.RegistersPage.UploadDialog.invalid": {
     "en": "Invalid:",
-    "lo": ""
+    "lo": "ບໍ່ຖືກຕ້ອງ:"
   },
   "tools.RegistersPage.UploadDialog.message": {
     "en": "Message:",
-    "lo": ""
+    "lo": "ຂໍ້ຄວາມ:"
   },
   "tools.RegistersPage.UploadDialog.okButton": {
     "en": "Ok",
@@ -14557,11 +14557,11 @@
   },
   "tools.RegistersPage.UploadDialog.sent": {
     "en": "Sent:",
-    "lo": ""
+    "lo": "ສົ່ງແລ້ວ:"
   },
   "tools.RegistersPage.UploadDialog.skipped": {
     "en": "Skipped:",
-    "lo": ""
+    "lo": "ຂ້າມ:"
   },
   "tools.RegistersPage.UploadDialog.success": {
     "en": "Success",
@@ -14569,15 +14569,15 @@
   },
   "tools.RegistersPage.UploadDialog.title": {
     "en": "Upload Register",
-    "lo": ""
+    "lo": "ອັບໂຫຼດທະບຽນ"
   },
   "tools.RegistersPage.UploadDialog.updated": {
     "en": "Updated:",
-    "lo": ""
+    "lo": "ປັບປຸງ:"
   },
   "tools.report.definition": {
     "en": "Definition",
-    "lo": ""
+    "lo": "ນິຍາມ"
   },
   "tools.report.description": {
     "en": "Description",
@@ -14597,19 +14597,19 @@
   },
   "tools.ReportDefinitionEditor.title": {
     "en": "Report Designer",
-    "lo": ""
+    "lo": "ຕົວອອກແບບບົດລາຍງານ"
   },
   "tools.ReportForm.title": {
     "en": "Editing report {name}",
-    "lo": ""
+    "lo": "ກຳລັງແກ້ໄຂບົດລາຍງານ {name}"
   },
   "tools.ReportForm.unknownReport": {
     "en": "Unknown report",
-    "lo": ""
+    "lo": "ບໍ່ຮູ້ຈັກບົດລາຍງານນີ້"
   },
   "tools.ReportPicker.label": {
     "en": "Report",
-    "lo": ""
+    "lo": "ບົດລາຍງານ"
   },
   "tools.ReportSearcher.editBtn": {
     "en": "Edit",
@@ -14625,23 +14625,23 @@
   },
   "tools.strategyPicker": {
     "en": "Strategy",
-    "lo": ""
+    "lo": "ວິທີການ"
   },
   "tools.strategyPicker.INSERT": {
     "en": "Insert",
-    "lo": ""
+    "lo": "ເພີ່ມ"
   },
   "tools.strategyPicker.INSERT_UPDATE": {
     "en": "Insert & Update",
-    "lo": ""
+    "lo": "ເພີ່ມ ແລະ ປັບປຸງ"
   },
   "tools.strategyPicker.INSERT_UPDATE_DELETE": {
     "en": "Insert, Update & Delete",
-    "lo": ""
+    "lo": "ເພີ່ມ, ປັບປຸງ ແລະ ລຶບ"
   },
   "tools.strategyPicker.null": {
     "en": "Select a strategy",
-    "lo": ""
+    "lo": "ເລືອກວິທີການ"
   },
   "tools.strategyPicker.UPDATE": {
     "en": "Update",
@@ -14649,11 +14649,11 @@
   },
   "undoButtonTooltip": {
     "en": "Undo Delete",
-    "lo": ""
+    "lo": "ຍົກເລີກການລຶບ"
   },
   "validation_import_group_valid_items.tasks.title": {
     "en": "Import Group Valid Items",
-    "lo": ""
+    "lo": "ນຳເຂົ້າລາຍການກຸ່ມທີ່ຖືກຕ້ອງ"
   },
   "validation.maxValue": {
     "en": "{value} above allowed {max}",

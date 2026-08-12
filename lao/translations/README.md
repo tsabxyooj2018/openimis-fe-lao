@@ -47,13 +47,18 @@ ministry documents already use. Settle those terms before bulk work — a
 consistent glossary matters more than speed, and changing a term later means
 revisiting every entry that used it.
 
-### Worth doing first
+## Status
 
-`core.*` (235 strings) holds the shared buttons, table controls and dialogs that
-appear on every screen, so it buys the most visible change per string. Then the
-modules this deployment actually uses: `insuree`, `policy`, `claim`.
+3,605 of 3,669 translated. The 26 entries still empty are that way on purpose:
 
-The first 92 `core.*` strings are done as a first pass and need review.
+| | |
+|---|---|
+| `*.export.*` (14) | CSV column headers and export filenames — `first_name`, `beneficiaries_export`. Read by spreadsheets and scripts, not by people. |
+| `socialProtection.benefitPlan.jsonExt` | A database column name shown verbatim. |
+| `currency` (`$`) | A currency symbol is a deployment decision. Rendering it as ₭ here would restate every amount in the interface without anything upstream agreeing the amounts are kip. |
+| `policyHolder.*Validation.regexMsg.{en,fr}` (10) | Indexed at runtime by `intl.locale`, which `openimis.json` sets to `en-GB` / `fr-FR` / `lo-LA`. `regexMsg["en-GB"]` is already undefined, so these render in no language including English. A Lao value would not appear; fixing them means changing module config, not this file. |
+
+Coverage is therefore complete for everything a user reads.
 
 ## After editing
 
@@ -68,6 +73,28 @@ reports coverage. Commit both files. The Docker build runs it with `--check` and
 Removing the empties is the point: an empty string is a valid translation as far
 as react-intl is concerned, so shipping the working file as-is would render most
 of the interface blank. Only an absent key falls through to English.
+
+## Consistency checks
+
+```bash
+node lao/translations/check-lo.js
+```
+
+Three things that are easy to get wrong by hand and impossible to see by reading:
+
+- **Placeholder drift** — a dropped `{code}` leaves a blank where a claim number
+  should be; an invented one throws at render.
+- **Thai characters in Lao text** — separate Unicode blocks that look alike, so a
+  stray Thai codepoint renders as a wrong-but-plausible letter.
+- **One English string rendered two ways** — openIMIS repeats labels across
+  modules, and translating each occurrence independently makes one interface look
+  like two.
+
+The third has an allowlist in the script for genuine homographs and for upstream
+labelling bugs Lao deliberately does not carry over — `Schema` on the price-list
+origin, a show/hide toggle whose two states share one English string, a reject
+button carrying a tab's title. Each entry states its reason. The default answer
+to a collision is to harmonise it, not to add it there.
 
 ## Checking the menus
 

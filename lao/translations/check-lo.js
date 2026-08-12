@@ -45,6 +45,23 @@ const ALLOWED_HOMOGRAPHS = {
     "ສະຖານະ for a contract's position in its lifecycle, ລັດ for the government as " +
     "the authority confirming a family (insuree.ConfirmationType.C, which sits " +
     "beside 'Local council'). Two unrelated senses of the same English word.",
+
+  // The three below are upstream labelling bugs, not homographs. Lao says what
+  // the control does; English still says the wrong thing.
+  "Policy Status":
+    "ສະຖານະສັນຍາປະກັນໄພ where it filters insurance policies. " +
+    "tasksManagement.taskGroup.completionPolicy carries the same English but has " +
+    "nothing to do with insurance -- it selects whether ALL members of a task " +
+    "group must act or only N of them, so Lao says ນະໂຍບາຍການສຳເລັດ.",
+  "Show Passowrd":
+    "core.SetPasswordPage assigns this same string -- typo included -- to BOTH " +
+    "showPassword and hidePassword, so the toggle reads identically in either " +
+    "state and tells the user nothing. Lao says ສະແດງ and ເຊື່ອງ.",
+  "Beneficiary Tasks":
+    "socialProtection.rejectSelected carries the tab title by copy-paste. It is " +
+    "the button that rejects the selected records, sitting beside Accept Selected " +
+    "and Reject All, so Lao labels it ປະຕິເສດລາຍການທີ່ເລືອກ rather than leaving a " +
+    "destructive action looking like navigation.",
 };
 
 const source = JSON.parse(fs.readFileSync(SRC, "utf8"));
