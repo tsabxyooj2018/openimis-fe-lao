@@ -1,0 +1,301 @@
+/* Contribution paid slips.
+   ---------------------------------------------------------------------------
+   A5 landscape, 210 x 148.5mm, so exactly two fit an A4 portrait sheet with no
+   waste and one straight cut across the middle. That is the shape a receipt
+   book already comes in, and it means the payer's copy and the office copy come
+   off the same sheet.
+
+   Everything is sized in millimetres. A receipt is a financial document that
+   gets filed and audited: it has to leave the printer at a predictable size
+   whatever the operator has done to their browser zoom. */
+
+.cbhi-slips {
+  display: flex;
+  flex-direction: column;
+  gap: 6mm;
+  padding: 4mm 0;
+}
+
+.cbhi-slip {
+  width: 210mm;
+  height: 148.5mm;
+  box-sizing: border-box;
+  padding: 8mm 10mm;
+  display: flex;
+  flex-direction: column;
+  background: #fff;
+  color: #10243a;
+  border: 0.3mm solid #c3d0dc;
+  /* Lao first: the Latin fallbacks carry no Lao glyphs at all. The bundled
+     woff2 (see src/index.css) means a receipt looks the same on every desk that
+     prints one -- which for a filed document is the point. */
+  font-family: "Noto Sans Lao", "Phetsarath OT", "Saysettha OT", sans-serif;
+  /* Lao sets tone marks above the consonant and vowel signs below it; at normal
+     leading they collide. */
+  line-height: 1.5;
+  /* The bundled face is variable, so every weight here is a drawn weight. A
+     synthesised bold smears Lao tone marks into the consonant beneath them. */
+  font-synthesis: none;
+}
+
+/* --- Header --------------------------------------------------------------- */
+
+.cbhi-slip__head {
+  display: flex;
+  align-items: flex-start;
+  gap: 4mm;
+  padding-bottom: 3mm;
+  border-bottom: 0.4mm solid #10243a;
+}
+
+.cbhi-slip__emblem {
+  width: 16mm;
+  height: 16mm;
+  flex: none;
+  object-fit: contain;
+}
+
+.cbhi-slip__authority {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8mm;
+  width: 52mm;
+  flex: none;
+  font-size: 3mm;
+}
+
+.cbhi-slip__ministry { font-weight: 600; }
+.cbhi-slip__organisation { opacity: 0.85; }
+
+.cbhi-slip__titleBlock {
+  flex: 1;
+  min-width: 0;
+  text-align: center;
+}
+
+.cbhi-slip__title {
+  font-size: 6mm;
+  font-weight: 700;
+  letter-spacing: 0.01em;
+}
+
+.cbhi-slip__copy {
+  margin-top: 1mm;
+  font-size: 3mm;
+  opacity: 0.75;
+}
+
+.cbhi-slip__ref {
+  width: 56mm;
+  flex: none;
+  font-size: 3.2mm;
+}
+
+/* --- Body ----------------------------------------------------------------- */
+
+.cbhi-slip__body {
+  display: flex;
+  gap: 8mm;
+  padding: 5mm 0;
+  flex: 1;
+  min-height: 0;
+}
+
+.cbhi-slip__col {
+  flex: 1;
+  /* The flexbox min-width trap, which has bitten this deployment three times
+     already: a flex item defaults to min-width:auto, meaning "never narrower
+     than my content", so a long product name would push the second column off
+     the slip instead of wrapping inside its own half. */
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 2mm;
+}
+
+.cbhi-slip__row {
+  display: flex;
+  gap: 2mm;
+  font-size: 3.4mm;
+  align-items: baseline;
+}
+
+.cbhi-slip__label {
+  flex: none;
+  width: 30mm;
+  opacity: 0.75;
+}
+
+.cbhi-slip__sep { flex: none; }
+
+.cbhi-slip__value {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+  /* A name or a product may run long. It wraps within its own column rather
+     than being cut: on a receipt, losing the end of a payer's name matters more
+     than an even line count. */
+  overflow-wrap: break-word;
+}
+
+/* --- The amount ----------------------------------------------------------- */
+
+.cbhi-slip__amount {
+  display: flex;
+  align-items: baseline;
+  gap: 3mm;
+  padding: 3mm 5mm;
+  background: #eef3f8;
+  border: 0.4mm solid #10243a;
+  border-radius: 1mm;
+}
+
+.cbhi-slip__amountLabel {
+  font-size: 3.8mm;
+  opacity: 0.8;
+}
+
+.cbhi-slip__amountValue {
+  font-size: 8mm;
+  font-weight: 700;
+  margin-left: auto;
+  /* Tabular figures so the digits line up between one receipt and the next, and
+     so 1 and 7 cannot be confused when a total is checked by hand. */
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.02em;
+}
+
+.cbhi-slip__currency {
+  font-size: 4.5mm;
+  font-weight: 600;
+}
+
+/* --- Signatures and barcode ----------------------------------------------- */
+
+.cbhi-slip__foot {
+  display: flex;
+  align-items: flex-end;
+  gap: 6mm;
+  padding-top: 6mm;
+}
+
+.cbhi-slip__sign {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5mm;
+}
+
+.cbhi-slip__signLine {
+  width: 100%;
+  border-bottom: 0.3mm dotted #10243a;
+  height: 8mm;
+}
+
+.cbhi-slip__signLabel {
+  font-size: 3mm;
+  opacity: 0.8;
+}
+
+.cbhi-slip__barcode {
+  width: 52mm;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8mm;
+}
+
+.cbhi-slip__barcode svg {
+  width: 100%;
+  height: 10mm;
+  display: block;
+  fill: #10243a;
+}
+
+.cbhi-slip__barcodeText {
+  font-family: "Consolas", "DejaVu Sans Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 2.8mm;
+  letter-spacing: 0.06em;
+}
+
+/* --- Screen preview ------------------------------------------------------- */
+
+/* A5 landscape is wider than the pane it previews in, so it scales down to fit.
+   transform rather than a narrower layout, so what is on screen is the same
+   geometry that prints -- only smaller. */
+.cbhi-slips--preview .cbhi-slip {
+  transform: scale(0.62);
+  transform-origin: top left;
+  /* scale() does not change the box the element reserves, so without this the
+     preview would leave a large empty gap under every slip. */
+  margin-bottom: -56mm;
+  margin-right: -80mm;
+}
+
+/* --- Print ---------------------------------------------------------------- */
+
+@media print {
+  @page {
+    size: A4 portrait;
+    /* Nothing: the two A5 slips fill the sheet exactly, and any page margin
+       here would scale them down and break the 210mm width. The slips carry
+       their own padding, which keeps content inside the printer's unprintable
+       edge. */
+    margin: 0;
+  }
+
+  /* Removed from the layout, not merely hidden. A hidden element keeps its box,
+     and this application's shell is a full-height sidebar plus a header, which
+     would print as blank sheets before the slips appeared. */
+  header,
+  .MuiDrawer-root,
+  .MuiDrawer-paperAnchorDockedLeft,
+  .cbhi-noprint {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  body * { visibility: hidden; }
+
+  .cbhi-print,
+  .cbhi-print * { visibility: visible; }
+
+  .cbhi-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  /* The preview scale is a screen affordance only. */
+  .cbhi-slips--preview .cbhi-slip {
+    transform: none;
+    margin-bottom: 0;
+    margin-right: 0;
+  }
+
+  .cbhi-slips {
+    gap: 0;
+    padding: 0;
+  }
+
+  .cbhi-slip {
+    /* A receipt split across a page break is void. */
+    break-inside: avoid;
+    page-break-inside: avoid;
+    /* Printers drop background colours by default, which would leave the amount
+       box and the barcode unreadable. */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    /* The border is the cut line between the two slips on the sheet. */
+    border: 0.3mm dashed #8aa1b4;
+  }
+}

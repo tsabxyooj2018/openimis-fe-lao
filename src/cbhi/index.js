@@ -2,7 +2,9 @@ import React from "react";
 import { useIntl } from "react-intl";
 import { MainMenuContribution, formatMessage } from "@openimis/fe-core";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
+import ReceiptIcon from "@material-ui/icons/Receipt";
 import MembershipCardsPage from "./MembershipCardsPage";
+import ContributionSlipsPage from "./ContributionSlipsPage";
 import messages from "./messages.json";
 
 /*
@@ -40,8 +42,8 @@ import messages from "./messages.json";
  */
 
 /*
- * Insuree | Query Insurees, which is what the page actually does. fe-insuree
- * calls it RIGHT_INSUREE.
+ * Insuree | Query Insurees, which is what the cards page actually does.
+ * fe-insuree calls it RIGHT_INSUREE.
  *
  * The check is here rather than as a `filter` on the entry: MainMenuContribution
  * renders whatever `entries` it is handed, and it is the CONSUMING module that
@@ -51,6 +53,17 @@ import messages from "./messages.json";
  * be a permission error.
  */
 const RIGHT_INSUREE = 101101;
+
+/*
+ * Contribution | Query Contributions, for the slips page. fe-contribution calls
+ * it RIGHT_CONTRIBUTION.
+ *
+ * The slips page also reads policies (policiesByInsuree, right 101201) on the
+ * insurance-number branch of its search. That branch fails softly -- the
+ * receipt-number branch still answers -- so it is not required to see the
+ * entry, only to search by member.
+ */
+const RIGHT_CONTRIBUTION = 101301;
 
 const CardsMainMenu = (props) => {
   const intl = useIntl();
@@ -63,9 +76,11 @@ const CardsMainMenu = (props) => {
    * wrong contribution key already caused once. Showing it early costs a
    * permission error at worst; hiding it wrongly costs the whole feature.
    */
-  if (Array.isArray(rights) && rights.length && !rights.includes(RIGHT_INSUREE)) {
-    return null;
-  }
+  const known = Array.isArray(rights) && rights.length;
+  const maySeeCards = !known || rights.includes(RIGHT_INSUREE);
+  const maySeeSlips = !known || rights.includes(RIGHT_CONTRIBUTION);
+  // Nothing to show at all rather than an empty group header.
+  if (!maySeeCards && !maySeeSlips) return null;
 
   return (
     <MainMenuContribution
@@ -91,19 +106,32 @@ const CardsMainMenu = (props) => {
       // translated header text, and fe-core uses it to decide which group stays
       // open. A group without one is styled by whatever its label happens to be.
       menuId="CbhiMainMenu"
+      /*
+       * Filtered here rather than with each entry's `filter`, for the reason in
+       * the note above: MainMenuContribution renders whatever `entries` it is
+       * handed and never applies entry.filter itself.
+       */
       entries={[
-        {
+        maySeeCards && {
           text: formatMessage(intl, "cbhi", "menu.membershipCards"),
           icon: <CreditCardIcon />,
           route: "/cbhi/membership-cards",
         },
-      ]}
+        maySeeSlips && {
+          text: formatMessage(intl, "cbhi", "menu.contributionSlips"),
+          icon: <ReceiptIcon />,
+          route: "/cbhi/contribution-slips",
+        },
+      ].filter(Boolean)}
     />
   );
 };
 
 const CbhiModule = (cfg) => ({
-  "core.Router": [{ path: "cbhi/membership-cards", component: MembershipCardsPage }],
+  "core.Router": [
+    { path: "cbhi/membership-cards", component: MembershipCardsPage },
+    { path: "cbhi/contribution-slips", component: ContributionSlipsPage },
+  ],
   // { name, component } -- the shape MainMenuBar renders. See the note above.
   "core.MainMenu": [{ name: "CbhiMainMenu", component: CardsMainMenu }],
   /*
