@@ -1,11 +1,13 @@
 import React from "react";
 import { useIntl } from "react-intl";
-import { MainMenuContribution, formatMessage } from "@openimis/fe-core";
+import { MainMenuContribution, FormattedMessage, formatMessage } from "@openimis/fe-core";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import ReceiptIcon from "@material-ui/icons/Receipt";
 import MembershipCardsPage from "./MembershipCardsPage";
 import ContributionSlipsPage from "./ContributionSlipsPage";
 import { InsureeExport, ClaimExport } from "./FilterExport";
+import ClaimTotalsPage from "./ClaimTotalsPage";
+import AssessmentIcon from "@material-ui/icons/Assessment";
 import messages from "./messages.json";
 
 /*
@@ -162,6 +164,7 @@ const CbhiModule = (cfg) => ({
   "core.Router": [
     { path: "cbhi/membership-cards", component: MembershipCardsPage },
     { path: "cbhi/contribution-slips", component: ContributionSlipsPage },
+    { path: "cbhi/claim-totals", component: ClaimTotalsPage },
   ],
   // { name, component } -- the shape MainMenuBar renders. See the note above.
   "core.MainMenu": [{ name: "CbhiMainMenu", component: CardsMainMenu }],
@@ -186,6 +189,31 @@ const CbhiModule = (cfg) => ({
    */
   "insuree.Filter": [InsureeExport],
   "claim.Filter": [ClaimExport],
+  /*
+   * An entry INSIDE openIMIS's own Claims group rather than in ours, because
+   * that is where someone looking for a claim total will look.
+   *
+   * ClaimMainMenu collects this key and applies each entry's `filter` itself:
+   *
+   *     entries.push(...modulesManager.getContribs(CLAIM_MAIN_MENU_CONTRIBUTION_KEY)
+   *       .filter(c => !c.filter || c.filter(rights)))
+   *
+   * so unlike our own group, a `filter` here is honoured and is the right place
+   * for the rights check. `id` is not optional -- MainMenuContribution
+   * de-duplicates on it, and an entry without one collides with fe-claim's own
+   * entries and vanishes. That cost three rounds to find once already.
+   */
+  "claim.MainMenu": [
+    {
+      id: "cbhi.claimTotals",
+      text: <FormattedMessage module="cbhi" id="menu.claimTotals" />,
+      icon: <AssessmentIcon />,
+      route: "/cbhi/claim-totals",
+      // Claim | Query Claims. Reading totals needs nothing more than the right
+      // to read the claims they are computed from.
+      filter: (rights) => rights.includes(111005),
+    },
+  ],
   /*
    * This module's own strings. Contributions are merged as
    * { ...messages, ...contributed } per language, so these sit alongside the Lao

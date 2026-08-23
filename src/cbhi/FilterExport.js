@@ -44,7 +44,7 @@ import { downloadWorkbook } from "./xlsx";
 /* The server rejects a larger page on these connections:
  *   "Requesting 200 records on the `insurees` connection exceeds the `first`
  *    limit of 100 records." */
-const PAGE = 100;
+export const PAGE = 100;
 
 /*
  * A ceiling on the whole export. Without one, an operator who clears every
@@ -52,9 +52,9 @@ const PAGE = 100;
  * a time, building a workbook in a tab that will stop responding. The number is
  * generous for any real working list and small enough to stay in memory.
  */
-const MAX_ROWS = 5000;
+export const MAX_ROWS = 5000;
 
-const filtersToParams = (filters) =>
+export const filtersToParams = (filters) =>
   Object.keys(filters ?? {})
     .filter((key) => !!filters[key]?.filter)
     .map((key) => filters[key].filter);
@@ -220,12 +220,12 @@ const num = (value) => {
  * moved has the newer address there, and the family's is where they were
  * enrolled.
  */
-const LOCATION_CHAIN = `
+export const LOCATION_CHAIN = `
   currentVillage { name parent { name parent { name parent { name } } } }
   family { location { name parent { name parent { name parent { name } } } } }
 `;
 
-const locationLevels = (insuree) => {
+export const locationLevels = (insuree) => {
   const v = insuree?.currentVillage ?? insuree?.family?.location;
   return {
     village: v?.name ?? "",
@@ -235,7 +235,7 @@ const locationLevels = (insuree) => {
   };
 };
 
-const locationColumns = (t) => [
+export const locationColumns = (t) => [
   { key: "region", header: t("export.column.region", "Region"), width: 16 },
   { key: "district", header: t("export.column.district", "District"), width: 16 },
   { key: "municipality", header: t("export.column.municipality", "Municipality"), width: 18 },
@@ -261,9 +261,9 @@ const locationColumns = (t) => [
  * different provinces can share a name, and a village name repeats often; keyed
  * on the name alone their totals would silently merge into one wrong figure.
  */
-const LEVELS = ["region", "district", "municipality", "village"];
+export const LEVELS = ["region", "district", "municipality", "village"];
 
-const summariseByLocation = (rows, measures, t) => {
+export const summariseByLocation = (rows, measures, t) => {
   const out = [];
 
   LEVELS.forEach((level, depth) => {
@@ -297,7 +297,7 @@ const summariseByLocation = (rows, measures, t) => {
   return out;
 };
 
-const summaryColumns = (t, measures) => [
+export const summaryColumns = (t, measures) => [
   { key: "level", header: t("export.column.level", "Level"), width: 14 },
   ...locationColumns(t),
   { key: "count", header: t("export.column.claimCount", "Claims"), width: 11 },
