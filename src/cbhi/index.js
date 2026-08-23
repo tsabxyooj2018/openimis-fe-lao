@@ -107,17 +107,47 @@ const CardsMainMenu = (props) => {
       // open. A group without one is styled by whatever its label happens to be.
       menuId="CbhiMainMenu"
       /*
-       * Filtered here rather than with each entry's `filter`, for the reason in
-       * the note above: MainMenuContribution renders whatever `entries` it is
-       * handed and never applies entry.filter itself.
+       * EVERY ENTRY NEEDS AN `id`, AND IT IS NOT OPTIONAL.
+       *
+       * MainMenuContribution does not render `entries` as given. It passes them
+       * through fetchSubmenuConfig, and when the fe-core `menus` configuration
+       * is empty -- which it is here -- that ends in:
+       *
+       *     copyOfEntries.forEach(function (entry) {
+       *       if (!uniqueEntriesFallback.has(entry.id)) {
+       *         uniqueEntriesFallback.set(entry.id, entry);
+       *       }
+       *     });
+       *
+       * a de-duplication keyed on entry.id. With one entry that is harmless,
+       * which is why the cards worked. Add a second without an id and both
+       * collapse to the key `undefined`: the first is kept, the second is
+       * dropped as its duplicate. No error, no warning -- the slips entry simply
+       * never appeared, for every user and at every right level.
+       *
+       * This is why every upstream entry carries one; fe-contribution's is
+       * id: 'insuree.contribution'.
+       *
+       * Rights are still applied here rather than through each entry's `filter`.
+       * That fallback path never calls entry.filter -- only the configured path
+       * does -- so a filter alone would not gate anything in this deployment.
+       *
+       * One deployment note that follows from the same function: if a `menus`
+       * list is ever added to the fe-core ModuleConfiguration row, the other
+       * branch is taken, and it builds its list from
+       * modulesManager.getMenuEntries() rather than from these entries at all.
+       * These two would then have to be contributed under a <module>.MainMenu
+       * key and listed in that configuration, or they would disappear again.
        */
       entries={[
         maySeeCards && {
+          id: "cbhi.membershipCards",
           text: formatMessage(intl, "cbhi", "menu.membershipCards"),
           icon: <CreditCardIcon />,
           route: "/cbhi/membership-cards",
         },
         maySeeSlips && {
+          id: "cbhi.contributionSlips",
           text: formatMessage(intl, "cbhi", "menu.contributionSlips"),
           icon: <ReceiptIcon />,
           route: "/cbhi/contribution-slips",
