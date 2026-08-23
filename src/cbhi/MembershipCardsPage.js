@@ -76,6 +76,28 @@ const SEARCH_MAX_LENGTH = 100;
  * browser already has both the data and a layout engine.
  */
 
+/*
+ * Print, but not before the Lao font has actually arrived.
+ *
+ * index.css declares Noto Sans Lao with font-display: swap, which is right for
+ * the application -- no screen should sit blank waiting on a font. It is wrong
+ * for printing: swap means the browser draws a fallback face immediately and
+ * replaces it when the woff2 lands, and window.print() captures whatever is on
+ * the page at that instant. On a cold load that is a card printed in the wrong
+ * font, and unlike a mis-rendered screen a laminated card cannot be re-drawn.
+ *
+ * document.fonts.ready resolves once font loading has settled. It is already
+ * resolved in the ordinary case, so this costs nothing after the first visit.
+ */
+const printCards = async () => {
+  try {
+    await document.fonts?.ready;
+  } catch (error) {
+    // Not a reason to refuse to print -- worst case it prints in a fallback,
+    // which is exactly what it did before this existed.
+  }
+  window.print();
+};
 
 const MembershipCardsPage = () => {
   const intl = useIntl();
@@ -291,7 +313,7 @@ const MembershipCardsPage = () => {
             <Button
               variant="contained"
               startIcon={<PrintIcon />}
-              onClick={() => window.print()}
+              onClick={printCards}
               disabled={!toPrint.length}
             >
               {toPrint.length

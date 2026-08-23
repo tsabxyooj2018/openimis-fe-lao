@@ -11,3 +11,11 @@ Dockerfile text eol=lf
 *.yml text eol=lf
 *.yaml text eol=lf
 .env text eol=lf
+
+# Fonts are binary. A CRLF "fix" applied to a woff2 corrupts it, and the
+# failure is silent: the browser rejects the file and falls back to a system
+# font, which is the exact bug this font was added to fix.
+*.woff2 binary
+*.woff binary
+*.ttf binary
+*.otf binary

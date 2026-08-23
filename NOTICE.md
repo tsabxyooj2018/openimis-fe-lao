@@ -58,6 +58,19 @@ so the container exits on start. Fixed with `.gitattributes` and a `sed` step.
 
 Both are worth reporting upstream.
 
+## Bundled fonts
+
+`src/fonts/` contains Noto Sans Lao (variable, Lao and Latin subsets), copyright
+the Noto Project Authors, licensed under the SIL Open Font License 1.1. The
+licence travels with the files as `src/fonts/OFL.txt`.
+
+It is bundled rather than linked from Google Fonts because this deployment has
+to render Lao on a ministry network that may not reach Google, and because a
+printed membership card must not depend on a third party being reachable at the
+moment someone presses Print. The OFL permits redistribution; it forbids selling
+the font on its own and requires the licence to accompany it, both of which hold
+here.
+
 ## Trademarks
 
 AGPL v3 licenses copyright, not trademarks. The openIMIS name and logo are not

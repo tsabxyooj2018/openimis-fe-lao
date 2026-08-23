@@ -32,11 +32,24 @@
   border-radius: 3mm;
   position: relative;
   /* Lao first: the Latin fallbacks have no Lao glyphs at all, so listing them
-     first would leave the browser drawing Lao from a font that cannot. */
-  font-family: "Noto Sans Lao", "Lao UI", "Segoe UI", Arial, sans-serif;
+     first would leave the browser drawing Lao from a font that cannot. This is
+     the bundled woff2 (see index.css), so the card looks the same on every
+     machine that prints it -- which for a laminated card is the whole point.
+     Phetsarath OT is the Lao government's own face and the right thing to fall
+     back to. */
+  font-family: "Noto Sans Lao", "Phetsarath OT", "Saysettha OT", "Leelawadee UI",
+    "Lao UI", sans-serif;
   /* Lao stacks tone marks above the consonant and vowel signs below it; at
      normal leading they collide inside a box this tight. */
-  line-height: 1.45;
+  line-height: 1.5;
+  /* The bundled face is variable (wght 100-900), so every weight on the card is
+     a drawn weight. Left to synthesise a bold, the browser smears the outline
+     sideways and the tone marks thicken into the consonant beneath them. */
+  font-synthesis: none;
+  /* Lao has no case, so this only ever affects the Latin names -- but it stops
+     a name being drawn with tabular figure spacing inherited from the number
+     rows above it. */
+  font-variant-ligatures: none;
 }
 
 .cbhi-card__ornament {

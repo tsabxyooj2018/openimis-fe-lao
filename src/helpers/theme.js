@@ -130,9 +130,15 @@ const createAppTheme = (colorOverrides = {}) => {
     typography: {
       useNextVariants: true,
       // Lao script (U+0E80-0EFF) is not covered by Rubik or Roboto, which makes
-      // tone marks stack incorrectly. "Noto Sans Lao" is bundled by index.css;
-      // Phetsarath OT and Saysettha OT are the fallbacks present on most Lao
-      // desktops. Latin faces stay after them so Latin text is unaffected.
+      // tone marks stack incorrectly. "Noto Sans Lao" is bundled -- really
+      // bundled, as a woff2 in src/fonts with @font-face in index.css. This
+      // comment previously claimed that and it was not true, which is exactly
+      // how the application spent months rendering Lao in whatever the
+      // operator's machine happened to have.
+      //
+      // Phetsarath OT and Saysettha OT stay as fallbacks: they are the fonts on
+      // most Lao government desktops, so they are the right thing to land on if
+      // the woff2 ever fails to load. Latin faces stay last.
       fontFamily: [
         '"Noto Sans Lao"',
         '"Phetsarath OT"',
@@ -208,19 +214,39 @@ const createAppTheme = (colorOverrides = {}) => {
       message: {
         backgroundColor: headerColor,
       },
+      // fe-core's SearcherPane puts this class on the pane title, in a plain
+      // flex row beside the action buttons:
+      //
+      //   div.panelSummary          display:flex, and NOT wrapping
+      //     Grid item xs   <- this  flex-grow:1; flex-basis:0
+      //     Grid item      <- paper.header, the [+] and [Search] buttons
+      //
+      // flex-basis:0 means the title claims no width of its own: it lives on
+      // whatever the buttons leave behind. On Locations four panes share the
+      // page, the buttons take most of ~300px, and the title was handed about
+      // 60px -- narrower than the word "Municipalities".
       title: {
         padding: 10,
         // Was 24. A panel title is not a page title, and 24px could not share a
-        // column with the buttons beside it: on Locations, four SearcherPanes
-        // sit in a third of the page each, and the header is title + add +
-        // a Search button whose label is a word. At 24 the title crowded them
-        // out and was clipped to "Reg", "Dis", "Mu". 18 is still clearly a
-        // heading, and leaves the header room to breathe on the tightest screen
-        // in the product.
+        // row with the buttons at all. 18 is still clearly a heading.
         fontSize: 18,
         fontWeight: 600,
         color: primaryColor,
         backgroundColor: headerColor,
+        // A heading is a NAME: it may wrap between words, never inside one.
+        // index.css sets a break-word floor so that unbroken Lao -- which has no
+        // spaces -- cannot burst its container, and that floor is what turned
+        // "Municipalities" into "M/un/ici/pa/liti/es". A title is the one place
+        // the floor is wrong, so it is lifted here.
+        overflowWrap: "normal",
+        wordBreak: "keep-all",
+        hyphens: "none",
+        // And if it still does not fit, one clean ellipsis. A truncated word
+        // reads as a deliberate layout; a shattered one reads as a broken page.
+        whiteSpace: "nowrap",
+        overflow: "hidden",
+        textOverflow: "ellipsis",
+        lineHeight: 1.35,
       },
       action: {
         padding: 5,
@@ -229,7 +255,14 @@ const createAppTheme = (colorOverrides = {}) => {
         padding: 0,
         margin: 0,
       },
+      // SearcherPane's own Paper. Declaring it a query container lets index.css
+      // ask how wide THIS PANE is rather than how wide the window is -- which is
+      // the only question that matters when the same component renders
+      // full-width on Insurees and four-to-a-row on Locations. A media query
+      // cannot tell those apart; both are the same 1500px window.
       body: {
+        containerType: "inline-size",
+        containerName: "pane",
         marginTop: 10,
         backgroundColor: backgroundColor,
       },
