@@ -5,6 +5,7 @@ import CreditCardIcon from "@material-ui/icons/CreditCard";
 import ReceiptIcon from "@material-ui/icons/Receipt";
 import MembershipCardsPage from "./MembershipCardsPage";
 import ContributionSlipsPage from "./ContributionSlipsPage";
+import { InsureeExport, ClaimExport } from "./FilterExport";
 import messages from "./messages.json";
 
 /*
@@ -164,6 +165,27 @@ const CbhiModule = (cfg) => ({
   ],
   // { name, component } -- the shape MainMenuBar renders. See the note above.
   "core.MainMenu": [{ name: "CbhiMainMenu", component: CardsMainMenu }],
+  /*
+   * Excel export, contributed into the filter panes of openIMIS's own Insurees
+   * and Claims searchers.
+   *
+   * This is the only place the export could go without forking. fe-core has
+   * export machinery, but it is driven by props on a Searcher -- exportFetch,
+   * exportFields -- and those Searchers are built inside fe-insuree and
+   * fe-claim. It also wants a per-entity resolver on the backend; fe-invoice,
+   * the one module that enables it, sends `{ billExport }`.
+   *
+   * Both filter panes, though, publish their live filter state to contributions:
+   *
+   *     <Contributions filters={filters} onChangeFilters={...}
+   *                    contributionKey="insuree.Filter" />
+   *
+   * so a component contributed here is handed exactly what the operator
+   * filtered on and can run the query itself. The export therefore cannot drift
+   * from the search -- both are built from the same filter objects.
+   */
+  "insuree.Filter": [InsureeExport],
+  "claim.Filter": [ClaimExport],
   /*
    * This module's own strings. Contributions are merged as
    * { ...messages, ...contributed } per language, so these sit alongside the Lao

@@ -1,0 +1,271 @@
+import React, { useCallback, useState } from "react";
+import { useIntl } from "react-intl";
+import { Box, Button, CircularProgress, Typography } from "@material-ui/core";
+import GetAppIcon from "@material-ui/icons/GetApp";
+import { graphql } from "../helpers/csrf";
+import { downloadWorkbook } from "./xlsx";
+
+/*
+ * Export a searcher's results to Excel, honouring the filters on screen.
+ *
+ * WHERE THIS RENDERS, AND WHY THAT IS THE WHOLE TRICK
+ *
+ * openIMIS's own export machinery cannot be reached from a local module. It is
+ * driven by props on a Searcher -- exportFetch, exportFields -- and those
+ * Searchers are constructed inside fe-insuree and fe-claim, which this
+ * deployment does not fork. It also expects a per-entity export resolver on the
+ * backend; fe-invoice, the only module that enables it, sends `{ billExport }`.
+ *
+ * But both filter panes publish their live filter state to contributions:
+ *
+ *     React.createElement(Contributions, {
+ *       filters: filters,
+ *       onChangeFilters: onChangeFilters,
+ *       contributionKey: INSUREE_FILTER_CONTRIBUTION_KEY,   // "insuree.Filter"
+ *     })
+ *
+ * So a component contributed to "insuree.Filter" or "claim.Filter" is handed
+ * exactly what the operator has filtered on, and can run the query itself. No
+ * fork, no backend change, and the export cannot drift from the search: both
+ * are built from the same filter objects.
+ *
+ * HOW A FILTER BECOMES A QUERY
+ *
+ * Each filter carries a ready-made GraphQL fragment, and the searchers collect
+ * them like this (fe-insuree, filtersToQueryParams):
+ *
+ *     Object.keys(state.filters)
+ *       .filter(k => !!state.filters[k]["filter"])
+ *       .map(k => state.filters[k]["filter"])
+ *
+ * This does the same, so what is exported is what is listed.
+ */
+
+/* The server rejects a larger page on these connections:
+ *   "Requesting 200 records on the `insurees` connection exceeds the `first`
+ *    limit of 100 records." */
+const PAGE = 100;
+
+/*
+ * A ceiling on the whole export. Without one, an operator who clears every
+ * filter asks for the entire register: tens of thousands of rows, a hundred at
+ * a time, building a workbook in a tab that will stop responding. The number is
+ * generous for any real working list and small enough to stay in memory.
+ */
+const MAX_ROWS = 5000;
+
+const filtersToParams = (filters) =>
+  Object.keys(filters ?? {})
+    .filter((key) => !!filters[key]?.filter)
+    .map((key) => filters[key].filter);
+
+/**
+ * Builds an export button bound to one connection.
+ *
+ * @param {object} spec
+ * @param {string} spec.query       the GraphQL connection, e.g. "insurees"
+ * @param {string} spec.projection  fields to select on each node
+ * @param {Function} spec.columns   (t) => column definitions for the workbook
+ * @param {Function} spec.mapRow    (node, ctx) => a flat row object
+ * @param {string} spec.fileStem    download name, before the date
+ * @param {string} spec.sheetKey    message id for the worksheet tab name
+ */
+export function createFilterExport(spec) {
+  const FilterExport = ({ filters }) => {
+    const intl = useIntl();
+    const [state, setState] = useState({ busy: false, count: 0, error: null, truncated: false });
+
+    const t = useCallback(
+      (id, fallback, values) =>
+        intl.formatMessage({ id: `cbhi.${id}`, defaultMessage: fallback }, values),
+      [intl],
+    );
+
+    const run = useCallback(async () => {
+      setState({ busy: true, count: 0, error: null, truncated: false });
+      const params = filtersToParams(filters);
+      const nodes = [];
+      let cursor = null;
+
+      try {
+        // Paged rather than asked for in one go, because the server caps the
+        // page and because it lets the count on screen move while it works.
+        for (;;) {
+          const args = [...params, `first: ${PAGE}`];
+          if (cursor) args.push(`after: "${cursor}"`);
+
+          // eslint-disable-next-line no-await-in-loop
+          const body = await graphql(`query {
+            ${spec.query}(${args.join(", ")}) {
+              pageInfo { hasNextPage endCursor }
+              edges { node { ${spec.projection} } }
+            }
+          }`);
+
+          const page = body?.data?.[spec.query];
+          (page?.edges ?? []).forEach((edge) => {
+            if (edge?.node) nodes.push(edge.node);
+          });
+          setState((s) => ({ ...s, count: nodes.length }));
+
+          if (!page?.pageInfo?.hasNextPage || nodes.length >= MAX_ROWS) {
+            setState((s) => ({ ...s, truncated: !!page?.pageInfo?.hasNextPage }));
+            break;
+          }
+          cursor = page.pageInfo.endCursor;
+        }
+
+        downloadWorkbook(
+          {
+            name: t(spec.sheetKey, spec.fileStem),
+            columns: spec.columns(t),
+            rows: nodes.slice(0, MAX_ROWS).map((node) => spec.mapRow(node, { t })),
+          },
+          // Dated: these get mailed around, and two in a folder with the same
+          // name are indistinguishable.
+          `${spec.fileStem}-${new Date().toISOString().slice(0, 10)}`,
+        );
+        setState((s) => ({ ...s, busy: false }));
+      } catch (error) {
+        setState({
+          busy: false,
+          count: 0,
+          // The server's own words, not a generic failure. Hiding them is what
+          // turned a CSRF fault on the cards page into an unexplained blank.
+          error: String(error?.message ?? ""),
+          truncated: false,
+        });
+      }
+    }, [filters, t]);
+
+    return (
+      <Box mt={1} ml={1} mb={1}>
+        <Button
+          variant="outlined"
+          size="small"
+          startIcon={state.busy ? <CircularProgress size={16} /> : <GetAppIcon />}
+          onClick={run}
+          disabled={state.busy}
+        >
+          {state.busy
+            ? t("export.working", "Exporting… {count}", { count: state.count })
+            : t("export.action", "Export to Excel")}
+        </Button>
+
+        {state.truncated ? (
+          <Typography variant="caption" color="textSecondary" display="block">
+            {t("export.truncated", "Stopped at {count} rows. Narrow the filters for the rest.", {
+              count: MAX_ROWS,
+            })}
+          </Typography>
+        ) : null}
+
+        {state.error ? (
+          <Typography variant="caption" color="error" display="block">
+            {t("export.failed", "The export failed.")} {state.error}
+          </Typography>
+        ) : null}
+      </Box>
+    );
+  };
+
+  return FilterExport;
+}
+
+/** dd/mm/yyyy as text, so Excel cannot re-read it in the machine's locale. */
+const date = (value) => {
+  if (!value) return "";
+  const [year, month, day] = String(value).slice(0, 10).split("-");
+  return year && month && day ? `${day}/${month}/${year}` : String(value);
+};
+
+const num = (value) => {
+  const n = Number(value);
+  return Number.isFinite(n) ? n : "";
+};
+
+/* --- Insurees ------------------------------------------------------------- */
+
+export const InsureeExport = createFilterExport({
+  query: "insurees",
+  projection: `
+    chfId lastName otherNames dob cardIssued
+    gender { code }
+    healthFacility { code name }
+    currentVillage { name parent { name parent { name } } }
+    family { location { name parent { name parent { name } } } }
+  `,
+  fileStem: "insurees",
+  sheetKey: "export.sheet.members",
+  columns: (t) => [
+    { key: "chfId", header: t("filter.chfId", "Insurance number"), width: 18 },
+    { key: "lastName", header: t("export.column.lastName", "Family name"), width: 18 },
+    { key: "otherNames", header: t("export.column.otherNames", "Given names"), width: 18 },
+    { key: "gender", header: t("export.column.gender", "Gender"), width: 10 },
+    { key: "dob", header: t("export.column.dob", "Date of birth"), width: 14 },
+    { key: "village", header: t("card.location", "Address"), width: 34 },
+    { key: "facility", header: t("export.column.facility", "Health facility"), width: 26 },
+    { key: "cardIssued", header: t("export.column.cardIssued", "Card issued"), width: 12 },
+  ],
+  mapRow: (n, { t }) => {
+    const where = n?.currentVillage ?? n?.family?.location;
+    return {
+      // Text, always. An insurance number that loses its leading zero in Excel
+      // no longer matches the member it belongs to -- see xlsx.js.
+      chfId: n.chfId ?? "",
+      lastName: n.lastName ?? "",
+      otherNames: n.otherNames ?? "",
+      gender: n?.gender?.code ?? "",
+      dob: date(n.dob),
+      village: [where?.name, where?.parent?.name, where?.parent?.parent?.name]
+        .filter(Boolean)
+        .join(", "),
+      facility: n?.healthFacility?.name ?? "",
+      cardIssued: n.cardIssued ? t("photo.yes", "Yes") : t("photo.no", "No"),
+    };
+  },
+});
+
+/* --- Claims --------------------------------------------------------------- */
+
+export const ClaimExport = createFilterExport({
+  query: "claims",
+  projection: `
+    code dateClaimed dateProcessed status reviewStatus feedbackStatus
+    claimed approved
+    healthFacility { code name }
+    insuree { chfId lastName otherNames }
+  `,
+  fileStem: "claims",
+  sheetKey: "export.sheet.claims",
+  columns: (t) => [
+    { key: "code", header: t("export.column.claimCode", "Claim number"), width: 18 },
+    { key: "chfId", header: t("filter.chfId", "Insurance number"), width: 18 },
+    { key: "insuree", header: t("slips.column.member", "Member"), width: 24 },
+    { key: "facility", header: t("export.column.facility", "Health facility"), width: 26 },
+    { key: "dateClaimed", header: t("export.column.dateClaimed", "Claimed on"), width: 13 },
+    { key: "dateProcessed", header: t("export.column.dateProcessed", "Processed on"), width: 13 },
+    { key: "status", header: t("export.column.status", "Status"), width: 12 },
+    { key: "reviewStatus", header: t("export.column.reviewStatus", "Review"), width: 12 },
+    { key: "feedbackStatus", header: t("export.column.feedbackStatus", "Feedback"), width: 12 },
+    { key: "claimed", header: t("export.column.claimed", "Claimed (LAK)"), width: 15 },
+    { key: "approved", header: t("export.column.approved", "Approved (LAK)"), width: 15 },
+  ],
+  mapRow: (n) => ({
+    code: n.code ?? "",
+    chfId: n?.insuree?.chfId ?? "",
+    insuree: [n?.insuree?.otherNames, n?.insuree?.lastName].filter(Boolean).join(" "),
+    facility: n?.healthFacility?.name ?? "",
+    dateClaimed: date(n.dateClaimed),
+    dateProcessed: date(n.dateProcessed),
+    // Numeric codes as openIMIS stores them. Translating them here would mean
+    // keeping a second copy of the status vocabulary in step with fe-claim's.
+    status: n.status ?? "",
+    reviewStatus: n.reviewStatus ?? "",
+    feedbackStatus: n.feedbackStatus ?? "",
+    // Numbers, so the columns can be summed -- a total is the first thing
+    // anyone does with a claims export.
+    claimed: num(n.claimed),
+    approved: num(n.approved),
+  }),
+});
