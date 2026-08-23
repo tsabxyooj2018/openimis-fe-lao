@@ -210,7 +210,15 @@ const createAppTheme = (colorOverrides = {}) => {
       },
       title: {
         padding: 10,
-        fontSize: 24,
+        // Was 24. A panel title is not a page title, and 24px could not share a
+        // column with the buttons beside it: on Locations, four SearcherPanes
+        // sit in a third of the page each, and the header is title + add +
+        // a Search button whose label is a word. At 24 the title crowded them
+        // out and was clipped to "Reg", "Dis", "Mu". 18 is still clearly a
+        // heading, and leaves the header room to breathe on the tightest screen
+        // in the product.
+        fontSize: 18,
+        fontWeight: 600,
         color: primaryColor,
         backgroundColor: headerColor,
       },

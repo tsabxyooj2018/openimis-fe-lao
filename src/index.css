@@ -918,19 +918,31 @@ main .MuiGrid-item {
   min-width: 0;
 }
 
-/* With the cells now honouring their width, the contents have to give somewhere.
-   Text is the part that can: a long location name truncates rather than pushing
-   the row's buttons out of the panel. */
-main .MuiGrid-item .MuiTypography-root {
-  min-width: 0;
-  overflow-wrap: anywhere;
-}
+/* --- List rows carrying two actions --------------------------------------
 
-/* Icon buttons are what the text must not push. Without this they are shrunk by
-   the flex algorithm before the text is, which is how a delete icon ended up
-   drawn on top of the name beside it. */
-main .MuiIconButton-root {
-  flex: none;
+   On Locations, the Move icon was drawn on top of each location's name. Not a
+   flex problem at all -- those rows are
+
+     <ListItem>
+       <ListItemText>{code} - {name}</ListItemText>
+       <ListItemSecondaryAction>  Move  Delete  </ListItemSecondaryAction>
+     </ListItem>
+
+   and ListItemSecondaryAction is positioned ABSOLUTELY. MUI keeps the text
+   clear of it by padding the row, and the padding it applies -- 48px -- is
+   sized for a single icon button. This row has two, so the second one hangs
+   over the text.
+
+   48px is one button: 24px icon inside 12px padding either side. Two need 96,
+   and the action block itself sits 16px from the edge, so the text has to stop
+   112px short.
+
+   Matched on the second button rather than applied to every row, so rows with
+   one action keep the tighter spacing MUI intends. */
+main .MuiListItem-root:has(
+    > .MuiListItemSecondaryAction-root .MuiIconButton-root + .MuiIconButton-root
+  ) {
+  padding-right: 112px;
 }
 
 /* Scrollbars: wide enough to grab, quiet enough to ignore.
