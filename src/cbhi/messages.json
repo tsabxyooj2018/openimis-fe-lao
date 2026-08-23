@@ -13,6 +13,8 @@
     "cbhi.filter.contains.hint": "contains",
     "cbhi.filter.lastName": "Last name",
     "cbhi.filter.otherNames": "Given names",
+    "cbhi.hint.chfId": "Starts with · up to {max} characters",
+    "cbhi.hint.contains": "Contains",
     "cbhi.hint.needFilter": "Enter at least one search criterion.",
     "cbhi.mainMenu": "CBHI cards",
     "cbhi.menu.membershipCards": "Issue membership cards",
@@ -24,6 +26,7 @@
     "cbhi.results.count": "{found} found · {selected} selected",
     "cbhi.results.title": "Search results",
     "cbhi.truncated": "Showing the first {count} matches. Narrow the criteria to reach the rest.",
+    "cbhi.validation.nameDigits": "A name cannot contain numbers.",
     "cbhi.warn.noPhoto": "{count} of the selected members have no photograph. Their cards will print with an empty photo box."
   },
   "lo": {
@@ -40,6 +43,8 @@
     "cbhi.filter.contains.hint": "ມີຄຳວ່າ",
     "cbhi.filter.lastName": "ນາມສະກຸນ",
     "cbhi.filter.otherNames": "ຊື່ຕົວ",
+    "cbhi.hint.chfId": "ຂຶ້ນຕົ້ນດ້ວຍ · ບໍ່ເກີນ {max} ຕົວອັກສອນ",
+    "cbhi.hint.contains": "ມີຄຳວ່າ",
     "cbhi.hint.needFilter": "ກະລຸນາປ້ອນເງື່ອນໄຂການຄົ້ນຫາຢ່າງໜ້ອຍໜຶ່ງຢ່າງ.",
     "cbhi.mainMenu": "ບັດສະມາຊິກ",
     "cbhi.menu.membershipCards": "ອອກບັດສະມາຊິກ",
@@ -51,6 +56,7 @@
     "cbhi.results.count": "ພົບ {found} · ເລືອກ {selected}",
     "cbhi.results.title": "ຜົນການຄົ້ນຫາ",
     "cbhi.truncated": "ສະແດງ {count} ລາຍການທຳອິດ. ກະລຸນາລະບຸເງື່ອນໄຂໃຫ້ແຄບລົງເພື່ອເບິ່ງລາຍການທີ່ເຫຼືອ.",
+    "cbhi.validation.nameDigits": "ຊື່ບໍ່ສາມາດມີຕົວເລກໄດ້.",
     "cbhi.warn.noPhoto": "ສະມາຊິກທີ່ເລືອກ {count} ຄົນບໍ່ມີຮູບພາບ. ບັດຂອງເຂົາເຈົ້າຈະພິມໂດຍມີຊ່ອງຮູບຫວ່າງ."
   }
 }
