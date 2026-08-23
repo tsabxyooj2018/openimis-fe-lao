@@ -115,20 +115,26 @@ export async function fetchInsureesForCards(filters, limit = MAX_CARDS) {
 const EXPIRY_BATCH = 25;
 
 /**
- * Latest policy expiry date per insurance number.
+ * The policy facts a card prints, per insurance number.
+ *
+ * Two of them, from one query: the expiry date and the product, which is what
+ * openIMIS has in place of the entitlement category the social security card
+ * prints (ປະເພດຜູ້ເກີດສິດ — civil servant, and so on). A product in openIMIS is
+ * the scheme someone is enrolled under, which is the same question.
  *
  * An insuree can hold several policies over the years, so the one that matters
- * on a card is the furthest in the future -- printing an old one would tell a
- * facility the member has lapsed when they have not.
+ * is the furthest expiry -- printing an older one would tell a facility the
+ * member has lapsed when they have not. The product is read off THAT policy, so
+ * the two lines always describe the same cover rather than two different years.
  *
- * Never throws: a card is still worth printing without the date, so a failure
- * here leaves those entries absent rather than losing the whole batch.
+ * Never throws: a card is still worth printing without these, so a failure here
+ * leaves those entries absent rather than losing the whole batch.
  *
  * @param {string[]} chfIds
- * @returns {Promise<Object<string, string>>} insurance number to ISO date
+ * @returns {Promise<Object<string, {expiryDate: string, productName: string}>>}
  */
-export async function fetchPolicyExpiry(chfIds) {
-  const expiry = {};
+export async function fetchPolicyDetails(chfIds) {
+  const details = {};
   const unique = [...new Set(chfIds.filter(Boolean))];
 
   for (let start = 0; start < unique.length; start += EXPIRY_BATCH) {
@@ -137,7 +143,7 @@ export async function fetchPolicyExpiry(chfIds) {
       .map(
         (chfId, index) =>
           `p${index}: policiesByInsuree(chfId: "${escape(chfId)}", first: 20) {
-             edges { node { expiryDate status } }
+             edges { node { expiryDate status productName } }
            }`,
       )
       .join("\n");
@@ -153,20 +159,25 @@ export async function fetchPolicyExpiry(chfIds) {
       const body = await response.json();
 
       batch.forEach((chfId, index) => {
-        const edges = body?.data?.[`p${index}`]?.edges ?? [];
-        const dates = edges
-          .map((edge) => edge?.node?.expiryDate)
-          .filter(Boolean)
-          .sort();
-        if (dates.length) expiry[chfId] = dates[dates.length - 1];
+        const policies = (body?.data?.[`p${index}`]?.edges ?? [])
+          .map((edge) => edge?.node)
+          .filter((node) => node?.expiryDate);
+        if (!policies.length) return;
+        // Latest expiry wins, and the product comes from the same policy.
+        policies.sort((a, b) => String(a.expiryDate).localeCompare(String(b.expiryDate)));
+        const latest = policies[policies.length - 1];
+        details[chfId] = {
+          expiryDate: latest.expiryDate,
+          productName: latest.productName || null,
+        };
       });
     } catch (error) {
       // eslint-disable-next-line no-console
-      console.error("Could not read policy expiry for a batch:", error);
+      console.error("Could not read policy details for a batch:", error);
     }
   }
 
-  return expiry;
+  return details;
 }
 
 /**

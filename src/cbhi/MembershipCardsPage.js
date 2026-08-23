@@ -23,7 +23,7 @@ import PrintIcon from "@material-ui/icons/Print";
 import SearchIcon from "@material-ui/icons/Search";
 import { useModulesManager } from "@openimis/fe-core";
 import MembershipCard from "./MembershipCard";
-import { fetchInsureesForCards, fetchPolicyExpiry, locationLine, MAX_CARDS } from "./api";
+import { fetchInsureesForCards, fetchPolicyDetails, locationLine, MAX_CARDS } from "./api";
 import { TEMPLATES, DEFAULT_TEMPLATE, templateById } from "./templates";
 import "./cards.css";
 
@@ -143,9 +143,13 @@ const MembershipCardsPage = () => {
    * people enrolled on the same day would carry different cards for no reason
    * anyone could see afterwards.
    *
-   * The English line under the scheme name stays, so the card reads as bilingual
-   * by design rather than by accident. To issue cards in another language,
-   * translate these values -- do not wire them back to the UI language.
+   * To issue cards in another language, translate these values -- do not wire
+   * them back to the UI language.
+   *
+   * The wording follows the card in circulation line for line, which is why the
+   * labels read ເລກລະຫັດ rather than ເລກປະກັນໄພ and ວັນໝົດກຳນົດ rather than
+   * ວັນທີໝົດອາຍຸ: a member comparing the two should not have to work out that
+   * the same thing has been renamed.
    */
   const labels = useMemo(
     () => ({
@@ -159,6 +163,10 @@ const MembershipCardsPage = () => {
       number: "ເລກລະຫັດ",
       gender: "ເພດ",
       dob: "ວັນເດືອນປີເກີດ",
+      // openIMIS has no entitlement category as such; the product is the
+      // scheme someone is enrolled under, which answers the same question the
+      // social security card answers with ລັດຖະກອນ and the like.
+      category: "ປະເພດຜູ້ເກີດສິດ",
       facility: "ສະຖານທີ່ປິ່ນປົວ",
       expiry: "ວັນໝົດກຳນົດ",
       noPhoto: "ບໍ່ມີຮູບ",
@@ -177,9 +185,11 @@ const MembershipCardsPage = () => {
        * Failures inside it are swallowed there: a card without the date is still
        * worth printing, and losing a whole batch over it would not be.
        */
-      const expiry = await fetchPolicyExpiry(rows.map((row) => row.chfId));
+      const policies = await fetchPolicyDetails(rows.map((row) => row.chfId));
       rows.forEach((row) => {
-        row.expiryDate = expiry[row.chfId] ?? null;
+        const policy = policies[row.chfId];
+        row.expiryDate = policy?.expiryDate ?? null;
+        row.productName = policy?.productName ?? null;
       });
 
       setInsurees(rows);

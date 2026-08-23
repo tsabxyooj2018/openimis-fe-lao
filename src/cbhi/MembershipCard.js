@@ -78,6 +78,11 @@ const MembershipCard = ({ insuree, labels, template: templateId }) => {
       </div>
       <Row label={labels.gender} value={gender ? labels.genders[gender] ?? gender : ""} />
       <Row label={labels.dob} value={formatDate(insuree?.dob)} />
+      {/* Order follows the card in circulation: entitlement category sits above
+          the treating facility, not below it. */}
+      {insuree?.productName ? (
+        <Row label={labels.category} value={insuree.productName} />
+      ) : null}
       <Row label={labels.facility} value={insuree?.healthFacility?.name} />
       {/* Absent rather than blank when the policy could not be read: an empty
           expiry on a card reads as "no cover", which is not what it means. */}
