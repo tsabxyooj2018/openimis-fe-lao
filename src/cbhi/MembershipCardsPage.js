@@ -7,7 +7,6 @@ import {
   Chip,
   CircularProgress,
   Divider,
-  Grid,
   Paper,
   Table,
   TableBody,
@@ -53,33 +52,15 @@ const storeTemplate = (id) => {
 /*
  * openIMIS holds LastName and OtherNames as varchar(100). Nothing longer can be
  * stored, so nothing longer can match -- the cap is a fact about the data, not a
- * house rule.
- */
-const NAME_MAX_LENGTH = 100;
-
-/*
- * The insurance number is an identifier, so punctuation and spacing are noise
- * rather than content: they are removed as the field is typed. This is what
- * makes pasting "12 3456 7890" or a number copied out of a spreadsheet with a
- * trailing tab behave the way the person expects.
+ * house rule, and it comfortably exceeds any insurance number.
  *
- * Letters are allowed through. openIMIS does not require the number to be
- * numeric -- it is a CharField, and deployments do use letters -- so rejecting
- * them here would refuse valid numbers for the sake of a rule this product does
- * not have.
+ * The number is not trimmed to its own shorter limit as the box is typed in:
+ * until the value is complete there is no telling whether it is a number or a
+ * name, and cutting a name at twelve characters would be worse than searching
+ * for a number that is too long and finding nothing. api.js applies the number
+ * cap at query time, once the branch is known.
  */
-const formatInsuranceNumber = (value, maxLength) =>
-  value.replace(/[^0-9A-Za-z]/g, "").slice(0, maxLength);
-
-/*
- * Names are validated, not filtered. Rejecting a character while someone is
- * typing their own name is worse than telling them what is wrong: Lao names,
- * hyphens, apostrophes and spaces all belong, and silently deleting one would
- * look like a broken keyboard. A digit, though, is never part of a name and is
- * nearly always the number typed into the wrong box -- which is exactly what
- * happened on the first run of this page.
- */
-const containsDigit = (value) => /\d/.test(value);
+const SEARCH_MAX_LENGTH = 100;
 
 /*
  * Issue CBHI membership cards.
@@ -95,7 +76,6 @@ const containsDigit = (value) => /\d/.test(value);
  * browser already has both the data and a layout engine.
  */
 
-const emptyFilters = { chfId: "", lastName: "", otherNames: "" };
 
 const MembershipCardsPage = () => {
   const intl = useIntl();
@@ -119,7 +99,7 @@ const MembershipCardsPage = () => {
     () => templateById(readStoredTemplate() || configuredDefault).id,
   );
 
-  const [filters, setFilters] = useState(emptyFilters);
+  const [term, setTerm] = useState("");
   const [insurees, setInsurees] = useState([]);
   const [selected, setSelected] = useState(() => new Set());
   const [state, setState] = useState({ loading: false, error: null, searched: false });
@@ -185,7 +165,7 @@ const MembershipCardsPage = () => {
   const search = async () => {
     setState({ loading: true, error: null, searched: true });
     try {
-      const rows = await fetchInsureesForCards(filters);
+      const rows = await fetchInsureesForCards(term, chfIdMaxLength);
 
       /*
        * The expiry date lives on the family's policy, so it is a second query.
@@ -230,55 +210,16 @@ const MembershipCardsPage = () => {
 
   const allSelected = insurees.length > 0 && selected.size === insurees.length;
   const toPrint = insurees.filter((insuree) => selected.has(insuree.uuid));
-  const hasFilter = Object.values(filters).some((value) => value.trim());
+  const hasFilter = term.trim().length > 0;
 
-  const errors = {
-    // Nothing to report: the field cannot hold anything invalid, because
-    // formatInsuranceNumber removes it as it is typed.
-    chfId: null,
-    lastName: containsDigit(filters.lastName)
-      ? t("validation.nameDigits", "A name cannot contain numbers.")
-      : null,
-    otherNames: containsDigit(filters.otherNames)
-      ? t("validation.nameDigits", "A name cannot contain numbers.")
-      : null,
-  };
-  const isValid = !Object.values(errors).some(Boolean);
+  /*
+   * Nothing left to validate. The three-field form had to reject digits typed
+   * into a name box; with one box a digit simply means the value is a number,
+   * so what was an error is now just the other branch of the search.
+   */
   const withoutPhoto = toPrint.filter(
     (insuree) => !insuree.photo?.photo && !insuree.photo?.filename,
   ).length;
-
-  const field = (name, label, { placeholder, maxLength, format, hint }) => {
-    const error = errors[name];
-    const value = filters[name];
-    return (
-      <Grid item xs={12} sm={4}>
-        <TextField
-          fullWidth
-          variant="outlined"
-          size="small"
-          label={label}
-          placeholder={placeholder}
-          value={value}
-          error={!!error}
-          // The hint stays visible when there is no error, so the field explains
-          // how it matches without the user having to get it wrong first.
-          helperText={error || hint}
-          inputProps={{ maxLength }}
-          onChange={(event) =>
-            setFilters({
-              ...filters,
-              [name]: format ? format(event.target.value) : event.target.value,
-            })
-          }
-          // Enter is how anyone types into a search form.
-          onKeyDown={(event) => {
-            if (event.key === "Enter" && hasFilter && isValid && !state.loading) search();
-          }}
-        />
-      </Grid>
-    );
-  };
 
   return (
     <Box p={2}>
@@ -298,26 +239,25 @@ const MembershipCardsPage = () => {
         <Divider />
 
         <Box p={2}>
-          <Grid container spacing={2}>
-            {field("chfId", t("filter.chfId", "Insurance number"), {
-              placeholder: t("filter.chfId.hint", "starts with"),
-              maxLength: chfIdMaxLength,
-              format: (value) => formatInsuranceNumber(value, chfIdMaxLength),
-              hint: t("hint.chfId", "Starts with · up to {max} characters", {
-                max: chfIdMaxLength,
-              }),
-            })}
-            {field("lastName", t("filter.lastName", "Last name"), {
-              placeholder: t("filter.contains.hint", "contains"),
-              maxLength: NAME_MAX_LENGTH,
-              hint: t("hint.contains", "Contains"),
-            })}
-            {field("otherNames", t("filter.otherNames", "Given names"), {
-              placeholder: t("filter.contains.hint", "contains"),
-              maxLength: NAME_MAX_LENGTH,
-              hint: t("hint.contains", "Contains"),
-            })}
-          </Grid>
+          <TextField
+            fullWidth
+            variant="outlined"
+            size="small"
+            autoFocus
+            label={t("search.label", "Insurance number or name")}
+            placeholder={t("search.placeholder", "e.g. 105000123456, or Phommavong")}
+            helperText={t(
+              "search.hint",
+              "A value with digits is matched as an insurance number, starting from the front. Anything else is matched against both family and given names.",
+            )}
+            value={term}
+            inputProps={{ maxLength: SEARCH_MAX_LENGTH }}
+            onChange={(event) => setTerm(event.target.value)}
+            // Enter is how anyone types into a search box.
+            onKeyDown={(event) => {
+              if (event.key === "Enter" && hasFilter && !state.loading) search();
+            }}
+          />
 
           <Box mt={2} display="flex" alignItems="center" style={{ gap: 8, flexWrap: "wrap" }}>
             <Button
@@ -328,7 +268,7 @@ const MembershipCardsPage = () => {
               // At least one filter: an empty form would ask for every insuree
               // in the country. And nothing invalid, so a search cannot be sent
               // that could only ever return nothing.
-              disabled={state.loading || !hasFilter || !isValid}
+              disabled={state.loading || !hasFilter}
             >
               {t("action.search", "Search")}
             </Button>
@@ -365,7 +305,7 @@ const MembershipCardsPage = () => {
               ))}
             </TextField>
 
-            {!hasFilter && isValid && (
+            {!hasFilter && (
               <Typography variant="body2" color="textSecondary">
                 {t("hint.needFilter", "Enter at least one search criterion.")}
               </Typography>
