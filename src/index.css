@@ -1176,6 +1176,45 @@ main li.MuiListItem-container > .MuiListItemSecondaryAction-root > .MuiIconButto
     clip: rect(0 0 0 0);
     white-space: nowrap;
   }
+
+  /* Row actions go compact too, for the same reason and in the same panes.
+
+     Putting the action block back in the flow stopped it covering the names,
+     but it now takes real width -- two 48px buttons plus padding is 112px of a
+     pane that is only about 230px on a 1366px screen after the drawer. What was
+     left could not hold "R1D1M1 - Achi" on one line, so the names wrapped
+     instead of being overlapped. Better, still not right.
+
+     A Material icon button is 24px of icon inside 12px of padding. MUI's own
+     small size is 3px of padding, and this sits between the two: a 20px icon in
+     5px of padding, 30px overall. That reclaims 56px per row -- measured, at a
+     range of pane widths, counting wrapped rows out of seven:
+
+         pane    in-flow buttons    compact
+         260px       2 of 7          0 of 7
+         240px       4 of 7          0 of 7
+         220px       6 of 7          0 of 7
+
+     Only inside the container query, so a full-width list keeps full-size
+     buttons: the trade only makes sense where the width is actually scarce. */
+  main li.MuiListItem-container > .MuiListItem-root.MuiListItem-gutters {
+    padding-left: 12px;
+    padding-right: 2px;
+  }
+
+  main li.MuiListItem-container > .MuiListItemSecondaryAction-root {
+    padding-right: 6px;
+  }
+
+  main li.MuiListItem-container > .MuiListItemSecondaryAction-root .MuiIconButton-root {
+    padding: 5px;
+  }
+
+  main li.MuiListItem-container > .MuiListItemSecondaryAction-root .MuiSvgIcon-root {
+    width: 20px;
+    height: 20px;
+    font-size: 20px;
+  }
 }
 
 /* --- Checkbox cells size to their label -----------------------------------
