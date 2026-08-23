@@ -102,7 +102,7 @@ const MembershipCardsPage = () => {
   const [term, setTerm] = useState("");
   const [insurees, setInsurees] = useState([]);
   const [selected, setSelected] = useState(() => new Set());
-  const [state, setState] = useState({ loading: false, error: null, searched: false });
+  const [state, setState] = useState({ loading: false, error: null, detail: null, searched: false });
 
   // Falls back to the English so the page still reads if a key is ever missing,
   // rather than rendering the key itself the way react-intl does by default.
@@ -163,7 +163,7 @@ const MembershipCardsPage = () => {
   );
 
   const search = async () => {
-    setState({ loading: true, error: null, searched: true });
+    setState({ loading: true, error: null, detail: null, searched: true });
     try {
       const rows = await fetchInsureesForCards(term, chfIdMaxLength);
 
@@ -183,19 +183,34 @@ const MembershipCardsPage = () => {
       // Everything found is ticked: the common case is printing the whole
       // result, and unticking a few is less work than ticking ninety.
       setSelected(new Set(rows.map((row) => row.uuid)));
-      setState({ loading: false, error: null, searched: true });
+      setState({ loading: false, error: null, detail: null, searched: true });
     } catch (error) {
       setInsurees([]);
       setSelected(new Set());
-      /*
-       * Server wording is not shown. GraphQL speaks in connections, cursors and
-       * `first` limits, which describe our query rather than anything the person
-       * at the desk did or can act on. The original is kept on the console for
-       * whoever is debugging.
-       */
       // eslint-disable-next-line no-console
       console.error("Membership card search failed:", error);
-      setState({ loading: false, error: t("error.search", "The search could not be completed. Please try again, or narrow the criteria."), searched: true });
+
+      /*
+       * The first version showed one friendly sentence and kept the server's
+       * words on the console. That read better and made the page impossible to
+       * diagnose from a screenshot: "the search could not be completed" does not
+       * distinguish a server that is down from a session that has lapsed from a
+       * user who lacks a right.
+       *
+       * So both -- a sentence the person at the desk can act on, and the
+       * server's own message underneath for whoever is fixing it. The
+       * authorisation failure gets named outright, because it is not a fault at
+       * all: it is a permission somebody has to grant.
+       */
+      const raw = String(error?.message ?? "");
+      const friendly = /not authorized/i.test(raw)
+        ? t(
+            "error.notAuthorized",
+            "This user is not allowed to search members. The page needs the Insuree | Query Insurees right (101101).",
+          )
+        : t("error.search", "The search could not be completed. Please try again, or narrow the criteria.");
+
+      setState({ loading: false, error: friendly, detail: raw, searched: true });
     }
   };
 
@@ -314,7 +329,18 @@ const MembershipCardsPage = () => {
 
           {state.error && (
             <Box mt={2}>
-              <Alert severity="error">{state.error}</Alert>
+              <Alert severity="error">
+                {state.error}
+                {state.detail && (
+                  <Typography
+                    variant="caption"
+                    component="div"
+                    style={{ marginTop: 4, opacity: 0.8, wordBreak: "break-word" }}
+                  >
+                    {state.detail}
+                  </Typography>
+                )}
+              </Alert>
             </Box>
           )}
 
