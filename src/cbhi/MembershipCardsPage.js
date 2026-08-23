@@ -153,12 +153,19 @@ const MembershipCardsPage = () => {
    */
   const labels = useMemo(
     () => ({
-      title: "ບັດປະກັນສຸຂະພາບ",
-      // Issuing body. A guess until CBHI supplies its own wording and
-      // abbreviation, which is the sort of thing that has to be right on a
-      // document people keep.
-      authority: "ກະຊວງສາທາລະນະສຸກ ປະກັນສຸຂະພາບຊຸມຊົນ",
-      abbr: "(ປ.ສ.ຊ)",
+      /*
+       * Supplied by the scheme, not invented here. These three were placeholders
+       * until then, and the wording on a document people keep in their wallet is
+       * not something to approximate.
+       *
+       * The ministry and the organisation are separate lines because the card in
+       * circulation sets them as two blocks with the abbreviation at the foot of
+       * the band, not as one run of text.
+       */
+      title: "ບັດປະກັນສັງຄົມ",
+      ministry: "ກະຊວງແຮງງານ ແລະ ສະຫວັດດີການສັງຄົມ",
+      organisation: "ອົງການປະກັນສັງຄົມ ແຫ່ງລັດ",
+      abbr: "(ອ.ປ.ລ)",
       name: "ຊື່ ແລະ ນາມສະກຸນ",
       number: "ເລກລະຫັດ",
       gender: "ເພດ",

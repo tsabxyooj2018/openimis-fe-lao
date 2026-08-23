@@ -108,9 +108,12 @@ const MembershipCard = ({ insuree, labels, template: templateId }) => {
         </svg>
       ) : null}
 
+      {/* Two blocks and an abbreviation, as the card in circulation sets them:
+          the ministry, then the organisation, then the short form at the foot. */}
       <div className="cbhi-card__band">
         <img className="cbhi-card__emblem" src={emblem} alt="" />
-        <span className="cbhi-card__authority">{labels.authority}</span>
+        <span className="cbhi-card__authority">{labels.ministry}</span>
+        <span className="cbhi-card__authority">{labels.organisation}</span>
         <span className="cbhi-card__abbr">{labels.abbr}</span>
       </div>
 
