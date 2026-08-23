@@ -69,6 +69,16 @@ const STOP = 106;
  */
 export function code128Runs(value) {
   const text = String(value ?? "");
+
+  /*
+   * An empty number is not an empty barcode -- it is start, checksum and stop,
+   * which is a perfectly valid symbol that scans as nothing at all. openIMIS
+   * allows the insurance number to be absent (chf_id is blank=True, null=True),
+   * so this is reachable with real data, and a card carrying a scannable
+   * barcode for no one is worse than a card carrying none.
+   */
+  if (!text) return [];
+
   const codes = [START_B];
 
   for (const character of text) {
