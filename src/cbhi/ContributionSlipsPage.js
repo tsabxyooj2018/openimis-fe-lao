@@ -18,10 +18,12 @@ import {
   Typography,
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
+import GetAppIcon from "@material-ui/icons/GetApp";
 import PrintIcon from "@material-ui/icons/Print";
 import SearchIcon from "@material-ui/icons/Search";
 import ContributionSlip from "./ContributionSlip";
 import { fetchSlips, MAX_SLIPS } from "./slipApi";
+import { downloadWorkbook, asDate } from "./xlsx";
 import "./slips.css";
 
 /*
@@ -163,6 +165,56 @@ const ContributionSlipsPage = () => {
     [slips, selected],
   );
 
+  /*
+   * Headings follow the operator's language: a spreadsheet is a working
+   * document a clerk sorts and forwards, unlike the slip itself, which is fixed
+   * in Lao because it is issued and filed.
+   *
+   * The amount goes out as a NUMBER so the column can be summed -- a
+   * reconciliation total is the first thing anyone does with this. Receipt and
+   * insurance numbers go out as text, so Excel cannot eat a leading zero.
+   */
+  const exportRows = useCallback(() => {
+    const rows = (toPrint.length ? toPrint : slips).map((slip) => {
+      const head = slip?.policy?.family?.headInsuree;
+      const amount = Number(slip.amount);
+      return {
+        receipt: slip.receipt ?? "",
+        payDate: asDate(slip.payDate),
+        amount: Number.isFinite(amount) ? amount : "",
+        payType: labels.payTypes[slip.payType] ?? slip.payType ?? "",
+        chfId: head?.chfId ?? "",
+        member: [head?.otherNames, head?.lastName].filter(Boolean).join(" "),
+        payer: slip?.payer?.name ?? "",
+        product: slip?.policy?.product?.name ?? "",
+        start: asDate(slip?.policy?.startDate),
+        expiry: asDate(slip?.policy?.expiryDate),
+        photoFee: slip.isPhotoFee ? t("slips.export.yes", "Yes") : "",
+      };
+    });
+
+    downloadWorkbook(
+      {
+        name: t("slips.export.sheet", "Contributions"),
+        columns: [
+          { key: "receipt", header: t("slips.column.receipt", "Receipt"), width: 16 },
+          { key: "payDate", header: t("slips.column.payDate", "Paid on"), width: 13 },
+          { key: "amount", header: t("slips.column.amount", "Amount (LAK)"), width: 15 },
+          { key: "payType", header: t("slips.export.payType", "Payment type"), width: 18 },
+          { key: "chfId", header: t("filter.chfId", "Insurance number"), width: 18 },
+          { key: "member", header: t("slips.column.member", "Member"), width: 24 },
+          { key: "payer", header: t("slips.export.payer", "Payer"), width: 24 },
+          { key: "product", header: t("slips.column.product", "Product"), width: 24 },
+          { key: "start", header: t("slips.export.start", "Cover from"), width: 13 },
+          { key: "expiry", header: t("slips.export.expiry", "Cover to"), width: 13 },
+          { key: "photoFee", header: t("slips.export.photoFee", "Photo fee"), width: 11 },
+        ],
+        rows,
+      },
+      `contributions-${new Date().toISOString().slice(0, 10)}`,
+    );
+  }, [toPrint, slips, labels, t]);
+
   const hasTerm = term.trim().length > 0;
 
   return (
@@ -216,6 +268,15 @@ const ContributionSlipsPage = () => {
               {toPrint.length
                 ? t("slips.action.printCount", "Print {count} slips", { count: toPrint.length })
                 : t("slips.action.print", "Print slips")}
+            </Button>
+
+            <Button
+              variant="outlined"
+              startIcon={<GetAppIcon />}
+              onClick={exportRows}
+              disabled={!slips.length}
+            >
+              {t("export.action", "Export to Excel")}
             </Button>
 
             <FormControlLabel

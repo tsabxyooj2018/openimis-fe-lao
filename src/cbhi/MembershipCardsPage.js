@@ -18,12 +18,14 @@ import {
   Typography,
 } from "@material-ui/core";
 import Alert from "@material-ui/lab/Alert";
+import GetAppIcon from "@material-ui/icons/GetApp";
 import PrintIcon from "@material-ui/icons/Print";
 import SearchIcon from "@material-ui/icons/Search";
 import { useModulesManager } from "@openimis/fe-core";
 import MembershipCard from "./MembershipCard";
 import { fetchInsureesForCards, fetchPolicyDetails, locationLine, MAX_CARDS } from "./api";
 import { TEMPLATES, DEFAULT_TEMPLATE, templateById } from "./templates";
+import { downloadWorkbook, asDate } from "./xlsx";
 import "./cards.css";
 
 /*
@@ -247,6 +249,51 @@ const MembershipCardsPage = () => {
 
   const allSelected = insurees.length > 0 && selected.size === insurees.length;
   const toPrint = insurees.filter((insuree) => selected.has(insuree.uuid));
+
+  /*
+   * The spreadsheet is a WORKING document, so unlike the card its headings
+   * follow the operator's language. The card is fixed in Lao because a member
+   * keeps it; this is a list a clerk opens, sorts and sends on.
+   *
+   * Every identifier goes out as text, not as a number. That is the entire
+   * reason src/cbhi/xlsx.js exists -- see the note at the top of it.
+   */
+  const exportRows = useCallback(() => {
+    const rows = (toPrint.length ? toPrint : insurees).map((insuree) => ({
+      chfId: insuree.chfId ?? "",
+      lastName: insuree.lastName ?? "",
+      otherNames: insuree.otherNames ?? "",
+      gender: labels.genders[insuree?.gender?.code] ?? insuree?.gender?.code ?? "",
+      dob: asDate(insuree.dob),
+      location: locationLine(insuree),
+      facility: insuree?.healthFacility?.name ?? "",
+      product: insuree.productName ?? "",
+      expiry: asDate(insuree.expiryDate),
+      cardIssued: insuree.cardIssued ? t("photo.yes", "Yes") : t("photo.no", "No"),
+    }));
+
+    downloadWorkbook(
+      {
+        name: t("export.sheet.members", "Members"),
+        columns: [
+          { key: "chfId", header: t("filter.chfId", "Insurance number"), width: 18 },
+          { key: "lastName", header: t("export.column.lastName", "Family name"), width: 18 },
+          { key: "otherNames", header: t("export.column.otherNames", "Given names"), width: 18 },
+          { key: "gender", header: t("export.column.gender", "Gender"), width: 10 },
+          { key: "dob", header: t("export.column.dob", "Date of birth"), width: 14 },
+          { key: "location", header: t("card.location", "Address"), width: 32 },
+          { key: "facility", header: t("export.column.facility", "Health facility"), width: 26 },
+          { key: "product", header: t("export.column.product", "Product"), width: 24 },
+          { key: "expiry", header: t("export.column.expiry", "Cover expires"), width: 14 },
+          { key: "cardIssued", header: t("export.column.cardIssued", "Card issued"), width: 12 },
+        ],
+        rows,
+      },
+      // Dated, because these get mailed around and two of them in a folder with
+      // the same name are indistinguishable.
+      `members-${new Date().toISOString().slice(0, 10)}`,
+    );
+  }, [toPrint, insurees, labels, t]);
   const hasFilter = term.trim().length > 0;
 
   /*
@@ -319,6 +366,15 @@ const MembershipCardsPage = () => {
               {toPrint.length
                 ? t("action.printCount", "Print {count} cards", { count: toPrint.length })
                 : t("action.print", "Print cards")}
+            </Button>
+
+            <Button
+              variant="outlined"
+              startIcon={<GetAppIcon />}
+              onClick={exportRows}
+              disabled={!insurees.length}
+            >
+              {t("export.action", "Export to Excel")}
             </Button>
 
             <TextField
