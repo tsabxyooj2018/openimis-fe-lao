@@ -1,0 +1,234 @@
+/* CBHI membership cards.
+   ---------------------------------------------------------------------------
+   Two jobs: show the cards on screen, and put them on an A4 page at exactly
+   CR80 so they can be cut out and laminated.
+
+   Everything on the card is sized in millimetres. Screen units are
+   resolution-dependent and do not survive printing, and a card that scales with
+   the browser font would stop fitting its sleeve for anyone who has enlarged
+   their text. */
+
+.cbhi-cards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6mm;
+  padding: 4mm 0;
+}
+
+/* --- The card ------------------------------------------------------------- */
+
+.cbhi-card {
+  /* ID-1 / CR80. */
+  width: 85.6mm;
+  height: 54mm;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-radius: 3mm;
+  background: #fff;
+  color: #10314f;
+  /* Lao first: the Latin fallbacks have no Lao glyphs at all, so listing them
+     first would leave the browser drawing Lao from a font that cannot. */
+  font-family: "Noto Sans Lao", "Lao UI", "Segoe UI", Arial, sans-serif;
+  /* Lao stacks tone marks above the consonant and vowel signs below it; at
+     normal leading they collide inside a box this tight. */
+  line-height: 1.45;
+  border: 0.3mm solid #c8d4de;
+}
+
+.cbhi-card__header {
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+  padding: 2mm 3mm;
+  background: #123b63;
+  color: #fff;
+}
+
+.cbhi-card__emblem {
+  width: 8mm;
+  height: 8mm;
+  object-fit: contain;
+  /* The emblem is a dark mark on transparency; on the blue band it needs to
+     read as white rather than disappear. */
+  filter: brightness(0) invert(1);
+}
+
+.cbhi-card__titles {
+  min-width: 0;
+}
+
+.cbhi-card__scheme {
+  font-size: 3.1mm;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cbhi-card__schemeEn {
+  font-size: 2.2mm;
+  opacity: 0.85;
+  letter-spacing: 0.02em;
+}
+
+.cbhi-card__body {
+  flex: 1;
+  display: flex;
+  gap: 3mm;
+  padding: 2.5mm 3mm;
+  min-height: 0;
+}
+
+.cbhi-card__photo {
+  width: 20mm;
+  height: 26mm;
+  flex: none;
+  border: 0.3mm solid #c8d4de;
+  border-radius: 1mm;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f2f6f9;
+}
+
+.cbhi-card__photo img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cbhi-card__noPhoto {
+  font-size: 2.2mm;
+  color: #7d94a8;
+  text-align: center;
+  padding: 1mm;
+}
+
+.cbhi-card__details {
+  min-width: 0;
+  flex: 1;
+}
+
+.cbhi-card__name {
+  font-size: 3.4mm;
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.cbhi-card__number {
+  /* Tabular figures so the groups line up between one card and the next, and
+     so 1 and 7 cannot be confused when the number is read out. */
+  font-family: "Consolas", "DejaVu Sans Mono", monospace;
+  font-size: 4.4mm;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  margin: 0.4mm 0 1mm;
+  color: #0b5d7a;
+}
+
+.cbhi-card__field {
+  display: flex;
+  gap: 1.5mm;
+  font-size: 2.5mm;
+}
+
+.cbhi-card__label {
+  color: #5f7d95;
+  flex: none;
+}
+
+.cbhi-card__value {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-weight: 600;
+}
+
+.cbhi-card__footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 2mm;
+  padding: 1.2mm 3mm;
+  background: #eef3f7;
+  font-size: 2.1mm;
+  color: #4a6b82;
+}
+
+.cbhi-card__issued {
+  white-space: nowrap;
+}
+
+/* --- Printing ------------------------------------------------------------- */
+
+/* On screen the cards sit inside the ordinary page; on paper they are the only
+   thing on it. */
+@media print {
+  @page {
+    size: A4 portrait;
+    /* 10mm all round: inside every office printer's unprintable margin, and
+       leaves room to get scissors between the cards and the paper edge. */
+    margin: 10mm;
+  }
+
+  /* Removed from the layout, not just made invisible. `visibility: hidden` is
+     the usual trick for this and it is not enough on its own: a hidden element
+     keeps its box, and this application's shell is a full-height sidebar plus a
+     header, which would print as one or more blank sheets before the cards
+     appeared. These are the same parts src/index.css addresses, so the two
+     stylesheets agree on what the shell is. */
+  header,
+  .MuiDrawer-root,
+  .MuiDrawer-paperAnchorDockedLeft,
+  .cbhi-noprint {
+    display: none !important;
+  }
+
+  main {
+    padding: 0 !important;
+    overflow: visible !important;
+  }
+
+  /* A backstop for anything the selectors above do not know about -- an upstream
+     release adding another fixed panel, say. Cards stay visible because
+     visibility is inherited and re-asserted on them. */
+  body * {
+    visibility: hidden;
+  }
+
+  .cbhi-print,
+  .cbhi-print * {
+    visibility: visible;
+  }
+
+  .cbhi-print {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+  }
+
+  .cbhi-cards {
+    gap: 4mm;
+    padding: 0;
+  }
+
+  .cbhi-card {
+    /* A card split across a page break is waste paper. */
+    break-inside: avoid;
+    page-break-inside: avoid;
+    /* Printers drop background colours by default, which would leave the header
+       band and the number unreadable as pale grey on white. */
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+    /* A hairline to cut along. Borders survive the colour-adjust rules that
+       backgrounds sometimes do not. */
+    border: 0.3mm dashed #8aa1b4;
+  }
+}
