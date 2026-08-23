@@ -856,6 +856,15 @@ main .MuiPaper-root:has(.MuiTable-root) .MuiTable-root {
    Only the shrunk state is touched. An unshrunk label sits at scale 1 inside the
    input, where 100% is already correct and 133% would run past the field.
 
+   And only the FLOATING state. `.MuiInputLabel-formControl` is the class MUI
+   adds when the label is positioned absolutely over its input; that is what
+   makes the widening free, because an absolutely positioned box cannot displace
+   anything. A shrunk label WITHOUT that class -- one rendered standalone above a
+   control, as the location columns do for their Search fields -- sits in normal
+   flow, and there 133.33% is simply a third too wide: it overflowed into the
+   neighbouring column and painted its text across the next heading. The first
+   version of this rule omitted the class and did exactly that.
+
    Two lines is then the cap. Anything still long enough to need a third is a
    label that should have been shortened in the dictionary, and clamping keeps
    one runaway string from opening up the whole row while that is dealt with.
@@ -864,7 +873,7 @@ main .MuiPaper-root:has(.MuiTable-root) .MuiTable-root {
    line on every field in the product would add vertical space to every form on
    every screen to accommodate a handful of labels -- the labels are the thing to
    fix, not the layout. */
-body:has(header) .MuiFormControl-root .MuiInputLabel-shrink {
+body:has(header) .MuiFormControl-root .MuiInputLabel-formControl.MuiInputLabel-shrink {
   width: 133.33%;
   display: -webkit-box;
   -webkit-line-clamp: 2;
