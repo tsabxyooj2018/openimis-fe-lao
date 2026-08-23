@@ -892,6 +892,47 @@ body:has(header) .MuiFormControl-root .MuiInputLabel-root {
   line-height: 1.35;
 }
 
+/* --- Panels that sit side by side ----------------------------------------
+
+   The Locations screen puts four SearcherPanes in <Grid item xs={4}> cells and
+   they overlapped each other: each panel's header ran past its own column and
+   painted "Search" across the next panel's heading.
+
+   It is the oldest trap in flexbox. A flex item's min-width defaults to `auto`,
+   meaning "never shrink below my content", so a cell whose header is wider than
+   a third of the row simply refuses to fit and overflows instead. MUI's Grid
+   sets a percentage flex-basis but no min-width, so the percentage is a
+   suggestion the content is free to ignore -- and here it did, because the
+   header carries a title, an add button and a labelled Search button, and Lao
+   labels are wider than the English ones the layout was proportioned for.
+
+   min-width: 0 restores the meaning of the percentage: the cell takes its share,
+   and the content inside wraps or truncates within it. SearcherPane's header is
+   itself a Grid container, so it wraps rather than clipping anything away.
+
+   Applied to every grid item under main rather than to this page alone: the same
+   overflow is latent on every screen that puts panels side by side, and it only
+   became visible here because four columns is the tightest case in the product.
+   Nothing is laid out to depend on a cell exceeding its own width. */
+main .MuiGrid-item {
+  min-width: 0;
+}
+
+/* With the cells now honouring their width, the contents have to give somewhere.
+   Text is the part that can: a long location name truncates rather than pushing
+   the row's buttons out of the panel. */
+main .MuiGrid-item .MuiTypography-root {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+/* Icon buttons are what the text must not push. Without this they are shrunk by
+   the flex algorithm before the text is, which is how a delete icon ended up
+   drawn on top of the name beside it. */
+main .MuiIconButton-root {
+  flex: none;
+}
+
 /* Scrollbars: wide enough to grab, quiet enough to ignore.
 
    The Windows default is a few pixels and hard to hit deliberately, so the
