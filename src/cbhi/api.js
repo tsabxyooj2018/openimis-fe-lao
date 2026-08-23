@@ -8,12 +8,12 @@
  * The field and filter names below ARE stable: they are the schema, and the same
  * ones fe-insuree's own searcher sends.
  *
- * No CSRF token is needed here. The backend checks it in _check_csrf_token,
- * which core/schema.py calls from mutation resolvers only; a query is read-only
- * and is authenticated by the session cookie alone. See
- * src/lao-language/switchLanguage.js for the mutation case, which is not this.
+ * Every request goes through helpers/csrf.js. openIMIS checks the CSRF token on
+ * READ-ONLY QUERIES TOO, which is the opposite of the usual convention -- and
+ * assuming otherwise is what made this page fail with a bare 'HTTP_X_CSRFTOKEN',
+ * the Python KeyError raised when the header is missing entirely.
  */
-const API = "/api";
+import { graphql } from "../helpers/csrf";
 
 /*
  * One box, not three.
@@ -109,17 +109,7 @@ export async function fetchInsureesForCards(term, chfIdMaxLength = 12, limit = M
     : `byLast: insurees(lastName_Icontains: "${escape(value)}", first: ${limit}) { ${node} }
        byGiven: insurees(otherNames_Icontains: "${escape(value)}", first: ${limit}) { ${node} }`;
 
-  const response = await fetch(`${API}/graphql`, {
-    method: "POST",
-    credentials: "include",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ query: `query { ${query} }` }),
-  });
-
-  if (!response.ok) throw new Error(`Search failed (${response.status})`);
-
-  const body = await response.json();
-  if (body?.errors?.length) throw new Error(body.errors[0].message);
+  const body = await graphql(`query { ${query} }`);
 
   /*
    * Someone whose family name and given name both match would otherwise appear
@@ -184,14 +174,7 @@ export async function fetchPolicyDetails(chfIds) {
       .join("\n");
 
     try {
-      const response = await fetch(`${API}/graphql`, {
-        method: "POST",
-        credentials: "include",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ query: `query { ${query} }` }),
-      });
-      if (!response.ok) continue;
-      const body = await response.json();
+      const body = await graphql(`query { ${query} }`);
 
       batch.forEach((chfId, index) => {
         const policies = (body?.data?.[`p${index}`]?.edges ?? [])
