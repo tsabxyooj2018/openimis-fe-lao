@@ -918,6 +918,29 @@ main .MuiGrid-item {
   min-width: 0;
 }
 
+/* --- How text is allowed to break ----------------------------------------
+
+   "Poverty Status" came out as "Po / ver / ty / St / atu / s" -- one fragment
+   per line. That was `overflow-wrap: anywhere` applied to every Typography in a
+   grid cell, which permits a break between ANY two characters, so a narrow cell
+   shreds an ordinary English word.
+
+   `break-word` is the version that behaves: a word breaks only when it cannot
+   fit on a line by itself, and never in preference to breaking at a space. So
+   "Poverty Status" wraps between the two words, and something genuinely
+   unbreakable -- a long code, a URL -- still cannot force a horizontal
+   scrollbar.
+
+   Stated here as a floor for the whole application rather than left to defaults,
+   because the sidebar deliberately does use `anywhere` and needs to keep doing
+   so: Lao is written without spaces between words, so a long Lao menu label has
+   no break opportunity at all and would otherwise overflow the drawer instead of
+   wrapping. That exception is scoped to the drawer; everywhere else gets this. */
+main {
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
 /* --- List rows carrying two actions --------------------------------------
 
    On Locations, the Move icon was drawn on top of each location's name. Not a
