@@ -160,12 +160,14 @@ const cell = (value, index, row, bold) => {
 
 /* --- The workbook --------------------------------------------------------- */
 
-const CONTENT_TYPES = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+const contentTypes = (count) => `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types">
 <Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/>
 <Default Extension="xml" ContentType="application/xml"/>
 <Override PartName="/xl/workbook.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet.main+xml"/>
-<Override PartName="/xl/worksheets/sheet1.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>
+${Array.from({ length: count }, (_, i) =>
+  `<Override PartName="/xl/worksheets/sheet${i + 1}.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.worksheet+xml"/>`,
+).join("")}
 <Override PartName="/xl/styles.xml" ContentType="application/vnd.openxmlformats-officedocument.spreadsheetml.styles+xml"/>
 </Types>`;
 
@@ -174,10 +176,14 @@ const ROOT_RELS = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="xl/workbook.xml"/>
 </Relationships>`;
 
-const WORKBOOK_RELS = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+/* Sheets take rId1..rIdN; styles takes the one after, so adding a sheet cannot
+   collide with it. */
+const workbookRels = (count) => `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships">
-<Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet1.xml"/>
-<Relationship Id="rId2" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
+${Array.from({ length: count }, (_, i) =>
+  `<Relationship Id="rId${i + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/worksheet" Target="worksheets/sheet${i + 1}.xml"/>`,
+).join("")}
+<Relationship Id="rId${count + 1}" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/styles" Target="styles.xml"/>
 </Relationships>`;
 
 /*
@@ -195,58 +201,79 @@ const STYLES = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <cellXfs count="2"><xf numFmtId="0" fontId="0" fillId="0" borderId="0" xfId="0"/><xf numFmtId="0" fontId="1" fillId="0" borderId="0" xfId="0" applyFont="1"/></cellXfs>
 </styleSheet>`;
 
-const workbookXml = (sheetName) => `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+const workbookXml = (names) => `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <workbook xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main" xmlns:r="http://schemas.openxmlformats.org/officeDocument/2006/relationships">
-<sheets><sheet name="${escapeXml(sheetName)}" sheetId="1" r:id="rId1"/></sheets>
+<sheets>${names
+  .map((n, i) => `<sheet name="${escapeXml(n)}" sheetId="${i + 1}" r:id="rId${i + 1}"/>`)
+  .join("")}</sheets>
 </workbook>`;
 
-/**
- * A one-sheet workbook.
- *
- * @param {object} sheet
- * @param {string} sheet.name        the tab name
- * @param {Array<{key: string, header: string, width?: number}>} sheet.columns
- * @param {Array<object>} sheet.rows values are text unless they are numbers
- * @returns {Blob}
+/*
+ * Excel refuses a sheet name over 31 characters or containing : \ / ? * [ ]
+ * -- and refuses the whole FILE rather than just the name, reporting it as
+ * corrupt. It also refuses two sheets with the same name, so duplicates are
+ * numbered rather than left to collide.
  */
-export function buildWorkbook({ name = "Sheet1", columns, rows }) {
-  /*
-   * Excel refuses a sheet name over 31 characters or containing any of : \ / ?
-   * * [ ], and refuses the whole file rather than the name.
-   */
-  const safeName = String(name).replace(/[:\\/?*[\]]/g, " ").slice(0, 31) || "Sheet1";
+const safeSheetNames = (names) => {
+  const used = new Set();
+  return names.map((raw) => {
+    let name = String(raw).replace(/[:\/?*[\]]/g, " ").slice(0, 31) || "Sheet";
+    let n = 2;
+    while (used.has(name.toLowerCase())) {
+      const suffix = ` (${n})`;
+      name = name.slice(0, 31 - suffix.length) + suffix;
+      n += 1;
+    }
+    used.add(name.toLowerCase());
+    return name;
+  });
+};
 
-  const header =
-    `<row r="1">${columns.map((c, i) => cell(c.header, i, 1, true)).join("")}</row>`;
-
+const sheetXml = ({ columns, rows }) => {
+  const header = `<row r="1">${columns.map((c, i) => cell(c.header, i, 1, true)).join("")}</row>`;
   const body = rows
     .map((row, r) => {
       const cells = columns.map((c, i) => cell(row[c.key], i, r + 2, false)).join("");
       return `<row r="${r + 2}">${cells}</row>`;
     })
     .join("");
-
   const cols = columns
     .map((c, i) => `<col min="${i + 1}" max="${i + 1}" width="${c.width ?? 18}" customWidth="1"/>`)
     .join("");
-
   const lastCol = cellRef(columns.length - 1, 1).replace(/\d+$/, "");
 
-  const sheetXml = `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+  return `<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <worksheet xmlns="http://schemas.openxmlformats.org/spreadsheetml/2006/main">
 <sheetViews><sheetView workbookViewId="0"><pane ySplit="1" topLeftCell="A2" activePane="bottomLeft" state="frozen"/></sheetView></sheetViews>
 <cols>${cols}</cols>
 <sheetData>${header}${body}</sheetData>
 <autoFilter ref="A1:${lastCol}${rows.length + 1}"/>
 </worksheet>`;
+};
+
+/**
+ * A workbook of one or more sheets.
+ *
+ * Accepts either a single sheet or { sheets: [...] }; a single sheet is the
+ * common case and reads better at the call site than an array of one.
+ *
+ * @param {object} spec {name, columns, rows} or {sheets: [{name, columns, rows}]}
+ * @returns {Blob}
+ */
+export function buildWorkbook(spec) {
+  const sheets = spec.sheets ?? [spec];
+  const names = safeSheetNames(sheets.map((s) => s.name ?? "Sheet1"));
 
   return zip([
-    { name: "[Content_Types].xml", data: utf8(CONTENT_TYPES) },
+    { name: "[Content_Types].xml", data: utf8(contentTypes(sheets.length)) },
     { name: "_rels/.rels", data: utf8(ROOT_RELS) },
-    { name: "xl/workbook.xml", data: utf8(workbookXml(safeName)) },
-    { name: "xl/_rels/workbook.xml.rels", data: utf8(WORKBOOK_RELS) },
+    { name: "xl/workbook.xml", data: utf8(workbookXml(names)) },
+    { name: "xl/_rels/workbook.xml.rels", data: utf8(workbookRels(sheets.length)) },
     { name: "xl/styles.xml", data: utf8(STYLES) },
-    { name: "xl/worksheets/sheet1.xml", data: utf8(sheetXml) },
+    ...sheets.map((sheet, i) => ({
+      name: `xl/worksheets/sheet${i + 1}.xml`,
+      data: utf8(sheetXml(sheet)),
+    })),
   ]);
 }
 

@@ -115,12 +115,25 @@ export function createFilterExport(spec) {
           cursor = page.pageInfo.endCursor;
         }
 
+        const detail = nodes.slice(0, MAX_ROWS).map((node) => spec.mapRow(node, { t }));
+
+        const sheets = [
+          { name: t(spec.sheetKey, spec.fileStem), columns: spec.columns(t), rows: detail },
+        ];
+
+        // The totals sheet goes FIRST in the tab order once it exists: it is
+        // what most readers open the file for, and the detail is the backing
+        // evidence rather than the headline.
+        if (spec.summaryMeasures) {
+          sheets.unshift({
+            name: t("export.sheet.summary", "Totals by location"),
+            columns: summaryColumns(t, spec.summaryMeasures),
+            rows: summariseByLocation(detail, spec.summaryMeasures, t),
+          });
+        }
+
         downloadWorkbook(
-          {
-            name: t(spec.sheetKey, spec.fileStem),
-            columns: spec.columns(t),
-            rows: nodes.slice(0, MAX_ROWS).map((node) => spec.mapRow(node, { t })),
-          },
+          { sheets },
           // Dated: these get mailed around, and two in a folder with the same
           // name are indistinguishable.
           `${spec.fileStem}-${new Date().toISOString().slice(0, 10)}`,
@@ -229,6 +242,72 @@ const locationColumns = (t) => [
   { key: "village", header: t("export.column.village", "Village"), width: 18 },
 ];
 
+
+/*
+ * Totals by location, as a second sheet.
+ *
+ * The claims searcher can only filter down to district, and only by the health
+ * facility's location. Row-level export plus a pivot table answers the rest --
+ * but "how much was claimed in this village" should not require the reader to
+ * know how to build a pivot table, so the totals are computed here.
+ *
+ * ONE TABLE, NOT FOUR. Each row is one place at one level, and the ລະດັບ column
+ * says which level it is. That way a reader who wants districts filters the
+ * column, and a reader who wants everything sees the hierarchy in one place --
+ * where four separate tables would have to be scrolled between and could not be
+ * sorted against each other.
+ *
+ * Every level is grouped on its FULL PATH, not its own name. Two districts in
+ * different provinces can share a name, and a village name repeats often; keyed
+ * on the name alone their totals would silently merge into one wrong figure.
+ */
+const LEVELS = ["region", "district", "municipality", "village"];
+
+const summariseByLocation = (rows, measures, t) => {
+  const out = [];
+
+  LEVELS.forEach((level, depth) => {
+    const path = LEVELS.slice(0, depth + 1);
+    const groups = new Map();
+
+    rows.forEach((row) => {
+      // A row with nothing recorded at this level is counted at the levels it
+      // does have and skipped here, rather than being pooled under a blank.
+      if (!row[level]) return;
+      const key = path.map((p) => row[p] ?? "").join(" › ");
+      if (!groups.has(key)) {
+        const seed = { level: t(`export.column.${level}`, level), count: 0 };
+        path.forEach((p) => { seed[p] = row[p] ?? ""; });
+        measures.forEach((m) => { seed[m] = 0; });
+        groups.set(key, seed);
+      }
+      const g = groups.get(key);
+      g.count += 1;
+      measures.forEach((m) => {
+        const v = Number(row[m]);
+        if (Number.isFinite(v)) g[m] += v;
+      });
+    });
+
+    out.push(...[...groups.values()].sort((a, b) =>
+      path.map((p) => a[p]).join().localeCompare(path.map((p) => b[p]).join()),
+    ));
+  });
+
+  return out;
+};
+
+const summaryColumns = (t, measures) => [
+  { key: "level", header: t("export.column.level", "Level"), width: 14 },
+  ...locationColumns(t),
+  { key: "count", header: t("export.column.claimCount", "Claims"), width: 11 },
+  ...measures.map((m) => ({
+    key: m,
+    header: t(`export.column.${m}`, m),
+    width: 17,
+  })),
+];
+
 /* --- Insurees ------------------------------------------------------------- */
 
 export const InsureeExport = createFilterExport({
@@ -241,6 +320,9 @@ export const InsureeExport = createFilterExport({
   `,
   fileStem: "insurees",
   sheetKey: "export.sheet.members",
+  // Members have no amount, so the totals sheet counts them per place. Still
+  // the question most often asked of a member list: how many, and where.
+  summaryMeasures: [],
   columns: (t) => [
     { key: "chfId", header: t("filter.chfId", "Insurance number"), width: 18 },
     { key: "lastName", header: t("export.column.lastName", "Family name"), width: 18 },
@@ -279,6 +361,9 @@ export const ClaimExport = createFilterExport({
   `,
   fileStem: "claims",
   sheetKey: "export.sheet.claims",
+  // Summed per place, at all four levels. Both figures, because the gap between
+  // them is what a reviewer is looking at.
+  summaryMeasures: ["claimed", "approved"],
   columns: (t) => [
     { key: "code", header: t("export.column.claimCode", "Claim number"), width: 18 },
     { key: "chfId", header: t("filter.chfId", "Insurance number"), width: 18 },
