@@ -308,6 +308,60 @@ export const summaryColumns = (t, measures) => [
   })),
 ];
 
+
+/*
+ * Totals per member.
+ *
+ * The claims searcher can already filter to ONE member -- insuree_ChfId, the
+ * ເລກຜູ້ເອົາປະກັນ box -- so finding a person's claims was never the gap. What
+ * was missing is the other direction: across a period, which members claimed,
+ * how often, and for how much. That is the question behind "track by insuree",
+ * and it is also how over-utilisation shows itself.
+ *
+ * Grouped on chfId rather than on the name. Two members can share a name, and
+ * this deployment has no unique constraint on the insurance number either -- so
+ * where a number HAS been duplicated, their claims merge into one row. That is
+ * a fault worth seeing rather than hiding: a member row whose name column
+ * disagrees with itself is the duplicate showing up in daily work.
+ */
+export const summariseByInsuree = (rows, measures) => {
+  const groups = new Map();
+
+  rows.forEach((row) => {
+    const key = row.chfId;
+    if (!key) return; // a claim with no insurance number cannot be attributed
+    if (!groups.has(key)) {
+      groups.set(key, {
+        chfId: key,
+        insuree: row.insuree ?? "",
+        region: row.region ?? "",
+        district: row.district ?? "",
+        municipality: row.municipality ?? "",
+        village: row.village ?? "",
+        count: 0,
+        ...Object.fromEntries(measures.map((m) => [m, 0])),
+      });
+    }
+    const g = groups.get(key);
+    g.count += 1;
+    measures.forEach((m) => {
+      const v = Number(row[m]);
+      if (Number.isFinite(v)) g[m] += v;
+    });
+  });
+
+  // Heaviest first: a totals-by-member list is read from the top.
+  return [...groups.values()].sort((a, b) => (b[measures[0]] ?? 0) - (a[measures[0]] ?? 0));
+};
+
+export const insureeSummaryColumns = (t, measures) => [
+  { key: "chfId", header: t("filter.chfId", "Insurance number"), width: 18 },
+  { key: "insuree", header: t("slips.column.member", "Member"), width: 24 },
+  ...locationColumns(t),
+  { key: "count", header: t("export.column.claimCount", "Records"), width: 11 },
+  ...measures.map((m) => ({ key: m, header: t(`export.column.${m}`, m), width: 17 })),
+];
+
 /* --- Insurees ------------------------------------------------------------- */
 
 export const InsureeExport = createFilterExport({

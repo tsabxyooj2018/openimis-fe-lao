@@ -26,7 +26,9 @@ import {
   LOCATION_CHAIN,
   MAX_ROWS,
   PAGE,
+  insureeSummaryColumns,
   locationLevels,
+  summariseByInsuree,
   summariseByLocation,
   summaryColumns,
 } from "./FilterExport";
@@ -64,7 +66,10 @@ const ClaimTotalsPage = () => {
   const [to, setTo] = useState("");
   const [status, setStatus] = useState("");
   const [level, setLevel] = useState("district");
+  const [groupBy, setGroupBy] = useState("location");
+  const [chfId, setChfId] = useState("");
   const [rows, setRows] = useState([]);
+  const [byInsuree, setByInsuree] = useState([]);
   const [state, setState] = useState({
     busy: false,
     count: 0,
@@ -86,6 +91,9 @@ const ClaimTotalsPage = () => {
     if (from) params.push(`dateClaimed_Gte: "${from}"`);
     if (to) params.push(`dateClaimed_Lte: "${to}"`);
     if (status) params.push(`status: ${status}`);
+    // The same filter the claims searcher's ເລກຜູ້ເອົາປະກັນ box sends, so one
+    // member's totals here and their claim list there cannot disagree.
+    if (chfId.trim()) params.push(`insuree_ChfId: "${chfId.trim().replace(/"/g, "")}"`);
 
     const nodes = [];
     let cursor = null;
@@ -101,7 +109,7 @@ const ClaimTotalsPage = () => {
             pageInfo { hasNextPage endCursor }
             edges { node {
               claimed approved
-              insuree { ${LOCATION_CHAIN} }
+              insuree { chfId lastName otherNames ${LOCATION_CHAIN} }
             } }
           }
         }`);
@@ -121,14 +129,21 @@ const ClaimTotalsPage = () => {
 
       const detail = nodes.slice(0, MAX_ROWS).map((n) => ({
         ...locationLevels(n?.insuree),
+        chfId: n?.insuree?.chfId ?? "",
+        insuree: [n?.insuree?.otherNames, n?.insuree?.lastName].filter(Boolean).join(" "),
         claimed: Number(n.claimed) || 0,
         approved: Number(n.approved) || 0,
       }));
 
+      // Both groupings from the one fetch: switching between them is a question
+      // about the same claims, and re-querying to answer it would be wasteful
+      // and could return a different set if data changed in between.
       setRows(summariseByLocation(detail, ["claimed", "approved"], t));
+      setByInsuree(summariseByInsuree(detail, ["claimed", "approved"]));
       setState((s) => ({ ...s, busy: false, ran: true }));
     } catch (error) {
       setRows([]);
+      setByInsuree([]);
       setState({
         busy: false,
         count: 0,
@@ -138,15 +153,16 @@ const ClaimTotalsPage = () => {
         truncated: false,
       });
     }
-  }, [from, to, status, t]);
+  }, [from, to, status, chfId, t]);
 
   // The level names are translated inside summariseByLocation, so the on-screen
   // filter compares against the same translated value rather than the key.
   const levelLabel = (key) => t(`export.column.${key}`, key);
   const shown = useMemo(
-    () => rows.filter((r) => r.level === levelLabel(level)),
+    () =>
+      groupBy === "insuree" ? byInsuree : rows.filter((r) => r.level === levelLabel(level)),
     // eslint-disable-next-line react-hooks/exhaustive-deps
-    [rows, level, intl],
+    [rows, byInsuree, groupBy, level, intl],
   );
 
   const totals = useMemo(
@@ -167,6 +183,9 @@ const ClaimTotalsPage = () => {
   const exportAll = () => {
     downloadWorkbook(
       {
+        // Both groupings, always, whichever is on screen. The file is the
+        // record of the question that was asked, and the other half of the
+        // answer costs nothing to include.
         sheets: [
           {
             name: t("export.sheet.summary", "Totals by location"),
@@ -174,6 +193,11 @@ const ClaimTotalsPage = () => {
             // Every level, not only the one on screen: the sheet is the record,
             // and the level column makes the others one filter away.
             rows,
+          },
+          {
+            name: t("export.sheet.byInsuree", "Totals by member"),
+            columns: insureeSummaryColumns(t, ["claimed", "approved"]),
+            rows: byInsuree,
           },
         ],
       },
@@ -228,6 +252,14 @@ const ClaimTotalsPage = () => {
               ))}
             </TextField>
 
+            <TextField
+              label={t("filter.chfId", "Insurance number")}
+              placeholder={t("totals.chfIdHint", "One member, or leave blank for all")}
+              value={chfId}
+              onChange={(e) => setChfId(e.target.value)}
+              style={{ minWidth: 210 }}
+            />
+
             <Button
               variant="contained"
               color="primary"
@@ -276,17 +308,32 @@ const ClaimTotalsPage = () => {
             <Box p={2} pb={1} display="flex" style={{ gap: 16, flexWrap: "wrap", alignItems: "center" }}>
               <TextField
                 select
-                label={t("totals.level", "Level")}
-                value={level}
-                onChange={(e) => setLevel(e.target.value)}
-                style={{ minWidth: 170 }}
+                label={t("totals.groupBy", "Group by")}
+                value={groupBy}
+                onChange={(e) => setGroupBy(e.target.value)}
+                style={{ minWidth: 190 }}
               >
-                {LEVELS.map((key) => (
-                  <MenuItem key={key} value={key}>
-                    {levelLabel(key)}
-                  </MenuItem>
-                ))}
+                <MenuItem value="location">{t("totals.byLocation", "Location")}</MenuItem>
+                <MenuItem value="insuree">{t("totals.byInsuree", "Member")}</MenuItem>
               </TextField>
+
+              {/* Only meaningful for the location grouping: a member is a member
+                  at every level. */}
+              {groupBy === "location" ? (
+                <TextField
+                  select
+                  label={t("totals.level", "Level")}
+                  value={level}
+                  onChange={(e) => setLevel(e.target.value)}
+                  style={{ minWidth: 170 }}
+                >
+                  {LEVELS.map((key) => (
+                    <MenuItem key={key} value={key}>
+                      {levelLabel(key)}
+                    </MenuItem>
+                  ))}
+                </TextField>
+              ) : null}
               <Typography variant="body2" color="textSecondary">
                 {t("totals.places", "{count} places", { count: shown.length })}
               </Typography>
@@ -298,9 +345,18 @@ const ClaimTotalsPage = () => {
                 <Table size="small">
                   <TableHead>
                     <TableRow>
-                      {LEVELS.slice(0, LEVELS.indexOf(level) + 1).map((key) => (
-                        <TableCell key={key}>{levelLabel(key)}</TableCell>
-                      ))}
+                      {groupBy === "insuree" ? (
+                        <>
+                          <TableCell>{t("filter.chfId", "Insurance number")}</TableCell>
+                          <TableCell>{t("slips.column.member", "Member")}</TableCell>
+                          <TableCell>{levelLabel("village")}</TableCell>
+                          <TableCell>{levelLabel("district")}</TableCell>
+                        </>
+                      ) : (
+                        LEVELS.slice(0, LEVELS.indexOf(level) + 1).map((key) => (
+                          <TableCell key={key}>{levelLabel(key)}</TableCell>
+                        ))
+                      )}
                       <TableCell align="right">
                         {t("export.column.claimCount", "Records")}
                       </TableCell>
@@ -314,10 +370,22 @@ const ClaimTotalsPage = () => {
                   </TableHead>
                   <TableBody>
                     {shown.map((r) => (
-                      <TableRow key={LEVELS.map((k) => r[k]).join("|")} hover>
-                        {LEVELS.slice(0, LEVELS.indexOf(level) + 1).map((key) => (
-                          <TableCell key={key}>{r[key]}</TableCell>
-                        ))}
+                      <TableRow
+                        key={groupBy === "insuree" ? r.chfId : LEVELS.map((k) => r[k]).join("|")}
+                        hover
+                      >
+                        {groupBy === "insuree" ? (
+                          <>
+                            <TableCell>{r.chfId}</TableCell>
+                            <TableCell>{r.insuree}</TableCell>
+                            <TableCell>{r.village}</TableCell>
+                            <TableCell>{r.district}</TableCell>
+                          </>
+                        ) : (
+                          LEVELS.slice(0, LEVELS.indexOf(level) + 1).map((key) => (
+                            <TableCell key={key}>{r[key]}</TableCell>
+                          ))
+                        )}
                         <TableCell align="right">{r.count}</TableCell>
                         <TableCell align="right">{money(r.claimed)}</TableCell>
                         <TableCell align="right">{money(r.approved)}</TableCell>
@@ -328,7 +396,7 @@ const ClaimTotalsPage = () => {
                         member has no village recorded, and that gap is worth
                         seeing rather than hiding. */}
                     <TableRow>
-                      <TableCell colSpan={LEVELS.indexOf(level) + 1}>
+                      <TableCell colSpan={groupBy === "insuree" ? 4 : LEVELS.indexOf(level) + 1}>
                         <b>{t("totals.total", "Total")}</b>
                       </TableCell>
                       <TableCell align="right"><b>{totals.count}</b></TableCell>
