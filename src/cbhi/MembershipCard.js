@@ -63,6 +63,28 @@ const Barcode = ({ value }) => {
   );
 };
 
+/*
+ * The photograph, or the empty frame when there isn't one.
+ *
+ * openIMIS stores a photo two ways -- inline as base64, or as a file under the
+ * photos volume -- and the insuree record only says WHICH, never whether the
+ * file is actually there. A record can carry a filename whose file was never
+ * uploaded, or was lost in a migration, and nothing client-side can tell in
+ * advance: the request has to be made to find out.
+ *
+ * Without onError the browser draws its broken-image glyph, which on a card
+ * looks like a printing defect. The empty frame is what an operator expects to
+ * see when someone has no photograph on file, and it is what this prints.
+ *
+ * Keyed on src at the call site, so moving to the next insuree starts over
+ * rather than inheriting the previous one's failure.
+ */
+const Photo = ({ src, fallback }) => {
+  const [failed, setFailed] = React.useState(false);
+  if (!src || failed) return <span className="cbhi-card__noPhoto">{fallback}</span>;
+  return <img src={src} alt="" onError={() => setFailed(true)} />;
+};
+
 const MembershipCard = ({ insuree, labels, template: templateId }) => {
   const template = templateById(templateId);
   const gender = insuree?.gender?.code;
@@ -123,7 +145,7 @@ const MembershipCard = ({ insuree, labels, template: templateId }) => {
         {template.photo ? (
           <div className="cbhi-card__withPhoto">
             <div className="cbhi-card__photo">
-              {photo ? <img src={photo} alt="" /> : <span className="cbhi-card__noPhoto">{labels.noPhoto}</span>}
+              <Photo key={photo} src={photo} fallback={labels.noPhoto} />
             </div>
             {rows}
           </div>

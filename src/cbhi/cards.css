@@ -147,12 +147,37 @@
 
 /* --- Photograph, on the template that carries one ------------------------- */
 
-.cbhi-card__withPhoto { display: flex; gap: 2.5mm; flex: 1; min-height: 0; }
-.cbhi-card__withPhoto .cbhi-card__label { width: 20mm; }
+/* The photograph variant is the tightest layout on the card, so its widths are
+   measured rather than chosen. Working from 85.6mm: the band takes 20 and the
+   main block's padding 6, leaving 59.6mm for photo + gap + label + colon +
+   value.
+
+   The label column was 20mm. The widest Lao label on the card,
+   "ຊື່ ແລະ ນາມສະກຸນ", measures 14.2mm at this size -- so nearly 6mm of the row
+   was reserved for nothing while the value column went short and names were
+   cut off mid-word. 15mm holds every label with a hair to spare.
+
+     59.6 - 15 photo - 2 gap - 15 label - 3.9 colon and gaps = 23.7mm of value
+
+   The longest value in the test data, "Basic Cover Ultha", needs 18.0mm. */
+.cbhi-card__withPhoto { display: flex; gap: 2mm; flex: 1; min-height: 0; }
+.cbhi-card__withPhoto .cbhi-card__label { width: 15mm; }
+.cbhi-card__withPhoto .cbhi-card__row { font-size: 2.2mm; }
+
+/* THE bug behind the cut-off text, and it is the flexbox min-width trap again.
+   A flex item's min-width defaults to auto, meaning "never narrower than my
+   content", and these rows are white-space: nowrap -- so their min-content is
+   the full untruncated string. The rows block therefore refused to shrink next
+   to the photograph, pushed past the card edge, and .cbhi-card's overflow:hidden
+   sliced the ends off. The values already carry text-overflow: ellipsis; they
+   never got the chance to use it because their container never shrank. */
+.cbhi-card__withPhoto .cbhi-card__rows { min-width: 0; }
 
 .cbhi-card__photo {
-  width: 17mm;
-  height: 22mm;
+  /* 3:4, the proportions of an ID photograph, so a portrait is not cropped to
+     something the holder would not recognise. */
+  width: 15mm;
+  height: 20mm;
   flex: none;
   border-radius: 0.8mm;
   overflow: hidden;
