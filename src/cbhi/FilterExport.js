@@ -184,6 +184,51 @@ const num = (value) => {
   return Number.isFinite(n) ? n : "";
 };
 
+
+/*
+ * The location chain, one column per level.
+ *
+ * openIMIS nests locations as a parent chain rather than as named fields, so
+ * four levels means three `parent` hops from the village:
+ *
+ *     ບ້ານ -> ກຸ່ມບ້ານ -> ເມືອງ -> ແຂວງ
+ *
+ * Emitted as SEPARATE columns rather than one joined string, because the whole
+ * point is to group by them. "Rachla, Achi, District 1" in a single cell cannot
+ * be pivoted; four columns can.
+ *
+ * This is the PATIENT's residence. The claims searcher can only filter by the
+ * health facility's location, and only down to district, because a facility is
+ * attached at district level and has nothing below it. Carrying the member's
+ * own village here is what makes tracking below district possible at all --
+ * in the spreadsheet rather than in the filter.
+ *
+ * currentVillage is preferred over the family's location: an insuree who has
+ * moved has the newer address there, and the family's is where they were
+ * enrolled.
+ */
+const LOCATION_CHAIN = `
+  currentVillage { name parent { name parent { name parent { name } } } }
+  family { location { name parent { name parent { name parent { name } } } } }
+`;
+
+const locationLevels = (insuree) => {
+  const v = insuree?.currentVillage ?? insuree?.family?.location;
+  return {
+    village: v?.name ?? "",
+    municipality: v?.parent?.name ?? "",
+    district: v?.parent?.parent?.name ?? "",
+    region: v?.parent?.parent?.parent?.name ?? "",
+  };
+};
+
+const locationColumns = (t) => [
+  { key: "region", header: t("export.column.region", "Region"), width: 16 },
+  { key: "district", header: t("export.column.district", "District"), width: 16 },
+  { key: "municipality", header: t("export.column.municipality", "Municipality"), width: 18 },
+  { key: "village", header: t("export.column.village", "Village"), width: 18 },
+];
+
 /* --- Insurees ------------------------------------------------------------- */
 
 export const InsureeExport = createFilterExport({
@@ -192,8 +237,7 @@ export const InsureeExport = createFilterExport({
     chfId lastName otherNames dob cardIssued
     gender { code }
     healthFacility { code name }
-    currentVillage { name parent { name parent { name } } }
-    family { location { name parent { name parent { name } } } }
+    ${LOCATION_CHAIN}
   `,
   fileStem: "insurees",
   sheetKey: "export.sheet.members",
@@ -203,13 +247,13 @@ export const InsureeExport = createFilterExport({
     { key: "otherNames", header: t("export.column.otherNames", "Given names"), width: 18 },
     { key: "gender", header: t("export.column.gender", "Gender"), width: 10 },
     { key: "dob", header: t("export.column.dob", "Date of birth"), width: 14 },
-    { key: "village", header: t("card.location", "Address"), width: 34 },
+    ...locationColumns(t),
     { key: "facility", header: t("export.column.facility", "Health facility"), width: 26 },
     { key: "cardIssued", header: t("export.column.cardIssued", "Card issued"), width: 12 },
   ],
   mapRow: (n, { t }) => {
-    const where = n?.currentVillage ?? n?.family?.location;
     return {
+      ...locationLevels(n),
       // Text, always. An insurance number that loses its leading zero in Excel
       // no longer matches the member it belongs to -- see xlsx.js.
       chfId: n.chfId ?? "",
@@ -217,9 +261,6 @@ export const InsureeExport = createFilterExport({
       otherNames: n.otherNames ?? "",
       gender: n?.gender?.code ?? "",
       dob: date(n.dob),
-      village: [where?.name, where?.parent?.name, where?.parent?.parent?.name]
-        .filter(Boolean)
-        .join(", "),
       facility: n?.healthFacility?.name ?? "",
       cardIssued: n.cardIssued ? t("photo.yes", "Yes") : t("photo.no", "No"),
     };
@@ -234,7 +275,7 @@ export const ClaimExport = createFilterExport({
     code dateClaimed dateProcessed status reviewStatus feedbackStatus
     claimed approved
     healthFacility { code name }
-    insuree { chfId lastName otherNames }
+    insuree { chfId lastName otherNames ${LOCATION_CHAIN} }
   `,
   fileStem: "claims",
   sheetKey: "export.sheet.claims",
@@ -242,6 +283,9 @@ export const ClaimExport = createFilterExport({
     { key: "code", header: t("export.column.claimCode", "Claim number"), width: 18 },
     { key: "chfId", header: t("filter.chfId", "Insurance number"), width: 18 },
     { key: "insuree", header: t("slips.column.member", "Member"), width: 24 },
+    // The member's own residence, which the searcher cannot filter on. This is
+    // what allows tracking below district -- by pivoting, not by filtering.
+    ...locationColumns(t),
     { key: "facility", header: t("export.column.facility", "Health facility"), width: 26 },
     { key: "dateClaimed", header: t("export.column.dateClaimed", "Claimed on"), width: 13 },
     { key: "dateProcessed", header: t("export.column.dateProcessed", "Processed on"), width: 13 },
@@ -252,6 +296,7 @@ export const ClaimExport = createFilterExport({
     { key: "approved", header: t("export.column.approved", "Approved (LAK)"), width: 15 },
   ],
   mapRow: (n) => ({
+    ...locationLevels(n?.insuree),
     code: n.code ?? "",
     chfId: n?.insuree?.chfId ?? "",
     insuree: [n?.insuree?.otherNames, n?.insuree?.lastName].filter(Boolean).join(" "),
