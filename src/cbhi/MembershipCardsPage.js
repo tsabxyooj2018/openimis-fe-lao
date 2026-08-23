@@ -1,19 +1,24 @@
 import React, { useCallback, useMemo, useState } from "react";
 import { useIntl } from "react-intl";
 import {
+  Box,
   Button,
   Checkbox,
+  Chip,
   CircularProgress,
+  Divider,
   Grid,
   Paper,
   Table,
   TableBody,
   TableCell,
+  TableContainer,
   TableHead,
   TableRow,
   TextField,
   Typography,
 } from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
 import PrintIcon from "@material-ui/icons/Print";
 import SearchIcon from "@material-ui/icons/Search";
 import MembershipCard from "./MembershipCard";
@@ -23,16 +28,15 @@ import "./cards.css";
 /*
  * Issue CBHI membership cards.
  *
- * Search, tick the people whose cards are wanted, print. The cards render into
- * a container the print stylesheet makes the only visible thing on the page, so
- * printing is the browser's own -- no PDF service, no backend report, and what
- * is on screen is exactly what comes out of the printer.
+ * Search, tick the people whose cards are wanted, print. The cards render into a
+ * container the print stylesheet makes the only visible thing on the page, so
+ * printing is the browser's own -- no PDF service and no backend report, and
+ * what is on screen is what comes out of the printer.
  *
- * Why not a backend ReportBro report, which is how openIMIS prints a claim:
- * that route needs a new entry in ReportConfig.reports with a Python query,
- * which means changing the backend image. A card is a layout problem, not a
- * data-aggregation problem, and the browser already has both the data and a
- * layout engine.
+ * Why not a backend ReportBro report, which is how openIMIS prints a claim: that
+ * needs a new entry in ReportConfig.reports with a Python query, so a backend
+ * image rebuild. A card is a layout problem, not a data-aggregation one, and the
+ * browser already has both the data and a layout engine.
  */
 
 const emptyFilters = { chfId: "", lastName: "", otherNames: "" };
@@ -47,27 +51,39 @@ const MembershipCardsPage = () => {
   // Falls back to the English so the page still reads if a key is ever missing,
   // rather than rendering the key itself the way react-intl does by default.
   const t = useCallback(
-    (id, fallback) => intl.formatMessage({ id: `cbhi.${id}`, defaultMessage: fallback }),
+    (id, fallback, values) =>
+      intl.formatMessage({ id: `cbhi.${id}`, defaultMessage: fallback }, values),
     [intl],
   );
 
+  /*
+   * The CARD is fixed in Lao. Deliberately not translated, and the one place on
+   * this page that ignores the language setting.
+   *
+   * The page around it is a tool for staff and follows whatever language they
+   * work in. The card is not a screen -- it is a document issued by the Lao
+   * Ministry of Health to a Lao citizen, who keeps it. If it took the operator's
+   * language, a clerk working in English would hand out English cards, and two
+   * people enrolled on the same day would carry different cards for no reason
+   * anyone could see afterwards.
+   *
+   * The English line under the scheme name stays, so the card reads as bilingual
+   * by design rather than by accident. To issue cards in another language,
+   * translate these values -- do not wire them back to the UI language.
+   */
   const labels = useMemo(
     () => ({
-      scheme: t("card.scheme", "ປະກັນສຸຂະພາບຊຸມຊົນ"),
-      schemeEn: t("card.schemeEn", "Community Based Health Insurance"),
-      dob: t("card.dob", "ວັນເດືອນປີເກີດ"),
-      gender: t("card.gender", "ເພດ"),
-      location: t("card.location", "ທີ່ຢູ່"),
-      noPhoto: t("card.noPhoto", "ບໍ່ມີຮູບ"),
-      footer: t("card.footer", "ບັດນີ້ເປັນຂອງລະບົບປະກັນສຸຂະພາບແຫ່ງຊາດ"),
-      verify: t("card.verify", "ກວດສອບດ້ວຍເລກປະກັນໄພ"),
-      genders: {
-        M: t("gender.M", "ຊາຍ"),
-        F: t("gender.F", "ຍິງ"),
-        O: t("gender.O", "ອື່ນ"),
-      },
+      scheme: "ປະກັນສຸຂະພາບຊຸມຊົນ",
+      schemeEn: "Community Based Health Insurance",
+      dob: "ວັນເດືອນປີເກີດ",
+      gender: "ເພດ",
+      location: "ທີ່ຢູ່",
+      noPhoto: "ບໍ່ມີຮູບ",
+      footer: "ບັດນີ້ເປັນຂອງລະບົບປະກັນສຸຂະພາບແຫ່ງຊາດ",
+      verify: "ກວດສອບດ້ວຍເລກປະກັນໄພ",
+      genders: { M: "ຊາຍ", F: "ຍິງ", O: "ອື່ນ" },
     }),
-    [t],
+    [],
   );
 
   const search = async () => {
@@ -82,7 +98,15 @@ const MembershipCardsPage = () => {
     } catch (error) {
       setInsurees([]);
       setSelected(new Set());
-      setState({ loading: false, error: error.message, searched: true });
+      /*
+       * Server wording is not shown. GraphQL speaks in connections, cursors and
+       * `first` limits, which describe our query rather than anything the person
+       * at the desk did or can act on. The original is kept on the console for
+       * whoever is debugging.
+       */
+      // eslint-disable-next-line no-console
+      console.error("Membership card search failed:", error);
+      setState({ loading: false, error: t("error.search", "The search could not be completed. Please try again, or narrow the criteria."), searched: true });
     }
   };
 
@@ -98,124 +122,208 @@ const MembershipCardsPage = () => {
   const allSelected = insurees.length > 0 && selected.size === insurees.length;
   const toPrint = insurees.filter((insuree) => selected.has(insuree.uuid));
   const hasFilter = Object.values(filters).some((value) => value.trim());
+  const withoutPhoto = toPrint.filter(
+    (insuree) => !insuree.photo?.photo && !insuree.photo?.filename,
+  ).length;
 
-  const field = (name, label) => (
+  const field = (name, label, placeholder) => (
     <Grid item xs={12} sm={4}>
       <TextField
         fullWidth
+        variant="outlined"
+        size="small"
         label={label}
+        placeholder={placeholder}
         value={filters[name]}
         onChange={(event) => setFilters({ ...filters, [name]: event.target.value })}
         // Enter is how anyone types into a search form.
         onKeyDown={(event) => {
-          if (event.key === "Enter" && hasFilter) search();
+          if (event.key === "Enter" && hasFilter && !state.loading) search();
         }}
       />
     </Grid>
   );
 
   return (
-    <div style={{ padding: 16 }}>
-      <Paper style={{ padding: 16, marginBottom: 16 }} className="cbhi-noprint">
-        <Typography variant="h6" gutterBottom>
-          {t("page.title", "ອອກບັດສະມາຊິກ")}
-        </Typography>
+    <Box p={2}>
+      <Paper elevation={1} className="cbhi-noprint">
+        <Box p={2} pb={1}>
+          <Typography variant="h6" color="primary">
+            {t("page.title", "Issue membership cards")}
+          </Typography>
+          <Typography variant="body2" color="textSecondary">
+            {t(
+              "page.description",
+              "Find the members whose cards are needed, then print. Cards print at bank-card size, several to a page.",
+            )}
+          </Typography>
+        </Box>
 
-        <Grid container spacing={2} alignItems="flex-end">
-          {field("chfId", t("filter.chfId", "ເລກປະກັນໄພ"))}
-          {field("lastName", t("filter.lastName", "ນາມສະກຸນ"))}
-          {field("otherNames", t("filter.otherNames", "ຊື່ຕົວ"))}
+        <Divider />
 
-          <Grid item xs={12}>
+        <Box p={2}>
+          <Grid container spacing={2}>
+            {field("chfId", t("filter.chfId", "Insurance number"), t("filter.chfId.hint", "starts with"))}
+            {field("lastName", t("filter.lastName", "Last name"), t("filter.contains.hint", "contains"))}
+            {field("otherNames", t("filter.otherNames", "Given names"), t("filter.contains.hint", "contains"))}
+          </Grid>
+
+          <Box mt={2} display="flex" alignItems="center" style={{ gap: 8, flexWrap: "wrap" }}>
             <Button
               variant="contained"
               color="primary"
-              startIcon={<SearchIcon />}
+              startIcon={state.loading ? <CircularProgress size={18} color="inherit" /> : <SearchIcon />}
               onClick={search}
               // At least one filter: an empty form would ask for every insuree
               // in the country.
               disabled={state.loading || !hasFilter}
             >
-              {t("action.search", "ຄົ້ນຫາ")}
-            </Button>{" "}
+              {t("action.search", "Search")}
+            </Button>
+
             <Button
               variant="contained"
               startIcon={<PrintIcon />}
               onClick={() => window.print()}
               disabled={!toPrint.length}
             >
-              {t("action.print", "ພິມບັດ")} {toPrint.length ? `(${toPrint.length})` : ""}
+              {toPrint.length
+                ? t("action.printCount", "Print {count} cards", { count: toPrint.length })
+                : t("action.print", "Print cards")}
             </Button>
-          </Grid>
-        </Grid>
 
-        {state.loading && <CircularProgress size={24} style={{ marginTop: 16 }} />}
+            {!hasFilter && (
+              <Typography variant="body2" color="textSecondary">
+                {t("hint.needFilter", "Enter at least one search criterion.")}
+              </Typography>
+            )}
+          </Box>
 
-        {state.error && (
-          <Typography color="error" style={{ marginTop: 16 }}>
-            {state.error}
-          </Typography>
-        )}
+          {state.error && (
+            <Box mt={2}>
+              <Alert severity="error">{state.error}</Alert>
+            </Box>
+          )}
 
-        {state.searched && !state.loading && !state.error && !insurees.length && (
-          <Typography style={{ marginTop: 16 }}>
-            {t("empty", "ບໍ່ພົບຜູ້ເອົາປະກັນທີ່ກົງກັບເງື່ອນໄຂ")}
-          </Typography>
-        )}
+          {state.searched && !state.loading && !state.error && !insurees.length && (
+            <Box mt={2}>
+              <Alert severity="info">
+                {t("empty", "No member matches those criteria.")}
+              </Alert>
+            </Box>
+          )}
 
-        {insurees.length >= MAX_CARDS && (
-          <Typography style={{ marginTop: 16 }} color="textSecondary">
-            {t("truncated", `ສະແດງພຽງ ${MAX_CARDS} ລາຍການທຳອິດ. ກະລຸນາລະບຸເງື່ອນໄຂໃຫ້ແຄບລົງ.`)}
-          </Typography>
-        )}
+          {insurees.length >= MAX_CARDS && (
+            <Box mt={2}>
+              <Alert severity="warning">
+                {t(
+                  "truncated",
+                  "Showing the first {count} matches. Narrow the criteria to reach the rest.",
+                  { count: MAX_CARDS },
+                )}
+              </Alert>
+            </Box>
+          )}
+
+          {/* Flagged rather than blocked: a card without a photograph is still a
+              valid card, but whoever is issuing it should know before it comes
+              off the printer rather than after. */}
+          {withoutPhoto > 0 && (
+            <Box mt={2}>
+              <Alert severity="warning">
+                {t(
+                  "warn.noPhoto",
+                  "{count} of the selected members have no photograph. Their cards will print with an empty photo box.",
+                  { count: withoutPhoto },
+                )}
+              </Alert>
+            </Box>
+          )}
+        </Box>
       </Paper>
 
       {insurees.length > 0 && (
-        <Paper style={{ marginBottom: 16 }} className="cbhi-noprint">
-          <Table size="small">
-            <TableHead>
-              <TableRow>
-                <TableCell padding="checkbox">
-                  <Checkbox
-                    checked={allSelected}
-                    indeterminate={selected.size > 0 && !allSelected}
-                    onChange={() =>
-                      setSelected(
-                        allSelected ? new Set() : new Set(insurees.map((row) => row.uuid)),
-                      )
-                    }
-                  />
-                </TableCell>
-                <TableCell>{t("filter.chfId", "ເລກປະກັນໄພ")}</TableCell>
-                <TableCell>{t("column.name", "ຊື່ ແລະ ນາມສະກຸນ")}</TableCell>
-                <TableCell>{t("card.location", "ທີ່ຢູ່")}</TableCell>
-                <TableCell>{t("column.photo", "ຮູບພາບ")}</TableCell>
-              </TableRow>
-            </TableHead>
-            <TableBody>
-              {insurees.map((insuree) => (
-                <TableRow key={insuree.uuid} hover onClick={() => toggle(insuree.uuid)}>
-                  <TableCell padding="checkbox">
-                    <Checkbox checked={selected.has(insuree.uuid)} />
-                  </TableCell>
-                  <TableCell>{insuree.chfId}</TableCell>
-                  <TableCell>
-                    {[insuree.otherNames, insuree.lastName].filter(Boolean).join(" ")}
-                  </TableCell>
-                  <TableCell>{locationLine(insuree)}</TableCell>
-                  {/* Flagged rather than blocked: a card without a photograph is
-                      still a valid card, but whoever is issuing it should know
-                      before it comes off the printer. */}
-                  <TableCell>
-                    {insuree.photo?.photo || insuree.photo?.filename
-                      ? t("photo.yes", "ມີ")
-                      : t("photo.no", "ບໍ່ມີ")}
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
-        </Paper>
+        <Box mt={2}>
+          <Paper elevation={1} className="cbhi-noprint">
+            <Box p={2} display="flex" alignItems="center" style={{ gap: 12 }}>
+              <Typography variant="subtitle1">
+                {t("results.title", "Search results")}
+              </Typography>
+              <Chip
+                size="small"
+                label={t("results.count", "{found} found · {selected} selected", {
+                  found: insurees.length,
+                  selected: selected.size,
+                })}
+              />
+            </Box>
+
+            <Divider />
+
+            <TableContainer>
+              <Table size="small">
+                <TableHead>
+                  <TableRow>
+                    <TableCell padding="checkbox">
+                      <Checkbox
+                        checked={allSelected}
+                        indeterminate={selected.size > 0 && !allSelected}
+                        onChange={() =>
+                          setSelected(
+                            allSelected ? new Set() : new Set(insurees.map((row) => row.uuid)),
+                          )
+                        }
+                      />
+                    </TableCell>
+                    <TableCell>{t("filter.chfId", "Insurance number")}</TableCell>
+                    <TableCell>{t("column.name", "Name")}</TableCell>
+                    <TableCell>{t("card.location", "Address")}</TableCell>
+                    <TableCell>{t("column.photo", "Photo")}</TableCell>
+                  </TableRow>
+                </TableHead>
+                <TableBody>
+                  {insurees.map((insuree) => {
+                    const hasPhoto = !!(insuree.photo?.photo || insuree.photo?.filename);
+                    return (
+                      <TableRow
+                        key={insuree.uuid}
+                        hover
+                        selected={selected.has(insuree.uuid)}
+                        onClick={() => toggle(insuree.uuid)}
+                        style={{ cursor: "pointer" }}
+                      >
+                        <TableCell padding="checkbox">
+                          <Checkbox checked={selected.has(insuree.uuid)} />
+                        </TableCell>
+                        <TableCell>{insuree.chfId}</TableCell>
+                        <TableCell>
+                          {[insuree.otherNames, insuree.lastName].filter(Boolean).join(" ")}
+                        </TableCell>
+                        <TableCell>{locationLine(insuree)}</TableCell>
+                        <TableCell>
+                          <Chip
+                            size="small"
+                            variant="outlined"
+                            color={hasPhoto ? "primary" : "default"}
+                            label={hasPhoto ? t("photo.yes", "Yes") : t("photo.no", "No")}
+                          />
+                        </TableCell>
+                      </TableRow>
+                    );
+                  })}
+                </TableBody>
+              </Table>
+            </TableContainer>
+          </Paper>
+        </Box>
+      )}
+
+      {toPrint.length > 0 && (
+        <Box mt={2} className="cbhi-noprint">
+          <Typography variant="subtitle2" color="textSecondary">
+            {t("preview.title", "Preview — this is what will be printed")}
+          </Typography>
+        </Box>
       )}
 
       {/* The print stylesheet hides everything except this container. */}
@@ -226,7 +334,7 @@ const MembershipCardsPage = () => {
           ))}
         </div>
       </div>
-    </div>
+    </Box>
   );
 };
 

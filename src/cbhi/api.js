@@ -58,7 +58,16 @@ const PROJECTION = `
   }
 `;
 
-export const MAX_CARDS = 200;
+/*
+ * The backend refuses more than this on the `insurees` connection:
+ *
+ *   Requesting 200 records on the `insurees` connection exceeds the `first`
+ *   limit of 100 records.
+ *
+ * It is a server-side cap on the relay connection, not a preference, so asking
+ * for more fails the whole query rather than returning a shorter list.
+ */
+export const MAX_CARDS = 100;
 
 /**
  * Insurees matching the given filters, newest first.

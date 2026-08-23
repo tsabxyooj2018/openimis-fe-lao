@@ -1,5 +1,6 @@
 import React from "react";
-import { MainMenuContribution } from "@openimis/fe-core";
+import { useIntl } from "react-intl";
+import { MainMenuContribution, formatMessage } from "@openimis/fe-core";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import MembershipCardsPage from "./MembershipCardsPage";
 import messages from "./messages.json";
@@ -52,6 +53,7 @@ import messages from "./messages.json";
 const RIGHT_INSUREE = 101101;
 
 const CardsMainMenu = (props) => {
+  const intl = useIntl();
   const { rights } = props;
   /*
    * Hidden only when the rights are KNOWN and do not include this one. An empty
@@ -68,7 +70,21 @@ const CardsMainMenu = (props) => {
   return (
     <MainMenuContribution
       {...props}
-      header="ບັດສະມາຊິກ / CBHI cards"
+      /*
+       * Through the dictionary, like every other group, so it follows the user's
+       * language instead of showing both at once. It was hardcoded as
+       * "ບັດສະມາຊິກ / CBHI cards", which read as a bilingual oddity sitting under
+       * nine groups that were all obeying the language setting.
+       *
+       * header is declared PropTypes.string, so this cannot be a
+       * <FormattedMessage> element the way an entry's text may be -- it has to be
+       * resolved to a string here.
+       *
+       * French falls back to English rather than to the key: withBaseLanguageFallback
+       * in src/ModulesManager.js prepends the English messages under every
+       * language that any module contributes, and this module contributes en.
+       */
+      header={formatMessage(intl, "cbhi", "mainMenu")}
       icon={<CreditCardIcon />}
       // The sidebar keys off this: apply-overrides stamps it onto the group as
       // data-menu-id so index.css can address groups without depending on the
@@ -77,7 +93,7 @@ const CardsMainMenu = (props) => {
       menuId="CbhiMainMenu"
       entries={[
         {
-          text: "ອອກບັດສະມາຊິກ / Issue membership cards",
+          text: formatMessage(intl, "cbhi", "menu.membershipCards"),
           icon: <CreditCardIcon />,
           route: "/cbhi/membership-cards",
         },
