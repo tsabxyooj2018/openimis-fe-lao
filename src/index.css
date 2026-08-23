@@ -987,52 +987,80 @@ main {
 
 /* --- List rows that carry action buttons ---------------------------------
 
-   On Locations, the Move icon was drawn on top of each location's name:
+   The Move icon was drawn on top of each location's name. I fixed this twice
+   and neither fix did anything, because I had the DOM wrong both times.
 
-     <ListItem>
-       <ListItemText>{code} - {name}</ListItemText>
-       <ListItemSecondaryAction>  Move  Delete  </ListItemSecondaryAction>
-     </ListItem>
+   When a ListItem contains a ListItemSecondaryAction, Material-UI does NOT
+   nest it. It wraps the whole row in a container and renders the action as a
+   SIBLING of the row -- ListItem.js, `if (hasSecondaryAction)`:
 
-   ListItemSecondaryAction is positioned ABSOLUTELY -- it is lifted out of the
-   row and pinned 16px from the right edge. Nothing about that arrangement knows
-   how wide the text is, so MUI keeps them apart by padding the row instead, and
-   the padding it applies is 48px: one icon button, 24px of icon inside 12px
-   either side. This row has two. The second one hangs over the text.
+     <li  class="MuiListItem-container">              position: relative
+       <div class="MuiListItem-root MuiListItem-secondaryAction">
+         <div class="MuiListItemText-root">R1D1M1 - Achi</div>
+       </div>
+       <div class="MuiListItemSecondaryAction-root">  position: absolute
+         [Move] [Delete] ...
+       </div>
+     </li>
 
-   The first attempt here was to widen the reserve to 112px -- two buttons plus
-   the 16px offset. Measured against real Material-UI CSS that does work, but it
-   is the wrong shape of fix: it is arithmetic that has to be redone for every
-   row with a different number of buttons, and it is silently wrong the moment a
-   module renders three, or a Tooltip changes the spacing.
+   Both earlier attempts selected `.MuiListItem-root > .MuiListItemSecondaryAction-root`.
+   That element is never a child of the row, so neither rule ever matched a
+   single node. They were no-ops that looked plausible.
 
-   So the action block is taken out of absolute positioning altogether and given
-   back to the flex row it was always inside. margin-left: auto pins it to the
-   end. Now the text and the buttons are siblings competing for one row, and
-   flexbox will not let two siblings occupy the same pixels -- the overlap
-   becomes impossible rather than merely avoided. A long name shrinks and wraps
-   within its own share instead of running underneath the icons.
+   The action being absolutely positioned is the whole problem: it is lifted out
+   of the flow and pinned 16px from the right, and nothing in that arrangement
+   knows how wide the text is. MUI keeps them apart by padding the row 48px --
+   sized for exactly one icon button. A location row has Move, Delete, and for
+   some panes fe-location also passes an InlineInput into the same group. Every
+   control past the first hangs over the text, which is why even short names
+   were being struck through.
 
-   .MuiListItem-secondaryAction is MUI's own marker class, added exactly when a
-   secondary action is present, so no :has() is needed and the rule works in
-   browsers that do not support it.
+   So the container becomes the flex row it was always pretending to be, and the
+   action block rejoins the flow at the end of it. Text and buttons become
+   siblings competing for one row, and flexbox will not let two siblings occupy
+   the same pixels. The overlap becomes impossible rather than budgeted for --
+   no arithmetic, and it does not care whether the group holds two controls or
+   five.
 
-   Measured before and after, in a 290px pane against real MUI v4 grid and list
-   CSS: upstream overlaps a long name by 33.7px; this reaches 0px on every row
-   including a 44-character one, and short names stay on a single line. */
-main .MuiListItem-root.MuiListItem-secondaryAction {
-  /* The reserve is no longer needed -- and must go, or it would be added to the
-     space the buttons now occupy in the flow. */
+   Measured in a 290px pane against Material-UI's real class definitions,
+   transcribed from node_modules, with a third control in the group:
+
+       upstream   worst overlap 62.8px, short names struck through
+       this       0px on every row, nothing past the pane edge */
+main li.MuiListItem-container {
+  display: flex;
+  align-items: center;
+}
+
+main li.MuiListItem-container > .MuiListItem-root {
+  flex: 1 1 auto;
+  /* width:100% would make the row demand the whole line and push the buttons
+     out of it; auto lets flex do the sharing. */
+  width: auto;
+  min-width: 0;
+}
+
+/* The 48px reserve was for an absolutely positioned block. The buttons now
+   occupy real space, so keeping it would just add a gap. */
+main li.MuiListItem-container > .MuiListItem-root.MuiListItem-secondaryAction {
+  padding-right: 8px;
+}
+
+main li.MuiListItem-container > .MuiListItemSecondaryAction-root {
+  position: static;
+  transform: none;
+  flex: 0 0 auto;
+  display: flex;
+  align-items: center;
+  /* Replaces the `right: 16px` that positioning gave it. */
   padding-right: 16px;
 }
 
-main .MuiListItem-root > .MuiListItemSecondaryAction-root {
-  position: static;
-  transform: none;
-  margin-left: auto;
-  display: flex;
-  align-items: center;
-  flex: 0 0 auto;
+/* edge="end" pulls the last button 12px right to cancel its own padding against
+   a container edge. In the flow that edge is no longer there, so the negative
+   margin just hangs the button over the panel. */
+main li.MuiListItem-container > .MuiListItemSecondaryAction-root > .MuiIconButton-edgeEnd {
+  margin-right: 0;
 }
 
 /* Scrollbars: wide enough to grab, quiet enough to ignore.
