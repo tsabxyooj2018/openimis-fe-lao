@@ -209,9 +209,23 @@ const CbhiModule = (cfg) => ({
       text: <FormattedMessage module="cbhi" id="menu.claimTotals" />,
       icon: <AssessmentIcon />,
       route: "/cbhi/claim-totals",
-      // Claim | Query Claims. Reading totals needs nothing more than the right
-      // to read the claims they are computed from.
-      filter: (rights) => rights.includes(111005),
+      /*
+       * Any claim right at all, matching how fe-claim decides to show its own
+       * entries. It does not test for one right; it tests a RANGE:
+       *
+       *   rights.filter(r => r >= RIGHT_ADD && r <= RIGHT_SUBMIT).length
+       *   rights.filter(r => r >= RIGHT_CLAIMREVIEW && r <= RIGHT_PROCESS).length
+       *
+       * This first asked for 111005 exactly, which is stricter than anything
+       * upstream requires: a user holding 111002 and 111007 but not 111005 sees
+       * Health Facility Claims and would have found this entry missing, with no
+       * way to tell that rights rather than the build were the reason.
+       *
+       * Totals are derived from claims the user can already list, so the right
+       * to see any claim screen is the right to see their totals. 111002..111012
+       * spans the module's whole range.
+       */
+      filter: (rights) => rights.some((r) => r >= 111002 && r <= 111012),
     },
   ],
   /*
