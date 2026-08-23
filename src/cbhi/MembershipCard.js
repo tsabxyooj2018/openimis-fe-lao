@@ -1,27 +1,32 @@
 import React from "react";
-import { photoUrl, locationLine } from "./api";
+import { photoUrl } from "./api";
+import { code128Svg } from "./barcode";
+import { templateById } from "./templates";
 import emblem from "../emblem-moh.png";
 
 /*
  * One CBHI membership card, at CR80 (85.6 x 54 mm) -- the ID-1 size every card
  * wallet, laminating pouch and card printer is built around.
  *
- * The card is laid out in millimetres rather than pixels or rem. A screen unit
- * would be resolution-dependent and would not survive the trip to a printer;
- * mm is the same on every device and is what the pouch is specified in. Nothing
- * here scales with the browser font size for the same reason -- a user with a
- * larger default font must not get a card that no longer fits its sleeve.
+ * The layout follows the card already in circulation: an authority band down the
+ * left carrying the emblem and the issuing body, the title across the top of the
+ * face, then label-colon-value rows, and the barcode along the foot. The point
+ * is that someone holding the old card and the new one sees one scheme.
  *
- * Presentational only: it renders whatever insuree it is handed. Fetching,
- * selection and printing all live in MembershipCardsPage.
+ * Dimensioned in millimetres throughout. A screen unit is resolution-dependent
+ * and does not survive a printer, and anything scaling with the browser font
+ * would stop fitting its sleeve for a user who has enlarged their text.
+ *
+ * Presentational only: it renders whatever it is handed. Fetching, selection and
+ * printing live in MembershipCardsPage.
  */
 
 /** dd/mm/yyyy, which is how dates are written on Lao official documents. */
 const formatDate = (value) => {
   if (!value) return "";
   // Dates arrive as ISO (YYYY-MM-DD). Split rather than parse: new Date() on a
-  // bare date string is interpreted as UTC and can print the previous day for
-  // anyone east of Greenwich, which is everyone here.
+  // bare date string is read as UTC and prints the previous day for anyone east
+  // of Greenwich, which is everyone here.
   const [year, month, day] = String(value).slice(0, 10).split("-");
   return year && month && day ? `${day}/${month}/${year}` : String(value);
 };
@@ -29,63 +34,97 @@ const formatDate = (value) => {
 const fullName = (insuree) =>
   [insuree?.otherNames, insuree?.lastName].filter(Boolean).join(" ");
 
-/*
- * Insurance numbers are read aloud, copied onto forms and typed into the
- * system, so they are grouped in fours. Grouping is display only -- the value
- * underneath is untouched.
- */
-const groupNumber = (chfId) =>
-  String(chfId ?? "").replace(/\s+/g, "").replace(/(.{4})(?=.)/g, "$1 ");
-
-const Field = ({ label, value }) => (
-  <div className="cbhi-card__field">
+const Row = ({ label, value }) => (
+  <div className="cbhi-card__row">
     <span className="cbhi-card__label">{label}</span>
+    <span className="cbhi-card__sep">:</span>
     <span className="cbhi-card__value">{value || "—"}</span>
   </div>
 );
 
-const MembershipCard = ({ insuree, labels }) => {
-  const photo = photoUrl(insuree?.photo);
+const Barcode = ({ value }) => {
+  const svg = code128Svg(value);
+  // Null when the value cannot be represented in Code 128B. Better an empty
+  // strip than bars that scan as something else.
+  if (!svg) return null;
+  return (
+    <div className="cbhi-card__barcode">
+      <svg
+        viewBox={`0 0 ${svg.totalWidth} ${svg.height}`}
+        preserveAspectRatio="none"
+        role="img"
+        aria-label={`Barcode ${value}`}
+      >
+        {svg.bars.map((bar) => (
+          <rect key={bar.x} x={bar.x} y="0" width={bar.width} height={svg.height} />
+        ))}
+      </svg>
+    </div>
+  );
+};
+
+const MembershipCard = ({ insuree, labels, template: templateId }) => {
+  const template = templateById(templateId);
   const gender = insuree?.gender?.code;
+  const photo = photoUrl(insuree?.photo);
+
+  const rows = (
+    <div className="cbhi-card__rows">
+      <Row label={labels.name} value={fullName(insuree)} />
+      <div className="cbhi-card__row">
+        <span className="cbhi-card__label">{labels.number}</span>
+        <span className="cbhi-card__sep">:</span>
+        <span className="cbhi-card__value cbhi-card__value--num">{insuree?.chfId}</span>
+      </div>
+      <Row label={labels.gender} value={gender ? labels.genders[gender] ?? gender : ""} />
+      <Row label={labels.dob} value={formatDate(insuree?.dob)} />
+      <Row label={labels.facility} value={insuree?.healthFacility?.name} />
+      {/* Absent rather than blank when the policy could not be read: an empty
+          expiry on a card reads as "no cover", which is not what it means. */}
+      {insuree?.expiryDate ? (
+        <Row label={labels.expiry} value={formatDate(insuree.expiryDate)} />
+      ) : null}
+    </div>
+  );
 
   return (
-    <article className="cbhi-card">
-      <header className="cbhi-card__header">
+    <article className={`cbhi-card cbhi-card--${template.id}`}>
+      {/* The ornament is drawn, not photographed, so it stays crisp at any size
+          and adds nothing to the image weight of a hundred-card batch. */}
+      {template.id === "faithful" || template.id === "photo" ? (
+        <svg className="cbhi-card__ornament" viewBox="0 0 856 540" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <defs>
+            <pattern id="cbhi-stupa" x="0" y="0" width="150" height="170" patternUnits="userSpaceOnUse">
+              <path d="M75 20 L88 62 L82 62 L96 118 L54 118 L68 62 L62 62 Z" fill="#a8892a" opacity="0.5" />
+              <path d="M40 118 h70 v12 h-70 Z M46 138 h58 v10 h-58 Z" fill="#a8892a" opacity="0.4" />
+            </pattern>
+          </defs>
+          <rect width="856" height="540" fill="url(#cbhi-stupa)" />
+        </svg>
+      ) : null}
+
+      <div className="cbhi-card__band">
         <img className="cbhi-card__emblem" src={emblem} alt="" />
-        <div className="cbhi-card__titles">
-          <div className="cbhi-card__scheme">{labels.scheme}</div>
-          <div className="cbhi-card__schemeEn">{labels.schemeEn}</div>
-        </div>
-      </header>
-
-      <div className="cbhi-card__body">
-        {/* The frame is drawn whether or not there is a photograph, so a card
-            without one keeps the same layout instead of collapsing. */}
-        <div className="cbhi-card__photo">
-          {photo ? (
-            <img src={photo} alt="" />
-          ) : (
-            <span className="cbhi-card__noPhoto">{labels.noPhoto}</span>
-          )}
-        </div>
-
-        <div className="cbhi-card__details">
-          <div className="cbhi-card__name">{fullName(insuree)}</div>
-          <div className="cbhi-card__number">{groupNumber(insuree?.chfId)}</div>
-          <Field label={labels.dob} value={formatDate(insuree?.dob)} />
-          <Field label={labels.gender} value={gender ? labels.genders[gender] ?? gender : ""} />
-          <Field label={labels.location} value={locationLine(insuree)} />
-        </div>
+        <span className="cbhi-card__authority">{labels.authority}</span>
+        <span className="cbhi-card__abbr">{labels.abbr}</span>
       </div>
 
-      <footer className="cbhi-card__footer">
-        <span>{labels.footer}</span>
-        {/* Not a validity date: openIMIS holds policy validity on the family's
-            policy, not the insuree, so printing one here would need a second
-            query per card and could state an expiry the policy does not have.
-            The number is what a facility verifies against the system. */}
-        <span className="cbhi-card__issued">{labels.verify}</span>
-      </footer>
+      <div className="cbhi-card__main">
+        <div className="cbhi-card__title">{labels.title}</div>
+
+        {template.photo ? (
+          <div className="cbhi-card__withPhoto">
+            <div className="cbhi-card__photo">
+              {photo ? <img src={photo} alt="" /> : <span className="cbhi-card__noPhoto">{labels.noPhoto}</span>}
+            </div>
+            {rows}
+          </div>
+        ) : (
+          rows
+        )}
+
+        {template.barcode ? <Barcode value={insuree?.chfId} /> : null}
+      </div>
     </article>
   );
 };

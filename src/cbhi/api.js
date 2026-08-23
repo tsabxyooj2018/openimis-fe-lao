@@ -52,6 +52,7 @@ const PROJECTION = `
   gender { code }
   photo { photo folder filename }
   currentVillage { name parent { name parent { name } } }
+  healthFacility { code name }
   family {
     location { name parent { name parent { name } } }
     headInsuree { chfId lastName otherNames }
@@ -99,6 +100,73 @@ export async function fetchInsureesForCards(filters, limit = MAX_CARDS) {
   if (body?.errors?.length) throw new Error(body.errors[0].message);
 
   return (body?.data?.insurees?.edges ?? []).map((edge) => edge.node).filter(Boolean);
+}
+
+/*
+ * The expiry date is not on the insuree. openIMIS holds validity on the policy,
+ * which belongs to the family, so it takes a second query -- and the card in
+ * circulation prints one, so it is not optional.
+ *
+ * Fetched with GraphQL aliases rather than one request per person: a hundred
+ * cards would otherwise be a hundred round trips. Batched, because a single
+ * request carrying a hundred aliased queries is the other way to make a server
+ * unhappy.
+ */
+const EXPIRY_BATCH = 25;
+
+/**
+ * Latest policy expiry date per insurance number.
+ *
+ * An insuree can hold several policies over the years, so the one that matters
+ * on a card is the furthest in the future -- printing an old one would tell a
+ * facility the member has lapsed when they have not.
+ *
+ * Never throws: a card is still worth printing without the date, so a failure
+ * here leaves those entries absent rather than losing the whole batch.
+ *
+ * @param {string[]} chfIds
+ * @returns {Promise<Object<string, string>>} insurance number to ISO date
+ */
+export async function fetchPolicyExpiry(chfIds) {
+  const expiry = {};
+  const unique = [...new Set(chfIds.filter(Boolean))];
+
+  for (let start = 0; start < unique.length; start += EXPIRY_BATCH) {
+    const batch = unique.slice(start, start + EXPIRY_BATCH);
+    const query = batch
+      .map(
+        (chfId, index) =>
+          `p${index}: policiesByInsuree(chfId: "${escape(chfId)}", first: 20) {
+             edges { node { expiryDate status } }
+           }`,
+      )
+      .join("\n");
+
+    try {
+      const response = await fetch(`${API}/graphql`, {
+        method: "POST",
+        credentials: "include",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ query: `query { ${query} }` }),
+      });
+      if (!response.ok) continue;
+      const body = await response.json();
+
+      batch.forEach((chfId, index) => {
+        const edges = body?.data?.[`p${index}`]?.edges ?? [];
+        const dates = edges
+          .map((edge) => edge?.node?.expiryDate)
+          .filter(Boolean)
+          .sort();
+        if (dates.length) expiry[chfId] = dates[dates.length - 1];
+      });
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.error("Could not read policy expiry for a batch:", error);
+    }
+  }
+
+  return expiry;
 }
 
 /**

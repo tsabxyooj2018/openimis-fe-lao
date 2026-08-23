@@ -3,8 +3,12 @@
    Two jobs: show the cards on screen, and put them on an A4 page at exactly
    CR80 so they can be cut out and laminated.
 
+   The layout follows the card already in circulation -- authority band down the
+   left, title across the face, label-colon-value rows, barcode along the foot --
+   so the two read as one scheme.
+
    Everything on the card is sized in millimetres. Screen units are
-   resolution-dependent and do not survive printing, and a card that scales with
+   resolution-dependent and do not survive printing, and a card that scaled with
    the browser font would stop fitting its sleeve for anyone who has enlarged
    their text. */
 
@@ -15,160 +19,229 @@
   padding: 4mm 0;
 }
 
-/* --- The card ------------------------------------------------------------- */
+/* --- The card shell ------------------------------------------------------- */
 
 .cbhi-card {
   /* ID-1 / CR80. */
   width: 85.6mm;
   height: 54mm;
+  flex: none;
   box-sizing: border-box;
   display: flex;
-  flex-direction: column;
   overflow: hidden;
   border-radius: 3mm;
-  background: #fff;
-  color: #10314f;
+  position: relative;
   /* Lao first: the Latin fallbacks have no Lao glyphs at all, so listing them
      first would leave the browser drawing Lao from a font that cannot. */
   font-family: "Noto Sans Lao", "Lao UI", "Segoe UI", Arial, sans-serif;
   /* Lao stacks tone marks above the consonant and vowel signs below it; at
      normal leading they collide inside a box this tight. */
   line-height: 1.45;
-  border: 0.3mm solid #c8d4de;
 }
 
-.cbhi-card__header {
+.cbhi-card__ornament {
+  position: absolute;
+  inset: 0;
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.cbhi-card__band {
+  width: 20mm;
+  flex: none;
+  padding: 2mm 1.5mm;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 2mm;
-  padding: 2mm 3mm;
-  background: #123b63;
-  color: #fff;
+  gap: 1mm;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.cbhi-card__band::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 0.8mm;
 }
 
 .cbhi-card__emblem {
-  width: 8mm;
-  height: 8mm;
+  width: 9mm;
+  height: 9mm;
+  flex: none;
   object-fit: contain;
-  /* The emblem is a dark mark on transparency; on the blue band it needs to
-     read as white rather than disappear. */
-  filter: brightness(0) invert(1);
 }
 
-.cbhi-card__titles {
+.cbhi-card__authority { font-size: 1.9mm; line-height: 1.35; font-weight: 500; }
+.cbhi-card__abbr { font-size: 2.1mm; font-weight: 700; margin-top: auto; }
+
+.cbhi-card__main {
+  flex: 1;
   min-width: 0;
+  padding: 2mm 3mm 1.5mm;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 1;
 }
 
-.cbhi-card__scheme {
-  font-size: 3.1mm;
+.cbhi-card__title {
+  font-size: 3.6mm;
   font-weight: 700;
-  white-space: nowrap;
+  text-align: center;
+  letter-spacing: 0.02em;
+  margin-bottom: 1.2mm;
+}
+
+.cbhi-card__rows {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35mm;
+}
+
+.cbhi-card__row {
+  display: flex;
+  gap: 1.5mm;
+  font-size: 2.35mm;
+  align-items: baseline;
+}
+
+.cbhi-card__label { flex: none; width: 26mm; opacity: 0.85; }
+.cbhi-card__sep { flex: none; }
+
+.cbhi-card__value {
+  min-width: 0;
+  flex: 1;
+  font-weight: 600;
   overflow: hidden;
   text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
-.cbhi-card__schemeEn {
-  font-size: 2.2mm;
-  opacity: 0.85;
-  letter-spacing: 0.02em;
+.cbhi-card__value--num {
+  /* Tabular figures so the digits line up between one card and the next, and so
+     1 and 7 cannot be confused when the number is read aloud. */
+  font-family: "Consolas", "DejaVu Sans Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.04em;
+  font-size: 2.6mm;
 }
 
-.cbhi-card__body {
-  flex: 1;
-  display: flex;
-  gap: 3mm;
-  padding: 2.5mm 3mm;
-  min-height: 0;
-}
+/* --- Photograph, on the template that carries one ------------------------- */
+
+.cbhi-card__withPhoto { display: flex; gap: 2.5mm; flex: 1; min-height: 0; }
+.cbhi-card__withPhoto .cbhi-card__label { width: 20mm; }
 
 .cbhi-card__photo {
-  width: 20mm;
-  height: 26mm;
+  width: 17mm;
+  height: 22mm;
   flex: none;
-  border: 0.3mm solid #c8d4de;
-  border-radius: 1mm;
+  border-radius: 0.8mm;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #f2f6f9;
 }
 
-.cbhi-card__photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
+.cbhi-card__photo img { width: 100%; height: 100%; object-fit: cover; }
 
 .cbhi-card__noPhoto {
   font-size: 2.2mm;
-  color: #7d94a8;
   text-align: center;
   padding: 1mm;
+  opacity: 0.6;
 }
 
-.cbhi-card__details {
-  min-width: 0;
-  flex: 1;
+/* --- Barcode -------------------------------------------------------------- */
+
+.cbhi-card__barcode { margin-top: auto; padding-top: 0.8mm; }
+
+.cbhi-card__barcode svg {
+  display: block;
+  width: 100%;
+  height: 7mm;
 }
 
-.cbhi-card__name {
-  font-size: 3.4mm;
-  font-weight: 700;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+/* --- Template: faithful, and its photograph variant ----------------------- */
+
+.cbhi-card--faithful,
+.cbhi-card--photo {
+  background: radial-gradient(120% 90% at 80% 20%, #e9dc7d 0%, #ddc94f 45%, #cdb63f 100%);
+  color: #33270c;
 }
 
-.cbhi-card__number {
-  /* Tabular figures so the groups line up between one card and the next, and
-     so 1 and 7 cannot be confused when the number is read out. */
-  font-family: "Consolas", "DejaVu Sans Mono", monospace;
-  font-size: 4.4mm;
-  font-weight: 700;
-  letter-spacing: 0.04em;
-  margin: 0.4mm 0 1mm;
-  color: #0b5d7a;
+.cbhi-card--faithful .cbhi-card__band,
+.cbhi-card--photo .cbhi-card__band {
+  background: linear-gradient(180deg, #8d3122 0%, #7a2a1c 100%);
+  color: #f7e9c8;
 }
 
-.cbhi-card__field {
-  display: flex;
-  gap: 1.5mm;
-  font-size: 2.5mm;
+.cbhi-card--faithful .cbhi-card__band::after,
+.cbhi-card--photo .cbhi-card__band::after { background: #c0392b; }
+
+.cbhi-card--faithful .cbhi-card__barcode svg,
+.cbhi-card--photo .cbhi-card__barcode svg { fill: #2b2205; }
+
+.cbhi-card--photo .cbhi-card__photo {
+  border: 0.3mm solid rgba(51, 39, 12, 0.35);
+  background: rgba(255, 255, 255, 0.45);
 }
 
-.cbhi-card__label {
-  color: #5f7d95;
-  flex: none;
+/* --- Template: modernised ------------------------------------------------- */
+
+.cbhi-card--clean { background: #f4edd2; color: #2f2a18; }
+.cbhi-card--clean .cbhi-card__band { background: #8d3122; color: #f7e9c8; width: 18mm; }
+.cbhi-card--clean .cbhi-card__band::after { background: #c0392b; }
+
+.cbhi-card--clean .cbhi-card__title {
+  font-size: 3.3mm;
+  text-align: left;
+  letter-spacing: 0;
+  border-bottom: 0.3mm solid rgba(141, 49, 34, 0.35);
+  padding-bottom: 1mm;
 }
 
-.cbhi-card__value {
-  min-width: 0;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  font-weight: 600;
+.cbhi-card--clean .cbhi-card__label { opacity: 0.7; width: 27mm; }
+.cbhi-card--clean .cbhi-card__barcode svg { fill: #4a3a12; }
+
+/* --- Template: institutional blue ----------------------------------------- */
+
+.cbhi-card--institutional {
+  background: #fff;
+  color: #10314f;
+  border: 0.3mm solid #c8d4de;
 }
 
-.cbhi-card__footer {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 2mm;
-  padding: 1.2mm 3mm;
-  background: #eef3f7;
-  font-size: 2.1mm;
-  color: #4a6b82;
+.cbhi-card--institutional .cbhi-card__band {
+  background: linear-gradient(180deg, #14456f 0%, #123b63 100%);
+  color: #fff;
 }
 
-.cbhi-card__issued {
-  white-space: nowrap;
+.cbhi-card--institutional .cbhi-card__band::after { background: #0b5d7a; }
+
+/* The emblem is a dark mark on transparency; on the blue band it has to read as
+   white rather than disappear. */
+.cbhi-card--institutional .cbhi-card__emblem { filter: brightness(0) invert(1); }
+
+.cbhi-card--institutional .cbhi-card__title {
+  font-size: 3.3mm;
+  text-align: left;
+  color: #123b63;
+  border-bottom: 0.3mm solid #d7e1ea;
+  padding-bottom: 1mm;
 }
+
+.cbhi-card--institutional .cbhi-card__label { color: #5f7d95; opacity: 1; }
+.cbhi-card--institutional .cbhi-card__value--num { color: #0b5d7a; }
+.cbhi-card--institutional .cbhi-card__barcode svg { fill: #10314f; }
 
 /* --- Printing ------------------------------------------------------------- */
 
-/* On screen the cards sit inside the ordinary page; on paper they are the only
-   thing on it. */
 @media print {
   @page {
     size: A4 portrait;
@@ -178,11 +251,10 @@
   }
 
   /* Removed from the layout, not just made invisible. `visibility: hidden` is
-     the usual trick for this and it is not enough on its own: a hidden element
-     keeps its box, and this application's shell is a full-height sidebar plus a
-     header, which would print as one or more blank sheets before the cards
-     appeared. These are the same parts src/index.css addresses, so the two
-     stylesheets agree on what the shell is. */
+     the usual trick and is not enough on its own: a hidden element keeps its
+     box, and this application's shell is a full-height sidebar plus a header,
+     which would print as one or more blank sheets before the cards appeared.
+     These are the same parts src/index.css addresses. */
   header,
   .MuiDrawer-root,
   .MuiDrawer-paperAnchorDockedLeft,
@@ -196,16 +268,11 @@
   }
 
   /* A backstop for anything the selectors above do not know about -- an upstream
-     release adding another fixed panel, say. Cards stay visible because
-     visibility is inherited and re-asserted on them. */
-  body * {
-    visibility: hidden;
-  }
+     release adding another fixed panel, say. */
+  body * { visibility: hidden; }
 
   .cbhi-print,
-  .cbhi-print * {
-    visibility: visible;
-  }
+  .cbhi-print * { visibility: visible; }
 
   .cbhi-print {
     position: absolute;
@@ -214,21 +281,19 @@
     width: 100%;
   }
 
-  .cbhi-cards {
-    gap: 4mm;
-    padding: 0;
-  }
+  .cbhi-cards { gap: 4mm; padding: 0; }
 
   .cbhi-card {
     /* A card split across a page break is waste paper. */
     break-inside: avoid;
     page-break-inside: avoid;
-    /* Printers drop background colours by default, which would leave the header
-       band and the number unreadable as pale grey on white. */
+    /* Printers drop background colours by default, which would leave the gold
+       ground, the authority band and the barcode unreadable. */
     -webkit-print-color-adjust: exact;
     print-color-adjust: exact;
     /* A hairline to cut along. Borders survive the colour-adjust rules that
        backgrounds sometimes do not. */
-    border: 0.3mm dashed #8aa1b4;
+    outline: 0.3mm dashed #8aa1b4;
+    outline-offset: 0;
   }
 }

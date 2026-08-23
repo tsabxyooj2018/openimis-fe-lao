@@ -23,8 +23,32 @@ import PrintIcon from "@material-ui/icons/Print";
 import SearchIcon from "@material-ui/icons/Search";
 import { useModulesManager } from "@openimis/fe-core";
 import MembershipCard from "./MembershipCard";
-import { fetchInsureesForCards, locationLine, MAX_CARDS } from "./api";
+import { fetchInsureesForCards, fetchPolicyExpiry, locationLine, MAX_CARDS } from "./api";
+import { TEMPLATES, DEFAULT_TEMPLATE, templateById } from "./templates";
 import "./cards.css";
+
+/*
+ * The operator's last choice, so an office printing all day does not re-pick on
+ * every search. Deliberately per-browser rather than per-user: it is a printing
+ * preference, not something worth a round trip or a column.
+ */
+const TEMPLATE_KEY = "cbhi.cardTemplate";
+
+const readStoredTemplate = () => {
+  try {
+    return window.localStorage.getItem(TEMPLATE_KEY);
+  } catch (error) {
+    return null; // private browsing
+  }
+};
+
+const storeTemplate = (id) => {
+  try {
+    window.localStorage.setItem(TEMPLATE_KEY, id);
+  } catch (error) {
+    /* private browsing — the choice simply will not persist */
+  }
+};
 
 /*
  * openIMIS holds LastName and OtherNames as varchar(100). Nothing longer can be
@@ -83,6 +107,18 @@ const MembershipCardsPage = () => {
    * search that silently truncates what the rest of the application accepts.
    */
   const chfIdMaxLength = modulesManager.getConf("fe-insuree", "insureeForm.chfIdMaxLength", 12);
+
+  /*
+   * Precedence: what this browser last chose, then the deployment's configured
+   * default, then the faithful template. The configuration layer means a
+   * deployment can change the house default without a rebuild, the same way the
+   * sidebar and the currency are set.
+   */
+  const configuredDefault = modulesManager.getConf("cbhi", "cardTemplate", DEFAULT_TEMPLATE);
+  const [template, setTemplate] = useState(
+    () => templateById(readStoredTemplate() || configuredDefault).id,
+  );
+
   const [filters, setFilters] = useState(emptyFilters);
   const [insurees, setInsurees] = useState([]);
   const [selected, setSelected] = useState(() => new Set());
@@ -113,14 +149,19 @@ const MembershipCardsPage = () => {
    */
   const labels = useMemo(
     () => ({
-      scheme: "ປະກັນສຸຂະພາບຊຸມຊົນ",
-      schemeEn: "Community Based Health Insurance",
-      dob: "ວັນເດືອນປີເກີດ",
+      title: "ບັດປະກັນສຸຂະພາບ",
+      // Issuing body. A guess until CBHI supplies its own wording and
+      // abbreviation, which is the sort of thing that has to be right on a
+      // document people keep.
+      authority: "ກະຊວງສາທາລະນະສຸກ ປະກັນສຸຂະພາບຊຸມຊົນ",
+      abbr: "(ປ.ສ.ຊ)",
+      name: "ຊື່ ແລະ ນາມສະກຸນ",
+      number: "ເລກລະຫັດ",
       gender: "ເພດ",
-      location: "ທີ່ຢູ່",
+      dob: "ວັນເດືອນປີເກີດ",
+      facility: "ສະຖານທີ່ປິ່ນປົວ",
+      expiry: "ວັນໝົດກຳນົດ",
       noPhoto: "ບໍ່ມີຮູບ",
-      footer: "ບັດນີ້ເປັນຂອງລະບົບປະກັນສຸຂະພາບແຫ່ງຊາດ",
-      verify: "ກວດສອບດ້ວຍເລກປະກັນໄພ",
       genders: { M: "ຊາຍ", F: "ຍິງ", O: "ອື່ນ" },
     }),
     [],
@@ -130,6 +171,17 @@ const MembershipCardsPage = () => {
     setState({ loading: true, error: null, searched: true });
     try {
       const rows = await fetchInsureesForCards(filters);
+
+      /*
+       * The expiry date lives on the family's policy, so it is a second query.
+       * Failures inside it are swallowed there: a card without the date is still
+       * worth printing, and losing a whole batch over it would not be.
+       */
+      const expiry = await fetchPolicyExpiry(rows.map((row) => row.chfId));
+      rows.forEach((row) => {
+        row.expiryDate = expiry[row.chfId] ?? null;
+      });
+
       setInsurees(rows);
       // Everything found is ticked: the common case is printing the whole
       // result, and unticking a few is less work than ticking ninety.
@@ -275,6 +327,27 @@ const MembershipCardsPage = () => {
                 : t("action.print", "Print cards")}
             </Button>
 
+            <TextField
+              select
+              size="small"
+              variant="outlined"
+              label={t("template.label", "Card design")}
+              value={template}
+              onChange={(event) => {
+                setTemplate(event.target.value);
+                storeTemplate(event.target.value);
+              }}
+              SelectProps={{ native: true }}
+              style={{ minWidth: "16rem" }}
+              InputLabelProps={{ shrink: true }}
+            >
+              {TEMPLATES.map((option) => (
+                <option key={option.id} value={option.id}>
+                  {t(option.labelKey, option.fallback)}
+                </option>
+              ))}
+            </TextField>
+
             {!hasFilter && isValid && (
               <Typography variant="body2" color="textSecondary">
                 {t("hint.needFilter", "Enter at least one search criterion.")}
@@ -308,10 +381,10 @@ const MembershipCardsPage = () => {
             </Box>
           )}
 
-          {/* Flagged rather than blocked: a card without a photograph is still a
-              valid card, but whoever is issuing it should know before it comes
-              off the printer rather than after. */}
-          {withoutPhoto > 0 && (
+          {/* Only worth saying when the chosen design shows a photograph. On the
+              faithful template there is no photo box, so a missing photograph is
+              not a defect and warning about it would be noise. */}
+          {templateById(template).photo && withoutPhoto > 0 && (
             <Box mt={2}>
               <Alert severity="warning">
                 {t(
@@ -413,7 +486,12 @@ const MembershipCardsPage = () => {
       <div className="cbhi-print">
         <div className="cbhi-cards">
           {toPrint.map((insuree) => (
-            <MembershipCard key={insuree.uuid} insuree={insuree} labels={labels} />
+            <MembershipCard
+              key={insuree.uuid}
+              insuree={insuree}
+              labels={labels}
+              template={template}
+            />
           ))}
         </div>
       </div>
