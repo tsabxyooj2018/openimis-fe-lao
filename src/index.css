@@ -54,7 +54,7 @@ body {
   height: 100%;
   background: #eef2f6;
   line-height: 1.5;
-  color: #123b63;
+  color: var(--brand, #016173);
 }
 
 .bootstrap {
@@ -97,7 +97,7 @@ body:not(:has(header)) .App > div:has(> [class*="MuiPaper"]) {
   background-color: #0a2440;
   background-image:
     linear-gradient(rgba(10, 36, 64, 0.78), rgba(10, 36, 64, 0.86)),
-    linear-gradient(125deg, #071b30 0%, #123b63 55%, #17456f 100%);
+    linear-gradient(125deg, var(--brand-darkest, #04222A) 0%, var(--brand, #016173) 55%, var(--brand-light, #17798D) 100%);
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
   background-size: cover, cover;
@@ -271,7 +271,7 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) img + * {
   letter-spacing: 0.01em;
   text-align: center;
   text-wrap: balance;
-  color: #123b63;
+  color: var(--brand, #016173);
   margin: 0 0 1.5rem;
   padding-bottom: 1rem;
   border-bottom: 1px solid #e4ebf0;
@@ -330,13 +330,13 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) button[ty
 }
 
 body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) button[type="submit"]:not([disabled]) {
-  background: #123b63;
+  background: var(--brand, #016173);
   color: #fff;
 }
 
 body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) button[type="submit"]:not([disabled]):hover {
   background: #0d2c4b;
-  box-shadow: 0 2px 8px -2px rgba(18, 59, 99, 0.4);
+  box-shadow: 0 2px 8px -2px rgba(1, 97, 115, 0.4);
 }
 
 /* --- Forgot password ------------------------------------------------------
@@ -395,7 +395,7 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) input:foc
    goes, since behind a form it costs legibility and gains nothing. */
 @media (max-width: 60rem) {
   body:not(:has(header)) .App > div:has(> [class*="MuiPaper"]) {
-    background-image: linear-gradient(160deg, #071b30 0%, #123b63 100%);
+    background-image: linear-gradient(160deg, var(--brand-darkest, #04222A) 0%, var(--brand, #016173) 100%);
   }
   /* The panel is the whole page here, so there is no dark area to centre in --
      the emblem and motto would sit behind the form. */
@@ -1074,7 +1074,7 @@ main li.MuiListItem-container > .MuiListItemSecondaryAction-root > .MuiIconButto
    workstations run, need the -webkit- pseudo-elements. */
 * {
   scrollbar-width: thin;
-  scrollbar-color: rgba(18, 59, 99, 0.28) transparent;
+  scrollbar-color: rgba(1, 97, 115, 0.28) transparent;
 }
 
 ::-webkit-scrollbar {
@@ -1090,14 +1090,14 @@ main li.MuiListItem-container > .MuiListItemSecondaryAction-root > .MuiIconButto
   /* Translucent, so it reads against whatever it happens to sit on rather than
      assuming the page background. The transparent border plus background-clip
      insets the thumb, leaving it clear of the content edge without a track. */
-  background: rgba(18, 59, 99, 0.28);
+  background: rgba(1, 97, 115, 0.28);
   border: 3px solid transparent;
   border-radius: 999px;
   background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: rgba(18, 59, 99, 0.45);
+  background: rgba(1, 97, 115, 0.45);
   border: 3px solid transparent;
   background-clip: padding-box;
 }

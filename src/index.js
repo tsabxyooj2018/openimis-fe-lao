@@ -9,6 +9,7 @@ import MomentUtils from "@date-io/moment";
 import { MuiPickersUtilsProvider } from "@material-ui/pickers";
 import * as serviceWorker from "./serviceWorker";
 import createAppTheme from "./helpers/theme";
+import { defaultColors, publishCssVariables } from "./helpers/palette";
 import store from "./helpers/store";
 import LocalesManager from "./LocalesManager";
 import ModulesManager from "./ModulesManager";
@@ -82,6 +83,22 @@ const AppContainer = () => {
 
   const themeColor = appState?.config?.["fe-core"]?.theme;
   const dynamicTheme = createAppTheme(themeColor || {});
+
+  /*
+   * Hand the resolved palette to CSS.
+   *
+   * The stylesheets and the three modules that build their own DOM all read
+   * var(--brand). Publishing it from the theme that is actually in force -- not
+   * from the defaults -- means a fe-core.theme override in the database recolours
+   * them too, rather than recolouring only the Material-UI half and leaving the
+   * login page and the sidebar gradients on the built-in value.
+   *
+   * Every var() carries a fallback, so the page is correct in the moment before
+   * this runs and correct still if the configuration is absent.
+   */
+  useEffect(() => {
+    publishCssVariables({ ...defaultColors, ...(themeColor || {}) });
+  }, [themeColor]);
   const logo = getConfiguredLogo(appState.config);
   const disableTextLogo = appState?.config?.["fe-core"]?.logo?.disableTextLogo || false;
 

@@ -1,23 +1,12 @@
 import { createTheme } from "@material-ui/core/styles";
 import { alpha } from "@material-ui/core/styles/colorManipulator";
 
-// Lao deployment palette. Institutional blue leads; Lao red is reserved for
-// error states only. See NOTICE.md for the openIMIS attribution requirements
-// that accompany this rebrand.
-const defaultColors = {
-  primaryColor: "#123B63",
-  errorColor: "#C1272D",
-  whiteColor: "#fff",
-  fontColor: "#123B63",
-  backgroundColor: "#EDF2F6",
-  headerColor: "#D6E2EC",
-  greyColor: "#7C939F",
-  selectedTableRowColor: "rgba(0, 0, 0, 0.08)",
-  hoveredTableRowColor: "rgba(0, 0, 0, 0.12)",
-  toggledButtonColor: "#999999",
-  lockedBackgroundPattern:
-    "repeating-linear-gradient(45deg, #D3D3D3 1px, #D3D3D3 1px, #fff 10px, #fff 10px)",
-};
+// Lao deployment palette. The brand teal leads; Lao red is reserved for error
+// states only. Every value lives in helpers/palette.js so that the theme, the
+// stylesheets and the handful of components that draw their own chrome all read
+// one source -- see the note at the top of that file. NOTICE.md carries the
+// openIMIS attribution requirements that accompany this rebrand.
+import { defaultColors } from "./palette";
 
 const createAppTheme = (colorOverrides = {}) => {
   const {
@@ -70,7 +59,7 @@ const createAppTheme = (colorOverrides = {}) => {
         },
         contained: {
           boxShadow: "none",
-          "&:hover": { boxShadow: "0 2px 8px -2px rgba(18, 59, 99, 0.35)" },
+          "&:hover": { boxShadow: "0 2px 8px -2px rgba(1, 97, 115, 0.35)" },
         },
       },
       MuiPaper: {
@@ -86,7 +75,7 @@ const createAppTheme = (colorOverrides = {}) => {
       },
       MuiTableCell: {
         root: {
-          borderBottom: "1px solid #E4EBF0",
+          borderBottom: "1px solid #E1EDEE",
           padding: "10px 12px",
         },
         head: {

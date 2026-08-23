@@ -256,7 +256,7 @@
 }
 
 .cbhi-card--institutional .cbhi-card__band {
-  background: linear-gradient(180deg, #14456f 0%, #123b63 100%);
+  background: linear-gradient(180deg, var(--brand-light, #17798D) 0%, var(--brand, #016173) 100%);
   color: #fff;
 }
 
@@ -269,7 +269,7 @@
 .cbhi-card--institutional .cbhi-card__title {
   font-size: 3.3mm;
   text-align: left;
-  color: #123b63;
+  color: var(--brand, #016173);
   border-bottom: 0.3mm solid #d7e1ea;
   padding-bottom: 1mm;
 }

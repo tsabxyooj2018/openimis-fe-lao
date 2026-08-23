@@ -92,10 +92,10 @@ const styles = {
   button: {
     padding: "6px 16px",
     minHeight: "36px",
-    border: "1px solid #c3d0da",
+    border: "1px solid #BFD3D6",
     borderRadius: "6px",
     background: "transparent",
-    color: "#123b63",
+    color: "var(--brand, #016173)",
     font: "inherit",
     fontSize: "0.875rem",
     fontWeight: "500",
@@ -118,7 +118,7 @@ function buildCard() {
   const side = el("div", { display: "flex", flexDirection: "column", gap: "0.5rem" });
   const title = el(
     "div",
-    { fontSize: "0.95rem", fontWeight: "600", color: "#123b63" },
+    { fontSize: "0.95rem", fontWeight: "600", color: "var(--brand, #016173)" },
     "ຮູບຜູ້ໃຊ້ / Profile photo",
   );
   const hint = el(
