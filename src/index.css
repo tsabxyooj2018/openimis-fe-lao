@@ -1126,3 +1126,56 @@ main .MuiListItem-root:has(
     white-space: nowrap;
   }
 }
+
+/* --- Checkbox cells size to their label -----------------------------------
+
+   The poverty checkbox on the family form came out as
+
+       ສະຖາ
+       ນະ
+       ຄວາມ
+       ທຸກຍາກ
+
+   four lines in a column narrower than a thumbnail. Nothing above fixes it,
+   because this is not a text-breaking problem. fe-insuree writes
+
+       <Grid item xs={1}>          -> flex-basis: 8.33%; max-width: 8.33%
+         <FormControlLabel ... />
+
+   and max-width is a hard cap: the cell cannot take the width it needs no
+   matter how the text inside is allowed to break. One twelfth of the form is
+   about 55px once the checkbox itself is subtracted. "Poverty status" only just
+   survives that in English. Lao runs roughly half again longer -- the entire
+   product is proportioned for English labels -- so it had nowhere to go.
+
+   So the cap is lifted for cells whose content is a checkbox, and they size to
+   their label instead. flex-shrink: 0 is the point of it: the cell keeps its
+   content width, and if the row cannot fit it, MUI's Grid already wraps and the
+   checkbox drops to the next line whole. A checkbox on its own line is a normal
+   thing to see; a label sliced into four is not.
+
+   Scoped to the narrow cells -- a third of a row or less -- and deliberately
+   not applied to wide ones. fe-insuree has six of these checkboxes, at xs 1, 2,
+   3, 6, 6 and 6. Only the first three are cramped; the xs=6 pairs sit half a row
+   apart and read well, and sizing those to their content would pull them into a
+   clump against the left margin. Fixing what is broken, not everything that
+   matches the pattern.
+
+   max-width: 100% keeps the escape hatch: a genuinely long label still wraps
+   inside the row rather than pushing a horizontal scrollbar onto the page. */
+main
+  .MuiGrid-item:is(
+    .MuiGrid-grid-xs-1,
+    .MuiGrid-grid-xs-2,
+    .MuiGrid-grid-xs-3,
+    .MuiGrid-grid-xs-4
+  ):has(> .MuiFormControlLabel-root) {
+  flex: 0 0 auto;
+  max-width: 100%;
+}
+
+/* The label can now have the room, so it should use it in one piece. */
+main .MuiFormControlLabel-root > .MuiFormControlLabel-label {
+  overflow-wrap: normal;
+  word-break: keep-all;
+}
