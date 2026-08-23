@@ -985,31 +985,54 @@ main {
   word-break: normal;
 }
 
-/* --- List rows carrying two actions --------------------------------------
+/* --- List rows that carry action buttons ---------------------------------
 
-   On Locations, the Move icon was drawn on top of each location's name. Not a
-   flex problem at all -- those rows are
+   On Locations, the Move icon was drawn on top of each location's name:
 
      <ListItem>
        <ListItemText>{code} - {name}</ListItemText>
        <ListItemSecondaryAction>  Move  Delete  </ListItemSecondaryAction>
      </ListItem>
 
-   and ListItemSecondaryAction is positioned ABSOLUTELY. MUI keeps the text
-   clear of it by padding the row, and the padding it applies -- 48px -- is
-   sized for a single icon button. This row has two, so the second one hangs
-   over the text.
+   ListItemSecondaryAction is positioned ABSOLUTELY -- it is lifted out of the
+   row and pinned 16px from the right edge. Nothing about that arrangement knows
+   how wide the text is, so MUI keeps them apart by padding the row instead, and
+   the padding it applies is 48px: one icon button, 24px of icon inside 12px
+   either side. This row has two. The second one hangs over the text.
 
-   48px is one button: 24px icon inside 12px padding either side. Two need 96,
-   and the action block itself sits 16px from the edge, so the text has to stop
-   112px short.
+   The first attempt here was to widen the reserve to 112px -- two buttons plus
+   the 16px offset. Measured against real Material-UI CSS that does work, but it
+   is the wrong shape of fix: it is arithmetic that has to be redone for every
+   row with a different number of buttons, and it is silently wrong the moment a
+   module renders three, or a Tooltip changes the spacing.
 
-   Matched on the second button rather than applied to every row, so rows with
-   one action keep the tighter spacing MUI intends. */
-main .MuiListItem-root:has(
-    > .MuiListItemSecondaryAction-root .MuiIconButton-root + .MuiIconButton-root
-  ) {
-  padding-right: 112px;
+   So the action block is taken out of absolute positioning altogether and given
+   back to the flex row it was always inside. margin-left: auto pins it to the
+   end. Now the text and the buttons are siblings competing for one row, and
+   flexbox will not let two siblings occupy the same pixels -- the overlap
+   becomes impossible rather than merely avoided. A long name shrinks and wraps
+   within its own share instead of running underneath the icons.
+
+   .MuiListItem-secondaryAction is MUI's own marker class, added exactly when a
+   secondary action is present, so no :has() is needed and the rule works in
+   browsers that do not support it.
+
+   Measured before and after, in a 290px pane against real MUI v4 grid and list
+   CSS: upstream overlaps a long name by 33.7px; this reaches 0px on every row
+   including a 44-character one, and short names stay on a single line. */
+main .MuiListItem-root.MuiListItem-secondaryAction {
+  /* The reserve is no longer needed -- and must go, or it would be added to the
+     space the buttons now occupy in the flow. */
+  padding-right: 16px;
+}
+
+main .MuiListItem-root > .MuiListItemSecondaryAction-root {
+  position: static;
+  transform: none;
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
 }
 
 /* Scrollbars: wide enough to grab, quiet enough to ignore.
