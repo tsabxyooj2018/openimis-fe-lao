@@ -11,14 +11,31 @@ import messages from "./messages.json";
  * tracks whether a card was issued -- `cardIssued` is a field on the insuree --
  * but has nothing that prints one.
  *
- * The menu group is contributed under "insuree.MainMenu", not a key of its own.
- * fe-core builds the sidebar by asking for "<module>.MainMenu" for each module
- * named in openimis.json, and a local module cannot appear there: load-config
- * rewrites package.json from that file and npm would try to resolve this from
- * the registry. A key nobody asks for is never rendered -- which is exactly why
- * the language module's own "language.MainMenu" does not appear, and why its
- * switcher had to be mounted onto the toolbar by hand. Contributing to a key
- * that IS requested avoids repeating that.
+ * THE MENU KEY IS "core.MainMenu", AND THE SHAPE MATTERS
+ *
+ * openIMIS uses ".MainMenu" keys for two different things, and putting the wrong
+ * thing under the wrong one fails silently -- which it did here on the first
+ * attempt, rendering nothing at all with no error anywhere:
+ *
+ *   core.MainMenu       a TOP-LEVEL GROUP, as { name, component }. This is the
+ *                       list fe-core's MainMenuBar actually renders
+ *                       (MAIN_MENU_CONTRIBUTION_KEY). fe-insuree, fe-claim,
+ *                       fe-tools, fe-invoice, fe-admin and fe-profile each
+ *                       register their group here.
+ *
+ *   <module>.MainMenu   ENTRIES to add INSIDE somebody else's group, as
+ *                       { text, icon, route }. fe-policy and fe-contribution put
+ *                       entries into insuree.MainMenu this way, and fe-insuree's
+ *                       own component collects them.
+ *
+ * A React component handed to insuree.MainMenu is treated as an entry object,
+ * finds no `text` or `route` on it, and quietly contributes nothing.
+ *
+ * One deployment note. getMenus reads getConf("fe-core", "menus", []) and, when
+ * that configuration is NOT empty, filterNoConfig drops every menu whose name is
+ * absent from it. This deployment does not set it, so nothing is filtered -- but
+ * if a `menus` list is ever added to the fe-core ModuleConfiguration row, this
+ * group must be listed in it by the name below or it will disappear.
  */
 
 /*
@@ -35,8 +52,18 @@ import messages from "./messages.json";
 const RIGHT_INSUREE = 101101;
 
 const CardsMainMenu = (props) => {
-  const rights = props.rights ?? [];
-  if (!rights.includes(RIGHT_INSUREE)) return null;
+  const { rights } = props;
+  /*
+   * Hidden only when the rights are KNOWN and do not include this one. An empty
+   * or absent list means they have not arrived from the store yet, and treating
+   * that as "no permission" would hide the group on first paint and leave it
+   * hidden if the prop never arrives -- the same silent disappearance that the
+   * wrong contribution key already caused once. Showing it early costs a
+   * permission error at worst; hiding it wrongly costs the whole feature.
+   */
+  if (Array.isArray(rights) && rights.length && !rights.includes(RIGHT_INSUREE)) {
+    return null;
+  }
 
   return (
     <MainMenuContribution
@@ -61,7 +88,8 @@ const CardsMainMenu = (props) => {
 
 const CbhiModule = (cfg) => ({
   "core.Router": [{ path: "cbhi/membership-cards", component: MembershipCardsPage }],
-  "insuree.MainMenu": [CardsMainMenu],
+  // { name, component } -- the shape MainMenuBar renders. See the note above.
+  "core.MainMenu": [{ name: "CbhiMainMenu", component: CardsMainMenu }],
   /*
    * This module's own strings. Contributions are merged as
    * { ...messages, ...contributed } per language, so these sit alongside the Lao
