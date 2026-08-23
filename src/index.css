@@ -1215,6 +1215,54 @@ main li.MuiListItem-container > .MuiListItemSecondaryAction-root > .MuiIconButto
     height: 20px;
     font-size: 20px;
   }
+
+  /* And the row text itself steps down, because at this width the buttons alone
+     cannot free enough.
+
+     "P1 - ນະຄອນຫຼວງວຽງຈັນ" needs 148px on one line at the body size. In a 220px
+     pane the compact buttons leave 140px, so it wrapped -- the one case flagged
+     as still broken when those buttons landed. 14px brings the name to 130 and
+     the box to 144, and it fits.
+
+     A location list is a dense index, not running prose; 14px is the size a
+     dense index is normally set at. The rest of the application is untouched. */
+  main li.MuiListItem-container .MuiListItemText-root {
+    font-size: 0.875rem;
+  }
+
+  main li.MuiListItem-container > .MuiListItem-root.MuiListItem-gutters {
+    padding-left: 10px;
+  }
+
+  main li.MuiListItem-container > .MuiListItemSecondaryAction-root {
+    padding-right: 4px;
+  }
+}
+
+/* Narrower still -- a 1280px screen, or a browser zoomed past 100%, puts these
+   four panes near 200px each. One more step, and it is the last one available:
+   below this the two action buttons alone are most of the row.
+
+   Measured across every width from 290px down to 190px, this and the step above
+   leave nothing wrapped, including the longest province name in the country. */
+@container pane (max-width: 215px) {
+  main li.MuiListItem-container .MuiListItemText-root {
+    font-size: 0.8125rem;
+  }
+
+  main li.MuiListItem-container > .MuiListItem-root.MuiListItem-gutters {
+    padding-left: 8px;
+  }
+
+  main li.MuiListItem-container > .MuiListItemSecondaryAction-root .MuiIconButton-root {
+    padding: 3px;
+  }
+
+  main li.MuiListItem-container > .MuiListItemSecondaryAction-root .MuiSvgIcon-root {
+    width: 18px;
+    height: 18px;
+    font-size: 18px;
+  }
 }
 
 /* --- Checkbox cells size to their label -----------------------------------
