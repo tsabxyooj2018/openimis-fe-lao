@@ -1177,6 +1177,22 @@ main li.MuiListItem-container > .MuiListItemSecondaryAction-root > .MuiIconButto
     white-space: nowrap;
   }
 
+  /* The pane title steps down with the rows, for the same reason.
+
+     theme.paper.title is 18px, and the title box in one of these panes measures
+     about 104px -- "Municipalities" needs 124px at that size and was being cut
+     to "Municipaliti...". Renaming it to "Village groups", which is what the
+     level actually is in Laos, does not help: 128px.
+
+     15px brings it to 107, and 14px to 100, which is the first size that fits.
+     A panel title at 14px is small, but a truncated one carries less. The Lao
+     titles -- ແຂວງ, ເມືອງ, ກຸ່ມບ້ານ, ບ້ານ -- are short and were never affected;
+     this is an English-only problem. */
+  main .MuiPaper-root .MuiGrid-item.MuiGrid-grid-xs-true,
+  main div[class*="panelSummary"] > .MuiGrid-item:first-child {
+    font-size: 0.9375rem;
+  }
+
   /* Row actions go compact too, for the same reason and in the same panes.
 
      Putting the action block back in the flow stopped it covering the names,
@@ -1265,6 +1281,11 @@ main li.MuiListItem-container > .MuiListItemSecondaryAction-root > .MuiIconButto
 @container pane (max-width: 210px) {
   main li.MuiListItem-container .MuiListItemText-root {
     font-size: 0.75rem;
+  }
+
+  main .MuiPaper-root .MuiGrid-item.MuiGrid-grid-xs-true,
+  main div[class*="panelSummary"] > .MuiGrid-item:first-child {
+    font-size: 0.875rem;
   }
 
   main li.MuiListItem-container > .MuiListItem-root.MuiListItem-gutters {
