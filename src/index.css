@@ -1239,15 +1239,32 @@ main li.MuiListItem-container > .MuiListItemSecondaryAction-root > .MuiIconButto
   }
 }
 
-/* Narrower still -- a 1280px screen, or a browser zoomed past 100%, puts these
-   four panes near 200px each. One more step, and it is the last one available:
-   below this the two action buttons alone are most of the row.
+/* Two narrower steps, because the row text is "CODE - Name" and the code is not
+   this stylesheet's to shorten.
 
-   Measured across every width from 290px down to 190px, this and the step above
-   leave nothing wrapped, including the longest province name in the country. */
-@container pane (max-width: 215px) {
+   The longest case is the capital: at 14px "LA-VT - ນະຄອນຫຼວງວຽງຈັນ" needs
+   150px, and a 220px pane leaves it 144. Shortening the code to VT fixes it at
+   source and is worth doing -- but a location code is data somebody has to
+   change, and until they do, the screen should still be right. So the steps are
+   sized for the long form:
+
+     pane    box    14px   13px   12px
+      260    184     150    139    128
+      220    144     150!   139    128
+      200    138     150!   139!   128
+      190    128     150!   139!   128!
+
+   Below 190px nothing fits, and at that width the two action buttons are most
+   of the row anyway. */
+@container pane (max-width: 260px) {
   main li.MuiListItem-container .MuiListItemText-root {
     font-size: 0.8125rem;
+  }
+}
+
+@container pane (max-width: 210px) {
+  main li.MuiListItem-container .MuiListItemText-root {
+    font-size: 0.75rem;
   }
 
   main li.MuiListItem-container > .MuiListItem-root.MuiListItem-gutters {
