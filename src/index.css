@@ -1063,6 +1063,42 @@ main li.MuiListItem-container > .MuiListItemSecondaryAction-root > .MuiIconButto
   margin-right: 0;
 }
 
+/* --- The selected location ------------------------------------------------
+
+   fe-location marks a row selected when it is the one whose children the next
+   pane is showing:
+
+     <ListItem selected={location && location.id === l.id} ...>
+
+   so the highlight is not decoration -- it is the answer to "which province am
+   I looking at the districts of". MUI paints that with theme.palette.action
+   .selected, 8% black, which reads clearly on white and nearly vanishes on
+   these pale teal panes.
+
+   Repainted in the brand colour, with a bar down the leading edge. The bar is
+   what carries it: a tint alone at any strength that stays readable behind dark
+   text is still a subtle wash, whereas an edge is unambiguous at a glance and
+   survives being looked at across four columns at once.
+
+   Hover stays lighter than selected, so the two cannot be confused while the
+   pointer is moving over the list. */
+main li.MuiListItem-container > .MuiListItem-root.Mui-selected {
+  background-color: rgba(1, 97, 115, 0.14);
+  box-shadow: inset 3px 0 0 var(--brand, #016173);
+}
+
+main li.MuiListItem-container > .MuiListItem-root.Mui-selected .MuiListItemText-root {
+  font-weight: 600;
+}
+
+main li.MuiListItem-container > .MuiListItem-root.Mui-selected:hover {
+  background-color: rgba(1, 97, 115, 0.2);
+}
+
+main li.MuiListItem-container > .MuiListItem-root:not(.Mui-selected):hover {
+  background-color: rgba(1, 97, 115, 0.06);
+}
+
 /* Scrollbars: wide enough to grab, quiet enough to ignore.
 
    The Windows default is a few pixels and hard to hit deliberately, so the
