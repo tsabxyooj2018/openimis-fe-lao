@@ -244,6 +244,63 @@ const SESSION_EXPIRY_GUARD = {
  * dictionary was built -- so the fallback is the ordinary path, not the
  * exception.
  */
+/*
+ * Show prices in kip, on the two screens that print them raw.
+ *
+ * Medical Services and Medical Items list a Price column reading 400.00 and
+ * 42000.00 -- two decimals the kip does not have, no thousands grouping, and no
+ * currency at all. A four-hundred-kip consultation and a forty-two-thousand-kip
+ * operation are hard to tell apart at a glance when neither is grouped.
+ *
+ * fe-core.numberOfDecimals is already 0 in this deployment's configuration and
+ * makes no difference here, because these two searchers never ask for it. Their
+ * formatter is the whole of:
+ *
+ *   function (ms) { return ms.price; }
+ *
+ * so what reaches the screen is whatever the API serialised the Decimal as.
+ *
+ * WHY THIS IS INLINED RATHER THAN CALLING fe-core
+ *
+ * fe-core exports formatAmount, which does exactly this and reads the same two
+ * configuration keys. It cannot be called from here: fe-medical's ES bundle
+ * imports fe-core by named import and formatAmount is not among the names it
+ * imports, so a bare call would be a ReferenceError -- and a patch on a built
+ * bundle cannot add an import. The CJS bundle never references it either.
+ *
+ * So the body below mirrors fe-core's formatAmount deliberately: the same
+ * getConf keys with the same defaults, the same Intl call, the same currency
+ * message. If upstream changes how amounts are formatted, this will not follow,
+ * which is the cost of the copy and is recorded here so it is not a surprise.
+ *
+ * Both occurrences are replaced: one is the services searcher, one the items
+ * searcher, and both columns are money.
+ *
+ * `currency` resolves through src/translations/ref.json, where it is LAK.
+ * modulesManager and intl are both on props in each searcher, checked rather
+ * than assumed.
+ */
+const PRICE_IN_KIP = {
+  what: "prices in kip",
+  find: "        return ms.price;",
+  replace: [
+    "        return _this.props.intl.formatMessage({ id: \"currency\" }) + \" \" +",
+    "          new Intl.NumberFormat(",
+    "            _this.props.modulesManager.getConf(\"fe-core\", \"thousandSeparator\", \"en\") || \"en\",",
+    "            {",
+    "              minimumFractionDigits: _this.props.modulesManager.getConf(\"fe-core\", \"numberOfDecimals\", 2),",
+    "              maximumFractionDigits: _this.props.modulesManager.getConf(\"fe-core\", \"numberOfDecimals\", 2),",
+    "            },",
+    "          ).format(Number(ms.price) || 0);",
+  ].join("\n"),
+  whenMissing: [
+    "could not format the medical price columns: fe-medical no longer returns",
+    "ms.price raw from its searcher formatters. Either upstream now formats them",
+    "-- check that Medical Services shows LAK 42,000 rather than 42000.00 -- or",
+    "the patch needs rewriting.",
+  ],
+};
+
 const REOPEN_AFTER_CLEAR = [
   {
     what: "onClear",
@@ -583,6 +640,40 @@ if (fs.existsSync(LOCATION_PKG)) {
   }
 } else {
   console.error("\n@openimis/fe-location not found - did npm install run?");
+  process.exit(1);
+}
+
+const MEDICAL_PKG = path.join(__dirname, "..", "node_modules", "@openimis", "fe-medical");
+let pricePatched = 0;
+
+if (fs.existsSync(MEDICAL_PKG)) {
+  for (const rel of TARGETS) {
+    const file = path.join(MEDICAL_PKG, rel);
+    if (!fs.existsSync(file)) continue;
+    let src = fs.readFileSync(file, "utf-8");
+    if (src.includes(PRICE_IN_KIP.replace)) {
+      pricePatched += 1;
+      console.log(`  fe-medical/${rel}: ${PRICE_IN_KIP.what} (already present)`);
+      continue;
+    }
+    // Both hits are wanted: one is the services searcher, one the items
+    // searcher, and both columns are money.
+    const hits = src.split(PRICE_IN_KIP.find).length - 1;
+    if (hits) {
+      src = src.split(PRICE_IN_KIP.find).join(PRICE_IN_KIP.replace);
+      fs.writeFileSync(file, src, "utf-8");
+      pricePatched += hits;
+    }
+    console.log(`  fe-medical/${rel}: ${PRICE_IN_KIP.what} ${hits || "NOT FOUND"}`);
+  }
+  if (pricePatched === 0) {
+    console.error("");
+    PRICE_IN_KIP.whenMissing.forEach((line) => console.error(line));
+    console.error("See lao/apply-overrides.js.");
+    process.exit(1);
+  }
+} else {
+  console.error("\n@openimis/fe-medical not found - did npm install run?");
   process.exit(1);
 }
 
