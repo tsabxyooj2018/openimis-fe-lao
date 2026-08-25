@@ -1436,3 +1436,36 @@ div[id^="react-autowhatever-"] {
   /* The page behind must not start scrolling when the list reaches its end. */
   overscroll-behavior: contain;
 }
+
+/* A checkbox label is not allowed to wrap at all.
+
+   "Show historical values" came out as three lines, one word each, next to a
+   checkbox that stayed on the first.
+
+   Two earlier rules already look like they cover this and neither does.
+   `word-break: keep-all` above stops a break INSIDE a word -- it was written for
+   "Municipaliti...", and it has nothing to say about breaking at a space, which
+   is where this label came apart. The flex rule above it does size a cell to its
+   label, but only at xs 1 to 4; this checkbox is xs={6}, which that rule
+   deliberately left out because half-row pairs read well as they are.
+
+   They still do. What changed is the row, not the cell: contributing the Excel
+   export into insuree.Filter put another item beside the date fields and the
+   photo-status picker, so the row now asks for more than its width. Every cell
+   then shrinks, and `main .MuiGrid-item { min-width: 0 }` -- set higher up so
+   that side-by-side panels cannot overflow their pane -- is what allows a cell
+   to shrink past its own contents. The label had no floor to stand on.
+
+   So give these cells that floor back rather than turning the global rule off.
+   min-width: max-content is the width of the label on one line, so the cell
+   cannot be squeezed below it and the label has no reason to break. Nothing is
+   forced to nowrap, so no label can be clipped or pushed outside its pane: when
+   the row genuinely cannot fit, the Grid container wraps this cell onto the next
+   line whole, which is what it does everywhere else.
+
+   Scoped by :has() to cells that hold a FormControlLabel -- a checkbox or a
+   radio, whose labels are short by nature. Text fields keep min-width: 0 and go
+   on shrinking, which is what should absorb a crowded row. */
+main .MuiGrid-item:has(> .MuiFormControlLabel-root) {
+  min-width: max-content;
+}
