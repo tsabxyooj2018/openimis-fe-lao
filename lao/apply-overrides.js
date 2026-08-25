@@ -194,23 +194,56 @@ const SESSION_EXPIRY_GUARD = {
  * The alternative -- making _shouldRenderSuggestions always true -- would also
  * reopen the list immediately after picking something, which is the behaviour
  * upstream deliberately wrote that test to prevent.
+ *
+ * TWO PLACES SET IT, AND FIXING ONLY onClear FIXES ONLY THE SECOND CLICK.
+ *
+ * onClear is not the end of the story. It runs props.onClear(), which for a
+ * location picker is RegionPicker.onSuggestionSelected -- that calls onChange,
+ * the filter above drops the value, and AutoSuggestion is re-rendered with a
+ * `value` prop that has gone from the chosen region to undefined. So
+ * componentDidUpdate fires, sees prevProps.value !== this.props.value, and runs
+ *
+ *   value:    props.value ? props.getSuggestionValue(props.value) : null,
+ *   selected: props.value ? props.getSuggestionValue(props.value) : null
+ *
+ * putting both back to null a tick after onClear had separated them.
+ *
+ * This is exactly the shape of the symptom. Clear once: onClear separates them,
+ * componentDidUpdate re-joins them, the box is dead. Clear a SECOND time:
+ * onClear separates them again, but props.value is already undefined so
+ * isEqual(prev, next) holds, componentDidUpdate does not fire, and the picker
+ * opens. Two clicks on the X to reach a list that one click should have shown.
+ *
+ * Both branches of componentDidUpdate are patched -- the reset branch and the
+ * value-changed branch -- because a programmatic reset strands the picker the
+ * same way. Only the `value:` line moves; `selected:` keeps its null, since it
+ * is the pair being unequal that opens the list. The trailing comma in the find
+ * string is what keeps it off the selected: line, which has none.
  */
-const REOPEN_AFTER_CLEAR = {
-  find: [
-    '"onClear", function (e) {',
-    "      _this.setState({",
-    "        value: null,",
-    "        selected: null",
-    "      }, function (e) {",
-  ].join("\n"),
-  replace: [
-    '"onClear", function (e) {',
-    "      _this.setState({",
-    '        value: "",',
-    "        selected: null",
-    "      }, function (e) {",
-  ].join("\n"),
-};
+const REOPEN_AFTER_CLEAR = [
+  {
+    what: "onClear",
+    find: [
+      '"onClear", function (e) {',
+      "      _this.setState({",
+      "        value: null,",
+      "        selected: null",
+      "      }, function (e) {",
+    ].join("\n"),
+    replace: [
+      '"onClear", function (e) {',
+      "      _this.setState({",
+      '        value: "",',
+      "        selected: null",
+      "      }, function (e) {",
+    ].join("\n"),
+  },
+  {
+    what: "componentDidUpdate",
+    find: "value: props.value ? props.getSuggestionValue(props.value) : null,",
+    replace: 'value: props.value ? props.getSuggestionValue(props.value) : "",',
+  },
+];
 
 const toolbarPattern = (icon) =>
   new RegExp(
@@ -223,7 +256,7 @@ let filesPatched = 0;
 let menuIdPatched = 0;
 let guardPatched = 0;
 let keepOpenPatched = 0;
-let reopenPatched = 0;
+const reopenPatched = REOPEN_AFTER_CLEAR.map(() => 0);
 const toolbarHits = {};
 
 for (const rel of TARGETS) {
@@ -268,10 +301,20 @@ for (const rel of TARGETS) {
   if (guardHits) source = source.split(SESSION_EXPIRY_GUARD.find).join(SESSION_EXPIRY_GUARD.replace);
   guardPatched += guardHits || (guarded ? 1 : 0);
 
-  const reopens = source.includes(REOPEN_AFTER_CLEAR.replace);
-  const reopenHits = reopens ? 0 : source.split(REOPEN_AFTER_CLEAR.find).length - 1;
-  if (reopenHits) source = source.split(REOPEN_AFTER_CLEAR.find).join(REOPEN_AFTER_CLEAR.replace);
-  reopenPatched += reopenHits || (reopens ? 1 : 0);
+  // Tracked per edit, not as one total. Both are needed: onClear alone leaves
+  // the picker needing two clicks on the X, which is what shipped first.
+  const reopenReport = [];
+  REOPEN_AFTER_CLEAR.forEach((edit, i) => {
+    if (source.includes(edit.replace)) {
+      reopenPatched[i] += 1;
+      reopenReport.push(`${edit.what}(already)`);
+      return;
+    }
+    const hits = source.split(edit.find).length - 1;
+    if (hits) source = source.split(edit.find).join(edit.replace);
+    reopenPatched[i] += hits;
+    reopenReport.push(`${edit.what}=${hits}`);
+  });
 
   const actions = [];
   for (const { icon, action } of TOOLBAR_ACTIONS) {
@@ -299,7 +342,7 @@ for (const rel of TARGETS) {
       `toolbar ${actions.join(" ")}, ` +
       `session-guard ${guardHits || (guarded ? "(already present)" : "NOT FOUND")}, ` +
       `keep-open ${openHits || (keptOpen ? "(already present)" : "NOT FOUND")}, ` +
-      `reopen-after-clear ${reopenHits || (reopens ? "(already present)" : "NOT FOUND")}`,
+      `reopen-after-clear ${reopenReport.join(" ")}`,
   );
 }
 
@@ -328,11 +371,14 @@ if (guardPatched === 0) {
   process.exit(1);
 }
 
-if (reopenPatched === 0) {
-  console.error("\ncould not fix the picker that will not reopen: fe-core's AutoSuggestion no");
-  console.error("longer clears to { value: null, selected: null }. Check whether it still gates");
-  console.error("the dropdown on state.value !== state.selected -- if it does, and it still");
-  console.error("clears both to the same value, clearing a picker strands it until a reload.");
+const reopenMissing = REOPEN_AFTER_CLEAR.filter((edit, i) => !reopenPatched[i]);
+if (reopenMissing.length) {
+  console.error("\ncould not fix the picker that will not reopen. Not found in any bundle:");
+  reopenMissing.forEach((edit) => console.error(`  ${edit.what}`));
+  console.error("fe-core's AutoSuggestion gates its dropdown on state.value !== state.selected,");
+  console.error("and both of these set that pair. Either alone is not enough: with only onClear");
+  console.error("patched, clearing a picker takes two clicks on the X to open; with only");
+  console.error("componentDidUpdate patched, a programmatic reset strands it.");
   process.exit(1);
 }
 
