@@ -324,6 +324,75 @@ if (fs.existsSync(REPORTS_PKG)) {
   console.log("  @openimis/fe-opensearch_reports absent, iframe guard skipped");
 }
 
+/*
+ * Keep the selected location highlighted until the next one is picked.
+ *
+ * fe-location marks the row whose children the next pane is showing:
+ *
+ *   <ListItem selected={location && location.id === l.id} ...>   (ResultPane)
+ *
+ * and LocationsPage passes the right thing down -- `location: this.state.l0`
+ * for the provinces pane, l1 for the districts, and so on. But the component
+ * in between throws it away:
+ *
+ *   var _excluded = ["classes", "rights", "title", "onRefresh", "onEdit",
+ *                    "readOnly", "location"];
+ *   ...
+ *   var others = _objectWithoutProperties(this.props, _excluded);
+ *   <StyledResultPane onEdit={...} rights={...} readOnly={...} {...others} />
+ *
+ * `location` is in the exclusion list and reaches ResultPane by no other route,
+ * so it is always undefined there, `selected` is always false, and no row is
+ * ever marked. Nothing in the interface then says which province you clicked --
+ * the districts change and you are left to work it out. The pale wash that
+ * looks like a highlight while browsing is MUI's hover: it follows the pointer
+ * and is gone the moment it leaves the list.
+ *
+ * The only other consumer of `others` is ActionDialogs, which reads
+ * `stateLocation` and never `location`, so letting this through affects the row
+ * list alone.
+ *
+ * Upstream bug, worth reporting. Removing the one entry is the whole fix: the
+ * styling in src/index.css was already written and had simply never had a
+ * .Mui-selected to match.
+ */
+const LOCATION_PKG = path.join(__dirname, "..", "node_modules", "@openimis", "fe-location");
+const KEEP_SELECTION = {
+  find: 'var _excluded = ["classes", "rights", "title", "onRefresh", "onEdit", "readOnly", "location"];',
+  replace: 'var _excluded = ["classes", "rights", "title", "onRefresh", "onEdit", "readOnly"];',
+};
+
+let selectionPatched = 0;
+if (fs.existsSync(LOCATION_PKG)) {
+  for (const rel of TARGETS) {
+    const file = path.join(LOCATION_PKG, rel);
+    if (!fs.existsSync(file)) continue;
+    let src = fs.readFileSync(file, "utf-8");
+    if (src.includes(KEEP_SELECTION.replace)) {
+      selectionPatched += 1;
+      console.log(`  fe-location/${rel}: selection highlight (already present)`);
+      continue;
+    }
+    const hits = src.split(KEEP_SELECTION.find).length - 1;
+    if (hits) {
+      src = src.split(KEEP_SELECTION.find).join(KEEP_SELECTION.replace);
+      fs.writeFileSync(file, src, "utf-8");
+      selectionPatched += hits;
+    }
+    console.log(`  fe-location/${rel}: selection highlight ${hits || "NOT FOUND"}`);
+  }
+  if (selectionPatched === 0) {
+    console.error("\ncould not restore the location selection highlight: fe-location no longer");
+    console.error("builds TypeLocationsPaper's prop exclusion list that way. Either upstream has");
+    console.error("fixed it -- check that a clicked province stays highlighted -- or the patch");
+    console.error("needs rewriting. See lao/apply-overrides.js.");
+    process.exit(1);
+  }
+} else {
+  console.error("\n@openimis/fe-location not found - did npm install run?");
+  process.exit(1);
+}
+
 const missing = Object.keys(overrides).filter((k) => !totals[k]);
 if (missing.length) {
   console.error("\nThese keys were not found in fe-core - upstream may have renamed them:");

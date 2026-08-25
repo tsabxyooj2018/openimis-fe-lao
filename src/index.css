@@ -1087,7 +1087,13 @@ main li.MuiListItem-container > .MuiListItem-root.Mui-selected {
   box-shadow: inset 3px 0 0 var(--brand, #016173);
 }
 
-main li.MuiListItem-container > .MuiListItem-root.Mui-selected .MuiListItemText-root {
+/* The weight has to be set on the Typography, not on ListItemText.
+   ListItemText wraps its children in <Typography variant="body1">, and
+   .MuiTypography-body1 carries font-weight:400 from the theme -- a declaration
+   on the parent is inherited and then overridden by it, so the rule looked
+   right and did nothing. */
+main li.MuiListItem-container > .MuiListItem-root.Mui-selected .MuiListItemText-root,
+main li.MuiListItem-container > .MuiListItem-root.Mui-selected .MuiListItemText-root .MuiTypography-root {
   font-weight: 600;
 }
 
