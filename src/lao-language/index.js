@@ -5,6 +5,7 @@ import { Flag } from "./flags";
 import LANGUAGES from "./languages.json";
 import LanguageSwitchPage from "./LanguageSwitchPage";
 import messages_lo from "./lo.json";
+import appName from "./appName.json";
 import mountHeaderSwitcher from "./headerSwitcher";
 import mountChangePasswordCancel from "./changePasswordCancel";
 import mountProfileLogout from "./profileLogout";
@@ -87,7 +88,34 @@ const LaoLanguageModule = (cfg) => ({
    * src/ModulesManager.js; without that, adding a language here is harmful
    * until it is complete.
    */
-  translations: [{ key: "lo", messages: messages_lo }],
+  translations: [
+    { key: "lo", messages: messages_lo },
+    /*
+     * The service name in the sidebar header, which stayed Lao in every
+     * language.
+     *
+     * `appName` lives in src/translations/ref.json and there is only one of it.
+     * That file is the assembly's root dictionary, handed to App as the
+     * `messages` prop and merged as { ...messages, ...contributions } -- so it
+     * is the BASE, applied whatever the language, and a single Lao value there
+     * is shown to an English user with nothing to override it.
+     *
+     * Contributed per language here instead, which is the half of that merge
+     * that wins. ref.json keeps its Lao value as the fallback if this module
+     * ever fails to load.
+     *
+     * The English is the scheme's own: the Ministry of Health runs it as
+     * National Health Insurance, the name used throughout the government's
+     * English-language NHI Strategy. "System" is kept because the Lao says
+     * ລະບົບ. The Lao here is copied from ref.json by the build, never retyped.
+     *
+     * French falls through to the English rather than to the Lao:
+     * withBaseLanguageFallback prepends the English base under every language,
+     * and fe-language_fr does not translate a key this deployment invented.
+     */
+    { key: "en", messages: appName.en },
+    { key: "lo", messages: appName.lo },
+  ],
   /*
    * Province and district names follow the interface language too.
    *
