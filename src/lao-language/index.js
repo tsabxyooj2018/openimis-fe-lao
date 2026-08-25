@@ -13,6 +13,7 @@ import mountUserPhoto from "./userPhoto";
 import mountSidebarResize from "./sidebarResize";
 import mountMutationToasts from "./mutationToasts";
 import mountSiteLogo from "./siteLogo";
+import locationNamesMiddleware from "./locationNames";
 
 /*
  * Language switcher, contributed as an ordinary openIMIS module.
@@ -87,6 +88,17 @@ const LaoLanguageModule = (cfg) => ({
    * until it is complete.
    */
   translations: [{ key: "lo", messages: messages_lo }],
+  /*
+   * Province and district names follow the interface language too.
+   *
+   * They are data, not dictionary keys -- openIMIS keeps one name per location
+   * and it is the Lao one -- so this cannot go in `translations`. It arrives as
+   * a store middleware instead, which src/helpers/store.js applies after
+   * redux-api-middleware: one place, ahead of every reducer, rather than a
+   * patch on each of the dozen or so components that render a place name. See
+   * ./locationNames.js.
+   */
+  middlewares: [locationNamesMiddleware],
   ...cfg,
 });
 

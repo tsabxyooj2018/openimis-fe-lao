@@ -220,6 +220,30 @@ const SESSION_EXPIRY_GUARD = {
  * is the pair being unequal that opens the list. The trailing comma in the find
  * string is what keeps it off the selected: line, which has none.
  */
+/*
+ * Never let a translated place name be saved back as the place name.
+ *
+ * src/lao-language/locationNames.js rewrites location names to English when the
+ * interface is in English, in a store middleware -- so every screen that names a
+ * place is right without patching each one. The Locations screen, though, does
+ * not only display those names: its edit dialog loads the location into a form
+ * and writes what is in that form back to the database. Left alone, opening
+ * Attapeu in English and pressing Save would replace ອັດຕະປື in
+ * location_Location.name with "Attapeu", for every user and every language,
+ * permanently.
+ *
+ * The middleware keeps the stored name as `nameLo` for exactly this. The dialog
+ * edits that instead, so the box shows what is really in the database and Save
+ * writes back what it read. Display is translated; the record is not.
+ *
+ * Only the dialog's own copy is changed, so the list behind it stays in the
+ * interface language.
+ *
+ * `nameLo` is absent when the interface is in Lao, when the name is one this
+ * deployment has no English for, and on every location added after the
+ * dictionary was built -- so the fallback is the ordinary path, not the
+ * exception.
+ */
 const REOPEN_AFTER_CLEAR = [
   {
     what: "onClear",
@@ -474,34 +498,87 @@ if (fs.existsSync(REPORTS_PKG)) {
  */
 const LOCATION_PKG = path.join(__dirname, "..", "node_modules", "@openimis", "fe-location");
 const KEEP_SELECTION = {
+  what: "selection highlight",
   find: 'var _excluded = ["classes", "rights", "title", "onRefresh", "onEdit", "readOnly", "location"];',
   replace: 'var _excluded = ["classes", "rights", "title", "onRefresh", "onEdit", "readOnly"];',
+  whenMissing: [
+    "could not restore the location selection highlight: fe-location no longer",
+    "builds TypeLocationsPaper's prop exclusion list that way. Either upstream has",
+    "fixed it -- check that a clicked province stays highlighted -- or the patch",
+    "needs rewriting.",
+  ],
 };
 
-let selectionPatched = 0;
+/*
+ * Never let a translated place name be saved back as the place name.
+ *
+ * src/lao-language/locationNames.js rewrites location names to English when the
+ * interface is in English, in a store middleware -- so every screen that names a
+ * place is right without patching each one. The Locations screen, though, does
+ * not only display those names: its edit dialog loads the location into a form
+ * and writes what is in that form back to the database. Left alone, opening
+ * Attapeu in English and pressing Save would replace ອັດຕະປື in
+ * location_Location.name with "Attapeu", for every user and every language,
+ * permanently.
+ *
+ * The middleware keeps the stored name beside it as `nameLo` for exactly this.
+ * The dialog edits that instead, so the box shows what is really in the database
+ * and Save writes back what it read. Display is translated; the record is not.
+ *
+ * Only the dialog's own copy of the location is changed, so the list behind it
+ * stays in the interface language.
+ *
+ * `nameLo` is absent when the interface is in Lao, when the place is one this
+ * deployment has no English name for, and on every location created after the
+ * dictionary was built -- so falling through to props.location is the ordinary
+ * path rather than the exception.
+ */
+const EDIT_UNTRANSLATED_NAME = {
+  what: "untranslated name in the edit dialog",
+  find: "            data: props.location",
+  replace:
+    "            data: props.location && props.location.nameLo\n" +
+    "              ? Object.assign({}, props.location, { name: props.location.nameLo })\n" +
+    "              : props.location",
+  whenMissing: [
+    "could not point the location edit dialog at the untranslated name:",
+    "fe-location no longer loads the location into its form that way. WITHOUT THIS,",
+    "editing a location while the interface is in English writes the ENGLISH name",
+    "into location_Location.name and the Lao name is lost. Either fix the patch or",
+    "remove the middlewares entry in src/lao-language/index.js.",
+  ],
+};
+
+const LOCATION_EDITS = [KEEP_SELECTION, EDIT_UNTRANSLATED_NAME];
+const locationPatched = LOCATION_EDITS.map(() => 0);
+
 if (fs.existsSync(LOCATION_PKG)) {
   for (const rel of TARGETS) {
     const file = path.join(LOCATION_PKG, rel);
     if (!fs.existsSync(file)) continue;
     let src = fs.readFileSync(file, "utf-8");
-    if (src.includes(KEEP_SELECTION.replace)) {
-      selectionPatched += 1;
-      console.log(`  fe-location/${rel}: selection highlight (already present)`);
-      continue;
-    }
-    const hits = src.split(KEEP_SELECTION.find).length - 1;
-    if (hits) {
-      src = src.split(KEEP_SELECTION.find).join(KEEP_SELECTION.replace);
-      fs.writeFileSync(file, src, "utf-8");
-      selectionPatched += hits;
-    }
-    console.log(`  fe-location/${rel}: selection highlight ${hits || "NOT FOUND"}`);
+    const report = [];
+    LOCATION_EDITS.forEach((edit, i) => {
+      if (src.includes(edit.replace)) {
+        locationPatched[i] += 1;
+        report.push(`${edit.what}(already)`);
+        return;
+      }
+      const hits = src.split(edit.find).length - 1;
+      if (hits) src = src.split(edit.find).join(edit.replace);
+      locationPatched[i] += hits;
+      report.push(`${edit.what}=${hits}`);
+    });
+    fs.writeFileSync(file, src, "utf-8");
+    console.log(`  fe-location/${rel}: ${report.join(", ")}`);
   }
-  if (selectionPatched === 0) {
-    console.error("\ncould not restore the location selection highlight: fe-location no longer");
-    console.error("builds TypeLocationsPaper's prop exclusion list that way. Either upstream has");
-    console.error("fixed it -- check that a clicked province stays highlighted -- or the patch");
-    console.error("needs rewriting. See lao/apply-overrides.js.");
+  const missingEdits = LOCATION_EDITS.filter((edit, i) => !locationPatched[i]);
+  if (missingEdits.length) {
+    missingEdits.forEach((edit) => {
+      console.error("");
+      edit.whenMissing.forEach((line) => console.error(line));
+    });
+    console.error("\nSee lao/apply-overrides.js.");
     process.exit(1);
   }
 } else {

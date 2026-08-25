@@ -1,0 +1,666 @@
+{
+  "AT": {
+    "en": "Attapeu",
+    "lo": "ອັດຕະປື"
+  },
+  "AT01": {
+    "en": "Saysetha",
+    "lo": "ໄຊເຊດຖາ"
+  },
+  "AT02": {
+    "en": "Samakkhixay",
+    "lo": "ສາມັກຄີໄຊ"
+  },
+  "AT03": {
+    "en": "Sanamxay",
+    "lo": "ສະໜາມໄຊ"
+  },
+  "AT04": {
+    "en": "Sanxay",
+    "lo": "ສານໄຊ"
+  },
+  "AT05": {
+    "en": "Phouvong",
+    "lo": "ພູວົງ"
+  },
+  "BK": {
+    "en": "Bokeo",
+    "lo": "ບໍ່ແກ້ວ"
+  },
+  "BK01": {
+    "en": "Houayxay",
+    "lo": "ຫ້ວຍຊາຍ"
+  },
+  "BK02": {
+    "en": "Ton Pheung",
+    "lo": "ຕົ້ນເຜິ້ງ"
+  },
+  "BK03": {
+    "en": "Meung",
+    "lo": "ເມິງ"
+  },
+  "BK04": {
+    "en": "Pha Oudom",
+    "lo": "ຜາອຸດົມ"
+  },
+  "BK05": {
+    "en": "Pak Tha",
+    "lo": "ປາກທາ"
+  },
+  "BL": {
+    "en": "Bolikhamsai",
+    "lo": "ບໍລິຄຳໄຊ"
+  },
+  "BL01": {
+    "en": "Pakxan",
+    "lo": "ປາກຊັນ"
+  },
+  "BL02": {
+    "en": "Thaphabat",
+    "lo": "ທ່າພະບາດ"
+  },
+  "BL03": {
+    "en": "Pakkading",
+    "lo": "ປາກກະດິງ"
+  },
+  "BL04": {
+    "en": "Borikhane",
+    "lo": "ບໍລິຄັນ"
+  },
+  "BL05": {
+    "en": "Khamkeut",
+    "lo": "ຄຳເກີດ"
+  },
+  "BL06": {
+    "en": "Viengthong",
+    "lo": "ວຽງທອງ"
+  },
+  "BL07": {
+    "en": "Xaichamphon",
+    "lo": "ໄຊຈຳພອນ"
+  },
+  "CH": {
+    "en": "Champasak",
+    "lo": "ຈຳປາສັກ"
+  },
+  "CH01": {
+    "en": "Pakse",
+    "lo": "ປາກເຊ"
+  },
+  "CH02": {
+    "en": "Sanasomboun",
+    "lo": "ຊະນະສົມບູນ"
+  },
+  "CH03": {
+    "en": "Batiengchaleunsouk",
+    "lo": "ບາຈຽງຈະເລີນສຸກ"
+  },
+  "CH04": {
+    "en": "Paksong",
+    "lo": "ປາກຊ່ອງ"
+  },
+  "CH05": {
+    "en": "Pathouphone",
+    "lo": "ປະທຸມພອນ"
+  },
+  "CH06": {
+    "en": "Phonthong",
+    "lo": "ໂພນທອງ"
+  },
+  "CH07": {
+    "en": "Champassack",
+    "lo": "ຈຳປາສັກ"
+  },
+  "CH08": {
+    "en": "Soukhoumma",
+    "lo": "ສຸຂຸມາ"
+  },
+  "CH09": {
+    "en": "Mounlapamok",
+    "lo": "ມູນລະປະໂມກ"
+  },
+  "CH10": {
+    "en": "Khong",
+    "lo": "ໂຂງ"
+  },
+  "HO": {
+    "en": "Houaphanh",
+    "lo": "ຫົວພັນ"
+  },
+  "HO01": {
+    "en": "Xam Neua",
+    "lo": "ຊຳເໜືອ"
+  },
+  "HO02": {
+    "en": "Xiengkho",
+    "lo": "ຊຽງຄໍ້"
+  },
+  "HO03": {
+    "en": "Hiam",
+    "lo": "ວຽງທອງ"
+  },
+  "HO04": {
+    "en": "Viengxay",
+    "lo": "ວຽງໄຊ"
+  },
+  "HO05": {
+    "en": "Houameuang",
+    "lo": "ຫົວເມືອງ"
+  },
+  "HO06": {
+    "en": "Samtay",
+    "lo": "ຊຳໃຕ້"
+  },
+  "HO07": {
+    "en": "Sop Bao",
+    "lo": "ສົບເບົາ"
+  },
+  "HO08": {
+    "en": "Et",
+    "lo": "ແອດ"
+  },
+  "HO09": {
+    "en": "Kone",
+    "lo": "ກອນ"
+  },
+  "HO10": {
+    "en": "Xon",
+    "lo": "ຊ່ອນ"
+  },
+  "KH": {
+    "en": "Khammouane",
+    "lo": "ຄຳມ່ວນ"
+  },
+  "KH01": {
+    "en": "Thakhek",
+    "lo": "ທ່າແຂກ"
+  },
+  "KH02": {
+    "en": "Mahaxay",
+    "lo": "ມະຫາໄຊ"
+  },
+  "KH03": {
+    "en": "Nong Bok",
+    "lo": "ໜອງບົກ"
+  },
+  "KH04": {
+    "en": "Hineboune",
+    "lo": "ຫີນບູນ"
+  },
+  "KH05": {
+    "en": "Yommalath",
+    "lo": "ຍົມມະລາດ"
+  },
+  "KH06": {
+    "en": "Boualapha",
+    "lo": "ບົວລະພາ"
+  },
+  "KH07": {
+    "en": "Nakai",
+    "lo": "ນາກາຍ"
+  },
+  "KH08": {
+    "en": "Sebangphay",
+    "lo": "ເຊບັ້ງໄຟ"
+  },
+  "KH09": {
+    "en": "Xaibouathong",
+    "lo": "ໄຊບົວທອງ"
+  },
+  "KH10": {
+    "en": "Kounkham",
+    "lo": "ຄູນຄຳ"
+  },
+  "LM": {
+    "en": "Luang Namtha",
+    "lo": "ຫຼວງນ້ຳທາ"
+  },
+  "LM01": {
+    "en": "Namtha",
+    "lo": "ຫຼວງນໍ້າທາ"
+  },
+  "LM02": {
+    "en": "Sing",
+    "lo": "ສີງ"
+  },
+  "LM03": {
+    "en": "Long",
+    "lo": "ລອງ"
+  },
+  "LM04": {
+    "en": "Viengphoukha",
+    "lo": "ວຽງພູຄາ"
+  },
+  "LM05": {
+    "en": "Na Le",
+    "lo": "ນາແລ"
+  },
+  "LP": {
+    "en": "Luang Prabang",
+    "lo": "ຫຼວງພະບາງ"
+  },
+  "LP01": {
+    "en": "Luang Prabang",
+    "lo": "ຫຼວງພະບາງ"
+  },
+  "LP02": {
+    "en": "Xiengngeun",
+    "lo": "ຊຽງເງິນ"
+  },
+  "LP03": {
+    "en": "Nane",
+    "lo": "ນານ"
+  },
+  "LP04": {
+    "en": "Pak Ou",
+    "lo": "ປາກອູ"
+  },
+  "LP05": {
+    "en": "Nam Bak",
+    "lo": "ນ້ຳບາກ"
+  },
+  "LP06": {
+    "en": "Ngoy",
+    "lo": "ງອຍ"
+  },
+  "LP07": {
+    "en": "Pak Seng",
+    "lo": "ປາກແຊງ"
+  },
+  "LP08": {
+    "en": "Phonxay",
+    "lo": "ໂພນໄຊ"
+  },
+  "LP09": {
+    "en": "Chomphet",
+    "lo": "ຈອມເພັດ"
+  },
+  "LP10": {
+    "en": "Viengkham",
+    "lo": "ວຽງຄຳ"
+  },
+  "LP11": {
+    "en": "Phoukhoune",
+    "lo": "ພູຄູນ"
+  },
+  "LP12": {
+    "en": "Phonthong",
+    "lo": "ໂພນທອງ"
+  },
+  "OU": {
+    "en": "Oudomxay",
+    "lo": "ອຸດົມໄຊ"
+  },
+  "OU01": {
+    "en": "Xay",
+    "lo": "ໄຊ"
+  },
+  "OU02": {
+    "en": "La",
+    "lo": "ຫຼາ"
+  },
+  "OU03": {
+    "en": "Na Mo",
+    "lo": "ນາໝໍ້"
+  },
+  "OU04": {
+    "en": "Nga",
+    "lo": "ງາ"
+  },
+  "OU05": {
+    "en": "Beng",
+    "lo": "ແບ່ງ"
+  },
+  "OU06": {
+    "en": "Houne",
+    "lo": "ຮຸນ"
+  },
+  "OU07": {
+    "en": "Pak Beng",
+    "lo": "ປາກແບ່ງ"
+  },
+  "PH": {
+    "en": "Phongsaly",
+    "lo": "ຜົ້ງສາລີ"
+  },
+  "PH01": {
+    "en": "Phongsaly",
+    "lo": "ຜົ້ງສາລີ"
+  },
+  "PH02": {
+    "en": "May",
+    "lo": "ໃໝ່"
+  },
+  "PH03": {
+    "en": "Khoua",
+    "lo": "ຂວາ"
+  },
+  "PH04": {
+    "en": "Samphanh",
+    "lo": "ສຳພັນ"
+  },
+  "PH05": {
+    "en": "Boun Neua",
+    "lo": "ບຸນເໜືອ"
+  },
+  "PH06": {
+    "en": "Yot Ou",
+    "lo": "ຍອດອູ"
+  },
+  "PH07": {
+    "en": "Boun Tay",
+    "lo": "ບຸນໃຕ້"
+  },
+  "SE": {
+    "en": "Sekong",
+    "lo": "ເຊກອງ"
+  },
+  "SE01": {
+    "en": "La Mam",
+    "lo": "ລະມາມ"
+  },
+  "SE02": {
+    "en": "Kaleum",
+    "lo": "ກະເລິມ"
+  },
+  "SE03": {
+    "en": "Dak Cheung",
+    "lo": "ດາກຈຶງ"
+  },
+  "SE04": {
+    "en": "Tha Teng",
+    "lo": "ທ່າແຕງ"
+  },
+  "SL": {
+    "en": "Salavan",
+    "lo": "ສາລະວັນ"
+  },
+  "SL01": {
+    "en": "Saravane",
+    "lo": "ສາລະວັນ"
+  },
+  "SL02": {
+    "en": "Ta Oy",
+    "lo": "ຕະໂອ້ຍ"
+  },
+  "SL03": {
+    "en": "Toumlane",
+    "lo": "ຕຸ້ມລານ"
+  },
+  "SL04": {
+    "en": "Lakhonepheng",
+    "lo": "ລະຄອນເພັງ"
+  },
+  "SL05": {
+    "en": "Vapy",
+    "lo": "ວາປີ"
+  },
+  "SL06": {
+    "en": "Khongsedone",
+    "lo": "ຄົງເຊໂດນ"
+  },
+  "SL07": {
+    "en": "Lao Ngam",
+    "lo": "ເລົ່າງາມ"
+  },
+  "SL08": {
+    "en": "Sa Mouay",
+    "lo": "ສະມ້ວຍ"
+  },
+  "SV": {
+    "en": "Savannakhet",
+    "lo": "ສະຫວັນນະເຂດ"
+  },
+  "SV01": {
+    "en": "Kaysone Phomvihane",
+    "lo": "ໄກສອນ ພົມວິຫານ"
+  },
+  "SV02": {
+    "en": "Outhoumphone",
+    "lo": "ອຸທຸມພອນ"
+  },
+  "SV03": {
+    "en": "Atsaphangthong",
+    "lo": "ອາດສະພັງທອງ"
+  },
+  "SV04": {
+    "en": "Phine",
+    "lo": "ພີນ"
+  },
+  "SV05": {
+    "en": "Seponh",
+    "lo": "ເຊໂປນ"
+  },
+  "SV06": {
+    "en": "Nong",
+    "lo": "ນອງ"
+  },
+  "SV07": {
+    "en": "Thapangthong",
+    "lo": "ທ່າປາງທອງ"
+  },
+  "SV08": {
+    "en": "Songkhone",
+    "lo": "ສອງຄອນ"
+  },
+  "SV09": {
+    "en": "Champhone",
+    "lo": "ຈຳພອນ"
+  },
+  "SV10": {
+    "en": "Xonaboury",
+    "lo": "ຊົນນະບູລີ"
+  },
+  "SV11": {
+    "en": "Xayboury",
+    "lo": "ໄຊບູລີ"
+  },
+  "SV12": {
+    "en": "Viraboury",
+    "lo": "ວີລະບຸລີ"
+  },
+  "SV13": {
+    "en": "Assaphone",
+    "lo": "ອາດສະພອນ"
+  },
+  "SV14": {
+    "en": "Xonboury",
+    "lo": "ໄຊພູທອງ"
+  },
+  "SV15": {
+    "en": "Thaphalanxay",
+    "lo": "ພະລານໄຊ"
+  },
+  "VI": {
+    "en": "Vientiane",
+    "lo": "ວຽງຈັນ"
+  },
+  "VI01": {
+    "en": "Phonhong",
+    "lo": "ໂພນໂຮງ"
+  },
+  "VI02": {
+    "en": "Thoulakhom",
+    "lo": "ທຸລະຄົມ"
+  },
+  "VI03": {
+    "en": "Keo Oudom",
+    "lo": "ແກ້ວອຸດົມ"
+  },
+  "VI04": {
+    "en": "Kasy",
+    "lo": "ກາສີ"
+  },
+  "VI05": {
+    "en": "Vangvieng",
+    "lo": "ວັງວຽງ"
+  },
+  "VI06": {
+    "en": "Feuang",
+    "lo": "ເຟືອງ"
+  },
+  "VI07": {
+    "en": "Xanakharm",
+    "lo": "ຊະນະຄາມ"
+  },
+  "VI08": {
+    "en": "Mad",
+    "lo": "ແມດ"
+  },
+  "VI09": {
+    "en": "Viengkham",
+    "lo": "ວຽງຄຳ"
+  },
+  "VI10": {
+    "en": "Hinhurp",
+    "lo": "ຫີນເຫີບ"
+  },
+  "VI11": {
+    "en": "Meun",
+    "lo": "ໝື່ນ"
+  },
+  "VT": {
+    "en": "Vientiane Prefecture",
+    "lo": "ນະຄອນຫຼວງວຽງຈັນ"
+  },
+  "VT01": {
+    "en": "Chanthabuly",
+    "lo": "ຈັນທະບູລີ"
+  },
+  "VT02": {
+    "en": "Sikhottabong",
+    "lo": "ສີໂຄດຕະບອງ"
+  },
+  "VT03": {
+    "en": "Xaysetha",
+    "lo": "ໄຊເສດຖາ"
+  },
+  "VT04": {
+    "en": "Sisattanak",
+    "lo": "ສີສັດຕະນາກ"
+  },
+  "VT05": {
+    "en": "Naxaithong",
+    "lo": "ນາຊາຍທອງ"
+  },
+  "VT06": {
+    "en": "Xaythany",
+    "lo": "ໄຊທານີ"
+  },
+  "VT07": {
+    "en": "Hadxayfong",
+    "lo": "ຫາດຊາຍຟອງ"
+  },
+  "VT08": {
+    "en": "Sangthong district",
+    "lo": "ສັງທອງ"
+  },
+  "VT09": {
+    "en": "Mayparkngum district",
+    "lo": "ປາກງື່ມ"
+  },
+  "XA": {
+    "en": "Sainyabuli",
+    "lo": "ໄຊຍະບູລີ"
+  },
+  "XA01": {
+    "en": "Sainyabuli",
+    "lo": "ໄຊຍະບູລີ"
+  },
+  "XA02": {
+    "en": "Khop",
+    "lo": "ຄອບ"
+  },
+  "XA03": {
+    "en": "Hongsa",
+    "lo": "ຫົງສາ"
+  },
+  "XA04": {
+    "en": "Ngeun",
+    "lo": "ເງິນ"
+  },
+  "XA05": {
+    "en": "Xienghone",
+    "lo": "ຊຽງຮ່ອນ"
+  },
+  "XA06": {
+    "en": "Phiang",
+    "lo": "ພຽງ"
+  },
+  "XA07": {
+    "en": "Parklai",
+    "lo": "ປາກລາຍ"
+  },
+  "XA08": {
+    "en": "Kenethao",
+    "lo": "ແກ່ນທ້າວ"
+  },
+  "XA09": {
+    "en": "Botene",
+    "lo": "ບໍ່ແຕນ"
+  },
+  "XA10": {
+    "en": "Thongmyxay",
+    "lo": "ທົ່ງມີໄຊ"
+  },
+  "XA11": {
+    "en": "Xaisathan",
+    "lo": "ໄຊສະຖານ"
+  },
+  "XI": {
+    "en": "Xiangkhouang",
+    "lo": "ຊຽງຂວາງ"
+  },
+  "XI01": {
+    "en": "Pek",
+    "lo": "ແປກ"
+  },
+  "XI02": {
+    "en": "Kham",
+    "lo": "ຄຳ"
+  },
+  "XI03": {
+    "en": "Nong Het",
+    "lo": "ໜອງແຮດ"
+  },
+  "XI04": {
+    "en": "Khoune",
+    "lo": "ຄູນ"
+  },
+  "XI05": {
+    "en": "Mok May",
+    "lo": "ໝອກໃໝ່"
+  },
+  "XI06": {
+    "en": "Phou Kout",
+    "lo": "ພູກູດ"
+  },
+  "XI07": {
+    "en": "Phaxay",
+    "lo": "ຜາໄຊ"
+  },
+  "XS": {
+    "en": "Xaisomboun",
+    "lo": "ໄຊສົມບູນ"
+  },
+  "XS01": {
+    "en": "Anouvong",
+    "lo": "ອະນຸວົງ"
+  },
+  "XS02": {
+    "en": "Longchaeng",
+    "lo": "ລ້ອງແຈ້ງ"
+  },
+  "XS03": {
+    "en": "Longxan",
+    "lo": "ລ້ອງຊານ"
+  },
+  "XS04": {
+    "en": "Hom",
+    "lo": "ຮົ່ມ"
+  },
+  "XS05": {
+    "en": "Thathom",
+    "lo": "ທ່າໂທມ"
+  }
+}
