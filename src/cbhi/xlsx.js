@@ -217,7 +217,10 @@ const workbookXml = (names) => `<?xml version="1.0" encoding="UTF-8" standalone=
 const safeSheetNames = (names) => {
   const used = new Set();
   return names.map((raw) => {
-    let name = String(raw).replace(/[:\/?*[\]]/g, " ").slice(0, 31) || "Sheet";
+    // The forward slash needs no escape inside a character class, and eslint's
+    // no-useless-escape fails the build over it when CI is set. Same set of
+    // characters either way: : / ? * [ ]
+    let name = String(raw).replace(/[:/?*[\]]/g, " ").slice(0, 31) || "Sheet";
     let n = 2;
     while (used.has(name.toLowerCase())) {
       const suffix = ` (${n})`;

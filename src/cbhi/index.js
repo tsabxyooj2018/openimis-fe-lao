@@ -7,7 +7,9 @@ import MembershipCardsPage from "./MembershipCardsPage";
 import ContributionSlipsPage from "./ContributionSlipsPage";
 import { InsureeExport, ClaimExport } from "./FilterExport";
 import ClaimTotalsPage from "./ClaimTotalsPage";
+import ClaimAgeingPage from "./ClaimAgeingPage";
 import AssessmentIcon from "@material-ui/icons/Assessment";
+import TimerIcon from "@material-ui/icons/Timer";
 import messages from "./messages.json";
 
 /*
@@ -165,6 +167,7 @@ const CbhiModule = (cfg) => ({
     { path: "cbhi/membership-cards", component: MembershipCardsPage },
     { path: "cbhi/contribution-slips", component: ContributionSlipsPage },
     { path: "cbhi/claim-totals", component: ClaimTotalsPage },
+    { path: "cbhi/claim-ageing", component: ClaimAgeingPage },
   ],
   // { name, component } -- the shape MainMenuBar renders. See the note above.
   "core.MainMenu": [{ name: "CbhiMainMenu", component: CardsMainMenu }],
@@ -225,6 +228,26 @@ const CbhiModule = (cfg) => ({
        * to see any claim screen is the right to see their totals. 111002..111012
        * spans the module's whole range.
        */
+      filter: (rights) => rights.some((r) => r >= 111002 && r <= 111012),
+    },
+    /*
+     * How long claims take to be processed, per facility.
+     *
+     * Beside the totals rather than in our own group, for the same reason: a
+     * question about claims is asked from the Claims menu. `id` is not optional
+     * -- MainMenuContribution de-duplicates on it and an entry without one
+     * collides with fe-claim's own and vanishes, which cost three rounds to
+     * find the first time.
+     *
+     * Same rights range as the totals entry. Processing time is derived from
+     * claims the user can already list, so the right to see any claim screen is
+     * the right to see how long they took.
+     */
+    {
+      id: "cbhi.claimAgeing",
+      text: <FormattedMessage module="cbhi" id="menu.claimAgeing" />,
+      icon: <TimerIcon />,
+      route: "/cbhi/claim-ageing",
       filter: (rights) => rights.some((r) => r >= 111002 && r <= 111012),
     },
   ],
