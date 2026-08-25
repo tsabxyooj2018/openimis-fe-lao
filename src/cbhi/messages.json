@@ -1,5 +1,7 @@
 {
   "en": {
+    "admin.EnrolmentZonesPicker.table.municipality": "Village group",
+    "admin.user.regions": "Provinces",
     "cbhi.action.print": "Print cards",
     "cbhi.action.printCount": "Print {count} cards",
     "cbhi.action.search": "Search",
@@ -102,6 +104,20 @@
     "cbhi.totals.total": "Total",
     "cbhi.truncated": "Showing the first {count} matches. Narrow the criteria to reach the rest.",
     "cbhi.warn.noPhoto": "{count} of the selected members have no photograph. Their cards will print with an empty photo box.",
+    "claim.ClaimFilter.region": "Province",
+    "claim.ClaimHistoryReport.region": "Province",
+    "claim.ClaimPercentageReferralsReport.region": "Province",
+    "claim.ClaimsOverviewReport.region": "Province",
+    "claim.ClaimsPrimaryOperationalIndicators.region": "Province",
+    "contribution.PaymentCategoryOverviewReport.region": "Province",
+    "contribution.PremiumCollectionReport.region": "Province",
+    "core.RegistersStatusReport.region": "Province",
+    "insuree.ConfirmationType.B": "Village group",
+    "insuree.label.regionFSP": "Province of FSP",
+    "location.HealthFacilityFullPath.region": "Province",
+    "location.Location2Picker.label": "Village group",
+    "location.RegionPicker.label": "Province",
+    "location.healthFacilitySummaries.region": "Province",
     "location.locationType.0": "Province",
     "location.locationType.0.children": "Districts, village groups and villages",
     "location.locationType.0.directChildren": "Districts",
@@ -121,7 +137,13 @@
     "location.locations.searcher.title.1": "Districts",
     "location.locations.searcher.title.2": "Village groups",
     "location.locations.searcher.title.3": "Villages",
-    "location.locations.searcher.title.3.catchments": "Village catchments"
+    "location.locations.searcher.title.3.catchments": "Village catchments",
+    "medical_pricelist.region": "Province",
+    "payer.region": "Province",
+    "policy.PolicyRenewalsReport.region": "Province",
+    "product.ProductSalesReport.region": "Province",
+    "product.region": "Province",
+    "profile.regions": "Assigned Provinces"
   },
   "lo": {
     "cbhi.action.print": "ພິມບັດ",
