@@ -157,6 +157,61 @@ const SESSION_EXPIRY_GUARD = {
   replace: 'csrfError = !!document.querySelector("header") && gqlErrors.some(function (e) {',
 };
 
+/*
+ * Let a picker open again after its value has been cleared.
+ *
+ * Clicking the X on the Province picker emptied the field and then left the
+ * dropdown unopenable: clicking it again produced nothing at all, and only a
+ * full page reload brought the list back. Every AutoSuggestion picker has this,
+ * not just the location ones -- profession, relation, education, identification
+ * type, insuree officer, authority.
+ *
+ * AutoSuggestion decides whether to open with
+ *
+ *   _shouldRenderSuggestions = function () {
+ *     return _this.state.value !== _this.state.selected;
+ *   }
+ *
+ * whose intent is "do not re-open the list on the value we just chose". Its
+ * initial state is
+ *
+ *   INIT_STATE = { value: "", suggestions: [], selected: null }
+ *
+ * and "" !== null, so a freshly mounted picker opens. onClear then sets
+ *
+ *   { value: null, selected: null }
+ *
+ * and null !== null is false. The test can never pass again for the life of the
+ * component, which is exactly why reloading the page fixes it and nothing else
+ * does -- the constructor puts INIT_STATE back.
+ *
+ * So clear to "" rather than null: the same state the component mounts in,
+ * reached by the same route. Nothing else in the component distinguishes the
+ * two. renderAutoselect passes `value ?? ""` to the input, and the select/
+ * autoselect branch in render() tests `!value`, so both are falsy and both
+ * render an empty box.
+ *
+ * The alternative -- making _shouldRenderSuggestions always true -- would also
+ * reopen the list immediately after picking something, which is the behaviour
+ * upstream deliberately wrote that test to prevent.
+ */
+const REOPEN_AFTER_CLEAR = {
+  find: [
+    '"onClear", function (e) {',
+    "      _this.setState({",
+    "        value: null,",
+    "        selected: null",
+    "      }, function (e) {",
+  ].join("\n"),
+  replace: [
+    '"onClear", function (e) {',
+    "      _this.setState({",
+    '        value: "",',
+    "        selected: null",
+    "      }, function (e) {",
+  ].join("\n"),
+};
+
 const toolbarPattern = (icon) =>
   new RegExp(
     `(createElement\\((?:[\\w$."\\[\\]]+\\.)?IconButton,\\s*\\{)([^{}]*)(\\}\\s*,\\s*(?:/\\*#__PURE__\\*/\\s*)?[\\w$."\\[\\]]+\\.createElement\\((?:[\\w$."\\[\\]]+\\.)?${icon}\\b)`,
@@ -168,6 +223,7 @@ let filesPatched = 0;
 let menuIdPatched = 0;
 let guardPatched = 0;
 let keepOpenPatched = 0;
+let reopenPatched = 0;
 const toolbarHits = {};
 
 for (const rel of TARGETS) {
@@ -212,6 +268,11 @@ for (const rel of TARGETS) {
   if (guardHits) source = source.split(SESSION_EXPIRY_GUARD.find).join(SESSION_EXPIRY_GUARD.replace);
   guardPatched += guardHits || (guarded ? 1 : 0);
 
+  const reopens = source.includes(REOPEN_AFTER_CLEAR.replace);
+  const reopenHits = reopens ? 0 : source.split(REOPEN_AFTER_CLEAR.find).length - 1;
+  if (reopenHits) source = source.split(REOPEN_AFTER_CLEAR.find).join(REOPEN_AFTER_CLEAR.replace);
+  reopenPatched += reopenHits || (reopens ? 1 : 0);
+
   const actions = [];
   for (const { icon, action } of TOOLBAR_ACTIONS) {
     const marker = `"data-toolbar-action": "${action}"`;
@@ -237,7 +298,8 @@ for (const rel of TARGETS) {
       `data-menu-id ${menuIdHits || (already ? "(already present)" : "NOT FOUND")}, ` +
       `toolbar ${actions.join(" ")}, ` +
       `session-guard ${guardHits || (guarded ? "(already present)" : "NOT FOUND")}, ` +
-      `keep-open ${openHits || (keptOpen ? "(already present)" : "NOT FOUND")}`,
+      `keep-open ${openHits || (keptOpen ? "(already present)" : "NOT FOUND")}, ` +
+      `reopen-after-clear ${reopenHits || (reopens ? "(already present)" : "NOT FOUND")}`,
   );
 }
 
@@ -263,6 +325,14 @@ if (keepOpenPatched === 0) {
 if (guardPatched === 0) {
   console.error("\ncould not guard the Session Expired dialog: fe-core no longer builds csrfError");
   console.error("the same way. Anonymous visitors may see a false session-expiry prompt.");
+  process.exit(1);
+}
+
+if (reopenPatched === 0) {
+  console.error("\ncould not fix the picker that will not reopen: fe-core's AutoSuggestion no");
+  console.error("longer clears to { value: null, selected: null }. Check whether it still gates");
+  console.error("the dropdown on state.value !== state.selected -- if it does, and it still");
+  console.error("clears both to the same value, clearing a picker strands it until a reload.");
   process.exit(1);
 }
 
