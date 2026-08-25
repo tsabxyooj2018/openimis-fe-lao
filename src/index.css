@@ -1397,3 +1397,42 @@ main .MuiFormControlLabel-root > .MuiFormControlLabel-label {
   overflow-wrap: normal;
   word-break: keep-all;
 }
+
+/* ===========================================================================
+   Autosuggest dropdowns: the whole list, in a box that scrolls
+   ===========================================================================
+
+   fe-core's AutoSuggestion styles its dropdown with position, width, border and
+   z-index -- and no height limit and no overflow. That is survivable only
+   because it also truncates the list to ten and appends "... other options
+   matching search, please refine", so the box is never tall.
+
+   src/ModulesManager.js raises that limit to 200, because ten was hiding eight
+   of the eighteen provinces behind a message asking the user to type a name the
+   screen had never shown them. Without a height here, that fix would trade a
+   short truncated list for a column about 800px tall running off the bottom of
+   the window, with the last provinces unreachable -- the same fault wearing
+   different clothes. The two changes are one change.
+
+   40vh keeps roughly ten rows visible on a laptop and more on a desktop, which
+   is what the picker showed before, except the rest is now a scroll away rather
+   than absent.
+
+   KEYED ON THE LIBRARY'S OWN id, NOT ON A CLASS. The classes here are MUI/JSS
+   output -- makeStyles-suggestionsContainerOpen-NNN -- where the suffix is a
+   generation counter that moves when unrelated components mount in a different
+   order. react-autosuggest gives the items container id="react-autowhatever-N"
+   from its own source, which changes for neither language nor theme nor build.
+   The same reasoning as the data-menu-id patch in lao/apply-overrides.js: find
+   the hook that does not move.
+
+   div, because the items inside carry ids with the same prefix
+   (react-autowhatever-N-SECTION-item-I) and they are <li>. Unscoped by
+   deliberate choice -- this component appears on the sign-in page's own pickers
+   too, and there is nothing about the rule that should stop at <main>. */
+div[id^="react-autowhatever-"] {
+  max-height: 40vh;
+  overflow-y: auto;
+  /* The page behind must not start scrolling when the list reaches its end. */
+  overscroll-behavior: contain;
+}

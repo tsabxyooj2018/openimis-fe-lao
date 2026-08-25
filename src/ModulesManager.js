@@ -10,6 +10,55 @@ const TRANSLATION_CONTRIBUTION_KEY = "translations";
 const BASE_LANGUAGE = "en";
 
 /*
+ * Module configuration this deployment sets differently from openIMIS, baked
+ * into the image.
+ *
+ * The database is the other way to set these -- a core_ModuleConfiguration row,
+ * read by the browser through the moduleConfigurations query -- and for most
+ * settings it is the right one, because it applies on a refresh with no rebuild.
+ * These are here instead for the same reason the theme is: the value only makes
+ * sense together with something that already ships in the image, and splitting
+ * one behaviour across two repositories lets the halves drift.
+ *
+ * AutoSuggestion.limitDisplay is exactly that case. fe-core stops listing after
+ * `limitDisplay` options and replaces the rest with "... other options matching
+ * search, please refine". The default is 10, and there are 18 provinces -- so
+ * the province picker showed ten and hid the rest behind a message telling the
+ * user to type, with nothing on screen to say that Xekong or Attapeu existed.
+ * Refining towards a name you cannot see is not something a clerk can do.
+ *
+ * Raising it alone would have replaced one fault with another: fe-core gives the
+ * dropdown no max-height and no overflow, so twenty provinces render as an
+ * 800px column running off the bottom of the window. The height and the scroll
+ * live in src/index.css, keyed on the same component. Number and box are one
+ * change, and they belong in one repository.
+ *
+ * 200, not unlimited. AutoSuggestion backs only bounded reference lists here --
+ * the location pickers, and professions, relations, education, identification
+ * types, insuree officers, authorities. Record searches use a different
+ * component. So 200 shows every list this deployment has in full, while leaving
+ * the cap standing as a backstop rather than removing it.
+ *
+ * MERGED PER KEY, and the database still wins. Same semantics as the backend's
+ * ModuleConfiguration.get_or_default, which returns {**defaults, **db_row}: a
+ * row that sets one key leaves every other default alone, so adding an fe-core
+ * row for something else cannot silently revert these.
+ */
+const DEPLOYMENT_DEFAULTS = {
+  "fe-core": {
+    "AutoSuggestion.limitDisplay": 200,
+  },
+};
+
+function withDeploymentDefaults(cfg) {
+  const out = { ...(cfg || {}) };
+  Object.entries(DEPLOYMENT_DEFAULTS).forEach(([module, defaults]) => {
+    out[module] = { ...defaults, ...(out[module] || {}) };
+  });
+  return out;
+}
+
+/*
  * Falls back to English for any string a language has not translated yet.
  *
  * Without this, a partly translated language is worse than no translation at
@@ -49,9 +98,12 @@ function withBaseLanguageFallback(translations) {
 
 class ModulesManager {
   constructor(cfg) {
-    this.cfg = cfg;
+    // Before loadModules, not after: modules are handed their own slice of the
+    // configuration as they load, so a default applied afterwards would reach
+    // getConf and miss every module that read its config at construction.
+    this.cfg = withDeploymentDefaults(cfg);
     try {
-      this.modules = loadModules(cfg);
+      this.modules = loadModules(this.cfg);
     } catch (error) {
       throw new Error(
         "Loading modules failed in ModulesManager.js. This might be caused by duplicated modules in /src/modules.js. \n ORIGINAL ERROR: " +
