@@ -336,36 +336,204 @@
   }
 }
 
-/* --- "Photograph, barcode and QR" ----------------------------------------
-   All three on one card, which the earlier photograph template could not do.
 
-   The reason it works is the stacking, not a smaller barcode. Code 128 for a
-   twelve-digit insurance number is 167 modules, and ISO asks for at least
-   0.25mm each. Across the 59.6mm body that is 0.36mm and comfortable; squeezed
-   into the space left beside a photograph it drops to about 0.24mm and stops
-   being reliably scannable. So the photograph and the QR share a narrow right
-   column, and the barcode keeps the full width underneath them. */
+/* --- Template: "Photograph, barcode and QR" -------------------------------
+   The only template that does not use the left authority band, and the only one
+   that carries all three machine-readable elements. Those two facts are the
+   same fact.
+
+   THE MEASUREMENTS THIS LAYOUT COMES FROM
+
+   The band spends 20mm of an 85.6mm face, down its full height, on three short
+   lines. Across the top the same three lines take 10.5mm and leave the body the
+   whole width. Working from 85.6mm with 3mm of padding each side:
+
+                       band layout    banner layout
+     usable body         59.6mm         79.6mm
+     label column        13mm           19mm      "ຊື່ ແລະ ນາມສະກຸນ" measures
+                                                  14.8mm here, so 13mm WRAPPED
+     value column      ~23.7mm          43.6mm    holds a full Lao-Latin name
+     barcode            59.6mm          79.6mm
+
+   The barcode is the one that decides it. Code 128 for a twelve-digit number is
+   167 modules; ISO/IEC 15417 asks for at least 0.25mm each. Over 59.6mm that is
+   0.36mm -- it scans, but an office laser and a laminating pouch each take a
+   share of that margin. Over 79.6mm it is 0.48mm, which can be printed badly
+   and still work.
+
+   Vertically the card is 54mm with a 0.3mm border each side, so there are 53.4
+   to spend: 10.5 banner + 1.6 padding + 32.4 body + 0.8 + 6.5 barcode + 1.6
+   padding = 53.4. The left column is photograph 19.2 + 1 + QR 12 = 32.2, which
+   leaves 0.2mm in hand against the body.
+
+   The right column gets the same 32.4: 7.9 for the number block and 24.5 for the
+   rows, which need 23.0 for the six of them. */
+
+.cbhi-card--complete {
+  /* Banner above body, rather than band beside it. */
+  flex-direction: column;
+  background: #fff;
+  color: #12303f;
+  border: 0.3mm solid #cbd8e0;
+}
+
+/* --- The banner ----------------------------------------------------------- */
+
+.cbhi-card--complete .cbhi-card__banner {
+  height: 10.5mm;
+  flex: none;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  gap: 2mm;
+  padding: 0 3mm;
+  background: linear-gradient(100deg, #04455a 0%, #016173 52%, #0a7f93 100%);
+  color: #fff;
+  /* The gold rule is the join between the authority and the data. Real
+     documents mark that boundary; without it the banner reads as a coloured
+     rectangle that happens to be at the top. */
+  border-bottom: 0.5mm solid #c9a227;
+}
+
+/* A white disc, not a knocked-out silhouette. The emblem is a colour device and
+   its colours carry meaning; the chip keeps them and still reads on the dark
+   ground. It also gives the emblem a consistent footprint whatever its own
+   aspect ratio turns out to be. */
+.cbhi-card--complete .cbhi-card__chip {
+  width: 7.6mm;
+  height: 7.6mm;
+  flex: none;
+  border-radius: 50%;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.cbhi-card--complete .cbhi-card__chip img {
+  width: 6.2mm;
+  height: 6.2mm;
+  object-fit: contain;
+}
+
+.cbhi-card--complete .cbhi-card__issuer {
+  flex: 1;
+  /* The flexbox min-width trap, first of three on this card: without it these
+     two lines refuse to shrink below their own text and push the scheme title
+     off the right edge. */
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.cbhi-card--complete .cbhi-card__issuer--ministry,
+.cbhi-card--complete .cbhi-card__issuer--body {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* The ministry is the parent department and the organisation is who actually
+   issues the card, so the second line is the heavier of the two. */
+.cbhi-card--complete .cbhi-card__issuer--ministry {
+  font-size: 1.85mm;
+  line-height: 1.4;
+  opacity: 0.85;
+}
+
+.cbhi-card--complete .cbhi-card__issuer--body {
+  font-size: 2.1mm;
+  line-height: 1.4;
+  font-weight: 700;
+}
+
+.cbhi-card--complete .cbhi-card__scheme {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  text-align: right;
+}
+
+.cbhi-card--complete .cbhi-card__scheme--title {
+  font-size: 2.95mm;
+  line-height: 1.35;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.cbhi-card--complete .cbhi-card__scheme--abbr {
+  font-size: 1.85mm;
+  line-height: 1.35;
+  /* Gold, matching the rule below, so the abbreviation and the boundary read as
+     one piece of the design rather than two decisions. */
+  color: #e8cf85;
+  white-space: nowrap;
+}
+
+/* --- The body ------------------------------------------------------------- */
+
+.cbhi-card--complete .cbhi-card__main {
+  padding: 1.6mm 3mm;
+  /* Fine cross-hatch, the way an identity document is printed: it is there to
+     make a photocopy look like a photocopy, and at 4% it does not compete with
+     the text above it.
+
+     Two CSS gradients rather than an SVG <pattern>, deliberately. A pattern
+     needs an id, every card on the sheet would carry the same id, and
+     url(#id) resolves to the FIRST match in the document -- so unmounting the
+     first card would silently strip the ground from all the others. The
+     existing stupa ornament has exactly that flaw. */
+  background-image:
+    repeating-linear-gradient(45deg, rgba(1, 97, 115, 0.05) 0 0.3mm, transparent 0.3mm 1.5mm),
+    repeating-linear-gradient(-45deg, rgba(1, 97, 115, 0.04) 0 0.3mm, transparent 0.3mm 1.5mm);
+}
+
+.cbhi-card--complete .cbhi-card__body {
+  display: flex;
+  gap: 2.5mm;
+  flex: 1;
+  min-height: 0;
+}
+
+/* Photograph and QR stacked: the two things someone at a counter uses to decide
+   the card belongs to the person holding it, kept together and out of the text. */
 .cbhi-card--complete .cbhi-card__aside {
+  width: 14.4mm;
+  flex: none;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1mm;
-  flex: none;
 }
 
-/* Slightly narrower than the photograph-only template: this column carries two
-   things, and the rows beside it still need room for a full name. */
+/* 3:4 exactly (14.4 x 19.2), the proportions of an ID photograph, so a portrait
+   is not cropped to something the holder would not recognise.
+
+   box-sizing matters here and cost half a millimetre before it was set. Only
+   .cbhi-card itself is border-box; everything inside inherits the default
+   content-box, so this frame's 0.25mm border was being ADDED to 19.3mm of
+   height. That made the left column 33.0mm against a 32.4mm body, and the
+   barcode was hanging 0.3mm off the bottom of the card -- invisible, because
+   the card clips, and it would have been printed that way. */
 .cbhi-card--complete .cbhi-card__photo {
-  width: 14mm;
-  height: 18.5mm;
+  box-sizing: border-box;
+  width: 14.4mm;
+  height: 19.2mm;
+  border: 0.25mm solid #cbd8e0;
+  border-radius: 0.6mm;
+  background: #f2f6f8;
 }
 
-/* 13mm gives a version-1 symbol about 0.45mm per module including its quiet
-   zone, which is comfortably above what a phone camera needs. Smaller reads
-   only in good light, held still. */
+/* 12mm gives a version-1 symbol about 0.41mm per module including its quiet
+   zone -- above what a phone camera needs at arm's length. It is not made
+   smaller to buy space elsewhere: below this it reads only in good light, held
+   still, which is not the counter it will be used at. */
 .cbhi-card--complete .cbhi-card__qr {
-  width: 13mm;
-  height: 13mm;
+  box-sizing: border-box;
+  width: 12mm;
+  height: 12mm;
   flex: none;
   background: #fff;
   border-radius: 0.6mm;
@@ -377,24 +545,112 @@
   height: 100%;
 }
 
-.cbhi-card--complete .cbhi-card__qr rect {
-  fill: #10201d;
-}
+.cbhi-card--complete .cbhi-card__qr rect { fill: #10201d; }
 
 /* The white square behind the modules is the quiet zone; it must not be tinted
    by the card ground or the finder patterns lose their contrast. */
-.cbhi-card--complete .cbhi-card__qr rect:first-child {
-  fill: #fff;
+.cbhi-card--complete .cbhi-card__qr rect:first-child { fill: #fff; }
+
+/* Second min-width trap: a flex item defaults to min-width: auto, the rows
+   inside are white-space: nowrap, so without this the block will not shrink,
+   overruns the card and gets sliced by overflow: hidden. */
+.cbhi-card--complete .cbhi-card__detail {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
 }
 
-/* The label column is tighter here than on the photograph template, because the
-   right column is wider by the QR. */
-.cbhi-card--complete .cbhi-card__label { width: 13mm; }
-.cbhi-card--complete .cbhi-card__row { font-size: 2.1mm; }
+/* --- The insurance number ------------------------------------------------- */
 
-/* Shorter than on a card with nothing above it: the strip has the full body
-   width, so it does not need the height as well. */
+/* Set once, large, above the rows -- and left out of the rows themselves.
+
+   It earns the space: it is the field a counter reads out, types in and quotes
+   over the telephone, and on the band layout it was one row among seven at the
+   same size as somebody's date of birth. */
+.cbhi-card--complete .cbhi-card__hero {
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  padding-bottom: 0.7mm;
+  margin-bottom: 0.9mm;
+  border-bottom: 0.25mm solid #dbe5eb;
+}
+
+.cbhi-card--complete .cbhi-card__hero--label {
+  font-size: 1.75mm;
+  line-height: 1.3;
+  color: #7f96a5;
+}
+
+.cbhi-card--complete .cbhi-card__hero--value {
+  /* Tabular figures so the digits line up between one card and the next, and so
+     1 and 7 cannot be confused when the number is read aloud. */
+  font-family: "Consolas", "DejaVu Sans Mono", monospace;
+  font-variant-numeric: tabular-nums;
+  font-size: 3.9mm;
+  line-height: 1.2;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #04556b;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* --- The rows ------------------------------------------------------------- */
+
+.cbhi-card--complete .cbhi-card__rows {
+  gap: 0.45mm;
+  /* Backstop. Six rows at 4.07mm fit the 24.4mm left after the number block,
+     with a little in hand -- but a product name in a language with taller
+     ascenders should crop rather than push the barcode off the card. */
+  overflow: hidden;
+}
+
+.cbhi-card--complete .cbhi-card__row {
+  font-size: 2.3mm;
+}
+
+/* 19mm against a widest label of 14.8mm, measured in the browser with a Range
+   around the text rather than estimated -- scrollWidth on these spans reports
+   the column, not the glyphs, and says 19mm for every one of them. On the band layout this column was
+   13mm and "ຊື່ ແລະ ນາມສະກຸນ" wrapped onto a second line, which pushed every
+   row below it down and left the card looking like a form that had overflowed.
+   nowrap makes that failure impossible rather than merely unlikely. */
+.cbhi-card--complete .cbhi-card__label {
+  width: 19mm;
+  opacity: 1;
+  color: #6b8496;
+  white-space: nowrap;
+}
+
+/* No colons. The band templates use them because the card in circulation does;
+   here the columns are wide enough to align on their own, and a colon between
+   two aligned columns is punctuation doing nothing. */
+.cbhi-card--complete .cbhi-card__sep { display: none; }
+
+.cbhi-card--complete .cbhi-card__value {
+  color: #12303f;
+  font-weight: 600;
+}
+
+.cbhi-card--complete .cbhi-card__noPhoto {
+  font-size: 2mm;
+  color: #7f96a5;
+}
+
+/* --- The barcode ---------------------------------------------------------- */
+
+/* margin-top: auto pins it to the foot whatever the rows above come to, so a
+   member with no product and no expiry date does not get a barcode floating in
+   the middle of the card. */
 .cbhi-card--complete .cbhi-card__barcode {
-  height: 6mm;
-  margin-top: 0.8mm;
+  margin-top: auto;
+  padding-top: 0.8mm;
+}
+
+.cbhi-card--complete .cbhi-card__barcode svg {
+  height: 6.5mm;
+  fill: #12303f;
 }

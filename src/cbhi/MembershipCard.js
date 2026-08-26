@@ -9,10 +9,14 @@ import emblem from "../emblem-moh.png";
  * One CBHI membership card, at CR80 (85.6 x 54 mm) -- the ID-1 size every card
  * wallet, laminating pouch and card printer is built around.
  *
- * The layout follows the card already in circulation: an authority band down the
- * left carrying the emblem and the issuing body, the title across the top of the
- * face, then label-colon-value rows, and the barcode along the foot. The point
- * is that someone holding the old card and the new one sees one scheme.
+ * Most templates follow the card already in circulation: an authority band down
+ * the left carrying the emblem and the issuing body, the title across the top of
+ * the face, then label-colon-value rows, and the barcode along the foot. The
+ * point is that someone holding the old card and the new one sees one scheme.
+ *
+ * The template that carries a photograph, a barcode AND a QR uses a different
+ * arrangement, for reasons of measurement rather than taste -- see the note
+ * above the banner layout below.
  *
  * Dimensioned in millimetres throughout. A screen unit is resolution-dependent
  * and does not survive a printer, and anything scaling with the browser font
@@ -134,14 +138,28 @@ const MembershipCard = ({ insuree, labels, template: templateId }) => {
   const gender = insuree?.gender?.code;
   const photo = photoUrl(insuree?.photo);
 
+  /*
+   * The banner layout sets the insurance number once, large, above the rows --
+   * so it is left out of the rows themselves rather than printed twice.
+   *
+   * It is NOT grouped into blocks of three. Grouping reads better aloud and is
+   * what a bank card does, but this number gets TYPED, into openIMIS and into
+   * a facility's own books, and a card showing 901 011 101 111 is a card that
+   * gets entered with spaces in it. Tabular figures and a little tracking give
+   * the same legibility without inviting that.
+   */
+  const banner = template.layout === "banner";
+
   const rows = (
     <div className="cbhi-card__rows">
       <Row label={labels.name} value={fullName(insuree)} />
-      <div className="cbhi-card__row">
-        <span className="cbhi-card__label">{labels.number}</span>
-        <span className="cbhi-card__sep">:</span>
-        <span className="cbhi-card__value cbhi-card__value--num">{insuree?.chfId}</span>
-      </div>
+      {banner ? null : (
+        <div className="cbhi-card__row">
+          <span className="cbhi-card__label">{labels.number}</span>
+          <span className="cbhi-card__sep">:</span>
+          <span className="cbhi-card__value cbhi-card__value--num">{insuree?.chfId}</span>
+        </div>
+      )}
       <Row label={labels.gender} value={gender ? labels.genders[gender] ?? gender : ""} />
       <Row label={labels.dob} value={formatDate(insuree?.dob)} />
       {/* Order follows the card in circulation: entitlement category sits above
@@ -157,6 +175,89 @@ const MembershipCard = ({ insuree, labels, template: templateId }) => {
       ) : null}
     </div>
   );
+
+  /*
+   * THE BANNER LAYOUT
+   *
+   * The other templates carry the issuing authority down a band on the left,
+   * because the card in circulation does and someone holding both should see
+   * one scheme. This one does not, and the reason is measurable rather than a
+   * matter of taste.
+   *
+   * That band spends 20mm of an 85.6mm card, down its full height -- most of a
+   * quarter of the face -- to carry three short lines that fit across the top
+   * in 10mm. On a template showing a name and a barcode there is room to spare.
+   * On this one, which also has to hold a photograph, a QR and a barcode, there
+   * is not, and the symptoms were all of a piece: labels wrapping onto a second
+   * line, values cut short, and a barcode down to its last usable width.
+   *
+   * Across the top instead, the body gets the whole card:
+   *
+   *                    band     banner
+   *     label column    13mm     19mm    no longer wraps
+   *     value column  ~23.7mm    43.6mm  holds a full name
+   *     barcode        59.6mm    79.6mm  0.36 -> 0.48mm a module
+   *
+   * The last line is the one that matters. ISO/IEC 15417 asks for at least
+   * 0.25mm a module; the band layout left this card at 0.36mm, which scans, but
+   * has little in hand once an office printer and a laminating pouch have each
+   * taken their share. At 0.48mm it can be printed badly and still work.
+   */
+  if (banner) {
+    return (
+      <article className={`cbhi-card cbhi-card--${template.id}`}>
+        <header className="cbhi-card__banner">
+          {/* The emblem sits on a white disc rather than being knocked out to a
+              silhouette. It is a colour device and its colours mean something;
+              a white chip keeps them and still reads on a dark ground. */}
+          <span className="cbhi-card__chip">
+            <img src={emblem} alt="" />
+          </span>
+          <span className="cbhi-card__issuer">
+            <span className="cbhi-card__issuer--ministry">{labels.ministry}</span>
+            <span className="cbhi-card__issuer--body">{labels.organisation}</span>
+          </span>
+          <span className="cbhi-card__scheme">
+            <span className="cbhi-card__scheme--title">{labels.title}</span>
+            <span className="cbhi-card__scheme--abbr">{labels.abbr}</span>
+          </span>
+        </header>
+
+        <div className="cbhi-card__main">
+          <div className="cbhi-card__body">
+            {/* Photograph and QR share the left column: the two things someone
+                at a counter uses to decide this card belongs to the person
+                holding it, kept together and out of the text. */}
+            <div className="cbhi-card__aside">
+              {template.photo ? (
+                <div className="cbhi-card__photo">
+                  <Photo key={photo} src={photo} fallback={labels.noPhoto} />
+                </div>
+              ) : null}
+              {template.qr ? <Qr value={insuree?.chfId} /> : null}
+            </div>
+
+            {/* Carries min-width: 0 in the stylesheet, and that is load-bearing
+                rather than decoration. This is a flex item, so its min-width
+                would default to auto -- "never narrower than my content" -- and
+                the rows inside are white-space: nowrap. Without it this block
+                refuses to shrink, pushes past the card edge, and gets sliced by
+                overflow: hidden. Same trap the photograph template hit; the
+                long note in cards.css is about that. */}
+            <div className="cbhi-card__detail">
+              <div className="cbhi-card__hero">
+                <span className="cbhi-card__hero--label">{labels.number}</span>
+                <span className="cbhi-card__hero--value">{insuree?.chfId || "—"}</span>
+              </div>
+              {rows}
+            </div>
+          </div>
+
+          {template.barcode ? <Barcode value={insuree?.chfId} /> : null}
+        </div>
+      </article>
+    );
+  }
 
   return (
     <article className={`cbhi-card cbhi-card--${template.id}`}>
@@ -187,18 +288,6 @@ const MembershipCard = ({ insuree, labels, template: templateId }) => {
         <div className="cbhi-card__title">{labels.title}</div>
 
         {template.photo || template.qr ? (
-          /*
-           * Text on the left, photograph and QR stacked on the right, and the
-           * barcode below spanning the whole body.
-           *
-           * The barcode CANNOT share a row with the photograph. Code 128 for a
-           * twelve-digit number is 167 modules, and ISO asks for at least
-           * 0.25mm per module: across the 59.6mm body that is 0.36mm and
-           * comfortable, but squeezed beside a photograph it falls to 0.24 and
-           * stops being reliably scannable. That is the constraint that made
-           * the earlier templates choose one or the other; stacking is what
-           * lets a card carry both.
-           */
           <div className="cbhi-card__withPhoto">
             {/* rows already carries .cbhi-card__rows, which is what gets
                 min-width: 0 -- wrapping it again would nest a second element

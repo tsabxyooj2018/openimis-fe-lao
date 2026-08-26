@@ -56,6 +56,13 @@ export const TEMPLATES = [
     photo: true,
     barcode: true,
     qr: true,
+    /*
+     * The only template that does not use the left authority band. With three
+     * machine-readable and photographic elements to place, the 20mm the band
+     * costs is the difference between a card that fits and one that wraps its
+     * labels and clips its names. See the measurements in MembershipCard.
+     */
+    layout: "banner",
   },
   {
     id: "institutional",
