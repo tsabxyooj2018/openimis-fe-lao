@@ -48,11 +48,16 @@ const RIGHT_CONTRIBUTION = 101301;
 
 const maySeeClaims = (rights) => rights.some((r) => r >= 111002 && r <= 111012);
 
-/** First day of the current month, as an ISO date. */
-export const startOfMonth = () => {
-  const d = new Date();
-  return new Date(d.getFullYear(), d.getMonth(), 1).toISOString().slice(0, 10);
-};
+/*
+ * First day of the current month, as the local calendar has it.
+ *
+ * Built from the local year and month rather than via toISOString, which
+ * converts to UTC and, seven hours behind Vientiane, hands back the LAST DAY OF
+ * THE PREVIOUS MONTH. That made "this month" quietly one day too wide. See
+ * isoLocalDate in ageingApi.js.
+ */
+export const startOfMonth = (today = new Date()) =>
+  `${today.getFullYear()}-${String(today.getMonth() + 1).padStart(2, "0")}-01`;
 
 /**
  * Reads the caller's rights off the user record.
@@ -64,7 +69,18 @@ export const startOfMonth = () => {
  */
 export const rightsOf = (user) => {
   const rights = user?.i_user?.rights ?? user?.rights;
-  return Array.isArray(rights) ? rights : [];
+  if (!Array.isArray(rights)) return [];
+  /*
+   * Coerced to numbers, because they do not always arrive as numbers.
+   *
+   * This bit once already: with rights delivered as strings, a range test like
+   * `r >= 111002 && r <= 111012` coerces and PASSES, while `includes(101101)`
+   * compares a string to a number and FAILS. So the claim pipeline appeared on
+   * the home page while the insuree, policy and contribution tiles silently did
+   * not, for a user who plainly had those rights -- two checks over one array
+   * disagreeing because only one of them coerced.
+   */
+  return rights.map(Number).filter(Number.isFinite);
 };
 
 /**
@@ -99,6 +115,24 @@ export async function fetchDashboard(user) {
     CLAIM_STATUSES.forEach(({ key, status }) => {
       parts.push(`${key}: claims(status: ${status}, first: 1) { totalCount }`);
     });
+    /*
+     * The oldest claim not yet through the pipeline.
+     *
+     * The bars say where work has piled up; this says how long the pile has
+     * been there, which is the part that decides whether anyone needs to act
+     * today. A stage holding forty claims for two days and a stage holding
+     * forty for eight months draw the same bar.
+     *
+     * Still cheap: ONE row, ordered by the server, not a scan. Entered and
+     * Checked are asked separately because `status` takes a single value and
+     * both are "not processed yet" -- the caller takes whichever is older.
+     */
+    parts.push(
+      `oldestEntered: claims(status: 2, orderBy: ["dateClaimed"], first: 1) { edges { node { dateClaimed } } }`,
+    );
+    parts.push(
+      `oldestChecked: claims(status: 4, orderBy: ["dateClaimed"], first: 1) { edges { node { dateClaimed } } }`,
+    );
   }
 
   if (!parts.length) return { wants, counts: {}, since };
@@ -112,5 +146,29 @@ export async function fetchDashboard(user) {
     if (typeof n === "number") counts[key] = n;
   });
 
-  return { wants, counts, since };
+  return { wants, counts, since, waitingDays: oldestWaitingDays(data) };
+}
+
+/** The claim date of the first edge, or null when the alias returned nothing. */
+const firstClaimDate = (node) => node?.edges?.[0]?.node?.dateClaimed ?? null;
+
+/*
+ * How long the oldest unprocessed claim has been waiting, in whole days.
+ *
+ * Null when nothing is waiting, which is a real answer and not a missing one --
+ * the caller shows no tile rather than a zero that reads like a measurement.
+ */
+export function oldestWaitingDays(data, today = new Date()) {
+  const dates = [firstClaimDate(data?.oldestEntered), firstClaimDate(data?.oldestChecked)]
+    .filter(Boolean)
+    .map((d) => Date.parse(`${String(d).slice(0, 10)}T00:00:00Z`))
+    .filter((t) => Number.isFinite(t));
+
+  if (!dates.length) return null;
+
+  const then = Math.min(...dates);
+  const now = Date.parse(`${today.toISOString().slice(0, 10)}T00:00:00Z`);
+  const days = Math.round((now - then) / 86400000);
+  // A claim dated in the future is a data-entry slip, not a negative wait.
+  return days >= 0 ? days : null;
 }

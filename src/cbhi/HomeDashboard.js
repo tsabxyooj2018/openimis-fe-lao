@@ -34,7 +34,13 @@ const formatCount = (value) =>
 const Tile = ({ label, value, hint }) => (
   <Grid item xs={6} sm={4} md={3}>
     <Paper>
-      <Box p={2} display="flex" flexDirection="column" style={{ gap: 4 }}>
+      {/*
+        minWidth so a tile can never be squeezed narrower than its own label.
+        Without it "Claims this month" stacked one word per line -- the label is
+        the widest thing in the box, and a flex item with nothing to stand on
+        will shrink under it.
+      */}
+      <Box p={2} display="flex" flexDirection="column" style={{ gap: 4, minWidth: 150 }}>
         <Typography variant="caption" color="textSecondary">
           {label}
         </Typography>
@@ -116,18 +122,26 @@ const HomeDashboard = ({ user }) => {
     [intl],
   );
 
-  const [state, setState] = useState({ ready: false, failed: false, wants: {}, counts: {} });
+  const [state, setState] = useState({
+    ready: false,
+    failed: false,
+    wants: {},
+    counts: {},
+    waitingDays: null,
+  });
 
   useEffect(() => {
     let cancelled = false;
     fetchDashboard(user)
-      .then(({ wants, counts }) => {
-        if (!cancelled) setState({ ready: true, failed: false, wants, counts });
+      .then(({ wants, counts, waitingDays }) => {
+        if (!cancelled) setState({ ready: true, failed: false, wants, counts, waitingDays });
       })
       .catch((error) => {
         // Deliberately quiet. See the note at the top of the file.
         console.error("[cbhi] home figures unavailable", error);
-        if (!cancelled) setState({ ready: true, failed: true, wants: {}, counts: {} });
+        if (!cancelled) {
+          setState({ ready: true, failed: true, wants: {}, counts: {}, waitingDays: null });
+        }
       });
     return () => {
       cancelled = true;
@@ -139,7 +153,7 @@ const HomeDashboard = ({ user }) => {
   // somebody who has already started reading.
   if (!state.ready || state.failed) return null;
 
-  const { wants, counts } = state;
+  const { wants, counts, waitingDays } = state;
   const tiles = [];
 
   if (wants.insurees) {
@@ -171,6 +185,19 @@ const HomeDashboard = ({ user }) => {
         value={counts.claimsThisMonth}
       />,
     );
+    // Only when something is actually waiting. Nothing waiting is a real
+    // answer, and a tile reading 0 days looks like a measurement rather than
+    // an empty queue.
+    if (typeof waitingDays === "number") {
+      tiles.push(
+        <Tile
+          key="waiting"
+          label={t("home.oldestWaiting", "Oldest claim awaiting processing")}
+          value={waitingDays}
+          hint={t("home.days", "days")}
+        />,
+      );
+    }
   }
 
   const funnel = wants.claims
@@ -183,8 +210,21 @@ const HomeDashboard = ({ user }) => {
 
   if (!tiles.length && !funnel.length) return null;
 
+  /*
+   * The root is a Grid ITEM, not a Box.
+   *
+   * fe-home's HomePageContainer is itself a <Grid container>, and it renders
+   * <Contributions contributionKey="home.HomePage.Blocks"> as a DIRECT CHILD of
+   * it -- so whatever a block returns becomes a flex item in that container.
+   * A plain Box has no basis there and shrinks to fit its contents, which is
+   * how five tiles and a chart ended up in a 500px column with "Claims this
+   * month" stacked one word per line.
+   *
+   * xs={12} takes the full row, the same way every child fe-home renders for
+   * itself does.
+   */
   return (
-    <Box p={2}>
+    <Grid item xs={12}>
       <Grid container spacing={2}>
         {tiles}
         {funnel.length ? (
@@ -195,7 +235,7 @@ const HomeDashboard = ({ user }) => {
           />
         ) : null}
       </Grid>
-    </Box>
+    </Grid>
   );
 };
 

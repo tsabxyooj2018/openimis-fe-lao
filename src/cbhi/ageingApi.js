@@ -57,6 +57,29 @@ export const STATUS_VALUATED = 16;
 
 const escape = (value) => String(value).replace(/\\/g, "\\\\").replace(/"/g, '\\"');
 
+/*
+ * A calendar date as the local calendar has it, YYYY-MM-DD.
+ *
+ * NOT `new Date(...).toISOString().slice(0, 10)`, which is the obvious version
+ * and is wrong here. toISOString converts to UTC first, and Laos is UTC+7 -- so
+ * local midnight on the 1st of a month becomes 17:00 on the LAST DAY OF THE
+ * PREVIOUS MONTH, and the date comes back a day early. Anything between
+ * midnight and 07:00 local has the same problem on any day.
+ *
+ * It is the same trap ContributionSlip.formatDate already documents from the
+ * other direction, and it is silent: a filter one day wide of where it should
+ * be still returns plausible rows.
+ *
+ * Reading the local parts and formatting them by hand never converts anything,
+ * so there is no zone to be wrong about.
+ */
+export function isoLocalDate(date = new Date()) {
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+}
+
 /** Whole days between two ISO dates, or null if either is missing. */
 export function daysBetween(from, to) {
   if (!from || !to) return null;
@@ -148,7 +171,7 @@ export function summariseByFacility(claims, targetDays = 30) {
 
     if (days === null) {
       row.pending += 1;
-      const waiting = daysBetween(claim.dateClaimed, new Date().toISOString());
+      const waiting = daysBetween(claim.dateClaimed, isoLocalDate());
       if (waiting !== null && (row.oldestPending === null || waiting > row.oldestPending)) {
         row.oldestPending = waiting;
       }

@@ -20,7 +20,7 @@ import Alert from "@material-ui/lab/Alert";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import TimerIcon from "@material-ui/icons/Timer";
 import { downloadWorkbook } from "./xlsx";
-import { fetchClaimAgeing, summariseByFacility, MAX_CLAIMS } from "./ageingApi";
+import { fetchClaimAgeing, summariseByFacility, isoLocalDate, MAX_CLAIMS } from "./ageingApi";
 
 /*
  * How long claims take to be processed, by health facility.
@@ -66,11 +66,17 @@ const formatCount = (value) =>
 
 const formatRate = (rate) => (rate === null || rate === undefined ? "—" : `${Math.round(rate * 100)}%`);
 
-/** Today, as an ISO date, for the default range. */
+/*
+ * A date N days back, on the local calendar.
+ *
+ * setDate then isoLocalDate, never toISOString: the latter converts to UTC and
+ * gives yesterday for anyone working before 07:00 in Vientiane. See the note on
+ * isoLocalDate in ageingApi.js.
+ */
 const isoDaysAgo = (days) => {
   const d = new Date();
   d.setDate(d.getDate() - days);
-  return d.toISOString().slice(0, 10);
+  return isoLocalDate(d);
 };
 
 const ClaimAgeingPage = () => {
@@ -142,8 +148,9 @@ const ClaimAgeingPage = () => {
         })),
       },
       // Dated, like the other exports: these get mailed around, and two in a
-      // folder with the same name are indistinguishable.
-      `claim-processing-${from || "all"}-to-${to || "all"}-${new Date().toISOString().slice(0, 10)}`,
+      // folder with the same name are indistinguishable. Local date, so a file
+      // saved before 07:00 does not claim to be yesterday's.
+      `claim-processing-${from || "all"}-to-${to || "all"}-${isoLocalDate()}`,
     );
   }, [summary.rows, from, to, t]);
 
