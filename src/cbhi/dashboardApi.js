@@ -11,9 +11,13 @@ import { graphql } from "../helpers/csrf";
  * page that fetches rows to count them would be slow exactly where slow hurts.
  *
  * So every figure here is a `totalCount` on a connection with `first: 1`. The
- * server counts; nothing is transferred to be counted here. And the whole set
- * is ONE request using GraphQL aliases rather than nine, because nine round
- * trips over a bad link is nine chances to hang.
+ * server counts; nothing is transferred to be counted here.
+ *
+ * The figures are asked for in a handful of grouped requests, sent CONCURRENTLY
+ * and settled independently. That is not the arrangement this started with --
+ * it was a single batched query, which is faster to describe and was wrong. See
+ * the note above Promise.allSettled below: one alias the server refused took
+ * the entire home page down with it.
  *
  * WHAT IS DELIBERATELY ABSENT
  *
@@ -93,28 +97,46 @@ export async function fetchDashboard(user) {
   const rights = rightsOf(user);
   const since = startOfMonth();
 
-  const parts = [];
-  const wants = { insurees: false, policies: false, contributions: false, claims: false };
+  const groups = [];
+  const wants = { insurees: false, policies: false, contributions: false, claims: false, oldest: false };
 
   if (rights.includes(RIGHT_INSUREE)) {
     wants.insurees = true;
-    parts.push(`insurees: insurees(first: 1) { totalCount }`);
-    parts.push(`families: families(first: 1) { totalCount }`);
+    groups.push({
+      name: "insurees",
+      want: "insurees",
+      parts: [
+        `insurees: insurees(first: 1) { totalCount }`,
+        `families: families(first: 1) { totalCount }`,
+      ],
+    });
   }
   if (rights.includes(RIGHT_POLICY)) {
     wants.policies = true;
-    parts.push(`policies: policies(first: 1) { totalCount }`);
+    groups.push({
+      name: "policies",
+      want: "policies",
+      parts: [`policies: policies(first: 1) { totalCount }`],
+    });
   }
   if (rights.includes(RIGHT_CONTRIBUTION)) {
     wants.contributions = true;
-    parts.push(`contributions: premiums(payDate_Gte: "${since}", first: 1) { totalCount }`);
+    groups.push({
+      name: "contributions",
+      want: "contributions",
+      parts: [`contributions: premiums(payDate_Gte: "${since}", first: 1) { totalCount }`],
+    });
   }
   if (maySeeClaims(rights)) {
     wants.claims = true;
-    parts.push(`claimsThisMonth: claims(dateClaimed_Gte: "${since}", first: 1) { totalCount }`);
+    wants.oldest = true;
+    const claimParts = [
+      `claimsThisMonth: claims(dateClaimed_Gte: "${since}", first: 1) { totalCount }`,
+    ];
     CLAIM_STATUSES.forEach(({ key, status }) => {
-      parts.push(`${key}: claims(status: ${status}, first: 1) { totalCount }`);
+      claimParts.push(`${key}: claims(status: ${status}, first: 1) { totalCount }`);
     });
+    groups.push({ name: "claims", want: "claims", parts: claimParts });
     /*
      * The oldest claim not yet through the pipeline.
      *
@@ -127,26 +149,60 @@ export async function fetchDashboard(user) {
      * Checked are asked separately because `status` takes a single value and
      * both are "not processed yet" -- the caller takes whichever is older.
      */
-    parts.push(
-      `oldestEntered: claims(status: 2, orderBy: ["dateClaimed"], first: 1) { edges { node { dateClaimed } } }`,
-    );
-    parts.push(
-      `oldestChecked: claims(status: 4, orderBy: ["dateClaimed"], first: 1) { edges { node { dateClaimed } } }`,
-    );
+    groups.push({
+      name: "oldest",
+      want: "oldest",
+      parts: [
+        `oldestEntered: claims(status: 2, orderBy: ["dateClaimed"], first: 1) { edges { node { dateClaimed } } }`,
+        `oldestChecked: claims(status: 4, orderBy: ["dateClaimed"], first: 1) { edges { node { dateClaimed } } }`,
+      ],
+    });
   }
 
-  if (!parts.length) return { wants, counts: {}, since };
+  if (!groups.length) return { wants, counts: {}, since, waitingDays: null };
 
-  const body = await graphql(`query {\n  ${parts.join("\n  ")}\n}`);
-  const data = body?.data ?? {};
+  /*
+   * ONE REQUEST PER GROUP, NOT ONE FOR EVERYTHING.
+   *
+   * This was a single batched query, and that was wrong. helpers/csrf.js does
+   *
+   *   if (body?.errors?.length) throw new Error(body.errors[0].message);
+   *
+   * and GraphQL answers a partly-failing query with the data it DID resolve
+   * plus an errors array. So one alias the server would not accept threw away
+   * the whole response, fetchDashboard rejected, and the home page rendered
+   * nothing at all -- every tile and the pipeline gone because of one figure.
+   *
+   * Grouped and settled independently, a group that fails costs only its own
+   * tiles. The groups run concurrently, so this is no slower than the single
+   * request was; what it saved was round trips on a page that could not afford
+   * to lose them, and what it cost was every figure depending on every other.
+   */
+  const results = await Promise.allSettled(
+    groups.map((group) => graphql(`query {\n  ${group.parts.join("\n  ")}\n}`)),
+  );
 
   const counts = {};
-  Object.keys(data).forEach((key) => {
-    const n = data[key]?.totalCount;
-    if (typeof n === "number") counts[key] = n;
+  let oldest = null;
+
+  results.forEach((result, index) => {
+    const group = groups[index];
+    if (result.status !== "fulfilled") {
+      // Named, so the console says WHICH figures are missing and why, rather
+      // than leaving someone to guess from a gap on the page.
+      console.error(`[cbhi] home figures: ${group.name} unavailable`, result.reason);
+      wants[group.want] = false;
+      return;
+    }
+    const data = result.value?.data ?? {};
+    Object.keys(data).forEach((key) => {
+      const n = data[key]?.totalCount;
+      if (typeof n === "number") counts[key] = n;
+    });
+    if (group.name === "oldest") oldest = oldestWaitingDays(data);
   });
 
-  return { wants, counts, since, waitingDays: oldestWaitingDays(data) };
+  return { wants, counts, since, waitingDays: oldest };
 }
 
 /** The claim date of the first edge, or null when the alias returned nothing. */

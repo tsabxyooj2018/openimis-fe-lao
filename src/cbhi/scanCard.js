@@ -45,8 +45,24 @@ import {
  * alternative is image processing that must not be subtly wrong.
  */
 
-/** The one format the membership card prints. See barcode.js. */
-const FORMAT = BarcodeFormat.CODE_128;
+/*
+ * The formats a membership card can carry.
+ *
+ * Code 128 is on every card this deployment has ever printed. QR is on the
+ * template that carries a photograph and both symbols, and both encode the SAME
+ * thing -- the insurance number -- so either scan resolves to the same member
+ * and it does not matter which one the clerk happens to catch.
+ *
+ * Both are listed rather than one, because a card in a wallet may be either.
+ * The list stays short on purpose: every extra format is another way for a
+ * blurred frame to be read as something it is not.
+ *
+ * Worth knowing for the camera. A phone reads QR far more easily than Code 128:
+ * a QR carries three finder patterns and can be decoded at an angle, whereas a
+ * 1D barcode needs a scan line that crosses every bar cleanly. If a card will
+ * usually be read with a phone, the QR template is the one to print.
+ */
+const FORMATS = [BarcodeFormat.CODE_128, BarcodeFormat.QR_CODE];
 
 let reader = null;
 
@@ -54,9 +70,9 @@ function getReader() {
   if (reader) return reader;
   reader = new MultiFormatReader();
   const hints = new Map();
-  // Only Code 128. Narrowing the formats makes it both faster and less likely
-  // to read something else in the frame as a different symbology.
-  hints.set(DecodeHintType.POSSIBLE_FORMATS, [FORMAT]);
+  // Narrowed to the two the card can carry: faster, and less likely to read
+  // something else in the frame as a different symbology.
+  hints.set(DecodeHintType.POSSIBLE_FORMATS, FORMATS);
   // Worth the extra passes: the input is a phone photograph, not a scanner bed.
   hints.set(DecodeHintType.TRY_HARDER, true);
   reader.setHints(hints);
