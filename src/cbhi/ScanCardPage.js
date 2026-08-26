@@ -14,7 +14,7 @@ import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import CropFreeIcon from "@material-ui/icons/CropFree";
 import { fetchInsureesForCards, photoUrl, locationLine } from "./api";
-import { canDecode, isSecure, listenForScanner, readFrom, readFromFile } from "./scanCard";
+import { hasCamera, isSecure, listenForScanner, readFromVideo, readFromFile } from "./scanCard";
 
 /*
  * Find a member by their membership card.
@@ -53,21 +53,10 @@ const ScanCardPage = () => {
   const loopRef = useRef(null);
   const fileRef = useRef(null);
 
-  const [decodable, setDecodable] = useState(false);
   const [camera, setCamera] = useState(false);
   const [term, setTerm] = useState("");
   const [state, setState] = useState({ busy: false, error: null, ran: false });
   const [results, setResults] = useState([]);
-
-  useEffect(() => {
-    let cancelled = false;
-    canDecode().then((ok) => {
-      if (!cancelled) setDecodable(ok);
-    });
-    return () => {
-      cancelled = true;
-    };
-  }, []);
 
   /** Look a number up and show whoever holds it. */
   const lookup = useCallback(
@@ -130,7 +119,7 @@ const ScanCardPage = () => {
        */
       loopRef.current = window.setInterval(async () => {
         if (!videoRef.current) return;
-        const value = await readFrom(videoRef.current);
+        const value = readFromVideo(videoRef.current);
         if (value) {
           stopCamera();
           lookup(value);
@@ -193,12 +182,11 @@ const ScanCardPage = () => {
             {state.busy ? <CircularProgress size={20} /> : t("scan.find", "Find")}
           </Button>
 
-          {decodable ? (
-            <>
+          <>
               <Button
                 startIcon={<CameraAltIcon />}
                 onClick={camera ? stopCamera : startCamera}
-                disabled={!isSecure()}
+                disabled={!isSecure() || !hasCamera()}
               >
                 {camera ? t("scan.stopCamera", "Stop camera") : t("scan.useCamera", "Use camera")}
               </Button>
@@ -212,8 +200,7 @@ const ScanCardPage = () => {
                 onChange={onFile}
                 style={{ display: "none" }}
               />
-            </>
-          ) : null}
+          </>
         </Box>
 
         <Box px={2} pb={2}>
@@ -225,23 +212,7 @@ const ScanCardPage = () => {
           </Typography>
         </Box>
 
-        {/*
-          Said plainly rather than by hiding the buttons and leaving somebody to
-          wonder. The camera and photograph paths need a decoder the browser
-          either has or does not.
-        */}
-        {!decodable ? (
-          <Box px={2} pb={2}>
-            <Alert severity="info">
-              {t(
-                "scan.noDecoder",
-                "This browser cannot read barcodes from a camera or a photo. Use a handheld scanner, or type the number. Chrome and Edge support both.",
-              )}
-            </Alert>
-          </Box>
-        ) : null}
-
-        {decodable && !isSecure() ? (
+        {!isSecure() ? (
           <Box px={2} pb={2}>
             <Alert severity="warning">
               {t("scan.insecure", "The camera needs a secure (https) connection.")}

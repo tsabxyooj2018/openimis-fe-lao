@@ -45,8 +45,9 @@
     "shelljs": "^0.8.4",
     "zxcvbn": "^4.4.2",
     "@craco/craco": "^7.1.0",
-    "ajv":"8.17.1",
-    "@sentry/react": "^10.17.0"
+    "ajv": "8.17.1",
+    "@sentry/react": "^10.17.0",
+    "@zxing/library": "^0.21.3"
   },
   "scripts": {
     "start": "craco start",
