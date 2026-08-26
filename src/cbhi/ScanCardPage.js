@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from "react";
 import { useIntl } from "react-intl";
+import { useModulesManager } from "@openimis/fe-core";
 import {
   Box,
   Button,
@@ -15,7 +16,7 @@ import Alert from "@material-ui/lab/Alert";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
 import CropFreeIcon from "@material-ui/icons/CropFree";
-import { fetchInsureesForCards, photoUrl, locationLine } from "./api";
+import { fetchInsureesForScan, photoUrl, locationLine } from "./api";
 import { hasCamera, isSecure, listenForScanner, readFromVideo, readFromFile } from "./scanCard";
 
 /*
@@ -45,6 +46,19 @@ import { hasCamera, isSecure, listenForScanner, readFromVideo, readFromFile } fr
 const ScanCardPage = () => {
   const intl = useIntl();
   const history = useHistory();
+  const modulesManager = useModulesManager();
+
+  /*
+   * The deployment's own insurance-number length, not a constant. It decides
+   * when a typed value is a COMPLETE number and can be looked up exactly rather
+   * than as a prefix -- which is the path every scanned barcode takes, since a
+   * barcode always carries the whole number.
+   *
+   * Read from fe-insuree's own key so a deployment that changes its numbering
+   * changes one setting and both this page and the rest of the application
+   * follow.
+   */
+  const chfIdMaxLength = modulesManager.getConf("fe-insuree", "insureeForm.chfIdMaxLength", 12);
   const t = useCallback(
     (id, fallback, values) =>
       intl.formatMessage({ id: `cbhi.${id}`, defaultMessage: fallback }, values),
@@ -69,7 +83,7 @@ const ScanCardPage = () => {
       setTerm(trimmed);
       setState({ busy: true, error: null, ran: false });
       try {
-        const found = await fetchInsureesForCards(trimmed);
+        const found = await fetchInsureesForScan(trimmed, chfIdMaxLength);
         setResults(found);
         setState({ busy: false, error: null, ran: true });
       } catch (error) {
@@ -77,7 +91,7 @@ const ScanCardPage = () => {
         setState({ busy: false, error: String(error?.message ?? ""), ran: true });
       }
     },
-    [],
+    [chfIdMaxLength],
   );
 
   /*

@@ -54,7 +54,7 @@ const escape = (value) => String(value).replace(/\\/g, "\\\\").replace(/"/g, '\\
  * row, which is a lot of payload to fetch and throw away when a batch is a
  * hundred people.
  */
-const PROJECTION = `
+const CARD_PROJECTION = `
   uuid
   chfId
   lastName
@@ -76,15 +76,49 @@ const PROJECTION = `
 `;
 
 /*
- * The backend refuses more than this on the `insurees` connection:
+ * What a RESULT ROW renders, which is much less than what a card prints.
  *
- *   Requesting 200 records on the `insurees` connection exceeds the `first`
- *   limit of 100 records.
+ * The scan page was using the card projection, because it started as a second
+ * caller of the same function. That meant every search fetched dob, cardIssued,
+ * gender, the health facility and the family's head insuree -- five fields, one
+ * of them a join, that no result row has ever displayed.
  *
- * It is a server-side cap on the relay connection, not a preference, so asking
- * for more fails the whole query rather than returning a shorter list.
+ * The photograph is the expensive one and it is kept, because picking the right
+ * person out of a list of similar numbers is exactly what it is for. But be
+ * aware of what it costs: openIMIS stores photos two ways, and where a
+ * deployment stores them INLINE, `photo.photo` is the whole image as base64
+ * inside the GraphQL response. At a hundred rows that is megabytes of payload
+ * to draw circles 64 pixels across. The answer is to ask for fewer rows rather
+ * than to drop the picture -- see SCAN_RESULTS.
  */
+const LIST_PROJECTION = `
+  uuid
+  chfId
+  lastName
+  otherNames
+  photo { photo folder filename }
+  currentVillage { name parent { name parent { name } } }
+  family {
+    uuid
+    location { name parent { name parent { name } } }
+  }
+`;
+
 export const MAX_CARDS = 100;
+
+/*
+ * How many rows a SCAN result shows, against MAX_CARDS for a print batch.
+ *
+ * These are two different jobs wearing the same function. Printing wants
+ * everybody the search matched, because the next thing that happens is a run of
+ * a hundred cards. A lookup wants a shortlist somebody can read: a scanned
+ * barcode resolves to one person, and a typed prefix is being narrowed down by
+ * eye. Nobody has ever scrolled a hundred results to find a member.
+ *
+ * The cap is what makes the photograph affordable. Twenty rows of inline base64
+ * is a page that loads; a hundred is the one that had to be waited for.
+ */
+export const SCAN_RESULTS = 20;
 
 /**
  * Insurees matching one search term, which may be an insurance number or a name.
@@ -93,12 +127,8 @@ export const MAX_CARDS = 100;
  * should not have to know whether it is recorded as a given name or a family
  * name. GraphQL filters are combined with AND, so that is two queries -- sent as
  * aliases in a single request rather than two round trips -- and merged here.
- *
- * @param {string} term
- * @param {number} chfIdMaxLength cap applied when the term reads as a number
- * @returns {Promise<Array>} the matching insuree nodes, without duplicates
  */
-export async function fetchInsureesForCards(term, chfIdMaxLength = 12, limit = MAX_CARDS) {
+async function searchInsurees(term, { chfIdMaxLength, limit, projection, exact }) {
   const trimmed = String(term ?? "").trim();
   // Without this an empty box would ask for every insuree in the country.
   if (!trimmed) return [];
@@ -107,13 +137,52 @@ export async function fetchInsureesForCards(term, chfIdMaxLength = 12, limit = M
   const value = isNumber ? asNumber(trimmed, chfIdMaxLength) : trimmed;
   if (!value) return [];
 
-  const node = `edges { node { ${PROJECTION} } }`;
-  const query = isNumber
-    ? `byNumber: insurees(chfId_Istartswith: "${escape(value)}", first: ${limit}) { ${node} }`
-    : `byLast: insurees(lastName_Icontains: "${escape(value)}", first: ${limit}) { ${node} }
-       byGiven: insurees(otherNames_Icontains: "${escape(value)}", first: ${limit}) { ${node} }`;
+  const node = `edges { node { ${projection} } }`;
 
+  /*
+   * A COMPLETE number is looked up exactly, and only one row is asked for.
+   *
+   * This is the path a handheld scanner and the camera both take: a barcode
+   * always carries the whole number, never a prefix. chfId_Istartswith would
+   * return the same person, but it asks the server for a pattern match and
+   * leaves room for `limit` rows; an equality test on a complete identifier is
+   * a different question with one answer.
+   *
+   * "Complete" means the deployment's own declared length -- the same
+   * insureeForm.chfIdMaxLength fe-insuree uses -- so a shorter number under a
+   * different numbering scheme simply falls through to the prefix search and
+   * still works.
+   *
+   * Both filters come from fe-insuree's own searcher. `chfId` exact is what its
+   * enquiry uses; chfId_Istartswith is what its list uses.
+   */
+  const completeNumber = isNumber && value.length === chfIdMaxLength;
+
+  let query;
+  if (completeNumber && exact) {
+    query = `byNumber: insurees(chfId: "${escape(value)}", first: 1) { ${node} }`;
+  } else if (isNumber) {
+    query = `byNumber: insurees(chfId_Istartswith: "${escape(value)}", first: ${limit}) { ${node} }`;
+  } else {
+    query = `byLast: insurees(lastName_Icontains: "${escape(value)}", first: ${limit}) { ${node} }
+       byGiven: insurees(otherNames_Icontains: "${escape(value)}", first: ${limit}) { ${node} }`;
+  }
+
+  const started = Date.now();
   const body = await graphql(`query { ${query} }`);
+
+  /*
+   * Said out loud, because "the search is slow" was answerable only by reading
+   * the source and guessing which field was expensive. The payload figure is
+   * the one that matters: where a deployment stores photographs inline, it is
+   * almost entirely base64, and that tells you immediately whether the cost is
+   * the server thinking or the network carrying.
+   */
+  // eslint-disable-next-line no-console
+  console.info(
+    `[cbhi] insuree search "${value}": ${Date.now() - started}ms, ` +
+      `${Math.round(JSON.stringify(body).length / 1024)}kb`,
+  );
 
   /*
    * Someone whose family name and given name both match would otherwise appear
@@ -130,6 +199,28 @@ export async function fetchInsureesForCards(term, chfIdMaxLength = 12, limit = M
 
   return [...seen.values()].slice(0, limit);
 }
+
+/**
+ * Everybody matching a term, with everything a printed card needs.
+ *
+ * @param {string} term
+ * @param {number} chfIdMaxLength cap applied when the term reads as a number
+ * @returns {Promise<Array>} the matching insuree nodes, without duplicates
+ */
+export const fetchInsureesForCards = (term, chfIdMaxLength = 12, limit = MAX_CARDS) =>
+  searchInsurees(term, { chfIdMaxLength, limit, projection: CARD_PROJECTION, exact: false });
+
+/**
+ * A shortlist for looking somebody up: fewer rows, fewer fields, and a complete
+ * number answered with a single-row exact match.
+ */
+export const fetchInsureesForScan = (term, chfIdMaxLength = 12) =>
+  searchInsurees(term, {
+    chfIdMaxLength,
+    limit: SCAN_RESULTS,
+    projection: LIST_PROJECTION,
+    exact: true,
+  });
 
 /*
  * The expiry date is not on the insuree. openIMIS holds validity on the policy,
