@@ -85,13 +85,15 @@ function toLuminance(rgba, width, height) {
 }
 
 /**
- * Decodes RGBA pixels. Null when there is no readable barcode.
+ * One attempt at one orientation. Null when there is no readable barcode.
  *
  * @param {Uint8ClampedArray} data RGBA, four bytes per pixel
+ * @param {boolean} inverted read light bars on a dark ground
  */
-export function decodeImageData(data, width, height) {
+export function decodeImageData(data, width, height, inverted = false) {
   try {
-    const source = new RGBLuminanceSource(toLuminance(data, width, height), width, height);
+    let source = new RGBLuminanceSource(toLuminance(data, width, height), width, height);
+    if (inverted) source = source.invert();
     const bitmap = new BinaryBitmap(new HybridBinarizer(source));
     const result = getReader().decode(bitmap);
     const text = result && result.getText();
@@ -107,8 +109,58 @@ export function decodeImageData(data, width, height) {
   }
 }
 
-/** Draws anything with intrinsic dimensions to a canvas and decodes it. */
-function decodeDrawable(source, width, height) {
+/**
+ * Turns RGBA pixels a quarter turn clockwise.
+ *
+ * RGBLuminanceSource says plainly that it does not support rotation, so the
+ * pixels are turned here rather than asking it to.
+ */
+export function rotateRgba(data, width, height) {
+  const out = new Uint8ClampedArray(width * height * 4);
+  for (let y = 0; y < height; y += 1) {
+    for (let x = 0; x < width; x += 1) {
+      const from = (y * width + x) * 4;
+      const to = (x * height + (height - 1 - y)) * 4;
+      out[to] = data[from];
+      out[to + 1] = data[from + 1];
+      out[to + 2] = data[from + 2];
+      out[to + 3] = data[from + 3];
+    }
+  }
+  return { data: out, width: height, height: width };
+}
+
+/*
+ * Every orientation, and both polarities.
+ *
+ * A photograph does not arrive the way it was framed. A phone records the
+ * orientation in EXIF and leaves the pixels sideways, and not every path into
+ * the browser applies it -- so a card photographed in portrait reaches the
+ * decoder rotated a quarter turn. ZXing reads horizontal scan lines; a sideways
+ * barcode is simply not there as far as it is concerned.
+ *
+ * Both of these were reproduced before being fixed: rendering the encoder's own
+ * output rotated, and inverted, and watching a decoder that reads every other
+ * shape return nothing at all.
+ *
+ * The upright reading is tried first and costs one pass, which is what a
+ * screenshot or a straight photograph will take. The rest only run when that
+ * fails, so the common case is not slowed by the awkward one.
+ */
+export function decodeThorough(data, width, height) {
+  let image = { data, width, height };
+  for (let turn = 0; turn < 4; turn += 1) {
+    if (turn > 0) image = rotateRgba(image.data, image.width, image.height);
+    for (const inverted of [false, true]) {
+      const hit = decodeImageData(image.data, image.width, image.height, inverted);
+      if (hit) return hit;
+    }
+  }
+  return null;
+}
+
+/** Draws anything with intrinsic dimensions to a canvas and returns its pixels. */
+function pixelsOf(source, width, height) {
   if (!width || !height) return null;
   const canvas = document.createElement("canvas");
   canvas.width = width;
@@ -116,14 +168,24 @@ function decodeDrawable(source, width, height) {
   const ctx = canvas.getContext("2d", { willReadFrequently: true });
   if (!ctx) return null;
   ctx.drawImage(source, 0, 0, width, height);
-  const { data } = ctx.getImageData(0, 0, width, height);
-  return decodeImageData(data, width, height);
+  return ctx.getImageData(0, 0, width, height);
 }
 
 /** Reads a barcode from a live <video>. Null while there is nothing to read. */
 export function readFromVideo(video) {
   if (!video || video.readyState < 2) return null;
-  return decodeDrawable(video, video.videoWidth, video.videoHeight);
+  const pixels = pixelsOf(video, video.videoWidth, video.videoHeight);
+  if (!pixels) return null;
+  /*
+   * Upright and inverted only -- no rotation. The operator is holding the card
+   * and can turn it, and this runs four times a second on office hardware. The
+   * thorough search belongs to the upload path, where there is one image and
+   * nobody can reframe it.
+   */
+  return (
+    decodeImageData(pixels.data, pixels.width, pixels.height, false) ||
+    decodeImageData(pixels.data, pixels.width, pixels.height, true)
+  );
 }
 
 /*
@@ -143,7 +205,8 @@ export async function readFromFile(file) {
     const scale = Math.min(1, MAX_WIDTH / bitmap.width);
     const width = Math.round(bitmap.width * scale);
     const height = Math.round(bitmap.height * scale);
-    return decodeDrawable(bitmap, width, height);
+    const pixels = pixelsOf(bitmap, width, height);
+    return pixels ? decodeThorough(pixels.data, pixels.width, pixels.height) : null;
   } finally {
     // Bitmaps hold real memory until closed, and a clerk may try several
     // photographs before one reads.
