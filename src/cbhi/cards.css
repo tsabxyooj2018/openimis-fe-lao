@@ -335,3 +335,66 @@
     outline-offset: 0;
   }
 }
+
+/* --- "Photograph, barcode and QR" ----------------------------------------
+   All three on one card, which the earlier photograph template could not do.
+
+   The reason it works is the stacking, not a smaller barcode. Code 128 for a
+   twelve-digit insurance number is 167 modules, and ISO asks for at least
+   0.25mm each. Across the 59.6mm body that is 0.36mm and comfortable; squeezed
+   into the space left beside a photograph it drops to about 0.24mm and stops
+   being reliably scannable. So the photograph and the QR share a narrow right
+   column, and the barcode keeps the full width underneath them. */
+.cbhi-card--complete .cbhi-card__aside {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1mm;
+  flex: none;
+}
+
+/* Slightly narrower than the photograph-only template: this column carries two
+   things, and the rows beside it still need room for a full name. */
+.cbhi-card--complete .cbhi-card__photo {
+  width: 14mm;
+  height: 18.5mm;
+}
+
+/* 13mm gives a version-1 symbol about 0.45mm per module including its quiet
+   zone, which is comfortably above what a phone camera needs. Smaller reads
+   only in good light, held still. */
+.cbhi-card--complete .cbhi-card__qr {
+  width: 13mm;
+  height: 13mm;
+  flex: none;
+  background: #fff;
+  border-radius: 0.6mm;
+}
+
+.cbhi-card--complete .cbhi-card__qr svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.cbhi-card--complete .cbhi-card__qr rect {
+  fill: #10201d;
+}
+
+/* The white square behind the modules is the quiet zone; it must not be tinted
+   by the card ground or the finder patterns lose their contrast. */
+.cbhi-card--complete .cbhi-card__qr rect:first-child {
+  fill: #fff;
+}
+
+/* The label column is tighter here than on the photograph template, because the
+   right column is wider by the QR. */
+.cbhi-card--complete .cbhi-card__label { width: 13mm; }
+.cbhi-card--complete .cbhi-card__row { font-size: 2.1mm; }
+
+/* Shorter than on a card with nothing above it: the strip has the full body
+   width, so it does not need the height as well. */
+.cbhi-card--complete .cbhi-card__barcode {
+  height: 6mm;
+  margin-top: 0.8mm;
+}

@@ -40,6 +40,24 @@ export const TEMPLATES = [
     barcode: true,
   },
   {
+    /*
+     * Everything the counter can use: the photograph that identifies the
+     * holder, the barcode a desk scanner reads, and a QR any phone reads.
+     *
+     * It fits because the three are stacked rather than shared across a row --
+     * see the note in MembershipCard. The earlier photograph template chose
+     * between a photograph and a barcode because side by side the barcode falls
+     * below the module width ISO asks for; below the text, it has the whole
+     * body width and is comfortable.
+     */
+    id: "complete",
+    labelKey: "template.complete",
+    fallback: "Photograph, barcode and QR",
+    photo: true,
+    barcode: true,
+    qr: true,
+  },
+  {
     id: "institutional",
     labelKey: "template.institutional",
     fallback: "Institutional blue",

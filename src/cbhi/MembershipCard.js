@@ -1,6 +1,7 @@
 import React from "react";
 import { photoUrl } from "./api";
 import { code128Svg } from "./barcode";
+import { QR_QUIET, qrMatrix } from "./qrcode";
 import { templateById } from "./templates";
 import emblem from "../emblem-moh.png";
 
@@ -58,6 +59,49 @@ const Barcode = ({ value }) => {
         {svg.bars.map((bar) => (
           <rect key={bar.x} x={bar.x} y="0" width={bar.width} height={svg.height} />
         ))}
+      </svg>
+    </div>
+  );
+};
+
+/*
+ * The QR, drawn as one <rect> per dark module.
+ *
+ * A path per row would be smaller, but this prints identically and stays
+ * readable next to barcode.js above. A version-1 symbol is 21x21, so the worst
+ * case is a few hundred rects -- nothing beside the photograph on the same card.
+ *
+ * shape-rendering: crispEdges matters more than it looks. Without it a browser
+ * antialiases the module edges, and a grey half-pixel between two modules is
+ * exactly what makes a phone hesitate on a small symbol.
+ */
+const Qr = ({ value }) => {
+  const qr = qrMatrix(value);
+  // No number, no QR -- rather than a symbol that scans as an empty string.
+  if (!qr) return null;
+  const span = qr.size + QR_QUIET * 2;
+  return (
+    <div className="cbhi-card__qr">
+      <svg
+        viewBox={`0 0 ${span} ${span}`}
+        role="img"
+        aria-label={`QR ${value}`}
+        shapeRendering="crispEdges"
+      >
+        <rect x="0" y="0" width={span} height={span} fill="#fff" />
+        {qr.dark.map((row, y) =>
+          row.map((on, x) =>
+            on ? (
+              <rect
+                key={`${x}-${y}`}
+                x={x + QR_QUIET}
+                y={y + QR_QUIET}
+                width="1"
+                height="1"
+              />
+            ) : null,
+          ),
+        )}
       </svg>
     </div>
   );
@@ -142,12 +186,33 @@ const MembershipCard = ({ insuree, labels, template: templateId }) => {
       <div className="cbhi-card__main">
         <div className="cbhi-card__title">{labels.title}</div>
 
-        {template.photo ? (
+        {template.photo || template.qr ? (
+          /*
+           * Text on the left, photograph and QR stacked on the right, and the
+           * barcode below spanning the whole body.
+           *
+           * The barcode CANNOT share a row with the photograph. Code 128 for a
+           * twelve-digit number is 167 modules, and ISO asks for at least
+           * 0.25mm per module: across the 59.6mm body that is 0.36mm and
+           * comfortable, but squeezed beside a photograph it falls to 0.24 and
+           * stops being reliably scannable. That is the constraint that made
+           * the earlier templates choose one or the other; stacking is what
+           * lets a card carry both.
+           */
           <div className="cbhi-card__withPhoto">
-            <div className="cbhi-card__photo">
-              <Photo key={photo} src={photo} fallback={labels.noPhoto} />
-            </div>
+            {/* rows already carries .cbhi-card__rows, which is what gets
+                min-width: 0 -- wrapping it again would nest a second element
+                whose min-width defaults to auto, and the values would be cut
+                off exactly as the note in cards.css describes. */}
             {rows}
+            <div className="cbhi-card__aside">
+              {template.photo ? (
+                <div className="cbhi-card__photo">
+                  <Photo key={photo} src={photo} fallback={labels.noPhoto} />
+                </div>
+              ) : null}
+              {template.qr ? <Qr value={insuree?.chfId} /> : null}
+            </div>
           </div>
         ) : (
           rows
