@@ -43,6 +43,82 @@ import { hasCamera, isSecure, listenForScanner, readFromVideo, readFromFile } fr
  * enquiry has no way to offer.
  */
 
+/*
+ * The member's photograph, or their initials.
+ *
+ * openIMIS holds a photo either inline as base64 or as a file under the photos
+ * volume, and an insuree record says WHICH but never whether the file is
+ * actually there. It can name a file that was never uploaded, was lost in a
+ * migration, or sits behind a /photos/ path the web server was never told to
+ * serve -- and none of that is knowable until the request is made.
+ *
+ * Without onError the browser draws its broken-image icon, which in a list of
+ * search results looks like the page is broken rather than like one member
+ * having no picture on file. The card renderer has always handled this; this
+ * list did not, which is the whole of what was visibly wrong.
+ *
+ * Initials rather than an empty circle, because the point of a picture in a
+ * result list is telling two similar rows apart, and initials still do some of
+ * that work.
+ */
+const Avatar = ({ insuree }) => {
+  const src = photoUrl(insuree.photo);
+  const [failed, setFailed] = useState(false);
+
+  const initials = [insuree.otherNames, insuree.lastName]
+    .filter(Boolean)
+    .map((part) => String(part).trim()[0])
+    .join("")
+    .toUpperCase();
+
+  const frame = {
+    width: 64,
+    height: 64,
+    borderRadius: "50%",
+    objectFit: "cover",
+    flex: "none",
+  };
+
+  if (src && !failed) {
+    return (
+      <img
+        src={src}
+        alt=""
+        style={frame}
+        onError={() => {
+          /*
+           * Said out loud with the URL, because a missing picture is otherwise
+           * indistinguishable from a member who never had one -- and the two
+           * need completely different fixes. A /photos/ path here means the
+           * file or the route is missing on the server, and the SAME picture
+           * will be missing on openIMIS's own insuree page, since this builds
+           * the URL exactly as fe-insuree does.
+           */
+          // eslint-disable-next-line no-console
+          console.warn(`[cbhi] photograph did not load: ${src}`);
+          setFailed(true);
+        }}
+      />
+    );
+  }
+
+  return (
+    <Box
+      style={{
+        ...frame,
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: "#e3ecf1",
+        color: "#5f7d95",
+        fontSize: 20,
+      }}
+    >
+      {initials || "—"}
+    </Box>
+  );
+};
+
 const ScanCardPage = () => {
   const intl = useIntl();
   const history = useHistory();
@@ -301,13 +377,7 @@ const ScanCardPage = () => {
                   style={{ display: "block", width: "100%", textAlign: "left", borderRadius: 6 }}
                 >
                   <Box display="flex" alignItems="center" style={{ gap: 16, width: "100%" }}>
-                    {photoUrl(insuree.photo) ? (
-                      <img
-                        src={photoUrl(insuree.photo)}
-                        alt=""
-                        style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover" }}
-                      />
-                    ) : null}
+                    <Avatar insuree={insuree} />
                     <Box minWidth={0}>
                       <Typography variant="subtitle1">
                         {[insuree.otherNames, insuree.lastName].filter(Boolean).join(" ")}

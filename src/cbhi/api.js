@@ -300,10 +300,35 @@ export async function fetchPolicyDetails(chfIds) {
  * configured: the image inline in the database as base64, or a file under the
  * photos volume. This mirrors getUrl in fe-insuree's InsureeAvatar so a card
  * shows the same picture the profile does.
+ *
+ * WHEN THE PICTURE DOES NOT APPEAR, THIS IS USUALLY NOT WHY
+ *
+ * A record can carry a filename whose file was never uploaded, was lost in a
+ * migration, or sits behind a /photos/ path the web server was never told to
+ * serve. Nothing here can tell in advance -- the request has to be made to find
+ * out -- so every caller needs an onError fallback, and the URL being well
+ * formed is not evidence that it resolves.
+ *
+ * The one thing this DOES fix over the upstream helper: upstream concatenates
+ * the folder unconditionally, so a record with no folder yields
+ *
+ *   /photos/null/9a1c....jpg
+ *
+ * which 404s for a reason invisible in the interface. Empty segments are
+ * dropped instead -- including the strings "None", "null" and "undefined",
+ * which is what an absent value looks like once Python and JSON have each had a
+ * turn at it. That cannot break a path that was already correct.
  */
+const EMPTY = new Set(["", "none", "null", "undefined"]);
+
+const usable = (segment) =>
+  segment != null && !EMPTY.has(String(segment).trim().toLowerCase());
+
 export function photoUrl(photo) {
   if (photo?.photo) return `data:image/png;base64,${photo.photo}`;
-  if (photo?.filename) return `/photos/${photo.folder}/${photo.filename}`;
+  if (usable(photo?.filename)) {
+    return `/${["photos", photo.folder, photo.filename].filter(usable).join("/")}`;
+  }
   return null;
 }
 
