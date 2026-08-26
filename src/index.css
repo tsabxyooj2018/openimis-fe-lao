@@ -1469,3 +1469,94 @@ div[id^="react-autowhatever-"] {
 main .MuiGrid-item:has(> .MuiFormControlLabel-root) {
   min-width: max-content;
 }
+
+/* ===========================================================================
+   The sidebar on a phone
+   ===========================================================================
+
+   With menuLeft set, fe-core renders the main menu as a PERMANENT drawer -- no
+   open state, no toggle, and the hamburger it does have belongs to the app-bar
+   branch this deployment does not use. On a wide screen that is exactly right.
+   On a phone the menu covers the page and cannot be dismissed: choosing an entry
+   navigates underneath and leaves the menu sitting on top of the answer.
+
+   Below the breakpoint the drawer becomes off-canvas. src/lao-language/
+   sidebarMobile.js owns the button and the state; this owns the movement.
+
+   Scoped to body:has(header) so the sign-in page, which has no header and no
+   drawer, is untouched -- the same test the rest of this file uses. */
+@media (max-width: 60rem) {
+  body:has(header) .MuiDrawer-paperAnchorDockedLeft {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    /* Above the app bar, below a dialog. */
+    z-index: 1250;
+    /* Wide enough for a Lao label, never the whole screen: the strip of page
+       still showing is what tells you the menu is a layer you can dismiss. */
+    width: min(20rem, 86vw);
+    max-width: 86vw;
+    transform: translateX(-100%);
+    transition: transform 0.22s ease;
+    box-shadow: 0 0 40px -8px rgba(0, 0, 0, 0.55);
+  }
+
+  body:has(header).lao-menu-open .MuiDrawer-paperAnchorDockedLeft {
+    transform: none;
+  }
+
+  /* The drawer's own nav reserves a column beside the content. Off-canvas, that
+     column is empty space the page cannot use, so it is given back. */
+  body:has(header) nav:has(> .MuiDrawer-paperAnchorDockedLeft) {
+    width: 0;
+    min-width: 0;
+  }
+
+  /* Tapping the page behind closes it, and the dimming is what says so. */
+  body:has(header).lao-menu-open::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: 1240;
+    background: rgba(0, 0, 0, 0.45);
+  }
+
+  #lao-menu-toggle {
+    position: fixed;
+    left: 0.75rem;
+    bottom: 0.75rem;
+    z-index: 1260;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 3rem;
+    height: 3rem;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    color: #fff;
+    background: var(--brand, #016173);
+    box-shadow: 0 6px 18px -6px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+  }
+
+  #lao-menu-toggle:focus-visible {
+    outline: 2px solid #fff;
+    outline-offset: 2px;
+  }
+
+  /* Out of the way of the menu it just opened. */
+  body:has(header).lao-menu-open #lao-menu-toggle {
+    opacity: 0;
+    pointer-events: none;
+  }
+}
+
+/* The drawer is dragged wide on the desktop; that must not follow it onto a
+   phone, where the width above is deliberate. */
+@media (max-width: 60rem) {
+  body:has(header) .MuiDrawer-paperAnchorDockedLeft {
+    width: min(20rem, 86vw) !important;
+  }
+}

@@ -12,6 +12,7 @@ import mountProfileLogout from "./profileLogout";
 import mountProfileMenuDismiss from "./profileMenuDismiss";
 import mountUserPhoto from "./userPhoto";
 import mountSidebarResize from "./sidebarResize";
+import mountSidebarMobile from "./sidebarMobile";
 import mountMutationToasts from "./mutationToasts";
 import mountSiteLogo from "./siteLogo";
 import locationNamesMiddleware from "./locationNames";
@@ -64,6 +65,9 @@ mountProfileMenuDismiss();
 mountUserPhoto();
 // The drawer width is a fixed number in the theme, and Lao labels do not fit it.
 mountSidebarResize();
+// menuLeft renders a PERMANENT drawer, which has no way to be dismissed. On a
+// phone that means the menu covers whatever you just navigated to.
+mountSidebarMobile();
 // The journal is hidden but still mounted; this surfaces its results as toasts.
 mountMutationToasts();
 // Administrators can replace the site emblem; openIMIS has no form for it.
