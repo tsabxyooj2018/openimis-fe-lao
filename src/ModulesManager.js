@@ -50,10 +50,44 @@ const DEPLOYMENT_DEFAULTS = {
   },
 };
 
+/*
+ * Settings this deployment REQUIRES, which the database may not override.
+ *
+ * These are not preferences with a sensible default -- they are load-bearing,
+ * and a row in core_ModuleConfiguration setting them the other way silently
+ * breaks something that has no other implementation.
+ *
+ * showJournalSidebar: the journal is the ONLY place openIMIS reports whether a
+ * save succeeded. This deployment hides it with CSS -- see the note in
+ * src/index.css -- and mirrors its results into toasts from
+ * src/lao-language/mutationToasts.js, which reads the drawer's DOM. Setting the
+ * flag false does not merely hide the journal, it UNMOUNTS it: React stops
+ * polling, the toast module finds nothing to read, and every save in the system
+ * goes silent again. No error, no clue, just no confirmation anywhere.
+ *
+ * That has already happened once. The warning in index.css says not to do it;
+ * this makes the warning unnecessary. Forcing it costs nothing, because the
+ * drawer is hidden by CSS either way -- there is no configuration in which this
+ * deployment wants the component absent.
+ *
+ * Anything added here needs the same argument: not "we prefer this" but "the
+ * alternative is broken and gives no sign of it".
+ */
+const DEPLOYMENT_REQUIRED = {
+  "fe-core": {
+    showJournalSidebar: true,
+  },
+};
+
 function withDeploymentDefaults(cfg) {
   const out = { ...(cfg || {}) };
+  // Defaults first, so a database row still wins over them.
   Object.entries(DEPLOYMENT_DEFAULTS).forEach(([module, defaults]) => {
     out[module] = { ...defaults, ...(out[module] || {}) };
+  });
+  // Requirements last, so nothing wins over them.
+  Object.entries(DEPLOYMENT_REQUIRED).forEach(([module, required]) => {
+    out[module] = { ...(out[module] || {}), ...required };
   });
   return out;
 }
