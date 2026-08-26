@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo, useState } from "react";
+import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useIntl } from "react-intl";
 import {
   Box,
@@ -60,11 +60,36 @@ import {
 
 const STATUSES = [2, 4, 8, 16, 1];
 
+/*
+ * Filters carried in the address, so the home page can link straight to an
+ * answer instead of to an empty form.
+ *
+ * openIMIS's own searchers cannot do this -- their filters live in component
+ * state and nothing reads the query string -- which is why the home page's
+ * claim tiles point here rather than at the claims searcher. This page is ours,
+ * so it can be linked into.
+ *
+ * Only the three that a link would want. Anything else is left to the form.
+ */
+const paramsFromUrl = () => {
+  if (typeof window === "undefined") return {};
+  const q = new URLSearchParams(window.location.search);
+  const out = {};
+  ["from", "to", "status"].forEach((key) => {
+    const value = q.get(key);
+    if (value) out[key] = value;
+  });
+  return out;
+};
+
 const ClaimTotalsPage = () => {
   const intl = useIntl();
-  const [from, setFrom] = useState("");
-  const [to, setTo] = useState("");
-  const [status, setStatus] = useState("");
+  // Read once, at mount. A later edit in the form must not be undone by the
+  // address bar still carrying what it was opened with.
+  const [initial] = useState(paramsFromUrl);
+  const [from, setFrom] = useState(initial.from ?? "");
+  const [to, setTo] = useState(initial.to ?? "");
+  const [status, setStatus] = useState(initial.status ?? "");
   const [level, setLevel] = useState("district");
   const [groupBy, setGroupBy] = useState("location");
   const [chfId, setChfId] = useState("");
@@ -154,6 +179,27 @@ const ClaimTotalsPage = () => {
       });
     }
   }, [from, to, status, chfId, t]);
+
+  /*
+   * Run straight away when the page was opened with filters in the address.
+   *
+   * Someone arriving from a tile on the home page has already said what they
+   * want; making them press Search again to see it would be asking the same
+   * question twice. Opened without filters, this does nothing and the page
+   * waits, as it did before -- an unfiltered run would sweep every claim on
+   * record for somebody who has not asked for anything yet.
+   *
+   * The ref, not the dependency list, is what keeps it to once. `run` is
+   * rebuilt whenever a filter changes, so depending on it would re-run the
+   * whole query on every keystroke in the date box.
+   */
+  const autoRan = useRef(false);
+  useEffect(() => {
+    if (autoRan.current) return;
+    if (!initial.from && !initial.to && !initial.status) return;
+    autoRan.current = true;
+    run();
+  }, [initial, run]);
 
   // The level names are translated inside summariseByLocation, so the on-screen
   // filter compares against the same translated value rather than the key.

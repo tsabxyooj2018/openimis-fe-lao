@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect, useState } from "react";
 import { useIntl } from "react-intl";
-import { Box, Grid, Paper, Typography } from "@material-ui/core";
-import { CLAIM_STATUSES, fetchDashboard } from "./dashboardApi";
+import { Box, ButtonBase, Grid, Paper, Typography } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
+import { CLAIM_STATUSES, fetchDashboard, startOfMonth } from "./dashboardApi";
 
 /*
  * Figures on the home page.
@@ -30,9 +31,28 @@ import { CLAIM_STATUSES, fetchDashboard } from "./dashboardApi";
 const formatCount = (value) =>
   typeof value === "number" ? new Intl.NumberFormat("en-US").format(value) : "—";
 
-/** One number with its label. */
-const Tile = ({ label, value, hint }) => (
-  <Grid item xs={6} sm={4} md={3}>
+/*
+ * One number with its label, and where it goes when clicked.
+ *
+ * A figure on a dashboard invites the question "which ones?", and the answer
+ * should be a click rather than a hunt through the menu for the right screen
+ * and the right filter.
+ *
+ * WHERE THE CLAIM FIGURES POINT, AND WHY IT IS NOT THE CLAIMS SEARCHER
+ *
+ * openIMIS's searchers keep their filters in component state and nothing reads
+ * the query string, so a link can reach the screen but cannot arrive with the
+ * filter applied -- which for "claims this month" would land somebody on an
+ * unfiltered list and leave them to rebuild what the tile already knew.
+ *
+ * The claim tiles therefore point at this deployment's own totals page, which
+ * DOES take from/to/status in the address and runs on arrival. The insuree,
+ * family and policy tiles have no such need: they are unfiltered totals, and
+ * the upstream screen is exactly right for them.
+ */
+const Tile = ({ label, value, hint, to }) => {
+  const history = useHistory();
+  const inner = (
     <Paper>
       {/*
         minWidth so a tile can never be squeezed narrower than its own label.
@@ -54,8 +74,28 @@ const Tile = ({ label, value, hint }) => (
         ) : null}
       </Box>
     </Paper>
-  </Grid>
-);
+  );
+
+  return (
+    <Grid item xs={6} sm={4} md={3}>
+      {to ? (
+        /*
+         * ButtonBase rather than a div with onClick: it is a real button, so it
+         * takes keyboard focus, answers Enter and Space, and announces itself to
+         * a screen reader. A clickable div does none of that.
+         */
+        <ButtonBase
+          onClick={() => history.push(to)}
+          style={{ display: "block", width: "100%", textAlign: "left", borderRadius: 4 }}
+        >
+          {inner}
+        </ButtonBase>
+      ) : (
+        inner
+      )}
+    </Grid>
+  );
+};
 
 /*
  * The claim pipeline, as proportional bars.
@@ -71,6 +111,7 @@ const Tile = ({ label, value, hint }) => (
  * that reads better against the biggest.
  */
 const Funnel = ({ title, note, rows }) => {
+  const history = useHistory();
   const largest = rows.reduce((max, row) => Math.max(max, row.value || 0), 0);
   return (
     <Grid item xs={12}>
@@ -84,7 +125,17 @@ const Funnel = ({ title, note, rows }) => {
           ) : null}
           <Box mt={1.5} display="flex" flexDirection="column" style={{ gap: 10 }}>
             {rows.map((row) => (
-              <Box key={row.key} display="flex" alignItems="center" style={{ gap: 12 }}>
+              /*
+               * The whole line is the target, not just the label: a bar three
+               * pixels tall is not something to ask anyone to hit.
+               */
+              <ButtonBase
+                key={row.key}
+                onClick={row.to ? () => history.push(row.to) : undefined}
+                disabled={!row.to}
+                style={{ display: "block", width: "100%", textAlign: "left", borderRadius: 4 }}
+              >
+              <Box display="flex" alignItems="center" style={{ gap: 12, width: "100%" }}>
                 <Box width={110} flexShrink={0}>
                   <Typography variant="body2">{row.label}</Typography>
                 </Box>
@@ -106,6 +157,7 @@ const Funnel = ({ title, note, rows }) => {
                   </Typography>
                 </Box>
               </Box>
+              </ButtonBase>
             ))}
           </Box>
         </Box>
@@ -158,13 +210,28 @@ const HomeDashboard = ({ user }) => {
 
   if (wants.insurees) {
     tiles.push(
-      <Tile key="insurees" label={t("home.members", "Members registered")} value={counts.insurees} />,
-      <Tile key="families" label={t("home.families", "Families")} value={counts.families} />,
+      <Tile
+        key="insurees"
+        label={t("home.members", "Members registered")}
+        value={counts.insurees}
+        to="/insuree/insurees"
+      />,
+      <Tile
+        key="families"
+        label={t("home.families", "Families")}
+        value={counts.families}
+        to="/insuree/families"
+      />,
     );
   }
   if (wants.policies) {
     tiles.push(
-      <Tile key="policies" label={t("home.policies", "Policies")} value={counts.policies} />,
+      <Tile
+        key="policies"
+        label={t("home.policies", "Policies")}
+        value={counts.policies}
+        to="/policy/policies"
+      />,
     );
   }
   if (wants.contributions) {
@@ -174,6 +241,7 @@ const HomeDashboard = ({ user }) => {
         label={t("home.contributions", "Contributions this month")}
         value={counts.contributions}
         hint={t("home.countNotAmount", "count, not amount")}
+        to="/contribution/contributions"
       />,
     );
   }
@@ -183,6 +251,7 @@ const HomeDashboard = ({ user }) => {
         key="claims"
         label={t("home.claimsThisMonth", "Claims this month")}
         value={counts.claimsThisMonth}
+        to={`/cbhi/claim-totals?from=${startOfMonth()}`}
       />,
     );
     // Only when something is actually waiting. Nothing waiting is a real
@@ -195,16 +264,20 @@ const HomeDashboard = ({ user }) => {
           label={t("home.oldestWaiting", "Oldest claim awaiting processing")}
           value={waitingDays}
           hint={t("home.days", "days")}
+          // The page built for exactly this question: how long claims are
+          // taking, and at which facility.
+          to="/cbhi/claim-ageing"
         />,
       );
     }
   }
 
   const funnel = wants.claims
-    ? CLAIM_STATUSES.map(({ key }) => ({
+    ? CLAIM_STATUSES.map(({ key, status }) => ({
         key,
         label: t(`home.status.${key}`, key),
         value: counts[key],
+        to: `/cbhi/claim-totals?status=${status}`,
       }))
     : [];
 
