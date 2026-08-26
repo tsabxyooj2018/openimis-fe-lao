@@ -8,6 +8,7 @@ import ContributionSlipsPage from "./ContributionSlipsPage";
 import { InsureeExport, ClaimExport } from "./FilterExport";
 import ClaimTotalsPage from "./ClaimTotalsPage";
 import ClaimAgeingPage from "./ClaimAgeingPage";
+import HomeDashboard from "./HomeDashboard";
 import AssessmentIcon from "@material-ui/icons/Assessment";
 import TimerIcon from "@material-ui/icons/Timer";
 import messages from "./messages.json";
@@ -190,6 +191,20 @@ const CbhiModule = (cfg) => ({
    * filtered on and can run the query itself. The export therefore cannot drift
    * from the search -- both are built from the same filter objects.
    */
+  /*
+   * Figures on the home page, which openIMIS leaves almost empty -- a welcome
+   * message and a contract notice.
+   *
+   * home.HomePage.Blocks is a seam fe-home puts there on purpose: it renders
+   * <Contributions contributionKey="home.HomePage.Blocks" user={user}> at the
+   * END of its container, so this appends below upstream's content instead of
+   * replacing it.
+   *
+   * The alternative, home.HomePage.customDashboard, replaces the container
+   * entirely and only switches on with an fe-home configuration row. Additive
+   * loses nothing and needs no configuration to survive a database restore.
+   */
+  "home.HomePage.Blocks": [HomeDashboard],
   "insuree.Filter": [InsureeExport],
   "claim.Filter": [ClaimExport],
   /*
