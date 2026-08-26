@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useIntl } from "react-intl";
-import { Box, Button, CircularProgress, Typography } from "@material-ui/core";
+import { Button, CircularProgress, Grid, Typography } from "@material-ui/core";
 import GetAppIcon from "@material-ui/icons/GetApp";
 import { graphql } from "../helpers/csrf";
 import { downloadWorkbook } from "./xlsx";
@@ -151,8 +151,27 @@ export function createFilterExport(spec) {
       }
     }, [filters, t]);
 
+    /*
+     * A Grid ITEM, not a Box, and that is the whole of the fix.
+     *
+     * Both filter panes are <Grid container spacing={2}>, and they render
+     * <Contributions> as a DIRECT CHILD -- so whatever is returned here becomes
+     * a child of that container.
+     *
+     * MUI implements `spacing` as a NEGATIVE MARGIN on the container plus a
+     * compensating PADDING on each .MuiGrid-item. A plain Box is not a grid
+     * item, so it inherited the negative margin and none of the padding, and
+     * sat on top of whatever was beside it -- here the Show Restored checkbox
+     * and the field above.
+     *
+     * Same mistake the home page block made, and the same correction: return a
+     * grid item so the container can lay it out. sm="auto" keeps the button its
+     * own width rather than reserving a filter-sized cell for it, and xs={12}
+     * gives it a line of its own on a narrow screen instead of squeezing it
+     * against a date field.
+     */
     return (
-      <Box mt={1} ml={1} mb={1}>
+      <Grid item xs={12} sm="auto">
         <Button
           variant="outlined"
           size="small"
@@ -178,7 +197,7 @@ export function createFilterExport(spec) {
             {t("export.failed", "The export failed.")} {state.error}
           </Typography>
         ) : null}
-      </Box>
+      </Grid>
     );
   };
 
