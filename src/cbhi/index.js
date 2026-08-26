@@ -3,7 +3,9 @@ import { useIntl } from "react-intl";
 import { MainMenuContribution, FormattedMessage, formatMessage } from "@openimis/fe-core";
 import CreditCardIcon from "@material-ui/icons/CreditCard";
 import ReceiptIcon from "@material-ui/icons/Receipt";
+import CropFreeIcon from "@material-ui/icons/CropFree";
 import MembershipCardsPage from "./MembershipCardsPage";
+import ScanCardPage from "./ScanCardPage";
 import ContributionSlipsPage from "./ContributionSlipsPage";
 import { InsureeExport, ClaimExport } from "./FilterExport";
 import ClaimTotalsPage from "./ClaimTotalsPage";
@@ -152,6 +154,12 @@ const CardsMainMenu = (props) => {
           icon: <CreditCardIcon />,
           route: "/cbhi/membership-cards",
         },
+        maySeeCards && {
+          id: "cbhi.scanCard",
+          text: formatMessage(intl, "cbhi", "menu.scanCard"),
+          icon: <CropFreeIcon />,
+          route: "/cbhi/scan-card",
+        },
         maySeeSlips && {
           id: "cbhi.contributionSlips",
           text: formatMessage(intl, "cbhi", "menu.contributionSlips"),
@@ -166,6 +174,7 @@ const CardsMainMenu = (props) => {
 const CbhiModule = (cfg) => ({
   "core.Router": [
     { path: "cbhi/membership-cards", component: MembershipCardsPage },
+    { path: "cbhi/scan-card", component: ScanCardPage },
     { path: "cbhi/contribution-slips", component: ContributionSlipsPage },
     { path: "cbhi/claim-totals", component: ClaimTotalsPage },
     { path: "cbhi/claim-ageing", component: ClaimAgeingPage },

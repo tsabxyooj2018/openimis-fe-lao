@@ -1,0 +1,320 @@
+import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useIntl } from "react-intl";
+import {
+  Box,
+  Button,
+  CircularProgress,
+  Divider,
+  Paper,
+  TextField,
+  Typography,
+} from "@material-ui/core";
+import Alert from "@material-ui/lab/Alert";
+import CameraAltIcon from "@material-ui/icons/CameraAlt";
+import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
+import CropFreeIcon from "@material-ui/icons/CropFree";
+import { fetchInsureesForCards, photoUrl, locationLine } from "./api";
+import { canDecode, isSecure, listenForScanner, readFrom, readFromFile } from "./scanCard";
+
+/*
+ * Find a member by their membership card.
+ *
+ * The card this deployment prints carries the insurance number as a Code 128
+ * barcode. This turns that back into a member, by whichever route the counter
+ * actually has:
+ *
+ *   a handheld scanner   works with no permission and on any browser
+ *   the device camera    Chromium only, and only over https
+ *   a photograph         same decoder, for a card sent by message
+ *   typing               always, because every one of the above can fail
+ *
+ * WHY NOT JUST THE TOOLBAR ENQUIRY
+ *
+ * openIMIS already has one: fe-insuree's enquiry box takes an insurance number
+ * and opens the member on Enter, so a handheld scanner aimed at it works today.
+ * What it cannot do is be aimed at. The clerk has to click it first, and a
+ * scanner fired at an unfocused page types into nothing.
+ *
+ * So the scanner listener here is global -- scan anywhere on this page and it
+ * resolves -- and the camera and photograph paths exist at all, which the
+ * enquiry has no way to offer.
+ */
+
+const ScanCardPage = () => {
+  const intl = useIntl();
+  const t = useCallback(
+    (id, fallback, values) =>
+      intl.formatMessage({ id: `cbhi.${id}`, defaultMessage: fallback }, values),
+    [intl],
+  );
+
+  const videoRef = useRef(null);
+  const streamRef = useRef(null);
+  const loopRef = useRef(null);
+  const fileRef = useRef(null);
+
+  const [decodable, setDecodable] = useState(false);
+  const [camera, setCamera] = useState(false);
+  const [term, setTerm] = useState("");
+  const [state, setState] = useState({ busy: false, error: null, ran: false });
+  const [results, setResults] = useState([]);
+
+  useEffect(() => {
+    let cancelled = false;
+    canDecode().then((ok) => {
+      if (!cancelled) setDecodable(ok);
+    });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  /** Look a number up and show whoever holds it. */
+  const lookup = useCallback(
+    async (value) => {
+      const trimmed = String(value ?? "").trim();
+      if (!trimmed) return;
+      setTerm(trimmed);
+      setState({ busy: true, error: null, ran: false });
+      try {
+        const found = await fetchInsureesForCards(trimmed);
+        setResults(found);
+        setState({ busy: false, error: null, ran: true });
+      } catch (error) {
+        setResults([]);
+        setState({ busy: false, error: String(error?.message ?? ""), ran: true });
+      }
+    },
+    [],
+  );
+
+  /*
+   * The handheld scanner, listening for as long as this page is open. Detached
+   * on unmount so it cannot go on intercepting keystrokes on other screens.
+   */
+  useEffect(() => listenForScanner(lookup), [lookup]);
+
+  const stopCamera = useCallback(() => {
+    if (loopRef.current) {
+      window.clearInterval(loopRef.current);
+      loopRef.current = null;
+    }
+    if (streamRef.current) {
+      // Every track, or the camera light stays on after the page is left.
+      streamRef.current.getTracks().forEach((track) => track.stop());
+      streamRef.current = null;
+    }
+    setCamera(false);
+  }, []);
+
+  // Whatever ends this page -- navigation, a reload, closing the tab.
+  useEffect(() => stopCamera, [stopCamera]);
+
+  const startCamera = useCallback(async () => {
+    setState((s) => ({ ...s, error: null }));
+    try {
+      const stream = await navigator.mediaDevices.getUserMedia({
+        // The back camera on a phone; ignored on a laptop, which has one.
+        video: { facingMode: "environment" },
+      });
+      streamRef.current = stream;
+      setCamera(true);
+      if (videoRef.current) {
+        videoRef.current.srcObject = stream;
+        await videoRef.current.play();
+      }
+      /*
+       * Four frames a second. Every frame would busy the main thread for a
+       * barcode that is either in view for a second or not there at all, and
+       * this runs on whatever hardware the office has.
+       */
+      loopRef.current = window.setInterval(async () => {
+        if (!videoRef.current) return;
+        const value = await readFrom(videoRef.current);
+        if (value) {
+          stopCamera();
+          lookup(value);
+        }
+      }, 250);
+    } catch (error) {
+      stopCamera();
+      setState((s) => ({
+        ...s,
+        error: t("scan.cameraDenied", "The camera could not be opened. Permission may have been refused."),
+      }));
+    }
+  }, [lookup, stopCamera, t]);
+
+  const onFile = useCallback(
+    async (event) => {
+      const file = event.target.files && event.target.files[0];
+      // Cleared straight away so the same photograph can be tried twice.
+      event.target.value = "";
+      if (!file) return;
+      setState((s) => ({ ...s, error: null }));
+      try {
+        const value = await readFromFile(file);
+        if (value) lookup(value);
+        else {
+          setState({
+            busy: false,
+            ran: true,
+            error: t("scan.noBarcode", "No barcode could be read in that image."),
+          });
+          setResults([]);
+        }
+      } catch (error) {
+        setState({ busy: false, ran: true, error: String(error?.message ?? "") });
+      }
+    },
+    [lookup, t],
+  );
+
+  return (
+    <Box p={2}>
+      <Paper>
+        <Box p={2} display="flex" alignItems="center">
+          <CropFreeIcon style={{ marginRight: 8 }} />
+          <Typography variant="h6">{t("scan.title", "Find a member by card")}</Typography>
+        </Box>
+        <Divider />
+
+        <Box p={2} display="flex" flexWrap="wrap" alignItems="center" style={{ gap: 16 }}>
+          <TextField
+            label={t("scan.number", "Insurance number")}
+            value={term}
+            onChange={(e) => setTerm(e.target.value)}
+            onKeyPress={(e) => {
+              if (e.key === "Enter") lookup(term);
+            }}
+            InputLabelProps={{ shrink: true }}
+          />
+          <Button variant="contained" color="primary" onClick={() => lookup(term)} disabled={state.busy}>
+            {state.busy ? <CircularProgress size={20} /> : t("scan.find", "Find")}
+          </Button>
+
+          {decodable ? (
+            <>
+              <Button
+                startIcon={<CameraAltIcon />}
+                onClick={camera ? stopCamera : startCamera}
+                disabled={!isSecure()}
+              >
+                {camera ? t("scan.stopCamera", "Stop camera") : t("scan.useCamera", "Use camera")}
+              </Button>
+              <Button startIcon={<PhotoLibraryIcon />} onClick={() => fileRef.current && fileRef.current.click()}>
+                {t("scan.uploadPhoto", "Upload a photo")}
+              </Button>
+              <input
+                ref={fileRef}
+                type="file"
+                accept="image/*"
+                onChange={onFile}
+                style={{ display: "none" }}
+              />
+            </>
+          ) : null}
+        </Box>
+
+        <Box px={2} pb={2}>
+          <Typography variant="caption" color="textSecondary">
+            {t(
+              "scan.scannerHint",
+              "A handheld scanner works on this page without clicking anything — just scan.",
+            )}
+          </Typography>
+        </Box>
+
+        {/*
+          Said plainly rather than by hiding the buttons and leaving somebody to
+          wonder. The camera and photograph paths need a decoder the browser
+          either has or does not.
+        */}
+        {!decodable ? (
+          <Box px={2} pb={2}>
+            <Alert severity="info">
+              {t(
+                "scan.noDecoder",
+                "This browser cannot read barcodes from a camera or a photo. Use a handheld scanner, or type the number. Chrome and Edge support both.",
+              )}
+            </Alert>
+          </Box>
+        ) : null}
+
+        {decodable && !isSecure() ? (
+          <Box px={2} pb={2}>
+            <Alert severity="warning">
+              {t("scan.insecure", "The camera needs a secure (https) connection.")}
+            </Alert>
+          </Box>
+        ) : null}
+      </Paper>
+
+      {camera ? (
+        <Box mt={2}>
+          <Paper>
+            <Box p={2} display="flex" flexDirection="column" alignItems="center" style={{ gap: 8 }}>
+              {/* muted and playsInline, or iOS refuses to play it inline. */}
+              <video
+                ref={videoRef}
+                muted
+                playsInline
+                style={{ width: "100%", maxWidth: 480, borderRadius: 6, background: "#000" }}
+              />
+              <Typography variant="caption" color="textSecondary">
+                {t("scan.aim", "Hold the barcode inside the frame.")}
+              </Typography>
+            </Box>
+          </Paper>
+        </Box>
+      ) : null}
+
+      {state.error ? (
+        <Box mt={2}>
+          <Alert severity="error">{state.error}</Alert>
+        </Box>
+      ) : null}
+
+      {state.ran && !state.error && !results.length ? (
+        <Box mt={2}>
+          <Alert severity="info">
+            {t("scan.notFound", "No member holds that number.")}
+          </Alert>
+        </Box>
+      ) : null}
+
+      {results.length ? (
+        <Box mt={2}>
+          <Paper>
+            <Box p={2} display="flex" flexDirection="column" style={{ gap: 12 }}>
+              {results.map((insuree) => (
+                <Box key={insuree.uuid} display="flex" alignItems="center" style={{ gap: 16 }}>
+                  {photoUrl(insuree.photo) ? (
+                    <img
+                      src={photoUrl(insuree.photo)}
+                      alt=""
+                      style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover" }}
+                    />
+                  ) : null}
+                  <Box>
+                    <Typography variant="subtitle1">
+                      {[insuree.otherNames, insuree.lastName].filter(Boolean).join(" ")}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                      {insuree.chfId}
+                    </Typography>
+                    <Typography variant="caption" color="textSecondary">
+                      {locationLine(insuree)}
+                    </Typography>
+                  </Box>
+                </Box>
+              ))}
+            </Box>
+          </Paper>
+        </Box>
+      ) : null}
+    </Box>
+  );
+};
+
+export default ScanCardPage;
