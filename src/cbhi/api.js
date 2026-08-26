@@ -66,6 +66,10 @@ const PROJECTION = `
   currentVillage { name parent { name parent { name } } }
   healthFacility { code name }
   family {
+    # Carried so a result can be opened at the member's own record: the route is
+    # insuree/insurees/insuree/:insuree_uuid?/:family_uuid?, and fe-insuree
+    # passes both when it navigates from its own list.
+    uuid
     location { name parent { name parent { name } } }
     headInsuree { chfId lastName otherNames }
   }

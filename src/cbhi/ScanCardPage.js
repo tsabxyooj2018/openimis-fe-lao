@@ -3,12 +3,14 @@ import { useIntl } from "react-intl";
 import {
   Box,
   Button,
+  ButtonBase,
   CircularProgress,
   Divider,
   Paper,
   TextField,
   Typography,
 } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 import Alert from "@material-ui/lab/Alert";
 import CameraAltIcon from "@material-ui/icons/CameraAlt";
 import PhotoLibraryIcon from "@material-ui/icons/PhotoLibrary";
@@ -42,6 +44,7 @@ import { hasCamera, isSecure, listenForScanner, readFromVideo, readFromFile } fr
 
 const ScanCardPage = () => {
   const intl = useIntl();
+  const history = useHistory();
   const t = useCallback(
     (id, fallback, values) =>
       intl.formatMessage({ id: `cbhi.${id}`, defaultMessage: fallback }, values),
@@ -259,26 +262,54 @@ const ScanCardPage = () => {
           <Paper>
             <Box p={2} display="flex" flexDirection="column" style={{ gap: 12 }}>
               {results.map((insuree) => (
-                <Box key={insuree.uuid} display="flex" alignItems="center" style={{ gap: 16 }}>
-                  {photoUrl(insuree.photo) ? (
-                    <img
-                      src={photoUrl(insuree.photo)}
-                      alt=""
-                      style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover" }}
-                    />
-                  ) : null}
-                  <Box>
-                    <Typography variant="subtitle1">
-                      {[insuree.otherNames, insuree.lastName].filter(Boolean).join(" ")}
-                    </Typography>
-                    <Typography variant="body2" color="textSecondary">
-                      {insuree.chfId}
-                    </Typography>
-                    <Typography variant="caption" color="textSecondary">
-                      {locationLine(insuree)}
-                    </Typography>
+                /*
+                 * The whole result opens the member's own record.
+                 *
+                 * Everything a clerk needs after finding somebody -- their
+                 * family, policies, contributions, photograph, history -- is
+                 * already on openIMIS's insuree page. Rebuilding a smaller
+                 * version of it here would be a second thing to keep in step
+                 * with a screen that already exists and is already right.
+                 *
+                 * The route takes the family uuid as well, which is why the
+                 * projection carries it: fe-insuree passes both when it
+                 * navigates from its own list, and the family panel on that
+                 * page fills in without a second lookup.
+                 */
+                <ButtonBase
+                  key={insuree.uuid}
+                  onClick={() =>
+                    history.push(
+                      `/insuree/insurees/insuree/${insuree.uuid}` +
+                        (insuree.family?.uuid ? `/${insuree.family.uuid}` : ""),
+                    )
+                  }
+                  style={{ display: "block", width: "100%", textAlign: "left", borderRadius: 6 }}
+                >
+                  <Box display="flex" alignItems="center" style={{ gap: 16, width: "100%" }}>
+                    {photoUrl(insuree.photo) ? (
+                      <img
+                        src={photoUrl(insuree.photo)}
+                        alt=""
+                        style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover" }}
+                      />
+                    ) : null}
+                    <Box minWidth={0}>
+                      <Typography variant="subtitle1">
+                        {[insuree.otherNames, insuree.lastName].filter(Boolean).join(" ")}
+                      </Typography>
+                      <Typography variant="body2" color="textSecondary">
+                        {insuree.chfId}
+                      </Typography>
+                      <Typography variant="caption" color="textSecondary" display="block">
+                        {locationLine(insuree)}
+                      </Typography>
+                      <Typography variant="caption" color="primary" display="block">
+                        {t("scan.openRecord", "Open the full record")}
+                      </Typography>
+                    </Box>
                   </Box>
-                </Box>
+                </ButtonBase>
               ))}
             </Box>
           </Paper>
