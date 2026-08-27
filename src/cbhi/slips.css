@@ -251,7 +251,20 @@
   /* Removed from the layout, not merely hidden. A hidden element keeps its box,
      and this application's shell is a full-height sidebar plus a header, which
      would print as blank sheets before the slips appeared. */
-  header,
+  /* header:not([class*="cbhi-"]), not a bare `header`.
+     
+     A bare selector here hides the application's toolbar -- which is the
+     intent -- and ALSO every <header> this deployment prints. The slip's own
+     masthead is <header class="cbhi-slip__head"> and the membership card's
+     banner is <header class="cbhi-card__banner">, so both were being removed
+     from the very sheet they belong on: the emblem, the issuing authority, the
+     document title and the receipt number, all gone from paper while still
+     present on screen.
+     
+     That is exactly the shape of fault that reaches a printer unnoticed. The
+     preview is rendered under screen rules and looks right; only the printed
+     copy is missing its head, and by then the paper is issued. */
+  header:not([class*="cbhi-"]),
   .MuiDrawer-root,
   .MuiDrawer-paperAnchorDockedLeft,
   .cbhi-noprint {
