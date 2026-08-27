@@ -226,28 +226,45 @@ const ClaimTotalsPage = () => {
 
   const money = (n) => new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(n || 0);
 
+  /*
+   * Export exactly what is on screen.
+   *
+   * This used to write both groupings and every level, whatever the view was
+   * set to, on the reasoning that the file is the record and the extra half
+   * costs nothing. That reasoning was wrong twice over.
+   *
+   * It surprised people. A button labelled "Export to Excel" sitting beside a
+   * filtered table means "export this table". Someone looking at three
+   * villages and receiving four levels plus a by-member sheet has to work out
+   * what they are holding before they can use it.
+   *
+   * And it was inconsistent with the rest of the deployment. The export on
+   * openIMIS's own insuree and claim searchers gives you precisely what the
+   * filters produced. Two exports in one application should not mean two
+   * different things.
+   *
+   * `shown` is the same array the table renders, so the sheet and the screen
+   * cannot disagree.
+   */
   const exportAll = () => {
+    const byMember = groupBy === "insuree";
     downloadWorkbook(
       {
-        // Both groupings, always, whichever is on screen. The file is the
-        // record of the question that was asked, and the other half of the
-        // answer costs nothing to include.
         sheets: [
           {
-            name: t("export.sheet.summary", "Totals by location"),
-            columns: summaryColumns(t, ["claimed", "approved"]),
-            // Every level, not only the one on screen: the sheet is the record,
-            // and the level column makes the others one filter away.
-            rows,
-          },
-          {
-            name: t("export.sheet.byInsuree", "Totals by member"),
-            columns: insureeSummaryColumns(t, ["claimed", "approved"]),
-            rows: byInsuree,
+            name: byMember
+              ? t("export.sheet.byInsuree", "Totals by member")
+              : t("export.sheet.summary", "Totals by location"),
+            columns: byMember
+              ? insureeSummaryColumns(t, ["claimed", "approved"])
+              : summaryColumns(t, ["claimed", "approved"]),
+            rows: shown,
           },
         ],
       },
-      `claim-totals-${new Date().toISOString().slice(0, 10)}`,
+      // The level is in the filename, so two exports taken minutes apart at
+      // different levels do not overwrite each other in the downloads folder.
+      `claim-totals-${byMember ? "by-member" : level}-${new Date().toISOString().slice(0, 10)}`,
     );
   };
 
@@ -324,7 +341,11 @@ const ClaimTotalsPage = () => {
               variant="outlined"
               startIcon={<GetAppIcon />}
               onClick={exportAll}
-              disabled={!rows.length}
+              // shown, not rows: the button now exports the visible table, so
+              // it should be dead exactly when that table is empty. Keyed on
+              // rows it stayed live at a level with no places and handed back
+              // a workbook with nothing but headings in it.
+              disabled={!shown.length}
             >
               {t("export.action", "Export to Excel")}
             </Button>
