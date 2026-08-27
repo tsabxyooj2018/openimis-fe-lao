@@ -224,11 +224,25 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) {
   padding: 2.5rem clamp(1.75rem, 4vw, 3.5rem) 4rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  /* No justify-content: center here. The form is centred with auto margins
+     below instead.
+
+     They are not equivalent when the content is taller than the panel.
+     `justify-content: center` overflows a flex container in BOTH directions,
+     and the overflow above the start edge is unreachable -- a scrollbar only
+     scrolls down. On a short window that silently cuts the top off the form
+     with no way to get at it. Auto margins collapse to zero instead of going
+     negative, so the content is centred when there is room and flush to the
+     top when there is not, and everything stays reachable. */
   background: #fff;
   border: 0;
   border-radius: 0;
   box-shadow: 0 0 60px rgba(0, 0, 0, 0.35);
+}
+
+/* Centred when there is room, never pushed off the top when there is not. */
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) form {
+  margin-block: auto;
 }
 
 /* Keep the form column narrow even when the panel is wide; long measures look
@@ -246,8 +260,12 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) form > [c
 /* --- Emblem ---------------------------------------------------------------- */
 body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) img {
   display: block;
-  max-height: 11rem;
-  max-width: 11rem;
+  /* 7.5rem, down from 11. At 176px the emblem was the largest thing on a
+     screen whose job is two input fields, and it pushed the form far enough
+     down that a short window had to scroll to reach the button. This buys back
+     about 68px of height and leaves the emblem clearly the first thing seen. */
+  max-height: 7.5rem;
+  max-width: 7.5rem;
   width: auto;
   height: auto;
   margin: 0 auto 1.25rem;
@@ -371,11 +389,17 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) a:hover {
    AGPL s13 wants. A forked LoginPage would give it a real element and a link. */
 body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"])::after {
   content: "Powered by openIMIS 26.04 — free software under AGPL v3";
-  position: absolute;
-  bottom: 1.25rem;
-  left: 1.5rem;
-  right: 1.5rem;
-  margin: 0;
+  /* In the flow, not absolutely positioned at bottom: 1.25rem.
+     
+     Out of flow it sat at the PANEL's bottom edge, and the panel grows past
+     the viewport whenever the content needs more room than the window has. The
+     credit then sits below the fold -- present, unreadable without scrolling,
+     and liable to be drawn over the form it is supposed to sit under. A licence
+     notice that only appears if you scroll is not much of a notice.
+     
+     As a flex item after the form it is always the last thing on the panel and
+     always visible once the form is. */
+  margin: 2rem 0 0;
   font-size: 0.7rem;
   line-height: 1.4;
   text-align: center;
