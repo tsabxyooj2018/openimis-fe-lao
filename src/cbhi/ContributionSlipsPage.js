@@ -151,6 +151,25 @@ const ContributionSlipsPage = () => {
     }
   }, [term]);
 
+  /*
+   * Tick or untick everything at once.
+   *
+   * Its absence is why the export had a fallback that ignored the ticks
+   * entirely: with no way back to "all", unticking a few rows and then wanting
+   * the whole list again meant clicking every row. The fallback papered over a
+   * missing control rather than a missing preference.
+   *
+   * With this here, both things the operator might want are one click apart --
+   * everything, or the few they chose -- so the buttons can simply mean what
+   * they say.
+   */
+  const allSelected = slips.length > 0 && selected.size === slips.length;
+  const someSelected = selected.size > 0 && !allSelected;
+
+  const toggleAll = () => {
+    setSelected(allSelected ? new Set() : new Set(slips.map((slip) => slip.uuid)));
+  };
+
   const toggle = (uuid) => {
     setSelected((prev) => {
       const next = new Set(prev);
@@ -175,7 +194,12 @@ const ContributionSlipsPage = () => {
    * insurance numbers go out as text, so Excel cannot eat a leading zero.
    */
   const exportRows = useCallback(() => {
-    const rows = (toPrint.length ? toPrint : slips).map((slip) => {
+    // The ticked rows, full stop. This used to fall back to every result when
+    // nothing was ticked, so unticking the lot -- which is a deliberate act,
+    // since everything arrives ticked -- was answered with everything. Print
+    // never did that, and two buttons over one set of checkboxes should not
+    // disagree about what a tick means.
+    const rows = toPrint.map((slip) => {
       const head = slip?.policy?.family?.headInsuree;
       const amount = Number(slip.amount);
       return {
@@ -213,7 +237,7 @@ const ContributionSlipsPage = () => {
       },
       `contributions-${new Date().toISOString().slice(0, 10)}`,
     );
-  }, [toPrint, slips, labels, t]);
+  }, [toPrint, labels, t]);
 
   const hasTerm = term.trim().length > 0;
 
@@ -274,9 +298,10 @@ const ContributionSlipsPage = () => {
               variant="outlined"
               startIcon={<GetAppIcon />}
               onClick={exportRows}
-              disabled={!slips.length}
+              disabled={!toPrint.length}
             >
               {t("export.action", "Export to Excel")}
+              {toPrint.length && !allSelected ? ` (${toPrint.length})` : ""}
             </Button>
 
             <FormControlLabel
@@ -330,7 +355,20 @@ const ContributionSlipsPage = () => {
                 <Table size="small">
                   <TableHead>
                     <TableRow>
-                      <TableCell padding="checkbox" />
+                      <TableCell padding="checkbox">
+                        <Checkbox
+                          color="primary"
+                          checked={allSelected}
+                          indeterminate={someSelected}
+                          onChange={toggleAll}
+                          inputProps={{
+                            // The phrase openIMIS already uses for this control
+                            // on its own price list screens, taken from the
+                            // dictionary rather than invented here.
+                            "aria-label": t("slips.selectAll", "Select all"),
+                          }}
+                        />
+                      </TableCell>
                       <TableCell>{t("slips.column.receipt", "Receipt")}</TableCell>
                       <TableCell>{t("slips.column.payDate", "Paid on")}</TableCell>
                       <TableCell>{t("slips.column.member", "Member")}</TableCell>
