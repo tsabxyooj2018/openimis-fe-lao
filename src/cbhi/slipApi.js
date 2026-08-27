@@ -72,15 +72,47 @@ export async function fetchSlips(term, limit = MAX_SLIPS) {
   const value = trimmed.replace(/[^0-9A-Za-z-]/g, "");
   if (!value) return { slips: [], truncated: false };
 
-  const byReceipt = graphql(`query {
-    premiums(receipt_Icontains: "${escape(value)}", first: ${limit}, orderBy: ["-payDate"]) {
-      edges { node { ${PROJECTION} } }
+  /*
+   * Settled independently, so a receipt search still works when the two-hop
+   * member search fails and the other way about.
+   *
+   * They used to be caught SILENTLY, and that was wrong in a way that took a
+   * while to see. This page reports failures properly -- it shows the server's
+   * own words, which is what turned an unexplained blank into a diagnosable
+   * CSRF error on the cards page -- but it can only report what it is told, and
+   * swallowing both rejections here meant a refused `premiums` query and a
+   * receipt number that genuinely does not exist produced the same empty
+   * result. There is no way to tell a bad test value from a broken query.
+   *
+   * So: each failure is named in the console, and if BOTH fail the error is
+   * rethrown, because then there is no partial answer to preserve and the page
+   * should say so rather than claim it found nothing.
+   */
+  const [receiptResult, memberResult] = await Promise.allSettled([
+    graphql(`query {
+      premiums(receipt_Icontains: "${escape(value)}", first: ${limit}, orderBy: ["-payDate"]) {
+        edges { node { ${PROJECTION} } }
+      }
+    }`),
+    fetchByInsuranceNumber(value, limit),
+  ]);
+
+  [
+    ["by receipt number", receiptResult],
+    ["by insurance number", memberResult],
+  ].forEach(([which, result]) => {
+    if (result.status === "rejected") {
+      // eslint-disable-next-line no-console
+      console.error(`[cbhi] slip search ${which} failed`, result.reason);
     }
-  }`).catch(() => null);
+  });
 
-  const byMember = fetchByInsuranceNumber(value, limit).catch(() => null);
+  if (receiptResult.status === "rejected" && memberResult.status === "rejected") {
+    throw receiptResult.reason;
+  }
 
-  const [receiptBody, memberNodes] = await Promise.all([byReceipt, byMember]);
+  const receiptBody = receiptResult.status === "fulfilled" ? receiptResult.value : null;
+  const memberNodes = memberResult.status === "fulfilled" ? memberResult.value : null;
 
   /*
    * Keyed on uuid. A search for "070707" can legitimately match both a receipt
