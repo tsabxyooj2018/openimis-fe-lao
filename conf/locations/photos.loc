@@ -1,0 +1,64 @@
+
+    # Insuree photographs.
+    #
+    # WHY THIS FILE HAD TO EXIST
+    #
+    # There was no /photos/ route at all. openIMIS builds a photo URL as
+    #
+    #     /photos/<folder>/<filename>
+    #
+    # -- fe-insuree's InsureeAvatar does exactly that, and this deployment's
+    # own card and scan pages mirror it. With no matching location, the request
+    # fell through to frontend.loc's catch-all, which answers `location /` with
+    # a 302 to the application. The browser therefore received an HTML page
+    # where it expected a JPEG, and drew its broken-image glyph.
+    #
+    # That affected openIMIS's OWN insuree screens too, not only the pages
+    # added here. It looked like a frontend bug and was a missing route.
+    #
+    # WHY THE FILENAME IS TAKEN AND THE FOLDER IGNORED
+    #
+    # The `photos` volume is the insuree image directory itself -- compose
+    # mounts it at /openimis-be/openIMIS/images/insurees in the backend -- so
+    # the files sit at its root. The `folder` recorded against each photo is a
+    # database value this deployment has never verified, and openIMIS's own
+    # helper concatenates it unconditionally, so it can even arrive as the
+    # literal string "null".
+    #
+    # Matching on the last path segment serves the file whatever the recorded
+    # folder claims, which makes this correct for every one of:
+    #
+    #     /photos/images/insurees/9a1c.jpg
+    #     /photos/9a1c.jpg
+    #     /photos/null/9a1c.jpg
+    #
+    # Discarding the directory part is also what makes traversal impossible:
+    # the capture is a single path segment with an image extension, and
+    # whatever preceded it is thrown away. /photos/../../etc/passwd.jpg
+    # resolves to /var/www/photos/passwd.jpg, which is simply a 404. (nginx
+    # normalises ../ out of the URI before matching in any case, so this is the
+    # second lock, not the first.)
+    location ~ ^/photos/(?:.*/)?([^/]+\.(?:jpg|jpeg|png|gif|webp))$ {
+            alias /var/www/photos/$1;
+
+            # No try_files here, deliberately. Once this location matches, a
+            # missing file is a 404 from inside it -- nginx does not fall back
+            # to `location /`, so an <img> can no longer be handed an HTML
+            # page. And try_files alongside alias is a known trap: it resolves
+            # $uri against the document root rather than the alias, so adding
+            # it would break the working case to guard a case that cannot
+            # happen.
+
+            # Photographs are written once and keyed by a unique filename, so
+            # they can be cached hard. This matters at a health centre on a
+            # poor link, where a list of members would otherwise refetch every
+            # face on every search.
+            expires 30d;
+            add_header Cache-Control "private, max-age=2592000";
+
+            # Not user-supplied markup, but these files are served from the
+            # same origin as the application and are worth pinning down.
+            add_header X-Content-Type-Options "nosniff";
+
+            access_log off;
+    }
