@@ -398,8 +398,13 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"])::after {
      notice that only appears if you scroll is not much of a notice.
      
      As a flex item after the form it is always the last thing on the panel and
-     always visible once the form is. */
-  margin: 2rem 0 0;
+     always visible once the form is.
+
+     0.5rem, not 2rem. The form's own last row already carries a bottom margin,
+     so 2rem here read as 68px of nothing between the forgot-password link and
+     the credit -- enough space that the credit looked stranded at the foot of
+     the panel rather than belonging to the block above it. */
+  margin: 0.5rem 0 0;
   font-size: 0.7rem;
   line-height: 1.4;
   text-align: center;
