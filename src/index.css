@@ -260,12 +260,13 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) form > [c
 /* --- Emblem ---------------------------------------------------------------- */
 body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) img {
   display: block;
-  /* 7.5rem, down from 11. At 176px the emblem was the largest thing on a
-     screen whose job is two input fields, and it pushed the form far enough
-     down that a short window had to scroll to reach the button. This buys back
-     about 68px of height and leaves the emblem clearly the first thing seen. */
-  max-height: 7.5rem;
-  max-width: 7.5rem;
+  /* 10rem. It was 11, then 7.5 to stop the panel outgrowing short windows and
+     pushing the licence credit off the bottom. That is no longer the reason it
+     had to be small: the credit is in the flow now, so a taller panel scrolls
+     rather than stranding it. 10rem is the emblem back to being the first thing
+     seen, without returning the full 176px that caused the trouble. */
+  max-height: 10rem;
+  max-width: 10rem;
   width: auto;
   height: auto;
   margin: 0 auto 1.25rem;
@@ -276,6 +277,34 @@ body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) img {
    leading the marks on a wrapped second line collide with the line above.
    The `img + *` selector matters -- fe-core renders this as a MuiBox div, not a
    heading, so the heading selectors alone would never match. */
+/* --- The service name, in Lao above the English ---------------------------
+   Every other label on this screen is set "Lao / English" -- the fields, the
+   button, the forgot-password link -- because nobody has chosen a language yet
+   at the point of signing in. The service name was the one thing that stayed
+   English only.
+
+   Generated content rather than a translation change, and the reason is the
+   sidebar. fe-core renders BOTH from the same key, formatMessage("appName"),
+   so making that value bilingual would fix this screen and wrap the sidebar
+   heading onto three or four lines in a column 
+   that is already narrow. This rule is scoped to the panel that contains a
+   password field, so it cannot reach the sidebar at all.
+
+   The Lao is copied from src/lao-language/appName.json by the edit that wrote
+   this rule -- never typed here. A wrong vowel mark is invisible to read back
+   and this is the name of the scheme. */
+body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) img + *::before {
+  content: "ລະບົບປະກັນສຸຂະພາບແຫ່ງຊາດ";
+  display: block;
+  margin-bottom: 0.35rem;
+  font-size: 1.32rem;
+  font-weight: 600;
+  /* Lao stacks tone marks above the consonant; at the heading's own 1.6 they
+     clear the line above, and this line has none above it to clear. */
+  line-height: 1.75;
+  color: var(--brand, #016173);
+}
+
 body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) h1,
 body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) h2,
 body:not(:has(header)) [class*="MuiPaper"]:has(input[type="password"]) h3,
