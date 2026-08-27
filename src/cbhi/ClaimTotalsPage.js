@@ -1,6 +1,7 @@
 import React, { useCallback, useEffect, useMemo, useRef, useState } from "react";
 import { useIntl } from "react-intl";
 import {
+  Checkbox,
   Box,
   Button,
   CircularProgress,
@@ -211,9 +212,60 @@ const ClaimTotalsPage = () => {
     [rows, byInsuree, groupBy, level, intl],
   );
 
+  /*
+   * Which places are counted in the Total.
+   *
+   * The identity is the one the table already used for its React key -- the
+   * full location path, or the insurance number when grouped by member -- so a
+   * tick follows a row rather than its position, and re-sorting or recalculating
+   * cannot transfer a selection from one place to another.
+   */
+  const rowKey = useCallback(
+    (r) => (groupBy === "insuree" ? r.chfId : LEVELS.map((k) => r[k]).join("|")),
+    [groupBy],
+  );
+
+  const [picked, setPicked] = useState(() => new Set());
+
+  /*
+   * Everything on screen starts ticked.
+   *
+   * So the page behaves exactly as it did until somebody chooses to narrow it,
+   * and narrowing is subtraction from a complete answer rather than assembling
+   * one from an empty table. Starting empty would show a Total of zero beside a
+   * table full of figures, which reads as a broken page.
+   *
+   * Re-ticks whenever the visible set changes -- a new calculation, a different
+   * level, a different grouping -- because those are different rows, and
+   * carrying a selection across them would silently keep or drop places nobody
+   * chose.
+   */
+  useEffect(() => {
+    setPicked(new Set(shown.map(rowKey)));
+  }, [shown, rowKey]);
+
+  const chosen = useMemo(
+    () => shown.filter((r) => picked.has(rowKey(r))),
+    [shown, picked, rowKey],
+  );
+
+  const allPicked = shown.length > 0 && chosen.length === shown.length;
+  const somePicked = chosen.length > 0 && !allPicked;
+
+  const toggleRow = (key) =>
+    setPicked((prev) => {
+      const next = new Set(prev);
+      if (next.has(key)) next.delete(key);
+      else next.add(key);
+      return next;
+    });
+
+  const toggleAll = () =>
+    setPicked(allPicked ? new Set() : new Set(shown.map(rowKey)));
+
   const totals = useMemo(
     () =>
-      shown.reduce(
+      chosen.reduce(
         (a, r) => ({
           count: a.count + r.count,
           claimed: a.claimed + r.claimed,
@@ -221,7 +273,7 @@ const ClaimTotalsPage = () => {
         }),
         { count: 0, claimed: 0, approved: 0 },
       ),
-    [shown],
+    [chosen],
   );
 
   const money = (n) => new Intl.NumberFormat("en-US", { maximumFractionDigits: 0 }).format(n || 0);
@@ -258,7 +310,7 @@ const ClaimTotalsPage = () => {
             columns: byMember
               ? insureeSummaryColumns(t, ["claimed", "approved"])
               : summaryColumns(t, ["claimed", "approved"]),
-            rows: shown,
+            rows: chosen,
           },
         ],
       },
@@ -345,7 +397,7 @@ const ClaimTotalsPage = () => {
               // it should be dead exactly when that table is empty. Keyed on
               // rows it stayed live at a level with no places and handed back
               // a workbook with nothing but headings in it.
-              disabled={!shown.length}
+              disabled={!chosen.length}
             >
               {t("export.action", "Export to Excel")}
             </Button>
@@ -402,7 +454,15 @@ const ClaimTotalsPage = () => {
                 </TextField>
               ) : null}
               <Typography variant="body2" color="textSecondary">
-                {t("totals.places", "{count} places", { count: shown.length })}
+                {/* Two strings that already exist in both languages: the
+                     plain count while everything is ticked, and the
+                     found/selected pair once it has been narrowed. */}
+                {allPicked
+                  ? t("totals.places", "{count} places", { count: shown.length })
+                  : t("results.count", "{found} found · {selected} selected", {
+                      found: shown.length,
+                      selected: chosen.length,
+                    })}
               </Typography>
             </Box>
             <Divider />
@@ -412,6 +472,15 @@ const ClaimTotalsPage = () => {
                 <Table size="small">
                   <TableHead>
                     <TableRow>
+                      <TableCell padding="checkbox">
+                        <Checkbox
+                          color="primary"
+                          checked={allPicked}
+                          indeterminate={somePicked}
+                          onChange={toggleAll}
+                          inputProps={{ "aria-label": t("slips.selectAll", "Select all") }}
+                        />
+                      </TableCell>
                       {groupBy === "insuree" ? (
                         <>
                           <TableCell>{t("filter.chfId", "Insurance number")}</TableCell>
@@ -436,11 +505,17 @@ const ClaimTotalsPage = () => {
                     </TableRow>
                   </TableHead>
                   <TableBody>
-                    {shown.map((r) => (
-                      <TableRow
-                        key={groupBy === "insuree" ? r.chfId : LEVELS.map((k) => r[k]).join("|")}
-                        hover
-                      >
+                    {shown.map((r) => {
+                      const key = rowKey(r);
+                      return (
+                      <TableRow key={key} hover>
+                        <TableCell padding="checkbox">
+                          <Checkbox
+                            color="primary"
+                            checked={picked.has(key)}
+                            onChange={() => toggleRow(key)}
+                          />
+                        </TableCell>
                         {groupBy === "insuree" ? (
                           <>
                             <TableCell>{r.chfId}</TableCell>
@@ -457,13 +532,15 @@ const ClaimTotalsPage = () => {
                         <TableCell align="right">{money(r.claimed)}</TableCell>
                         <TableCell align="right">{money(r.approved)}</TableCell>
                       </TableRow>
-                    ))}
+                      );
+                    })}
                     {/* The total of what is on screen. At region level it is the
                         grand total; at deeper levels it is lower whenever a
                         member has no village recorded, and that gap is worth
                         seeing rather than hiding. */}
                     <TableRow>
-                      <TableCell colSpan={groupBy === "insuree" ? 4 : LEVELS.indexOf(level) + 1}>
+                      {/* +1 for the checkbox column. */}
+                      <TableCell colSpan={(groupBy === "insuree" ? 4 : LEVELS.indexOf(level) + 1) + 1}>
                         <b>{t("totals.total", "Total")}</b>
                       </TableCell>
                       <TableCell align="right"><b>{totals.count}</b></TableCell>
