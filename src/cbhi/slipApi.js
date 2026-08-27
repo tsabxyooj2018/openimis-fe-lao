@@ -139,8 +139,23 @@ export async function fetchSlips(term, limit = MAX_SLIPS) {
  * the insuree, so the member's policies have to be found first.
  */
 async function fetchByInsuranceNumber(chfId, limit) {
+  /*
+   * activeOrLastExpiredOnly: false, said EXPLICITLY.
+   *
+   * This query was sending only chfId and taking whatever the server defaults
+   * to, which is not something to leave to chance here. fe-policy's own
+   * searcher always sends the flag -- it is the "only active" checkbox on the
+   * policies panel -- so the parameter exists and the default is the backend's
+   * business, not ours.
+   *
+   * False is the right value for a RECEIPT: somebody at the counter asking for
+   * a duplicate slip is usually asking about cover that has already ended. A
+   * true here would quietly hide every historical policy, and the page would
+   * report "no payment matches that number" for a member who has paid for
+   * years -- indistinguishable, from the outside, from a member who never paid.
+   */
   const policies = await graphql(`query {
-    policiesByInsuree(chfId: "${escape(chfId)}", first: 50) {
+    policiesByInsuree(chfId: "${escape(chfId)}", activeOrLastExpiredOnly: false, first: 50) {
       edges { node { policyUuid } }
     }
   }`);

@@ -262,7 +262,11 @@ export async function fetchPolicyDetails(chfIds) {
     const query = batch
       .map(
         (chfId, index) =>
-          `p${index}: policiesByInsuree(chfId: "${escape(chfId)}", first: 20) {
+          // activeOrLastExpiredOnly: false for the same reason as slipApi -- the
+          // card prints the FURTHEST expiry across every policy on record, so
+          // the query has to be allowed to see them all rather than depend on a
+          // server default nobody here has checked.
+          `p${index}: policiesByInsuree(chfId: "${escape(chfId)}", activeOrLastExpiredOnly: false, first: 20) {
              edges { node { expiryDate status productName } }
            }`,
       )
