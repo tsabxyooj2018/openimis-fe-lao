@@ -15,6 +15,7 @@ import mountSidebarResize from "./sidebarResize";
 import mountSidebarMobile from "./sidebarMobile";
 import mountMutationToasts from "./mutationToasts";
 import mountSiteLogo from "./siteLogo";
+import mountSignInWaves from "./signInWaves";
 import locationNamesMiddleware from "./locationNames";
 
 /*
@@ -72,6 +73,10 @@ mountSidebarMobile();
 mountMutationToasts();
 // Administrators can replace the site emblem; openIMIS has no form for it.
 mountSiteLogo();
+// Ripples following the pointer on the sign-in screen. Creates no element at
+// all on a phone, on a touch screen, or for anyone who has asked for reduced
+// motion -- an element that exists costs a paint even when it is invisible.
+mountSignInWaves();
 
 const LaoLanguageModule = (cfg) => ({
   "core.Router": [{ path: "language/:code", component: LanguageSwitchPage }],

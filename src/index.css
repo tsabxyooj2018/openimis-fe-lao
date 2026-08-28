@@ -94,13 +94,60 @@ body:not(:has(header)) .App > div:has(> [class*="MuiPaper"]) {
   overflow-x: hidden;
   box-sizing: border-box;
   padding: 0 !important;
-  background-color: #0a2440;
+  /* Brand shades, not the blues they replaced.
+     
+     These three were left behind by the move from blue to teal. The veil here
+     is 78-86% opaque, so what the eye reads is the veil -- navy -- and the teal
+     gradient underneath never gets through. The sign-in screen therefore did
+     not match the application it signs you in to, and did not even match ITSELF:
+     the narrow-screen rule below already paints the brand gradient.
+     
+     Same values as everywhere else, taken from the palette rather than picked:
+     #04222A is BRAND_DARKEST, rgb(4, 34, 42). */
+  background-color: var(--brand-darkest, #04222A);
   background-image:
-    linear-gradient(rgba(10, 36, 64, 0.78), rgba(10, 36, 64, 0.86)),
+    linear-gradient(rgba(4, 34, 42, 0.78), rgba(4, 34, 42, 0.86)),
     linear-gradient(125deg, var(--brand-darkest, #04222A) 0%, var(--brand, #016173) 55%, var(--brand-light, #17798D) 100%);
   background-repeat: no-repeat, no-repeat;
   background-position: center, center;
   background-size: cover, cover;
+}
+
+/* --- Ripples under the pointer ---------------------------------------------
+   src/lao-language/signInWaves.js owns the movement; this owns the look. The
+   element only exists when that module decides it should -- wide screen, real
+   pointer, no reduced-motion preference -- so there is nothing here to switch
+   off.
+
+   The rings are painted once into a fixed square and the square is moved with
+   translate3d, which is why this is a static gradient and not one whose centre
+   follows the cursor: moving a gradient's centre repaints every pixel of it on
+   every frame, and moving a layer does not.
+
+   The mask is what stops it looking like a target. Without it the square's
+   edges are visible as a hard boundary; with it the rings simply stop being
+   there, and what is left reads as disturbance in water.
+
+   z-index 0 with the panel a later, position: relative sibling means the rings
+   never cross the form. */
+#lao-signin-waves {
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 62rem;
+  height: 62rem;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 0;
+  will-change: transform, opacity;
+  background: repeating-radial-gradient(
+    circle,
+    rgba(23, 121, 141, 0) 0 3.4rem,
+    rgba(23, 121, 141, 0.16) 3.4rem 3.55rem,
+    rgba(23, 121, 141, 0) 3.55rem 7rem
+  );
+  -webkit-mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.55) 38%, transparent 66%);
+  mask-image: radial-gradient(circle, #000 0%, rgba(0, 0, 0, 0.55) 38%, transparent 66%);
 }
 
 /* --- The emblem watermark ---------------------------------------------------
@@ -858,7 +905,9 @@ header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="help"] {
   top: calc(100% + 6px);
   right: 0;
   width: 14rem;
-  background: #10345a;
+  /* BRAND_DARK, not the navy it replaced. This panel hangs off a teal toolbar;
+     in navy it read as belonging to something else. */
+  background: var(--brand-dark, #013C47);
   border-radius: 8px;
   box-shadow: 0 12px 32px -8px rgba(0, 0, 0, 0.55);
   overflow: hidden;
@@ -889,6 +938,32 @@ header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="help"] {
   .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) {
     position: static;
     width: auto;
+  }
+
+  /* Profile goes to the FOOT of the menu.
+     
+     It is the one entry that is not a part of the scheme's work -- everything
+     above it is what the operator came to do, and this is about the operator.
+     Sitting between Tools and Task management it interrupted that list for no
+     reason a reader could see. On the desktop the question does not arise: it
+     is lifted out to the toolbar entirely.
+     
+     `order` rather than moving it in the DOM, because the entry is a module
+     contribution and its position in the menu is fe-core's to decide. Reordering
+     visually leaves that alone -- and leaves the tab order alone too, which is
+     the half that a DOM move would quietly get wrong.
+     
+     Everything else stays at the default order of 0, so this is the only rule
+     needed: one item raised above the rest sinks to the bottom. */
+  body:has(header) .MuiDrawer-paperAnchorDockedLeft {
+    display: flex;
+    flex-direction: column;
+  }
+
+  body:has(header)
+    .MuiDrawer-paperAnchorDockedLeft
+    .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) {
+    order: 1;
   }
 
   /* The row, back to the shape of every other row. */
