@@ -874,9 +874,46 @@ header .MuiToolbar-root > .MuiIconButton-root[data-toolbar-action="help"] {
 }
 
 @media (max-width: 60rem) {
+  /* Below this width Profile comes OUT of the toolbar and back into the
+     sidebar list -- there is no room beside a hamburger and a title for an
+     avatar. Returning it is not just a matter of position: everything that
+     shapes it into a toolbar pill has to be undone as well, or it sits in the
+     list wearing the wrong clothes.
+
+     Left half-undone it was visibly the odd row out: its control was a 34px
+     circle where every other group has a 40px icon slot, its summary carried
+     no left padding where the others carry 0.25rem, and its 21px pill radius
+     made it the only rounded row in a column of square ones. The icon fell to
+     the left of the axis every other label lines up on, which is exactly the
+     kind of thing that reads as broken rather than as different. */
   .MuiDrawer-paperAnchorDockedLeft .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"]) {
     position: static;
     width: auto;
+  }
+
+  /* The row, back to the shape of every other row. */
+  .MuiDrawer-paperAnchorDockedLeft
+    .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"])
+    .MuiAccordionSummary-root {
+    min-height: 44px;
+    padding: 0 0.5rem 0 0.25rem;
+    border-radius: 6px;
+  }
+
+  /* The control, back into the 40px slot the labels align against. The circle
+     stays -- a photograph clipped to a square would look like a mistake -- but
+     the translucent plate behind it goes, because on a toolbar it separated the
+     avatar from the header and in a list it makes one row look selected. */
+  .MuiDrawer-paperAnchorDockedLeft
+    .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"])
+    .MuiAccordionSummary-content
+    > .MuiIconButton-root {
+    width: 40px;
+    min-width: 40px;
+    height: 40px;
+    padding: 8px;
+    background: transparent;
+    color: rgba(255, 255, 255, 0.85);
   }
   .MuiDrawer-paperAnchorDockedLeft
     .MuiAccordion-root:has(> [data-menu-id="ProfileMainMenu"])
