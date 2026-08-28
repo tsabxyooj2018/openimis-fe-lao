@@ -1601,11 +1601,30 @@ main .MuiGrid-item:has(> .MuiFormControlLabel-root) {
     transform: none;
   }
 
-  /* The drawer's own nav reserves a column beside the content. Off-canvas, that
-     column is empty space the page cannot use, so it is given back. */
+  /* Give back the column the drawer reserves beside the content.
+     
+     This matched nothing. fe-core has three drawers and only ONE of them sits
+     inside a <nav>:
+     
+       permanent / right   no nav
+       permanent / left    no nav   <- the one menuLeft renders
+       persistent / left   nav
+     
+     So the selector described the branch this deployment does not use, the
+     column was never given back, and off-canvas it stayed as a 20rem reserve
+     beside a 375px screen. The page was pushed almost entirely out of view --
+     which reads as "no page will load" rather than as a layout fault, because
+     what little remains is blank margin.
+     
+     Both are matched now: the Drawer's own docked root, which is what the
+     permanent variant renders, and the nav, so the rule survives a switch to
+     the persistent branch. */
+  body:has(header) .MuiDrawer-docked:has(> .MuiDrawer-paperAnchorDockedLeft),
   body:has(header) nav:has(> .MuiDrawer-paperAnchorDockedLeft) {
     width: 0;
     min-width: 0;
+    /* The reserve is a flex basis as well as a width in MUI's own styles. */
+    flex: 0 0 0;
   }
 
   /* Tapping the page behind closes it, and the dimming is what says so. */

@@ -92,6 +92,10 @@ function build() {
     font: "inherit",
     fontSize: "0.85rem",
     cursor: "pointer",
+    /* One line, always. ພາສາລາວ broke after ພາສາ on a narrow toolbar, and a
+       language name split across two lines reads as two options rather than
+       one. Lao has no spaces between words, so the break landed mid-name. */
+    whiteSpace: "nowrap",
   });
   button.type = "button";
   button.setAttribute("aria-haspopup", "true");
